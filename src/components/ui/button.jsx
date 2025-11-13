@@ -32,16 +32,28 @@ const buttonVariants = cva(
 	},
 );
 
-const Button = React.forwardRef(({ className, variant, size, asChild = false, ...props }, ref) => {
+const Button = React.forwardRef(
+	({ className, variant, size, asChild = false, onClick, ...props }, ref) => {
 	const Comp = asChild ? Slot : 'button';
+	const handleClick = (event) => {
+		if (onClick) {
+			onClick(event);
+		}
+		if (typeof window !== 'undefined') {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+	};
+
 	return (
 		<Comp
 			className={cn(buttonVariants({ variant, size, className }))}
 			ref={ref}
+			onClick={handleClick}
 			{...props}
 		/>
 	);
-});
+},
+);
 Button.displayName = 'Button';
 
 export { Button, buttonVariants };

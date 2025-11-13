@@ -60,6 +60,13 @@ const testimonials = [
   }
 ];
 
+const getInitials = (name) => {
+  if (!name) return '';
+  const parts = name.split(/\s+/).filter(Boolean);
+  const initials = parts.map((part) => part[0]).join('');
+  return initials.slice(0, 3).toUpperCase();
+};
+
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -198,12 +205,10 @@ const Testimonials = () => {
                   </blockquote>
 
                   {/* Author Info */}
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={testimonials[currentIndex].image}
-                      alt={testimonials[currentIndex].name}
-                      className="w-16 h-16 rounded-full object-cover ring-2 ring-blue-500/50"
-                    />
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-purple-600 flex items-center justify-center text-white text-lg sm:text-xl font-semibold mb-4 sm:mb-0 shadow-inner shadow-blue-500/30">
+                      {getInitials(testimonials[currentIndex].company)}
+                    </div>
                     <div>
                       <p className="text-lg font-semibold text-white">
                         {testimonials[currentIndex].name}

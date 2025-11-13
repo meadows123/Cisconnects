@@ -26,8 +26,8 @@ const Solutions = () => {
     {
       icon: Server,
       title: 'On-Premise Solutions',
-      description: 'Complete control over your on-premise infrastructure with AI-powered automation and management.',
-      features: ['Local deployment', 'Custom configurations', 'Legacy system support', 'Hybrid integration'],
+      description: 'Own your on-premise stack with AI that automates operations, safeguards uptime, and keeps you audit-ready',
+      features: ['Unified policy management', 'Automated compliance reporting', 'AI-assisted troubleshooting', 'Hybrid orchestration'],
       gradient: 'from-purple-600 to-pink-600',
       image: 'On-premise server room with modern networking equipment and glowing lights',
     },
@@ -82,7 +82,7 @@ const Solutions = () => {
                       className="flex items-center gap-2"
                     >
                       <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${solution.gradient}`} />
-                      <span className="text-slate-300">{feature}</span>
+                      <span className="text-base md:text-lg text-slate-300">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -111,7 +111,8 @@ const Solutions = () => {
                       src="/CloudAI.png" />
                   ) : (
                     <img 
-                      className="w-full h-auto" 
+                      className="block w-full h-auto"
+                      style={{ paddingBottom: '36px', background: 'linear-gradient(180deg, rgba(5,20,40,0.95) 0%, rgba(7,32,68,0.95) 100%)' }}
                       alt="On-Premise AI Solutions"
                       src="/On-Prem-AI.png" />
                   )}

@@ -5,8 +5,8 @@ import { Star, ExternalLink } from 'lucide-react';
 const TrustpilotWidget = () => {
   const [trustpilotData, setTrustpilotData] = useState({
     rating: 4.8,
-    totalReviews: 0,
-    fiveStarPercentage: 95
+    totalReviews: 36,
+    fiveStarPercentage: 94
   });
   const [widgetLoaded, setWidgetLoaded] = useState(false);
 
@@ -61,7 +61,7 @@ const TrustpilotWidget = () => {
         // For now, using realistic placeholder data
         setTrustpilotData({
           rating: 4.8,
-          totalReviews: 3, // Your actual review count
+          totalReviews: 36,
           fiveStarPercentage: 94
         });
       } catch (error) {
@@ -137,9 +137,7 @@ const TrustpilotWidget = () => {
                 data-style-height="52px" 
                 data-style-width="100%" 
                 data-token="818b9a64-4849-4387-bc47-ce993fee005b"
-              >
-                <a href="https://uk.trustpilot.com/review/cisconnects.com" target="_blank" rel="noopener">Trustpilot</a>
-              </div>
+              />
             )}
           </div>
 

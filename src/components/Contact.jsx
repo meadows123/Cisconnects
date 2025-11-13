@@ -178,7 +178,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div>
+                <div className="relative group">
                   <label htmlFor="service" className="block text-sm font-medium text-slate-300 mb-2">
                     I'm interested in *
                   </label>
@@ -188,7 +188,7 @@ const Contact = () => {
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full appearance-none px-4 py-3 pr-12 bg-gradient-to-r from-slate-900/80 to-slate-900/40 border border-slate-700/80 rounded-xl text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-400 transition-all shadow-inner shadow-slate-900/40"
                   >
                     <option value="demo">Schedule a Demo</option>
                     <option value="consultation">Free Consultation</option>
@@ -197,6 +197,23 @@ const Contact = () => {
                     <option value="ai-integration">AI Integration</option>
                     <option value="other">Other Services</option>
                   </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-2 top-[32px] flex items-center transition-transform group-hover:-translate-y-1 group-hover:scale-105">
+                    <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-500 border border-blue-200/60 shadow-[0_0_12px_rgba(59,130,246,0.55)]">
+                      <span className="absolute inset-0 rounded-full bg-blue-500/30 animate-pulse"></span>
+                      <svg
+                        className="w-5 h-5 text-white relative"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
@@ -282,8 +299,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-slate-400 mb-1">Email</p>
-                      <a href="mailto:info@cisconnects.com" className="text-white hover:text-blue-400 transition-colors">
-                        info@cisconnects.com
+                      <a href="mailto:support@cisconnects.com" className="text-white hover:text-blue-400 transition-colors">
+                        support@cisconnects.com
                       </a>
                     </div>
                   </div>
@@ -307,7 +324,7 @@ const Contact = () => {
                     <div>
                       <p className="text-sm text-slate-400 mb-1">Location</p>
                       <p className="text-white">
-                        London, United Kingdom
+                        Bristol, United Kingdom
                       </p>
                     </div>
                   </div>

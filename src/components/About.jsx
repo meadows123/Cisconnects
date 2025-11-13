@@ -6,7 +6,6 @@ import {
   Heart,
   Network,
   Users,
-  Target,
   Leaf,
   UserCheck,
   Sparkles,
@@ -135,11 +134,11 @@ const About = () => {
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   <span className="text-gradient">Our Story</span>
                 </h2>
-                <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
-                  <p>
+                <div className="space-y-4 text-slate-300 leading-relaxed text-lg text-justify">
+                  <p className="text-justify">
                     InfraOpsAI was born out of a passion for innovation and problem-solving. After developing powerful <strong className="text-white">AI automation tools</strong> and seeing firsthand how they transformed complex network and business <strong className="text-white">operations</strong>, we realized there was a massive gap in the market—many businesses were still struggling with manual, time-consuming processes.
                   </p>
-                  <p>
+                  <p className="text-justify">
                     The incredible efficiency and accuracy AI automation can offer inspired us to bring these solutions to other companies. Our goal is simple: to help businesses <strong className="text-white">unlock</strong> their full <strong className="text-white">potential</strong> by leveraging the power of AI-driven automation to streamline operations, reduce costs, and stay ahead of the competition.
                   </p>
                 </div>
@@ -153,11 +152,12 @@ const About = () => {
                 className="relative"
               >
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-8 shadow-2xl shadow-blue-500/30">
-                  <div className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                    <Target className="w-16 h-16 text-white mb-6" />
-                    <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
-                    <p className="text-slate-200 leading-relaxed">
-                      To empower businesses worldwide with cutting-edge AI automation solutions that drive efficiency, innovation, and sustainable growth.
+                  <div className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center">
+                    <div className="flex flex-col items-center gap-4">
+                      <h3 className="text-3xl font-bold text-white">Our Mission</h3>
+                    </div>
+                    <p className="text-slate-200 leading-relaxed text-xl font-medium mt-6">
+                      To empower businesses worldwide with cutting-edge AI automation solutions that drive efficiency, innovation, and sustainable growth
                     </p>
                   </div>
                 </div>

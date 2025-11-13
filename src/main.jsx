@@ -8,10 +8,12 @@ import BlogPost from '@/components/BlogPost';
 import Contact from '@/components/Contact';
 import Services from '@/components/Services';
 import About from '@/components/About';
+import ScrollToTop from '@/components/ScrollToTop';
 import '@/index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/blog" element={<BlogList />} />
