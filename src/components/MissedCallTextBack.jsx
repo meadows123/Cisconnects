@@ -12,11 +12,15 @@ import {
   ArrowRight,
   Mail,
   PhoneCall,
-  Calculator
+  Calculator,
+  Calendar,
+  Clock,
+  User
 } from 'lucide-react';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import { Helmet } from 'react-helmet';
+import emailjs from '@emailjs/browser';
 
 const MissedCallTextBack = () => {
   const [calculatorData, setCalculatorData] = useState({
@@ -25,6 +29,16 @@ const MissedCallTextBack = () => {
     averageCloseRate: ''
   });
   const [results, setResults] = useState(null);
+  const [appointmentData, setAppointmentData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    preferredDate: '',
+    preferredTime: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleCalculatorChange = (e) => {
     const { name, value } = e.target;
@@ -62,6 +76,65 @@ const MissedCallTextBack = () => {
   const handleCalculate = (e) => {
     e.preventDefault();
     calculateROI();
+  };
+
+  const handleAppointmentChange = (e) => {
+    const { name, value } = e.target;
+    setAppointmentData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleAppointmentSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // EmailJS configuration - using environment variables only
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
+      if (!serviceId || !publicKey || !templateId) {
+        throw new Error('EmailJS configuration is missing.');
+      }
+
+      // Initialize EmailJS
+      emailjs.init(publicKey);
+
+      // Prepare template parameters
+      const templateParams = {
+        from_name: appointmentData.name,
+        from_email: appointmentData.email,
+        phone: appointmentData.phone || 'Not provided',
+        preferred_date: appointmentData.preferredDate || 'Not specified',
+        preferred_time: appointmentData.preferredTime || 'Not specified',
+        message: appointmentData.message || 'No additional message',
+        service_interest: 'Missed Call Text-Back Appointment',
+        to_name: 'Cisconnects Team',
+        reply_to: appointmentData.email,
+      };
+
+      // Send email
+      await emailjs.send(serviceId, templateId, templateParams);
+      
+      setSubmitStatus('success');
+      setAppointmentData({
+        name: '',
+        email: '',
+        phone: '',
+        preferredDate: '',
+        preferredTime: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Appointment booking error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   return (
     <>
@@ -539,6 +612,164 @@ const MissedCallTextBack = () => {
                   Start Free Trial
                   <ArrowRight className="w-5 h-5" />
                 </motion.a>
+              </motion.div>
+            </section>
+
+            {/* Book Appointment Section */}
+            <section id="book-appointment" className="mb-24">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-slate-800/50 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12"
+              >
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center gap-2 mb-4">
+                    <Calendar className="w-8 h-8 text-blue-400" />
+                    <h2 className="text-3xl md:text-4xl font-bold text-white">Book An Appointment</h2>
+                  </div>
+                  <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+                    Schedule a consultation to learn how we can help you never miss another business opportunity
+                  </p>
+                </div>
+
+                <div className="max-w-2xl mx-auto">
+                  <form onSubmit={handleAppointmentSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="appointment-name" className="block text-sm font-semibold text-slate-300 mb-2">
+                          <User className="w-4 h-4 inline mr-2" />
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          id="appointment-name"
+                          name="name"
+                          required
+                          value={appointmentData.name}
+                          onChange={handleAppointmentChange}
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                          placeholder="John Smith"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="appointment-email" className="block text-sm font-semibold text-slate-300 mb-2">
+                          <Mail className="w-4 h-4 inline mr-2" />
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          id="appointment-email"
+                          name="email"
+                          required
+                          value={appointmentData.email}
+                          onChange={handleAppointmentChange}
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                          placeholder="john@company.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="appointment-phone" className="block text-sm font-semibold text-slate-300 mb-2">
+                        <Phone className="w-4 h-4 inline mr-2" />
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        id="appointment-phone"
+                        name="phone"
+                        value={appointmentData.phone}
+                        onChange={handleAppointmentChange}
+                        className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="+44 7708 227512"
+                      />
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="appointment-date" className="block text-sm font-semibold text-slate-300 mb-2">
+                          <Calendar className="w-4 h-4 inline mr-2" />
+                          Preferred Date
+                        </label>
+                        <input
+                          type="date"
+                          id="appointment-date"
+                          name="preferredDate"
+                          value={appointmentData.preferredDate}
+                          onChange={handleAppointmentChange}
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                          min={new Date().toISOString().split('T')[0]}
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="appointment-time" className="block text-sm font-semibold text-slate-300 mb-2">
+                          <Clock className="w-4 h-4 inline mr-2" />
+                          Preferred Time
+                        </label>
+                        <input
+                          type="time"
+                          id="appointment-time"
+                          name="preferredTime"
+                          value={appointmentData.preferredTime}
+                          onChange={handleAppointmentChange}
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="appointment-message" className="block text-sm font-semibold text-slate-300 mb-2">
+                        <MessageSquare className="w-4 h-4 inline mr-2" />
+                        Additional Message
+                      </label>
+                      <textarea
+                        id="appointment-message"
+                        name="message"
+                        rows="4"
+                        value={appointmentData.message}
+                        onChange={handleAppointmentChange}
+                        className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                        placeholder="Tell us about your business needs..."
+                      />
+                    </div>
+
+                    {submitStatus === 'success' && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-green-500/20 border border-green-500/50 rounded-lg p-4 flex items-center gap-3"
+                      >
+                        <CheckCircle className="w-5 h-5 text-green-400" />
+                        <p className="text-green-400 text-sm">Appointment request submitted successfully! We'll contact you soon.</p>
+                      </motion.div>
+                    )}
+
+                    {submitStatus === 'error' && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-red-500/20 border border-red-500/50 rounded-lg p-4 flex items-center gap-3"
+                      >
+                        <PhoneCall className="w-5 h-5 text-red-400" />
+                        <p className="text-red-400 text-sm">There was an error submitting your request. Please try again or contact us directly.</p>
+                      </motion.div>
+                    )}
+
+                    <motion.button
+                      type="submit"
+                      disabled={isSubmitting}
+                      whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+                      whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? 'Submitting...' : 'Book Appointment'}
+                    </motion.button>
+                  </form>
+                </div>
               </motion.div>
             </section>
 
