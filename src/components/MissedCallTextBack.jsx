@@ -90,8 +90,8 @@ const MissedCallTextBack = () => {
               >
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-transparent">
                   <img 
-                    src="/Missed-call-textback-photo.png" 
-                    alt="Missed Call Text-Back Service - Woman interacting with smartphone notifications" 
+                    src="/phone-contractors.png" 
+                    alt="Missed Call Text-Back Service - Phone contractors communication" 
                     className="w-full h-auto object-contain rounded-3xl"
                     loading="eager"
                   />
