@@ -15,6 +15,7 @@ import {
   Award
 } from 'lucide-react';
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 const Services = () => {
   const services = [
@@ -318,6 +319,7 @@ const Services = () => {
           </motion.div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

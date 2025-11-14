@@ -4,6 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import { getBlogPostBySlug } from '../data/blogPosts';
 import ReactMarkdown from 'react-markdown';
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -349,6 +350,7 @@ export default function BlogPost() {
           </Link>
         </div>
       </motion.div>
+      <Footer />
     </div>
   );
 }

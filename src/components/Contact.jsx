@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Calendar, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
+import Footer from './Footer';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -406,6 +407,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

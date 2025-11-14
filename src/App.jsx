@@ -2,6 +2,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Solutions from '@/components/Solutions';
@@ -25,6 +26,7 @@ function App() {
         <Testimonials />
         <LatestBlogs />
         <CTA />
+        <Footer />
         <Toaster />
       </div>
     </>

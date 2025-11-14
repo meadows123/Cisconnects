@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { getAllBlogPosts } from '../data/blogPosts';
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 export default function BlogList() {
   const blogPosts = getAllBlogPosts();
@@ -130,6 +131,7 @@ export default function BlogList() {
           </motion.div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

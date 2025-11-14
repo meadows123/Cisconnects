@@ -15,6 +15,7 @@ import {
   Calculator
 } from 'lucide-react';
 import Navigation from './Navigation';
+import Footer from './Footer';
 import { Helmet } from 'react-helmet';
 
 const MissedCallTextBack = () => {
@@ -569,6 +570,7 @@ const MissedCallTextBack = () => {
             </motion.section>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );
