@@ -29,7 +29,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-slate-900 border-t border-white/10">
+    <footer className="bg-slate-900 border-t border-white/10 safe-area-bottom">
       <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Company Info */}
@@ -44,7 +44,7 @@ const Footer = () => {
               <img 
                 src="/Blue Logo.png" 
                 alt="Cisconnects" 
-                className="h-48 md:h-56 w-auto object-contain mb-0"
+                className="h-32 sm:h-40 md:h-48 lg:h-56 w-auto object-contain mb-0"
               />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed -mt-1">
@@ -162,10 +162,10 @@ const Footer = () => {
             © {currentYear} Cisconnects. All Rights Reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-slate-400">
-            <Link to="/contact" className="hover:text-blue-400 transition-colors">
+            <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/contact" className="hover:text-blue-400 transition-colors">
+            <Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">
               Terms of Service
             </Link>
           </div>

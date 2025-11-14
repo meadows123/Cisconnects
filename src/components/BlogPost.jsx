@@ -19,7 +19,7 @@ export default function BlogPost() {
       <Navigation />
       
       {/* Back to Blog Link */}
-      <div className="max-w-4xl mx-auto px-4 pt-32 pb-8">
+      <div className="max-w-4xl mx-auto px-4 pt-40 pb-8">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}

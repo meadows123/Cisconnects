@@ -123,7 +123,7 @@ const Services = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       <Navigation />
       
-      <div className="pt-32 pb-20 px-4">
+      <div className="pt-40 pb-20 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div

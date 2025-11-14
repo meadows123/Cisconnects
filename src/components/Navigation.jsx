@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Mail, Home, Menu, X, Settings, Info, ChevronDown, MessageSquare } from 'lucide-react';
+import { BookOpen, Mail, Home, Menu, X, Settings, Info, ChevronDown, MessageSquare, BrainCircuit, Globe } from 'lucide-react';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -38,7 +38,7 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 px-4 py-4 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 px-4 py-4 transition-all duration-300 safe-area-top ${
           scrolled
             ? 'bg-slate-950/95 backdrop-blur-xl shadow-lg shadow-black/20 border-b border-white/10'
             : 'bg-transparent'
@@ -55,7 +55,7 @@ export default function Navigation() {
               <img 
                 src="/Blue Logo.png" 
                 alt="Cisconnects" 
-                className="h-44 md:h-48 w-auto object-contain"
+                className="h-24 sm:h-32 md:h-44 lg:h-48 w-auto object-contain"
               />
             </motion.div>
             <motion.div
@@ -70,7 +70,12 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => {
               const Icon = link.icon;
-              const isActive = location.pathname === link.to || (link.to === '/services' && location.pathname === '/missedcalltextback');
+              const isActive = location.pathname === link.to || 
+                (link.to === '/services' && (
+                  location.pathname === '/missedcalltextback' || 
+                  location.pathname === '/infraaiops' || 
+                  location.pathname === '/websites'
+                ));
               
               // Services dropdown
               if (link.to === '/services') {
@@ -116,6 +121,17 @@ export default function Navigation() {
                               <span className="font-medium">All Services</span>
                             </motion.div>
                           </Link>
+                          <Link to="/infraaiops">
+                            <motion.div
+                              whileHover={{ backgroundColor: 'rgba(59, 130, 246, 0.2)' }}
+                              className={`px-4 py-3 flex items-center gap-3 transition-colors border-t border-white/10 ${
+                                location.pathname === '/infraaiops' ? 'bg-blue-500/20 text-blue-300' : 'text-slate-300 hover:text-white'
+                              }`}
+                            >
+                              <BrainCircuit className="w-4 h-4" />
+                              <span className="font-medium">InfraAIOps</span>
+                            </motion.div>
+                          </Link>
                           <Link to="/missedcalltextback">
                             <motion.div
                               whileHover={{ backgroundColor: 'rgba(59, 130, 246, 0.2)' }}
@@ -125,6 +141,17 @@ export default function Navigation() {
                             >
                               <MessageSquare className="w-4 h-4" />
                               <span className="font-medium">AI Text Back</span>
+                            </motion.div>
+                          </Link>
+                          <Link to="/websites">
+                            <motion.div
+                              whileHover={{ backgroundColor: 'rgba(59, 130, 246, 0.2)' }}
+                              className={`px-4 py-3 flex items-center gap-3 transition-colors border-t border-white/10 ${
+                                location.pathname === '/websites' ? 'bg-blue-500/20 text-blue-300' : 'text-slate-300 hover:text-white'
+                              }`}
+                            >
+                              <Globe className="w-4 h-4" />
+                              <span className="font-medium">Website Services</span>
                             </motion.div>
                           </Link>
                         </motion.div>
@@ -205,7 +232,7 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-64 bg-slate-900/95 backdrop-blur-xl border-l border-white/10 shadow-2xl z-50 md:hidden"
+              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-slate-900/95 backdrop-blur-xl border-l border-white/10 shadow-2xl z-50 md:hidden safe-area-right"
             >
               <div className="p-6 space-y-6">
                 {/* Close button */}
@@ -223,7 +250,12 @@ export default function Navigation() {
                 <div className="space-y-3">
                   {navLinks.map((link, index) => {
                     const Icon = link.icon;
-                    const isActive = location.pathname === link.to || (link.to === '/services' && location.pathname === '/missedcalltextback');
+                    const isActive = location.pathname === link.to || 
+                      (link.to === '/services' && (
+                        location.pathname === '/missedcalltextback' || 
+                        location.pathname === '/infraaiops' || 
+                        location.pathname === '/websites'
+                      ));
 
                     // Services dropdown for mobile
                     if (link.to === '/services') {
@@ -272,6 +304,18 @@ export default function Navigation() {
                                     <span className="text-sm font-medium">All Services</span>
                                   </Link>
                                   <Link
+                                    to="/infraaiops"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
+                                      location.pathname === '/infraaiops'
+                                        ? 'bg-blue-500/20 text-blue-300'
+                                        : 'bg-blue-500/5 text-slate-300 hover:bg-blue-500/10'
+                                    }`}
+                                  >
+                                    <BrainCircuit className="w-4 h-4" />
+                                    <span className="text-sm font-medium">InfraAIOps</span>
+                                  </Link>
+                                  <Link
                                     to="/missedcalltextback"
                                     onClick={() => setMobileMenuOpen(false)}
                                     className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
@@ -282,6 +326,18 @@ export default function Navigation() {
                                   >
                                     <MessageSquare className="w-4 h-4" />
                                     <span className="text-sm font-medium">AI Text Back</span>
+                                  </Link>
+                                  <Link
+                                    to="/websites"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
+                                      location.pathname === '/websites'
+                                        ? 'bg-blue-500/20 text-blue-300'
+                                        : 'bg-blue-500/5 text-slate-300 hover:bg-blue-500/10'
+                                    }`}
+                                  >
+                                    <Globe className="w-4 h-4" />
+                                    <span className="text-sm font-medium">Website Services</span>
                                   </Link>
                                 </div>
                               </motion.div>

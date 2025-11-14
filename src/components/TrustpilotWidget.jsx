@@ -9,36 +9,60 @@ const TrustpilotWidget = () => {
     fiveStarPercentage: 94
   });
   const [widgetLoaded, setWidgetLoaded] = useState(false);
+  const [widgetError, setWidgetError] = useState(false);
 
   // Load Trustpilot script and initialize widget
   useEffect(() => {
     const loadTrustpilotScript = () => {
       // Check if script already exists
-      if (document.querySelector('script[src*="trustpilot.com"]')) {
+      if (document.querySelector('script[src*="invitejs.trustpilot.com"]')) {
         setWidgetLoaded(true);
+        // Try to register if script already loaded
+        if (window.tp) {
+          try {
+            window.tp('register', 'bHcGTZar7yaOeOFP');
+          } catch (error) {
+            console.error('Error registering Trustpilot:', error);
+          }
+        }
         return;
       }
 
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
-      script.async = true;
-      script.onload = () => {
-        setWidgetLoaded(true);
-        // Force widget refresh after script loads
-        setTimeout(() => {
-          if (window.Trustpilot && window.Trustpilot.loadFromElement) {
-            const widget = document.querySelector('.trustpilot-widget');
-            if (widget) {
-              window.Trustpilot.loadFromElement(widget);
+      // Load Trustpilot script
+      (function(w, d, s, r, n) {
+        w.TrustpilotObject = n;
+        w[n] = w[n] || function() {
+          (w[n].q = w[n].q || []).push(arguments);
+        };
+        const a = d.createElement(s);
+        a.async = 1;
+        a.src = r;
+        a.type = 'text/java' + s;
+        const f = d.getElementsByTagName(s)[0];
+        f.parentNode.insertBefore(a, f);
+        
+        a.onload = () => {
+          setWidgetLoaded(true);
+          // Register Trustpilot after script loads
+          setTimeout(() => {
+            if (window.tp) {
+              try {
+                window.tp('register', 'bHcGTZar7yaOeOFP');
+              } catch (error) {
+                console.error('Error registering Trustpilot:', error);
+                setWidgetError(true);
+              }
+            } else {
+              setWidgetError(true);
             }
-          }
-        }, 100);
-      };
-      script.onerror = () => {
-        console.error('Failed to load Trustpilot script');
-      };
-      document.head.appendChild(script);
+          }, 500);
+        };
+        
+        a.onerror = () => {
+          console.error('Failed to load Trustpilot script');
+          setWidgetError(true);
+        };
+      })(window, document, 'script', 'https://invitejs.trustpilot.com/tp.min.js', 'tp');
     };
 
     loadTrustpilotScript();
@@ -128,16 +152,25 @@ const TrustpilotWidget = () => {
                   <p className="text-sm">Please wait while we load your reviews</p>
                 </div>
               </div>
+            ) : widgetError ? (
+              <div className="bg-slate-700/50 rounded-lg p-6 border border-slate-600">
+                <div className="text-center text-slate-300">
+                  <p className="text-lg font-semibold mb-2">Trustpilot Widget Unavailable</p>
+                  <p className="text-sm mb-4">The Trustpilot widget could not be loaded. Please click the button below to view reviews directly on Trustpilot.</p>
+                </div>
+              </div>
             ) : (
-              <div 
-                className="trustpilot-widget" 
-                data-locale="en-GB" 
-                data-template-id="56278e9abfbbba0bdcd568bc" 
-                data-businessunit-id="6819b9e66b9ea955e5f5474b" 
-                data-style-height="52px" 
-                data-style-width="100%" 
-                data-token="818b9a64-4849-4387-bc47-ce993fee005b"
-              />
+              <div className="w-full">
+                {/* Trustpilot TrustBox Widget */}
+                <div 
+                  className="trustpilot-widget" 
+                  data-locale="en-GB"
+                  data-template-id="56278e9abfbbba0bdcd568bc"
+                  data-businessunit-id="6819b9e66b9ea955e5f5474b"
+                  data-style-height="400px"
+                  data-style-width="100%"
+                />
+              </div>
             )}
           </div>
 
