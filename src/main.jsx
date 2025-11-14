@@ -8,6 +8,7 @@ import BlogPost from '@/components/BlogPost';
 import Contact from '@/components/Contact';
 import Services from '@/components/Services';
 import About from '@/components/About';
+import MissedCallTextBack from '@/components/MissedCallTextBack';
 import ScrollToTop from '@/components/ScrollToTop';
 import '@/index.css';
 
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/contact" element={<Contact />} />
       <Route path="/services" element={<Services />} />
       <Route path="/about" element={<About />} />
+      <Route path="/missedcalltextback" element={<MissedCallTextBack />} />
     </Routes>
   </BrowserRouter>
 );

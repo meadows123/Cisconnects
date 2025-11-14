@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Mail, Home, Menu, X, Settings, Info } from 'lucide-react';
+import { BookOpen, Mail, Home, Menu, X, Settings, Info, ChevronDown, MessageSquare } from 'lucide-react';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -51,9 +53,9 @@ export default function Navigation() {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <img 
-                src="/LogoCisconnects-Trans.png" 
+                src="/Blue Logo.png" 
                 alt="Cisconnects" 
-                className="h-14 md:h-16 w-auto object-contain"
+                className="h-44 md:h-48 w-auto object-contain"
               />
             </motion.div>
             <motion.div
@@ -68,7 +70,69 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => {
               const Icon = link.icon;
-              const isActive = location.pathname === link.to;
+              const isActive = location.pathname === link.to || (link.to === '/services' && location.pathname === '/missedcalltextback');
+              
+              // Services dropdown
+              if (link.to === '/services') {
+                return (
+                  <div
+                    key={link.to}
+                    className="relative"
+                    onMouseEnter={() => setServicesDropdownOpen(true)}
+                    onMouseLeave={() => setServicesDropdownOpen(false)}
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`relative flex items-center gap-2 px-4 py-2 rounded-lg transition-all cursor-pointer ${
+                        isActive
+                          ? 'bg-blue-500/20 border border-blue-500/40 text-blue-300'
+                          : 'bg-blue-500/10 border border-blue-500/20 backdrop-blur-sm text-blue-300 hover:bg-blue-500/20'
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span className="font-medium">{link.label}</span>
+                      <ChevronDown className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
+                    </motion.div>
+
+                    {/* Dropdown Menu */}
+                    <AnimatePresence>
+                      {servicesDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 mt-2 w-48 bg-slate-800/95 backdrop-blur-xl border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50"
+                        >
+                          <Link to="/services">
+                            <motion.div
+                              whileHover={{ backgroundColor: 'rgba(59, 130, 246, 0.2)' }}
+                              className={`px-4 py-3 flex items-center gap-3 transition-colors ${
+                                location.pathname === '/services' ? 'bg-blue-500/20 text-blue-300' : 'text-slate-300 hover:text-white'
+                              }`}
+                            >
+                              <Settings className="w-4 h-4" />
+                              <span className="font-medium">All Services</span>
+                            </motion.div>
+                          </Link>
+                          <Link to="/missedcalltextback">
+                            <motion.div
+                              whileHover={{ backgroundColor: 'rgba(59, 130, 246, 0.2)' }}
+                              className={`px-4 py-3 flex items-center gap-3 transition-colors border-t border-white/10 ${
+                                location.pathname === '/missedcalltextback' ? 'bg-blue-500/20 text-blue-300' : 'text-slate-300 hover:text-white'
+                              }`}
+                            >
+                              <MessageSquare className="w-4 h-4" />
+                              <span className="font-medium">AI Text Back</span>
+                            </motion.div>
+                          </Link>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
               
               return (
                 <Link key={link.to} to={link.to}>
@@ -159,7 +223,73 @@ export default function Navigation() {
                 <div className="space-y-3">
                   {navLinks.map((link, index) => {
                     const Icon = link.icon;
-                    const isActive = location.pathname === link.to;
+                    const isActive = location.pathname === link.to || (link.to === '/services' && location.pathname === '/missedcalltextback');
+
+                    // Services dropdown for mobile
+                    if (link.to === '/services') {
+                      return (
+                        <motion.div
+                          key={link.to}
+                          initial={{ opacity: 0, x: 50 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                        >
+                          <button
+                            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                            className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg transition-all ${
+                              isActive
+                                ? 'bg-blue-500/20 border border-blue-500/40 text-blue-300'
+                                : 'bg-blue-500/10 border border-blue-500/20 text-blue-300 hover:bg-blue-500/20'
+                            }`}
+                          >
+                            <div className="flex items-center gap-3">
+                              <Icon className="w-5 h-5" />
+                              <span className="font-medium">{link.label}</span>
+                            </div>
+                            <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                          </button>
+                          
+                          <AnimatePresence>
+                            {mobileServicesOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="pl-4 pt-2 space-y-2">
+                                  <Link
+                                    to="/services"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
+                                      location.pathname === '/services'
+                                        ? 'bg-blue-500/20 text-blue-300'
+                                        : 'bg-blue-500/5 text-slate-300 hover:bg-blue-500/10'
+                                    }`}
+                                  >
+                                    <Settings className="w-4 h-4" />
+                                    <span className="text-sm font-medium">All Services</span>
+                                  </Link>
+                                  <Link
+                                    to="/missedcalltextback"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
+                                      location.pathname === '/missedcalltextback'
+                                        ? 'bg-blue-500/20 text-blue-300'
+                                        : 'bg-blue-500/5 text-slate-300 hover:bg-blue-500/10'
+                                    }`}
+                                  >
+                                    <MessageSquare className="w-4 h-4" />
+                                    <span className="text-sm font-medium">AI Text Back</span>
+                                  </Link>
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </motion.div>
+                      );
+                    }
 
                     return (
                       <motion.div
@@ -170,6 +300,7 @@ export default function Navigation() {
                       >
                         <Link
                           to={link.to}
+                          onClick={() => setMobileMenuOpen(false)}
                           className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                             link.highlight
                               ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
