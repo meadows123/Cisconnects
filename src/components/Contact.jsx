@@ -84,6 +84,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <SEO
+        title="Contact Us | Cisconnects - Get in Touch with Network Automation Experts"
+        description="Schedule a demo or consultation with our network automation experts. Contact Cisconnects for AI infrastructure solutions, website design services, and digital transformation. We're here to help transform your business."
+        url="/contact"
+      />
       <Navigation />
       
       <div className="pt-40 pb-20 px-4">
@@ -98,9 +103,12 @@ const Contact = () => {
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               <span className="text-gradient">Get in Touch</span>
             </h1>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-6">
               Schedule a demo or consultation with our network automation experts. 
               We're here to help transform your infrastructure.
+            </p>
+            <p className="text-lg text-slate-400 max-w-3xl mx-auto">
+              Whether you're looking to automate your network infrastructure, migrate to the cloud, or build a professional website, our team of experts is ready to help. With over 20 years of combined experience in AI automation, network engineering, and digital solutions, we provide tailored services that drive real business results. Contact us today to discuss your project requirements and discover how we can help your business thrive in the digital age.
             </p>
           </motion.div>
 

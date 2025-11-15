@@ -12,18 +12,20 @@ import {
   ArrowRight,
   CheckCircle,
   Clock,
-  Award
+  Award,
+  ExternalLink
 } from 'lucide-react';
 import Navigation from './Navigation';
 import Footer from './Footer';
+import SEO from './SEO';
 
 const Services = () => {
   const services = [
     {
       icon: BrainCircuit,
       title: 'AI-Driven Network Automation',
-      description: 'Implemented AI-powered solutions to automate complex networking tasks, reducing manual effort and improving accuracy.',
-      features: ['Automated network configurations', 'AI-powered troubleshooting', 'Predictive analytics', 'Reduced manual errors']
+      description: 'How does AI network automation work? Implemented AI-powered network operations to automate complex networking tasks, including cloud network automation, network infrastructure automation, and automated network monitoring. Reducing manual effort and improving accuracy with self-healing systems.',
+      features: ['Automated network configurations', 'AI-powered troubleshooting', 'Predictive analytics', 'Reduced manual errors', 'Self-healing network capabilities']
     },
     {
       icon: Network,
@@ -121,6 +123,11 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <SEO
+        title="Our Services | Cisconnects - AI Network Automation & IT Solutions"
+        description="Comprehensive IT services including AI-driven network automation, network migrations, Active Directory cloud migrations, web design, AI chatbots, and advanced troubleshooting. Over 20 years of expertise in network infrastructure."
+        url="/services"
+      />
       <Navigation />
       
       <div className="pt-40 pb-20 px-4">
@@ -135,8 +142,11 @@ const Services = () => {
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               <span className="text-gradient">Leading in AI Network Automation</span>
             </h1>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-4">
               More than 20 years of experience in network automation & AI
+            </p>
+            <p className="text-lg text-slate-400 max-w-4xl mx-auto">
+              Our comprehensive IT services are designed to help businesses of all sizes optimize their network infrastructure, enhance security, and leverage cutting-edge AI technology. From automated network configurations to cloud migrations and custom web development, we deliver solutions that reduce costs, improve efficiency, and drive business growth. Learn more about industry best practices from leading technology providers like <a href="https://www.cisco.com/c/en/us/solutions/enterprise-networks/network-automation.html" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline inline-flex items-center gap-1">Cisco <ExternalLink className="w-3 h-3" /></a> and <a href="https://www.paloaltonetworks.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline inline-flex items-center gap-1">Palo Alto Networks <ExternalLink className="w-3 h-3" /></a>.
             </p>
           </motion.div>
 
@@ -152,6 +162,9 @@ const Services = () => {
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="text-gradient">Our Expertise</span>
               </h2>
+              <p className="text-lg text-slate-400 max-w-3xl mx-auto mt-4">
+                Our services are built on industry-leading technologies and best practices. Learn more about network automation from trusted sources like <a href="https://www.cisco.com/c/en/us/solutions/enterprise-networks/network-automation.html" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Cisco's network automation solutions</a> and <a href="https://www.gartner.com/en/information-technology/glossary/network-automation" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Gartner's insights on network automation</a>.
+              </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

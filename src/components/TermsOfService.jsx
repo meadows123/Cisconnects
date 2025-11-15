@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 import { motion } from 'framer-motion';
 import Navigation from './Navigation';
 import Footer from './Footer';
@@ -14,10 +14,11 @@ const TermsOfService = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Terms of Service | Cisconnects</title>
-        <meta name="description" content="Cisconnects Terms of Service - Read our terms and conditions for using our services." />
-      </Helmet>
+      <SEO
+        title="Terms of Service | Cisconnects - Service Terms & Conditions"
+        description="Cisconnects Terms of Service - Read our terms and conditions for using our services. Legal terms for AI network automation, website design, and digital solutions."
+        url="/terms-of-service"
+      />
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
         <Navigation />
         

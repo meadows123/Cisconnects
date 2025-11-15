@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import Navigation from './Navigation';
 import Footer from './Footer';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 import emailjs from '@emailjs/browser';
 
 const MissedCallTextBack = () => {
@@ -138,10 +138,11 @@ const MissedCallTextBack = () => {
   };
   return (
     <>
-      <Helmet>
-        <title>Missed Call Text-Back | Never Lose Business to a Missed Call Again</title>
-        <meta name="description" content="Turn every missed call into a text message conversation. Never lose business to a missed call again with our automated missed-call text-back service." />
-      </Helmet>
+      <SEO
+        title="AI Text Back Service | Never Miss a Call Again | Cisconnects"
+        description="Turn every missed call into a text message conversation. Never lose business to a missed call again with our automated missed-call text-back service. 24/7 lead capture and appointment booking automation."
+        url="/missedcalltextback"
+      />
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
         <Navigation />
         

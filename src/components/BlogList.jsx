@@ -4,12 +4,18 @@ import { ArrowLeft } from 'lucide-react';
 import { getAllBlogPosts } from '../data/blogPosts';
 import Navigation from './Navigation';
 import Footer from './Footer';
+import SEO from './SEO';
 
 export default function BlogList() {
   const blogPosts = getAllBlogPosts();
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <SEO
+        title="Blog & Insights | Cisconnects - Network Automation & AI Articles"
+        description="Expert perspectives on network automation, AI, firewall migrations, and the future of IT infrastructure. Stay ahead with insights from industry-leading network automation experts."
+        url="/blog"
+      />
       <Navigation />
       
       <div className="pt-40 pb-20 px-4">

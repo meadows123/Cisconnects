@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 import { motion } from 'framer-motion';
 import Navigation from './Navigation';
 import Footer from './Footer';
@@ -14,10 +14,11 @@ const PrivacyPolicy = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy | Cisconnects</title>
-        <meta name="description" content="Cisconnects Privacy Policy - Learn how we collect, use, and protect your personal information." />
-      </Helmet>
+      <SEO
+        title="Privacy Policy | Cisconnects - Data Protection & Privacy"
+        description="Cisconnects Privacy Policy - Learn how we collect, use, and protect your personal information. GDPR compliant privacy practices for AI network automation and digital services."
+        url="/privacy-policy"
+      />
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
         <Navigation />
         

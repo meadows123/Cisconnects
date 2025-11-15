@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import Navigation from './Navigation';
 import Footer from './Footer';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 import emailjs from '@emailjs/browser';
 import CalendarPicker from './CalendarPicker';
 
@@ -179,10 +179,11 @@ const WebsiteServices = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Website Design Services | Professional Web Development Packages</title>
-        <meta name="description" content="Professional website design services with Bronze, Silver, and Gold packages. Get a custom website that drives results for your business." />
-      </Helmet>
+      <SEO
+        title="Website Design Services | Professional Web Development Packages | Cisconnects"
+        description="Professional website design services with Bronze, Silver, and Gold packages. Get a custom website that drives results for your business. Responsive design, SEO optimization, and e-commerce solutions."
+        url="/websites"
+      />
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
         <Navigation />
         

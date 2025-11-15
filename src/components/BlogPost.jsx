@@ -1,10 +1,11 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getBlogPostBySlug } from '../data/blogPosts';
 import ReactMarkdown from 'react-markdown';
 import Navigation from './Navigation';
 import Footer from './Footer';
+import SEO from './SEO';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -14,8 +15,16 @@ export default function BlogPost() {
     return <Navigate to="/blog" replace />;
   }
 
+  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://cisconnects.com';
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <SEO
+        title={`${post.title} | Cisconnects Blog`}
+        description={post.excerpt || `Read about ${post.title} on the Cisconnects blog. Expert insights on network automation, AI, and IT infrastructure.`}
+        url={`/blog/${post.slug}`}
+        type="article"
+      />
       <Navigation />
       
       {/* Back to Blog Link */}
@@ -172,6 +181,56 @@ export default function BlogPost() {
             >
               {post.content}
             </ReactMarkdown>
+          </div>
+        </motion.div>
+
+        {/* External Resources Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 pt-8 border-t border-white/10"
+        >
+          <h2 className="text-2xl font-bold text-white mb-6">Additional Resources</h2>
+          <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <p className="text-slate-300 mb-4">
+              For more information on network automation and security, check out these authoritative resources:
+            </p>
+            <ul className="space-y-3">
+              <li>
+                <a 
+                  href="https://www.cisco.com/c/en/us/solutions/enterprise-networks/network-automation.html" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors group"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Cisco Network Automation Solutions</span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://www.paloaltonetworks.com/cyberpedia/what-is-a-firewall" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors group"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Palo Alto Networks - Firewall Technology</span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://www.gartner.com/en/information-technology/glossary/next-generation-firewall-ngfw" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors group"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Gartner - Next-Generation Firewall Definition</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </motion.div>
 

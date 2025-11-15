@@ -17,16 +17,16 @@ const Solutions = () => {
   const solutions = [
     {
       icon: Cloud,
-      title: 'Cloud Infrastructure',
-      description: 'Automate your cloud-based network infrastructure with seamless integration across AWS, Azure, and Google Cloud.',
+      title: 'Cloud Network Automation',
+      description: 'How does cloud network automation work? Automate your cloud-based network infrastructure with AI-powered network operations, seamless integration across AWS, Azure, and Google Cloud, and automated network monitoring.',
       features: ['Multi-cloud support', 'Auto-scaling', 'Cost optimization', 'Real-time monitoring'],
       gradient: 'from-blue-600 to-cyan-600',
       image: 'Modern cloud infrastructure with servers and network connections in a futuristic data center',
     },
     {
       icon: Server,
-      title: 'On-Premise Solutions',
-      description: 'Own your on-premise stack with AI that automates operations, safeguards uptime, and keeps you audit-ready',
+      title: 'Network Infrastructure Automation',
+      description: 'How to automate network engineering automation for on-premise infrastructure? Own your on-premise stack with AI-driven IT operations that automate network operations, safeguard uptime, and provide self-healing network capabilities',
       features: ['Unified policy management', 'Automated compliance reporting', 'AI-assisted troubleshooting', 'Hybrid orchestration'],
       gradient: 'from-purple-600 to-pink-600',
       image: 'On-premise server room with modern networking equipment and glowing lights',
@@ -44,10 +44,10 @@ const Solutions = () => {
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-gradient">Flexible Deployment</span>
+            <span className="text-gradient">What is Cloud Network Automation?</span>
           </h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-            Choose the perfect solution for your infrastructure needs
+            How to automate network infrastructure automation for cloud and on-premise environments? Our AI infraops solutions provide automated network monitoring, network automation services UK, and managed network automation service for enterprise cloud deployments.
           </p>
         </motion.div>
 

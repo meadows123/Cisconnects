@@ -1,11 +1,12 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import LatestBlogs from '@/components/LatestBlogs';
 import TrustpilotWidget from '@/components/TrustpilotWidget';
+import SEO from '@/components/SEO';
+import StructuredData from '@/components/StructuredData';
 import { 
   BrainCircuit, 
   Globe, 
@@ -26,7 +27,7 @@ function App() {
     {
       icon: BrainCircuit,
       title: 'InfraAIOps',
-      description: 'AI-powered network automation for cloud and on-premise infrastructure. Transform your network operations with cutting-edge AI technology.',
+      description: 'What is AIOps? AI-powered network automation for cloud and on-premise infrastructure. AIOps redefined with automated network monitoring, firewall migration automation, and network engineering automation. Transform your network operations with AI-driven IT operations.',
       link: '/infraaiops',
       gradient: 'from-blue-600 to-cyan-600',
       color: 'blue'
@@ -82,10 +83,15 @@ function App() {
 
   return (
     <>
-      <Helmet>
-        <title>Complete Digital Solutions | Cisconnects</title>
-        <meta name="description" content="Comprehensive digital solutions including AI network automation, website design, AI chatbots, and more. Transform your business with cutting-edge technology." />
-      </Helmet>
+      <SEO
+        title="AI Network Automation Services UK | AIOps Redefined | Cisconnects"
+        description="What is AIOps? Network automation services UK with AI network automation, cloud network automation, firewall migration automation, and network engineering automation. Managed network automation service with AI-driven IT operations and automated network monitoring."
+        url="/"
+      />
+      <StructuredData
+        type="Organization"
+        data={{}}
+      />
       <div className="min-h-screen bg-slate-950 overflow-hidden">
         <Navigation />
         
@@ -114,14 +120,13 @@ function App() {
               </motion.div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="text-gradient glow-effect">Transform Your Business</span>
+                <span className="text-gradient glow-effect">AI Network Automation</span>
                 <br />
-                <span className="text-white">With Digital Excellence</span>
+                <span className="text-white">Services UK</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-                From AI-powered network automation to professional websites and intelligent chatbots - 
-                we provide comprehensive digital solutions that drive results.
+                How does network automation reduce costs? Our AI network automation services UK provide cloud network automation, firewall migration automation, and network engineering automation. Experience AIOps redefined with managed network automation service, automated network monitoring, and AI-driven IT operations for enterprise cloud and small business UK.
               </p>
 
               <div className="flex flex-wrap gap-4 justify-center pt-4">

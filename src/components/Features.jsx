@@ -69,10 +69,10 @@ const Features = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-gradient">What Makes InfraOpsAI Stand Apart</span>
+            <span className="text-gradient">How Does AI-Powered Network Operations Work?</span>
           </h2>
           <p className="text-xl text-slate-400 max-w-4xl mx-auto">
-            From AI-powered correlation to full stack visibility, here's what you get with InfraOpsAI that legacy tools can't deliver.
+            Our AIOps platform delivers automated network monitoring, self-healing systems, and predictive analytics. Experience hyperautomation with AI-driven IT operations that transform network infrastructure automation. From AI-powered correlation to full stack visibility, here's what you get with AI network automation that legacy tools can't deliver.
           </p>
         </motion.div>
 

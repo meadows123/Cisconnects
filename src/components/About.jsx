@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import Navigation from './Navigation';
 import Footer from './Footer';
+import SEO from './SEO';
 import { Link } from 'react-router-dom';
 
 const About = () => {
@@ -86,6 +87,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <SEO
+        title="About Us | Cisconnects - AI Network Automation Experts"
+        description="Learn about Cisconnects - over 20 years of experience in AI network automation, infrastructure solutions, and digital transformation. Expert team delivering cutting-edge technology solutions for businesses worldwide."
+        url="/about"
+      />
       <Navigation />
       
       <div className="pt-40 pb-20 px-4">
