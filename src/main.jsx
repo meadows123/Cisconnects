@@ -21,14 +21,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<App />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/websites" element={<WebsiteServices />} />
+      <Route path="/infraaiops" element={<InfraAIOps />} />
+      <Route path="/missedcalltextback" element={<MissedCallTextBack />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/contact" element={<Contact />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/services" element={<Services />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/missedcalltextback" element={<MissedCallTextBack />} />
-      <Route path="/infraaiops" element={<InfraAIOps />} />
-      <Route path="/websites" element={<WebsiteServices />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
     </Routes>
