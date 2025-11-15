@@ -35,53 +35,62 @@ const WebsiteServices = () => {
 
   const plans = [
     {
-      tier: 'Bronze',
-      price: '£499',
+      tier: 'Basic',
+      price: '£25',
+      pricePeriod: '/month',
       description: 'Perfect for small businesses getting started online',
       icon: Award,
       gradient: 'from-amber-500 to-orange-600',
       features: [
-        'Up to 5 pages',
+        'Up to 4 pages',
         'Responsive design',
         'Basic SEO optimization',
         'Contact form',
         'Social media integration',
-        '1 month support',
+        'Domain registration (one-time)',
+        'Hosting included',
+        'Ongoing support',
         'Mobile-friendly'
       ],
       popular: false
     },
     {
-      tier: 'Silver',
-      price: '£999',
-      description: 'Ideal for growing businesses with more needs',
+      tier: 'Professional',
+      price: '£40',
+      pricePeriod: '/month',
+      description: 'Ideal for businesses needing database and payment functionality',
       icon: Star,
       gradient: 'from-slate-400 to-slate-600',
       features: [
-        'Up to 10 pages',
+        'Database integration',
+        'Payment system integration',
         'Advanced SEO optimization',
         'Custom design elements',
         'Blog functionality',
         'Analytics integration',
-        '3 months support',
-        'E-commerce ready',
+        'Domain registration (one-time)',
+        'Hosting included',
+        'Ongoing support',
         'Performance optimization'
       ],
       popular: true
     },
     {
-      tier: 'Gold',
-      price: '£1,999',
-      description: 'Complete solution for established businesses',
+      tier: 'Enterprise',
+      price: '£150',
+      pricePeriod: '/month',
+      description: 'Complete solution for established businesses with complex needs',
       icon: Crown,
       gradient: 'from-yellow-400 to-amber-500',
       features: [
-        'Unlimited pages',
+        '10+ pages',
+        'Booking system integration',
         'Premium custom design',
         'Advanced SEO & marketing',
         'Full e-commerce setup',
         'AI chatbot integration',
-        '6 months support',
+        'Domain registration (one-time)',
+        'Hosting included',
         'Priority support',
         'Custom integrations',
         'Performance monitoring',
@@ -142,7 +151,7 @@ const WebsiteServices = () => {
         from_name: bookingData.name,
         from_email: bookingData.email,
         phone: bookingData.phone || 'Not provided',
-        selected_plan: `${selectedPlan.tier} Package (${selectedPlan.price})`,
+        selected_plan: `${selectedPlan.tier} Package (${selectedPlan.price}${selectedPlan.pricePeriod})`,
         preferred_date: formattedDate,
         preferred_time: selectedTime,
         message: bookingData.message || 'No additional message',
@@ -181,7 +190,7 @@ const WebsiteServices = () => {
     <>
       <SEO
         title="Website Design Services | Professional Web Development Packages | Cisconnects"
-        description="Professional website design services with Bronze, Silver, and Gold packages. Get a custom website that drives results for your business. Responsive design, SEO optimization, and e-commerce solutions."
+        description="Professional website design services with affordable monthly subscription packages starting from £25/month. No upfront costs. All packages include domain registration, hosting, and support. Responsive design, SEO optimization, and e-commerce solutions."
         url="/websites"
       />
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
@@ -214,7 +223,7 @@ const WebsiteServices = () => {
               </h1>
               
               <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto">
-                Get a custom website that drives results. Choose the perfect package for your business needs.
+                Get a custom website that drives results. Choose the perfect monthly subscription package for your business needs. All packages include domain registration (one-time), hosting, and ongoing support.
               </p>
             </motion.div>
 
@@ -231,7 +240,7 @@ const WebsiteServices = () => {
                   Choose Your Package
                 </h2>
                 <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                  Three comprehensive packages designed to meet your business needs
+                  Three monthly subscription packages designed to meet your business needs. No upfront costs - just affordable monthly payments.
                 </p>
               </motion.div>
 
@@ -265,8 +274,9 @@ const WebsiteServices = () => {
                         <p className="text-slate-400 mb-4">{plan.description}</p>
                         <div className="mb-6">
                           <span className="text-5xl font-bold text-white">{plan.price}</span>
-                          <span className="text-slate-400 ml-2">one-time</span>
+                          <span className="text-xl text-slate-300 ml-2">{plan.pricePeriod}</span>
                         </div>
+                        <p className="text-sm text-slate-400 mb-4">+ Domain registration (one-time payment)</p>
                       </div>
 
                       <ul className="space-y-3 mb-8">
@@ -310,7 +320,7 @@ const WebsiteServices = () => {
                       Book Your Consultation
                     </h2>
                     <p className="text-lg text-slate-300">
-                      You've selected the <span className="text-gradient font-semibold">{selectedPlan.tier}</span> package ({selectedPlan.price})
+                      You've selected the <span className="text-gradient font-semibold">{selectedPlan.tier}</span> package ({selectedPlan.price}{selectedPlan.pricePeriod})
                     </p>
                     <p className="text-slate-400 mt-2">
                       Choose a date and time that works for you
