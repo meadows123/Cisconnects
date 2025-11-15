@@ -23,8 +23,12 @@ const EXTRACTION_REGEX = {
   element: /element=\{<(\w+)[^}]*\/?\s*>\}/,
   helmet: /<Helmet[^>]*?>([\s\S]*?)<\/Helmet>/i,
   helmetTest: /<Helmet[\s\S]*?<\/Helmet>/i,
+  seo: /<SEO\s+[^>]*?title=["']([^"']+)["'][^>]*?description=["']([^"']+)["'][^>]*?\/?>/i,
+  seoTest: /<SEO[\s\S]*?\/?>/i,
   title: /<title[^>]*?>\s*(.*?)\s*<\/title>/i,
-  description: /<meta\s+name=["']description["']\s+content=["'](.*?)["']/i
+  description: /<meta\s+name=["']description["']\s+content=["'](.*?)["']/i,
+  seoTitle: /title=["']([^"']+)["']/i,
+  seoDescription: /description=["']([^"']+)["']/i
 };
 
 function cleanContent(content) {
@@ -88,6 +92,52 @@ function findReactFiles(dir) {
 function extractHelmetData(content, filePath, routes) {
   const cleanedContent = cleanContent(content);
   
+  // Try to extract from SEO component first (new format)
+  const seoMatch = content.match(EXTRACTION_REGEX.seo);
+  if (seoMatch) {
+    const title = cleanText(seoMatch[1]);
+    const description = cleanText(seoMatch[2]);
+    
+    const fileName = path.basename(filePath, path.extname(filePath));
+    const url = routes.length && routes.has(fileName) 
+      ? routes.get(fileName) 
+      : generateFallbackUrl(fileName);
+    
+    return {
+      url,
+      title: title || 'Untitled Page',
+      description: description || 'No description available'
+    };
+  }
+  
+  // Try SEO component with separate attributes (multiline)
+  if (EXTRACTION_REGEX.seoTest.test(cleanedContent)) {
+    // Match SEO component with title and description props (can be multiline)
+    const seoBlockMatch = content.match(/<SEO\s+([\s\S]*?)\/?>/i);
+    if (seoBlockMatch) {
+      const seoProps = seoBlockMatch[1];
+      const seoTitleMatch = seoProps.match(/title=["']([^"']+)["']/);
+      const seoDescMatch = seoProps.match(/description=["']([^"']+)["']/);
+      
+      if (seoTitleMatch || seoDescMatch) {
+        const title = cleanText(seoTitleMatch?.[1]);
+        const description = cleanText(seoDescMatch?.[1]);
+        
+        const fileName = path.basename(filePath, path.extname(filePath));
+        const url = routes.length && routes.has(fileName) 
+          ? routes.get(fileName) 
+          : generateFallbackUrl(fileName);
+        
+        return {
+          url,
+          title: title || 'Untitled Page',
+          description: description || 'No description available'
+        };
+      }
+    }
+  }
+  
+  // Fallback to Helmet component (old format)
   if (!EXTRACTION_REGEX.helmetTest.test(cleanedContent)) {
     return null;
   }
@@ -120,9 +170,16 @@ function generateFallbackUrl(fileName) {
 }
 
 function generateLlmsTxt(pages) {
-  const sortedPages = pages.sort((a, b) => a.title.localeCompare(b.title));
+  // Filter out null values
+  const validPages = pages.filter(page => page !== null && page !== undefined);
+  
+  if (validPages.length === 0) {
+    return '## Pages\nNo pages found.';
+  }
+  
+  const sortedPages = validPages.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
   const pageEntries = sortedPages.map(page => 
-    `- [${page.title}](${page.url}): ${page.description}`
+    `- [${page.title || 'Untitled'}](${page.url || '/'}): ${page.description || 'No description'}`
   ).join('\n');
   
   return `## Pages\n${pageEntries}`;
@@ -151,7 +208,10 @@ function main() {
   let pages = [];
   
   if (!fs.existsSync(pagesDir)) {
-    pages.push(processPageFile(appJsxPath, []));
+    const appPage = processPageFile(appJsxPath, []);
+    if (appPage) {
+      pages.push(appPage);
+    }
   } else {
     const routes = extractRoutes(appJsxPath);
     const reactFiles = findReactFiles(pagesDir);
@@ -159,11 +219,29 @@ function main() {
     pages = reactFiles
       .map(filePath => processPageFile(filePath, routes))
       .filter(Boolean);
+  }
+  
+  // Also check components directory for page components
+  const componentsDir = path.join(process.cwd(), 'src', 'components');
+  if (fs.existsSync(componentsDir)) {
+    const routes = extractRoutes(appJsxPath);
+    const componentFiles = fs.readdirSync(componentsDir)
+      .filter(file => file.endsWith('.jsx') || file.endsWith('.js'))
+      .map(file => path.join(componentsDir, file));
     
-    if (pages.length === 0) {
-      console.error('❌ No pages with Helmet components found!');
-      process.exit(1);
-    }
+    componentFiles.forEach(filePath => {
+      const pageData = processPageFile(filePath, routes);
+      if (pageData && !pages.find(p => p.url === pageData.url)) {
+        pages.push(pageData);
+      }
+    });
+  }
+  
+  // Filter out null values
+  pages = pages.filter(Boolean);
+  
+  if (pages.length === 0) {
+    console.warn('⚠️  No pages with SEO/Helmet components found. Continuing build...');
   }
 
 
