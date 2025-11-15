@@ -4,6 +4,7 @@ services:
     env: static
     buildCommand: npm run build
     staticPublishPath: build
+    pullRequestPreviewsEnabled: false
     headers:
       - path: /*
         name: X-Content-Type-Options
@@ -13,4 +14,28 @@ services:
         source: /*
         destination: /index.html
         force: true
+      - type: rewrite
+        source: /websites
+        destination: /index.html
+      - type: rewrite
+        source: /about
+        destination: /index.html
+      - type: rewrite
+        source: /infraaiops
+        destination: /index.html
+      - type: rewrite
+        source: /services
+        destination: /index.html
+      - type: rewrite
+        source: /contact
+        destination: /index.html
+      - type: rewrite
+        source: /missedcalltextback
+        destination: /index.html
+      - type: rewrite
+        source: /blog
+        destination: /index.html
+      - type: rewrite
+        source: /blog/*
+        destination: /index.html
 
