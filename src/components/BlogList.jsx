@@ -64,13 +64,14 @@ export default function BlogList() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex"
               >
                 <Link
                   to={`/blog/${post.slug}`}
-                  className="group block bg-slate-800/50 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 overflow-hidden border border-white/10 hover:border-blue-500/50 transform hover:-translate-y-2"
+                  className="group flex flex-col w-full bg-slate-800/50 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 overflow-hidden border border-white/10 hover:border-blue-500/50 transform hover:-translate-y-2"
                 >
                   {/* Category Badge */}
-                  <div className="p-6 pb-4">
+                  <div className="p-6 pb-4 flex flex-col flex-1">
                     <div className="flex items-center justify-between mb-3">
                       <span className="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-semibold rounded-full border border-blue-500/30">
                         {post.category.split(',')[0].trim()}
@@ -84,12 +85,12 @@ export default function BlogList() {
                     </h2>
 
                     {/* Excerpt */}
-                    <p className="text-slate-400 text-sm mb-4 line-clamp-3">
+                    <p className="text-slate-400 text-sm mb-4 line-clamp-3 flex-1">
                       {post.excerpt}
                     </p>
 
                     {/* Meta Info */}
-                    <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                    <div className="flex items-center justify-between pt-4 border-t border-white/10 mt-auto">
                       <div className="flex items-center gap-2">
                         <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
                           {post.author.charAt(0)}
