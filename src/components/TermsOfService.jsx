@@ -230,8 +230,11 @@ const TermsOfService = () => {
               {/* Governing Law */}
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">12. Governing Law and Jurisdiction</h2>
+                <p className="text-slate-300 leading-relaxed mb-4">
+                  These Terms shall be governed by and construed in accordance with the laws of England and Wales, without regard to its conflict of law provisions. Any disputes arising from these Terms or the Services shall be subject to the exclusive jurisdiction of the courts of England and Wales. For more information about UK consumer rights, visit <a href="https://www.gov.uk/consumer-protection-rights" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">GOV.UK Consumer Protection</a>.
+                </p>
                 <p className="text-slate-300 leading-relaxed">
-                  These Terms shall be governed by and construed in accordance with the laws of England and Wales, without regard to its conflict of law provisions. Any disputes arising from these Terms or the Services shall be subject to the exclusive jurisdiction of the courts of England and Wales.
+                  Learn more about our services: <a href="/services" className="text-blue-400 hover:text-blue-300 underline">Network Solutions</a>, <a href="/websites" className="text-blue-400 hover:text-blue-300 underline">Website Design</a>, and <a href="/missedcalltextback" className="text-blue-400 hover:text-blue-300 underline">AI Text-Back Services</a>.
                 </p>
               </section>
 
@@ -276,6 +279,9 @@ const TermsOfService = () => {
                     <a href="tel:+447708227512" className="text-blue-400 hover:text-blue-300">
                       +44 7708 227512
                     </a>
+                  </p>
+                  <p className="mt-4 text-sm">
+                    For questions about our services, visit our <a href="/contact" className="text-blue-400 hover:text-blue-300 underline">Contact</a> page or review our <a href="/privacy-policy" className="text-blue-400 hover:text-blue-300 underline">Privacy Policy</a>. For business advice, see <a href="https://www.gov.uk/business" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">GOV.UK Business Support</a>.
                   </p>
                 </div>
               </section>

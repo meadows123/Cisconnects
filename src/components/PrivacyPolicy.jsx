@@ -160,7 +160,7 @@ const PrivacyPolicy = () => {
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">6. Your Rights (GDPR)</h2>
                 <p className="text-slate-300 leading-relaxed mb-4">
-                  If you are located in the European Economic Area (EEA) or United Kingdom, you have certain data protection rights:
+                  If you are located in the European Economic Area (EEA) or United Kingdom, you have certain data protection rights under the <a href="https://gdpr.eu/what-is-gdpr/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">General Data Protection Regulation (GDPR)</a> and <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">UK GDPR</a>:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-slate-300 ml-4 mb-4">
                   <li><strong>Right to Access:</strong> Request copies of your personal data</li>
@@ -187,8 +187,11 @@ const PrivacyPolicy = () => {
               {/* International Data Transfers */}
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">8. International Data Transfers</h2>
+                <p className="text-slate-300 leading-relaxed mb-4">
+                  Your information may be transferred to and maintained on computers located outside of your state, province, country, or other governmental jurisdiction where data protection laws may differ. We ensure appropriate safeguards are in place to protect your data in accordance with this Privacy Policy and applicable data protection laws, including <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">GDPR requirements</a>.
+                </p>
                 <p className="text-slate-300 leading-relaxed">
-                  Your information may be transferred to and maintained on computers located outside of your state, province, country, or other governmental jurisdiction where data protection laws may differ. We ensure appropriate safeguards are in place to protect your data in accordance with this Privacy Policy.
+                  For more information about our services, please visit our <a href="/services" className="text-blue-400 hover:text-blue-300 underline">Services</a> page or learn more about our <a href="/infraaiops" className="text-blue-400 hover:text-blue-300 underline">AI network automation solutions</a>.
                 </p>
               </section>
 
@@ -233,6 +236,9 @@ const PrivacyPolicy = () => {
                     <a href="tel:+447708227512" className="text-blue-400 hover:text-blue-300">
                       +44 7708 227512
                     </a>
+                  </p>
+                  <p className="mt-4 text-sm">
+                    For questions about our services, visit our <a href="/contact" className="text-blue-400 hover:text-blue-300 underline">Contact</a> page or review our <a href="/terms-of-service" className="text-blue-400 hover:text-blue-300 underline">Terms of Service</a>. Learn more about <a href="https://www.ico.org.uk/for-the-public/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">your data protection rights</a> from the UK Information Commissioner's Office.
                   </p>
                 </div>
               </section>
