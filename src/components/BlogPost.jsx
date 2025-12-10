@@ -15,7 +15,7 @@ export default function BlogPost() {
     return <Navigate to="/blog" replace />;
   }
 
-  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://cisconnects.com';
+  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://www.cisconnects.com';
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">

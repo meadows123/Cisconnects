@@ -8,8 +8,8 @@ const StructuredData = ({ type, data }) => {
           '@context': 'https://schema.org',
           '@type': 'Organization',
           name: 'Cisconnects',
-          url: 'https://cisconnects.com',
-          logo: 'https://cisconnects.com/Blue Logo.png',
+          url: 'https://www.cisconnects.com',
+          logo: 'https://www.cisconnects.com/Blue Logo.png',
           description: 'AI network automation and IT infrastructure solutions provider',
           address: {
             '@type': 'PostalAddress',
@@ -79,7 +79,7 @@ const StructuredData = ({ type, data }) => {
             name: 'Cisconnects',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://cisconnects.com/Blue Logo.png'
+              url: 'https://www.cisconnects.com/Blue Logo.png'
             }
           },
           ...data
