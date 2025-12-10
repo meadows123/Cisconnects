@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Calendar, Send, CheckCircle, AlertCircle } from 'l
 import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
 import Footer from './Footer';
+import SEO from './SEO';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -50,7 +51,7 @@ const Contact = () => {
         reply_to: formData.email,
         // Additional branded content
         company_name: 'InfraOpsAI',
-        website: 'https://cisconnects.com',
+        website: 'https://www.cisconnects.com',
         current_date: new Date().toLocaleDateString(),
         current_time: new Date().toLocaleTimeString()
       };
