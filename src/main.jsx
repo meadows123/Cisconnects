@@ -13,6 +13,7 @@ import InfraAIOps from '@/components/InfraAIOps';
 import WebsiteServices from '@/components/WebsiteServices';
 import PrivacyPolicy from '@/components/PrivacyPolicy';
 import TermsOfService from '@/components/TermsOfService';
+import BookDemo from '@/components/BookDemo';
 import ScrollToTop from '@/components/ScrollToTop';
 import '@/index.css';
 
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/missedcalltextback" element={<MissedCallTextBack />} />
       <Route path="/services" element={<Services />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/book-demo" element={<BookDemo />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />

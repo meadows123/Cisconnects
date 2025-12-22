@@ -63,9 +63,9 @@ const Hero = () => {
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-gradient glow-effect">AI Network Automation</span>
+              <span className="text-gradient glow-effect">Infra Ops AI</span>
               <br />
-              <span className="text-white">That Actually Works</span>
+              <span className="text-white">Automate Your Network</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 leading-relaxed">
@@ -82,7 +82,7 @@ const Hero = () => {
                   <Zap className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Link to="/contact">
+              <Link to="/book-demo">
                 <Button 
                   size="lg" 
                   variant="outline" 

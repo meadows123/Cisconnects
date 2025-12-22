@@ -1,18 +1,11 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Cloud, Server, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
 
 const Solutions = () => {
-  const { toast } = useToast();
-
-  const handleLearnMore = () => {
-    toast({
-      title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-    });
-  };
 
   const solutions = [
     {
@@ -87,14 +80,15 @@ const Solutions = () => {
                   ))}
                 </div>
 
-                <Button 
-                  onClick={handleLearnMore}
-                  size="lg"
-                  className={`bg-gradient-to-r ${solution.gradient} hover:opacity-90 text-white px-8 py-6 text-lg rounded-xl shadow-lg transition-all`}
-                >
-                  Learn More
-                  <Layers className="ml-2 w-5 h-5" />
-                </Button>
+                <Link to="/infraaiops">
+                  <Button 
+                    size="lg"
+                    className={`bg-gradient-to-r ${solution.gradient} hover:opacity-90 text-white px-8 py-6 text-lg rounded-xl shadow-lg transition-all`}
+                  >
+                    Learn More
+                    <Layers className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
               </div>
 
               <motion.div

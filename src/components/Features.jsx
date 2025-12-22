@@ -1,17 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { GitBranch, BrainCircuit, Copy, Layers, Cpu, MessageSquare, Rocket, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
 
 const Features = () => {
-  const { toast } = useToast();
-
-  const handleDemoClick = () => {
-    toast({
-      title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-    });
-  };
 
   const stats = [
     { value: '75:1', label: 'Reduction in Ticket Volume' },
@@ -92,14 +85,15 @@ const Features = () => {
         </motion.div>
 
         <div className="text-center mb-20">
-          <Button
-            onClick={handleDemoClick}
-            size="lg"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-500/70"
-          >
-            See a Live Demo
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <Link to="/book-demo">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-500/70"
+            >
+              See a Live Demo
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </Link>
         </div>
 
         <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden">

@@ -80,7 +80,7 @@ const CTA = () => {
                 <ArrowRight className="ml-3 w-6 h-6" />
               </Button>
             </Link>
-            <Link to="/contact">
+            <Link to="/book-demo">
               <Button 
                 size="lg"
                 variant="outline"
