@@ -88,8 +88,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       <SEO
-        title="About Us | Cisconnects - AI Network Automation Experts"
-        description="Learn about Cisconnects - over 20 years of experience in AI network automation, infrastructure solutions, and digital transformation. Expert team delivering cutting-edge technology solutions for businesses worldwide."
+        title="About Us | Conxiea - AI Network Automation Experts"
+        description="Learn about Conxiea - over 20 years of experience in AI network automation, infrastructure solutions, and digital transformation. Expert team delivering cutting-edge technology solutions for businesses worldwide."
         url="/about"
       />
       <Navigation />
@@ -355,8 +355,8 @@ const About = () => {
             <div className="bg-slate-800/30 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:border-blue-500/50 transition-all">
               <Mail className="w-10 h-10 text-blue-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-white mb-4">Contact</h3>
-              <a href="mailto:support@cisconnects.com" className="text-blue-400 hover:text-blue-300 transition-colors">
-                support@cisconnects.com
+              <a href="mailto:admin@conxiea.com" className="text-blue-400 hover:text-blue-300 transition-colors">
+                admin@conxiea.com
               </a>
             </div>
             <div className="bg-slate-800/30 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:border-blue-500/50 transition-all">

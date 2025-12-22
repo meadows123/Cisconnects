@@ -3,10 +3,10 @@ import { Helmet } from 'react-helmet';
 const SEO = ({ 
   title, 
   description, 
-  image = '/Blue Logo.png',
+  image = '/7.png',
   url,
   type = 'website',
-  siteName = 'Cisconnects'
+  siteName = 'Conxiea'
 }) => {
   const siteUrl = typeof window !== 'undefined' 
     ? window.location.origin 

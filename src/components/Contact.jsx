@@ -86,8 +86,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       <SEO
-        title="Contact Us | Cisconnects - Get in Touch with Network Automation Experts"
-        description="Schedule a demo or consultation with our network automation experts. Contact Cisconnects for AI infrastructure solutions, website design services, and digital transformation. We're here to help transform your business."
+        title="Contact Us | Conxiea - Get in Touch with Network Automation Experts"
+        description="Schedule a demo or consultation with our network automation experts. Contact Conxiea for AI infrastructure solutions, website design services, and digital transformation. We're here to help transform your business."
         url="/contact"
       />
       <Navigation />
@@ -309,8 +309,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-slate-400 mb-1">Email</p>
-                      <a href="mailto:support@cisconnects.com" className="text-white hover:text-blue-400 transition-colors">
-                        support@cisconnects.com
+                      <a href="mailto:admin@conxiea.com" className="text-white hover:text-blue-400 transition-colors">
+                        admin@conxiea.com
                       </a>
                     </div>
                   </div>
@@ -355,7 +355,7 @@ const Contact = () => {
 
               {/* Why Choose Us */}
               <div className="bg-slate-800/50 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-white mb-6">Why Choose Cisconnects?</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">Why Choose Conxiea?</h3>
                 
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">

@@ -113,7 +113,7 @@ const MissedCallTextBack = () => {
         preferred_time: appointmentData.preferredTime || 'Not specified',
         message: appointmentData.message || 'No additional message',
         service_interest: 'Missed Call Text-Back Appointment',
-        to_name: 'Cisconnects Team',
+        to_name: 'Conxiea Team',
         reply_to: appointmentData.email,
       };
 
@@ -139,7 +139,7 @@ const MissedCallTextBack = () => {
   return (
     <>
       <SEO
-        title="AI Text Back Service | Never Miss a Call Again | Cisconnects"
+        title="AI Text Back Service | Never Miss a Call Again | Conxiea"
         description="Turn every missed call into a text message conversation. Never lose business to a missed call again with our automated missed-call text-back service. 24/7 lead capture and appointment booking automation."
         url="/missedcalltextback"
       />
@@ -787,7 +787,7 @@ const MissedCallTextBack = () => {
                 <div className="bg-white/90 backdrop-blur-sm border-2 border-purple-200 rounded-xl p-6 shadow-lg">
                   <Mail className="w-8 h-8 text-purple-600 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-slate-800 mb-2">Email</h3>
-                  <p className="text-slate-700">support@cisconnects.com</p>
+                  <p className="text-slate-700">admin@conxiea.com</p>
                 </div>
                 <div className="bg-white/90 backdrop-blur-sm border-2 border-purple-200 rounded-xl p-6 shadow-lg">
                   <PhoneCall className="w-8 h-8 text-purple-600 mx-auto mb-4" />

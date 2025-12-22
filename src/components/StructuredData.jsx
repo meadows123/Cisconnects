@@ -7,9 +7,9 @@ const StructuredData = ({ type, data }) => {
         return {
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          name: 'Cisconnects',
+          name: 'Conxiea',
           url: 'https://www.cisconnects.com',
-          logo: 'https://www.cisconnects.com/Blue Logo.png',
+          logo: 'https://www.cisconnects.com/7.png',
           description: 'AI network automation and IT infrastructure solutions provider',
           address: {
             '@type': 'PostalAddress',
@@ -22,12 +22,15 @@ const StructuredData = ({ type, data }) => {
             '@type': 'ContactPoint',
             telephone: '+44-7708-227512',
             contactType: 'Customer Service',
-            email: 'support@cisconnects.com',
+            email: 'admin@conxiea.com',
             areaServed: 'GB',
             availableLanguage: 'English'
           },
           sameAs: [
-            'https://uk.trustpilot.com/review/cisconnects.com'
+            'https://uk.trustpilot.com/review/cisconnects.com',
+            'https://www.youtube.com/@conxiea',
+            'https://www.instagram.com/conxiea',
+            'https://www.linkedin.com/company/conxiea'
           ],
           ...data
         };
@@ -70,16 +73,16 @@ const StructuredData = ({ type, data }) => {
           description: data.description,
           author: {
             '@type': 'Person',
-            name: data.author || 'Cisconnects Team'
+            name: data.author || 'Conxiea Team'
           },
           datePublished: data.datePublished,
           dateModified: data.dateModified || data.datePublished,
           publisher: {
             '@type': 'Organization',
-            name: 'Cisconnects',
+            name: 'Conxiea',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.cisconnects.com/Blue Logo.png'
+              url: 'https://www.cisconnects.com/7.png'
             }
           },
           ...data

@@ -270,8 +270,8 @@ const TermsOfService = () => {
                   <p>United Kingdom</p>
                   <p className="mt-4">
                     <strong className="text-white">Email:</strong>{' '}
-                    <a href="mailto:support@cisconnects.com" className="text-blue-400 hover:text-blue-300">
-                      support@cisconnects.com
+                    <a href="mailto:admin@conxiea.com" className="text-blue-400 hover:text-blue-300">
+                      admin@conxiea.com
                     </a>
                   </p>
                   <p>

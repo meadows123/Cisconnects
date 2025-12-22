@@ -124,7 +124,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       <SEO
-        title="Our Services | Cisconnects - AI Network Automation & IT Solutions"
+        title="Our Services | Conxiea - AI Network Automation & IT Solutions"
         description="Comprehensive IT services including AI-driven network automation, network migrations, Active Directory cloud migrations, web design, AI chatbots, and advanced troubleshooting. Over 20 years of expertise in network infrastructure."
         url="/services"
       />
@@ -323,7 +323,7 @@ const Services = () => {
             </div>
             <div className="bg-slate-800/30 backdrop-blur-sm border border-white/10 rounded-xl p-6">
               <h3 className="text-xl font-bold text-white mb-4">Contact</h3>
-              <p className="text-slate-300">support@cisconnects.com</p>
+              <p className="text-slate-300">admin@conxiea.com</p>
             </div>
             <div className="bg-slate-800/30 backdrop-blur-sm border border-white/10 rounded-xl p-6">
               <h3 className="text-xl font-bold text-white mb-4">Open Hours</h3>

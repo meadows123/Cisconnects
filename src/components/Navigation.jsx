@@ -53,9 +53,9 @@ export default function Navigation() {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <img 
-                src="/Blue Logo.png" 
-                alt="Cisconnects" 
-                className="h-24 sm:h-32 md:h-44 lg:h-48 w-auto object-contain"
+                src="/7.png" 
+                alt="Conxiea" 
+                className="h-12 sm:h-16 md:h-20 lg:h-24 w-auto object-contain"
               />
             </motion.div>
             <motion.div
@@ -381,7 +381,7 @@ export default function Navigation() {
                   className="pt-6 border-t border-white/10"
                 >
                   <p className="text-sm text-slate-400 text-center">
-                    © 2025 Cisconnects
+                    © 2025 Conxiea
                   </p>
                 </motion.div>
               </div>

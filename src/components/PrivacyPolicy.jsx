@@ -15,8 +15,8 @@ const PrivacyPolicy = () => {
   return (
     <>
       <SEO
-        title="Privacy Policy | Cisconnects - Data Protection & Privacy"
-        description="Cisconnects Privacy Policy - Learn how we collect, use, and protect your personal information. GDPR compliant privacy practices for AI network automation and digital services."
+        title="Privacy Policy | Conxiea - Data Protection & Privacy"
+        description="Conxiea Privacy Policy - Learn how we collect, use, and protect your personal information. GDPR compliant privacy practices for AI network automation and digital services."
         url="/privacy-policy"
       />
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
@@ -56,7 +56,7 @@ const PrivacyPolicy = () => {
                   1. Introduction
                 </h2>
                 <p className="text-slate-300 leading-relaxed mb-4">
-                  Cisconnects ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or interact with us.
+                  Conxiea ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or interact with us.
                 </p>
                 <p className="text-slate-300 leading-relaxed">
                   By using our services, including our AI network automation platform (InfraAIOps), website design services, AI chatbots, and missed call text-back services, you agree to the collection and use of information in accordance with this policy.
@@ -227,8 +227,8 @@ const PrivacyPolicy = () => {
                   <p>United Kingdom</p>
                   <p className="mt-4">
                     <strong className="text-white">Email:</strong>{' '}
-                    <a href="mailto:support@cisconnects.com" className="text-blue-400 hover:text-blue-300">
-                      support@cisconnects.com
+                    <a href="mailto:admin@conxiea.com" className="text-blue-400 hover:text-blue-300">
+                      admin@conxiea.com
                     </a>
                   </p>
                   <p>

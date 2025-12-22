@@ -10,7 +10,7 @@ const testimonials = [
     role: "Network Operations Manager",
     company: "TechCorp Global",
     rating: 5,
-    text: "Cisconnects transformed our network automation strategy. The AI-powered solutions reduced our deployment time by 80% and virtually eliminated configuration errors. Exceptional service!",
+    text: "Conxiea transformed our network automation strategy. The AI-powered solutions reduced our deployment time by 80% and virtually eliminated configuration errors. Exceptional service!",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop"
   },
   {
@@ -19,7 +19,7 @@ const testimonials = [
     role: "IT Director",
     company: "FinanceHub Ltd",
     rating: 5,
-    text: "The level of expertise and support from Cisconnects is unmatched. They helped us migrate our entire firewall infrastructure with zero downtime. Our security posture has never been stronger.",
+    text: "The level of expertise and support from Conxiea is unmatched. They helped us migrate our entire firewall infrastructure with zero downtime. Our security posture has never been stronger.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
     role: "Cloud Architect",
     company: "DataStream Solutions",
     rating: 5,
-    text: "Working with Cisconnects on our multi-cloud network automation was a game-changer. Their PyATS and AI integration saved us countless hours and provided insights we never had before.",
+    text: "Working with Conxiea on our multi-cloud network automation was a game-changer. Their PyATS and AI integration saved us countless hours and provided insights we never had before.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop"
   },
   {
@@ -37,7 +37,7 @@ const testimonials = [
     role: "VP of Infrastructure",
     company: "RetailConnect",
     rating: 5,
-    text: "The ROI we achieved with Cisconnects exceeded all expectations. Network incidents dropped by 75%, and our team can now focus on strategic initiatives instead of manual configurations.",
+    text: "The ROI we achieved with Conxiea exceeded all expectations. Network incidents dropped by 75%, and our team can now focus on strategic initiatives instead of manual configurations.",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop"
   },
   {
@@ -46,7 +46,7 @@ const testimonials = [
     role: "Security Operations Lead",
     company: "SecureNet Industries",
     rating: 5,
-    text: "Cisconnects doesn't just automate - they revolutionize. Their expertise in network security and automation gave us confidence to scale rapidly while maintaining compliance across all regions.",
+    text: "Conxiea doesn't just automate - they revolutionize. Their expertise in network security and automation gave us confidence to scale rapidly while maintaining compliance across all regions.",
     image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop"
   },
   {
@@ -55,7 +55,7 @@ const testimonials = [
     role: "Infrastructure Manager",
     company: "HealthTech Solutions",
     rating: 5,
-    text: "The support and training we received from Cisconnects made all the difference. Their MCP and LangChain implementation streamlined our operations across 50+ locations seamlessly.",
+    text: "The support and training we received from Conxiea made all the difference. Their MCP and LangChain implementation streamlined our operations across 50+ locations seamlessly.",
     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop"
   }
 ];
@@ -153,7 +153,7 @@ const Testimonials = () => {
           </h2>
           
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            See why hundreds of companies trust Cisconnects for their network automation needs
+            See why hundreds of companies trust Conxiea for their network automation needs
           </p>
 
           {/* Stats */}

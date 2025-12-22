@@ -23,38 +23,38 @@ const Features = () => {
   const capabilities = [
     {
       icon: GitBranch,
-      title: 'Patented Correlation Engine',
-      description: 'Instantly isolates root cause across domains without rules, thresholds, or guesswork.',
+      title: 'Instant Root Cause',
+      description: 'Find problems instantly. No guesswork.',
     },
     {
       icon: BrainCircuit,
-      title: 'Network Language Model',
-      description: 'Ask plain-language questions and get RCA-ready answers, trained on real operational telemetry.',
+      title: 'AI That Understands',
+      description: 'Ask questions. Get answers. In plain English.',
     },
     {
       icon: Copy,
-      title: 'Built-in Digital Twin',
-      description: 'Get real time, topology-aware models of your environment for impact analysis, simulation, and planning.',
+      title: 'Digital Twin Built-In',
+      description: 'See everything. Predict problems. Plan better.',
     },
     {
       icon: Layers,
-      title: 'Truly Full Stack (L1-L7)',
-      description: 'See infrastructure, network, and application layers in one unified platform – not numerous disjointed tools.',
+      title: 'Full Stack Visibility',
+      description: 'One platform. All layers. Zero confusion.',
     },
     {
       icon: Cpu,
-      title: 'AI-Native Architecture',
-      description: 'Purpose-built ML engine detects anomalies, enriches alerts, and automates correlation – no tuning required.',
+      title: 'Self-Healing Systems',
+      description: 'AI detects. AI fixes. You sleep.',
     },
     {
       icon: MessageSquare,
-      title: 'Copilot in Your Workflow',
-      description: 'Investigate and resolve incidents directly from Slack, Teams, CLI, or dashboards with actionable, explainable insights.',
+      title: 'Works Where You Work',
+      description: 'Slack. Teams. CLI. Your choice.',
     },
     {
       icon: Rocket,
-      title: 'Fast to Deploy',
-      description: 'Integrates with 300+ data sources out of the box – minimal lift, live in weeks.',
+      title: 'Deploy in Weeks',
+      description: '300+ integrations. Zero hassle.',
     },
   ];
 
@@ -69,10 +69,10 @@ const Features = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-gradient">How Does AI-Powered Network Operations Work?</span>
+            <span className="text-gradient">Why Choose Us?</span>
           </h2>
           <p className="text-xl text-slate-400 max-w-4xl mx-auto">
-            Our AIOps platform delivers automated network monitoring, self-healing systems, and predictive analytics. Experience hyperautomation with AI-driven IT operations that transform network infrastructure automation. From AI-powered correlation to full stack visibility, here's what you get with AI network automation that legacy tools can't deliver.
+            Real results. Real fast. See the numbers that matter.
           </p>
         </motion.div>
 

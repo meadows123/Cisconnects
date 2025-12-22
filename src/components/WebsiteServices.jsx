@@ -156,9 +156,9 @@ const WebsiteServices = () => {
         preferred_time: selectedTime,
         message: bookingData.message || 'No additional message',
         service_interest: 'Website Design Services - Consultation Booking',
-        to_name: 'Cisconnects Team',
+        to_name: 'Conxiea Team',
         reply_to: bookingData.email,
-        to_email: 'support@cisconnects.com',
+        to_email: 'admin@conxiea.com',
       };
 
       await emailjs.send(serviceId, templateId, templateParams);
@@ -189,7 +189,7 @@ const WebsiteServices = () => {
   return (
     <>
       <SEO
-        title="Website Design Services | Professional Web Development Packages | Cisconnects"
+        title="Website Design Services | Professional Web Development Packages | Conxiea"
         description="Professional website design services with affordable monthly subscription packages starting from £25/month. No upfront costs. All packages include domain registration, hosting, and support. Responsive design, SEO optimization, and e-commerce solutions."
         url="/websites"
       />
@@ -450,7 +450,7 @@ const WebsiteServices = () => {
                         <AlertCircle className="w-5 h-5 text-red-400" />
                         <div className="flex-1">
                           <p className="text-red-400 text-sm font-semibold mb-1">There was an error submitting your booking.</p>
-                          <p className="text-red-300 text-xs">Please try again or contact us directly at <a href="mailto:support@cisconnects.com" className="underline">support@cisconnects.com</a></p>
+                          <p className="text-red-300 text-xs">Please try again or contact us directly at <a href="mailto:admin@conxiea.com" className="underline">admin@conxiea.com</a></p>
                         </div>
                       </motion.div>
                     )}

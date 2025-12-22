@@ -9,7 +9,11 @@ import {
   Mail, 
   Phone, 
   MapPin,
-  MessageSquare
+  MessageSquare,
+  Youtube,
+  Instagram,
+  Linkedin,
+  Globe
 } from 'lucide-react';
 
 const Footer = () => {
@@ -24,8 +28,9 @@ const Footer = () => {
   ];
 
   const serviceLinks = [
-    { to: '/services', label: 'All Services' },
-    { to: '/missedcalltextback', label: 'AI Text Back' },
+    { to: '/services', label: 'All Services', icon: Settings },
+    { to: '/missedcalltextback', label: 'AI Text Back', icon: MessageSquare },
+    { to: '/websites', label: 'Website Services', icon: Globe },
   ];
 
   return (
@@ -42,9 +47,9 @@ const Footer = () => {
           >
             <Link to="/" className="inline-block -mt-8 md:-mt-10">
               <img 
-                src="/Blue Logo.png" 
-                alt="Cisconnects" 
-                className="h-32 sm:h-40 md:h-48 lg:h-56 w-auto object-contain mb-0"
+                src="/7.png" 
+                alt="Conxiea" 
+                className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain mb-0"
               />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed -mt-1">
@@ -89,17 +94,20 @@ const Footer = () => {
           >
             <h3 className="text-white font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-3">
-              {serviceLinks.map((link) => (
-                <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors text-sm group"
-                  >
-                    <MessageSquare className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    <span>{link.label}</span>
-                  </Link>
-                </li>
-              ))}
+              {serviceLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <li key={link.to}>
+                    <Link
+                      to={link.to}
+                      className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors text-sm group"
+                    >
+                      <Icon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <span>{link.label}</span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </motion.div>
 
@@ -115,13 +123,13 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:support@cisconnects.com"
+                  href="mailto:admin@conxiea.com"
                   className="flex items-center gap-3 text-slate-400 hover:text-blue-400 transition-colors text-sm group"
                 >
                   <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
                     <Mail className="w-5 h-5 text-blue-400" />
                   </div>
-                  <span>support@cisconnects.com</span>
+                  <span>admin@conxiea.com</span>
                 </a>
               </li>
               <li>
@@ -159,15 +167,48 @@ const Footer = () => {
           className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-slate-400 text-sm text-center md:text-left">
-            © {currentYear} Cisconnects. All Rights Reserved.
+            © {currentYear} Conxiea. All Rights Reserved.
           </p>
-          <div className="flex items-center gap-6 text-sm text-slate-400">
-            <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">
-              Terms of Service
-            </Link>
+          <div className="flex items-center gap-6">
+            {/* Social Media Icons */}
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.youtube.com/@conxiea"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-red-500 transition-colors"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.instagram.com/conxiea"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-pink-500 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/conxiea"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-blue-400 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-6 h-6" />
+              </a>
+            </div>
+            {/* Legal Links */}
+            <div className="flex items-center gap-6 text-sm text-slate-400">
+              <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">
+                Terms of Service
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>

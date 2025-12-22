@@ -59,19 +59,17 @@ const Hero = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-sm"
             >
               <Sparkles className="w-4 h-4 text-blue-400" />
-              <span className="text-sm text-blue-300">AIOps Redefined - AI Infrastructure Operations</span>
+              <span className="text-sm text-blue-300">Cut Costs. Boost Efficiency. Automate Everything.</span>
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
               <span className="text-gradient glow-effect">AI Network Automation</span>
               <br />
-              <span className="text-white">That Transforms</span>
-              <br />
-              <span className="text-white">IT Operations</span>
+              <span className="text-white">That Actually Works</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 leading-relaxed">
-              How does AI-powered network automation reduce costs and improve efficiency? Our AIOps platform automates cloud network automation, firewall migration automation, and network engineering automation for enterprises across the UK. Experience AI-driven IT operations with self-healing systems and predictive analytics.
+              Reduce costs by 60%. Cut ticket volume by 75%. Deploy in weeks, not months. See how.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
