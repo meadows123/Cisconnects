@@ -60,13 +60,25 @@ const BookDemo = () => {
 
       emailjs.init(publicKey);
 
+      // Format the date properly (it comes as a string from CalendarPicker)
+      const formatDate = (dateString) => {
+        if (!dateString) return 'Not selected';
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-GB', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      };
+
       const templateParams = {
         from_name: bookingData.name,
         from_email: bookingData.email,
         company: bookingData.company || 'Not provided',
         phone: bookingData.phone || 'Not provided',
         service_interest: 'Demo Booking',
-        message: `Demo Booking Request\n\nDate: ${bookingData.date ? bookingData.date.toLocaleDateString() : 'Not selected'}\nTime: ${bookingData.time || 'Not selected'}\n\nAdditional Message: ${bookingData.message || 'None'}`,
+        message: `Demo Booking Request\n\nDate: ${formatDate(bookingData.date)}\nTime: ${bookingData.time || 'Not selected'}\n\nAdditional Message: ${bookingData.message || 'None'}`,
         to_name: 'Conxiea Team',
         reply_to: bookingData.email,
         company_name: 'Conxiea',
