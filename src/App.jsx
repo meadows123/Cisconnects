@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navigation from '@/components/Navigation';
@@ -29,19 +29,6 @@ import { Button } from '@/components/ui/button';
 import { Toaster } from '@/components/ui/toaster';
 
 function App() {
-  // Load Ahrefs analytics script
-  useEffect(() => {
-    // Check if script already exists
-    if (document.querySelector('script[src*="analytics.ahrefs.com"]')) {
-      return;
-    }
-
-    const ahrefs_analytics_script = document.createElement('script');
-    ahrefs_analytics_script.async = true;
-    ahrefs_analytics_script.src = 'https://analytics.ahrefs.com/analytics.js';
-    ahrefs_analytics_script.setAttribute('data-key', 'CmIBZBRO60g2bXdk6M0tlw');
-    document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
-  }, []);
   const faqs = [
     {
       question: "How much can I save?",
@@ -72,7 +59,7 @@ function App() {
         type="Service"
         data={{
           serviceType: "AI Network Automation Service",
-          name: "InfraAIOps - AI Network Automation Platform",
+          name: "AI InfraOps - AI Network Automation Platform",
           description: "AI-powered network automation platform for cloud and on-premise infrastructure. Provides automated network monitoring, firewall migration automation, and network engineering automation.",
           areaServed: {
             '@type': 'Country',

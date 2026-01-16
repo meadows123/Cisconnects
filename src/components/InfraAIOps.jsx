@@ -59,7 +59,7 @@ const InfraAIOps = () => {
         type="Service"
         data={{
           serviceType: "AI Network Automation Service",
-          name: "InfraAIOps - AI Network Automation Platform",
+          name: "AI InfraOps - AI Network Automation Platform",
           description: "AI-powered network automation platform for cloud and on-premise infrastructure. Provides automated network monitoring, firewall migration automation, and network engineering automation.",
           areaServed: {
             '@type': 'Country',
