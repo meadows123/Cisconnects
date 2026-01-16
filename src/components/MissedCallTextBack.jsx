@@ -21,8 +21,10 @@ import Navigation from './Navigation';
 import Footer from './Footer';
 import SEO from './SEO';
 import emailjs from '@emailjs/browser';
+import { useCurrency } from '../hooks/useCurrency';
 
 const MissedCallTextBack = () => {
+  const { formatCurrency, getAmount, currencySymbol } = useCurrency();
   const [calculatorData, setCalculatorData] = useState({
     averageClientValue: '',
     missedCallsPerMonth: '',
@@ -58,17 +60,20 @@ const MissedCallTextBack = () => {
     const monthlyPotentialRevenue = missedCalls * clientValue * (closeRate / 100);
     
     // Monthly charge - using Black Friday price
-    const monthlyCharge = 95;
+    // Base price is £95 GBP, we store the base for display and converted for calculations
+    const monthlyChargeBaseGBP = 95;
+    const monthlyChargeConverted = getAmount(monthlyChargeBaseGBP);
     
     // Calculate ROI - matching reference site formula
     // ROI = ((Potential Revenue - Cost) / Cost) × 100
-    const roi = monthlyPotentialRevenue > 0 && monthlyCharge > 0
-      ? ((monthlyPotentialRevenue - monthlyCharge) / monthlyCharge) * 100 
+    // Use converted amount so calculation is in user's local currency
+    const roi = monthlyPotentialRevenue > 0 && monthlyChargeConverted > 0
+      ? ((monthlyPotentialRevenue - monthlyChargeConverted) / monthlyChargeConverted) * 100 
       : 0;
 
     setResults({
       monthlyLeftOnTable: monthlyPotentialRevenue,
-      monthlyCharge: monthlyCharge,
+      monthlyChargeBaseGBP: monthlyChargeBaseGBP, // Store base for formatCurrency display
       roi: roi
     });
   };
@@ -348,14 +353,14 @@ const MissedCallTextBack = () => {
                           <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
                             <p className="text-sm font-semibold text-slate-300 mb-2">Monthly $$$ Left on Table:</p>
                             <p className="text-3xl font-bold text-red-400">
-                              £{Math.round(results.monthlyLeftOnTable).toLocaleString('en-GB')}
+                              {formatCurrency(Math.round(results.monthlyLeftOnTable))}
                             </p>
                           </div>
 
                           <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
                             <p className="text-sm font-semibold text-slate-300 mb-2">We Charge (per month):</p>
                             <p className="text-3xl font-bold text-white">
-                              £{results.monthlyCharge.toLocaleString('en-GB')}
+                              {formatCurrency(results.monthlyChargeBaseGBP)}
                             </p>
                           </div>
 
@@ -566,13 +571,13 @@ const MissedCallTextBack = () => {
                 <div className="mb-8">
                   <div className="mb-2">
                     <p className="text-2xl md:text-3xl text-slate-400 line-through mb-2">
-                      Was £297 / Month
+                      Was {formatCurrency(297)} / Month
                     </p>
                     <p className="text-4xl md:text-5xl font-bold text-slate-800 mb-2">
-                      Now Just <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">£95</span> / Month!
+                      Now Just <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">{formatCurrency(95)}</span> / Month!
                     </p>
                     <p className="text-lg md:text-xl text-green-600 font-semibold">
-                      Save £202 per month - Limited Time Offer!
+                      Save {formatCurrency(202)} per month - Limited Time Offer!
                     </p>
                   </div>
                 </div>

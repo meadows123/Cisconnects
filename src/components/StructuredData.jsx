@@ -1,6 +1,9 @@
 import { Helmet } from 'react-helmet';
+import { useCurrency } from '../hooks/useCurrency';
 
 const StructuredData = ({ type, data }) => {
+  const { currencyCode } = useCurrency();
+  
   const getSchema = () => {
     switch (type) {
       case 'Organization':
@@ -23,7 +26,7 @@ const StructuredData = ({ type, data }) => {
             telephone: '+44-7708-227512',
             contactType: 'Customer Service',
             email: 'admin@conxiea.com',
-            areaServed: 'GB',
+            areaServed: ['GB', 'AU'],
             availableLanguage: 'English'
           },
           sameAs: [
@@ -44,10 +47,16 @@ const StructuredData = ({ type, data }) => {
             '@type': 'Organization',
             name: 'Cisconnects'
           },
-          areaServed: {
-            '@type': 'Country',
-            name: 'United Kingdom'
-          },
+          areaServed: [
+            {
+              '@type': 'Country',
+              name: 'United Kingdom'
+            },
+            {
+              '@type': 'Country',
+              name: 'Australia'
+            }
+          ],
           ...data
         };
 
@@ -98,7 +107,7 @@ const StructuredData = ({ type, data }) => {
           offers: {
             '@type': 'Offer',
             price: data.price,
-            priceCurrency: 'GBP'
+            priceCurrency: currencyCode
           },
           ...data
         };

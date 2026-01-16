@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Globe, 
@@ -18,8 +18,10 @@ import Footer from './Footer';
 import SEO from './SEO';
 import emailjs from '@emailjs/browser';
 import CalendarPicker from './CalendarPicker';
+import { useCurrency } from '../hooks/useCurrency';
 
 const WebsiteServices = () => {
+  const { formatCurrency, currencySymbol } = useCurrency();
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
@@ -33,10 +35,11 @@ const WebsiteServices = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
 
-  const plans = [
+  // Base prices in GBP
+  const basePlans = [
     {
       tier: 'Basic',
-      price: '£25',
+      basePrice: 25,
       pricePeriod: '/month',
       description: 'Perfect for small businesses getting started online',
       icon: Award,
@@ -56,7 +59,7 @@ const WebsiteServices = () => {
     },
     {
       tier: 'Professional',
-      price: '£40',
+      basePrice: 40,
       pricePeriod: '/month',
       description: 'Ideal for businesses needing database and payment functionality',
       icon: Star,
@@ -77,7 +80,7 @@ const WebsiteServices = () => {
     },
     {
       tier: 'Enterprise',
-      price: '£150',
+      basePrice: 150,
       pricePeriod: '/month',
       description: 'Complete solution for established businesses with complex needs',
       icon: Crown,
@@ -99,6 +102,14 @@ const WebsiteServices = () => {
       popular: false
     }
   ];
+
+  // Convert plans to include formatted prices
+  const plans = useMemo(() => {
+    return basePlans.map(plan => ({
+      ...plan,
+      price: formatCurrency(plan.basePrice)
+    }));
+  }, [formatCurrency]);
 
   const availableTimes = [
     '09:00', '10:00', '11:00', '12:00',
@@ -190,7 +201,7 @@ const WebsiteServices = () => {
     <>
       <SEO
         title="Website Design Services | Professional Web Development Packages | Conxiea"
-        description="Professional website design services with affordable monthly subscription packages starting from £25/month. No upfront costs. All packages include domain registration, hosting, and support. Responsive design, SEO optimization, and e-commerce solutions."
+        description={`Professional website design services with affordable monthly subscription packages. No upfront costs. All packages include domain registration, hosting, and support. Responsive design, SEO optimization, and e-commerce solutions.`}
         url="/websites"
       />
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
