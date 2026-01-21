@@ -1571,7 +1571,7 @@ Change anxiety becomes pervasive. Every network change feels risky because teams
 
 These aren't problems you solve by hiring more engineers or writing more scripts. They're fundamental limitations of how humans interact with complex systems at scale. This is where AI-enhanced automation starts to make sense.
 
-![Traditional network automation challenges at data centre scale including script sprawl, manual validation bottlenecks, and knowledge concentration risks](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop)
+![Traditional network automation challenges at data centre scale including script sprawl, manual validation bottlenecks, and knowledge concentration risks](https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop)
 
 ## What "AI-Enhanced Network Automation" Actually Means
 
@@ -1603,7 +1603,7 @@ This means engineers stop spending their time on confirmation work. They're not 
 
 The real value shows up during incidents. When something breaks, the AI has already been tracking the network's state continuously. It can immediately narrow down the problem space by identifying what changed, what's different from baseline, and what dependencies might be affected. Instead of starting from scratch, engineers begin with a focused set of hypotheses to investigate.
 
-![AI-enhanced automation continuously monitoring network health and baseline validation in large-scale data centres](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop)
+![AI-enhanced automation continuously monitoring network health and baseline validation in large-scale data centres](https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&fit=crop)
 
 ### Change Validation and Risk Reduction
 
@@ -1617,7 +1617,7 @@ Post-change verification becomes automatic as well. Instead of manually checking
 
 This reduces the blast radius of changes. When something goes wrong, the AI can quickly identify the scope of impact and suggest rollback procedures. It can also learn from incidents, improving its risk assessment over time. Changes that previously caused problems get flagged more aggressively, while changes that have been executed successfully many times get streamlined.
 
-![AI-powered change validation and risk reduction workflow showing pre-change analysis and post-change verification in data centre networks](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop)
+![AI-powered change validation and risk reduction workflow showing pre-change analysis and post-change verification in data centre networks](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop)
 
 ### Configuration Consistency at Scale
 
@@ -1631,7 +1631,7 @@ This reduces human error significantly. Engineers don't have to remember all the
 
 The cumulative effect is a network that behaves predictably. When you know that configurations are consistent and compliant with policy, you can make changes with confidence. Troubleshooting becomes faster because you can trust that devices are configured as expected. And compliance becomes easier because you have continuous validation rather than periodic audits.
 
-![AI detecting and preventing configuration drift across large-scale data centre networks with continuous policy enforcement](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop)
+![AI detecting and preventing configuration drift across large-scale data centre networks with continuous policy enforcement](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&auto=format&fit=crop)
 
 ### Faster Incident Diagnostics
 
@@ -1647,7 +1647,7 @@ Under pressure, humans make mistakes. They might misread output, forget to check
 
 The AI also learns from every incident. When a problem is resolved, it incorporates that knowledge into its diagnostic capabilities. Over time, it gets better at recognizing patterns and suggesting solutions. Problems that have occurred before get diagnosed faster, and similar problems get caught earlier.
 
-![AI-enhanced incident diagnostics narrowing problem space and reducing MTTR in large-scale data centre network troubleshooting](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop)
+![AI-enhanced incident diagnostics narrowing problem space and reducing MTTR in large-scale data centre network troubleshooting](https://images.unsplash.com/photo-1551288049-6726b3ff858f?w=1200&auto=format&fit=crop)
 
 ## How AI Helps Data Centres Scale Without Scaling Headcount
 
@@ -1665,7 +1665,7 @@ The key insight is that AI doesn't just automate tasks. It reduces uncertainty. 
 
 This is particularly important as networks become more distributed and complex. Edge computing, multi-cloud architectures, and software-defined networking all increase complexity. Traditional operational models don't scale to these environments. AI-enhanced automation is becoming necessary, not optional.
 
-![Scaling data centre network operations with AI-enhanced automation without proportional headcount increases](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop)
+![Scaling data centre network operations with AI-enhanced automation without proportional headcount increases](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop)
 
 ## Common Myths About AI in Data Centre Network Automation
 
@@ -1713,7 +1713,7 @@ The benefits compound over time. As the AI learns your network, it gets better a
 
 For data centre operations facing scale challenges, AI-enhanced network automation isn't optional anymore. The complexity of modern networks exceeds what manual operations can handle sustainably. The question isn't whether to adopt AI, but how to adopt it effectively. Start with specific use cases where AI can deliver immediate value, integrate it into existing workflows, and expand gradually as it proves its worth.
 
-![AI-enhanced network automation as an operating model embedded into daily data centre operations](https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&auto=format&fit=crop)
+![AI-enhanced network automation as an operating model embedded into daily data centre operations](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop)
 
 The future of data centre network operations belongs to teams that can scale their effectiveness without scaling headcount linearly. AI-enhanced automation is the tool that makes this possible. But it requires understanding what AI actually does, where it delivers value, and how to implement it thoughtfully. The organizations that get this right will operate more efficiently, respond faster, and maintain higher reliability than those that don't.
     `
