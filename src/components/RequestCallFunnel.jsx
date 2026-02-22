@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle, AlertCircle, Mail, Phone as PhoneIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Mail, Phone as PhoneIcon, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import SEO from './SEO';
 
@@ -183,20 +183,40 @@ const RequestCallFunnel = () => {
             className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-12"
           >
             <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
-              <p className="text-sm sm:text-base text-white font-semibold">Capture Every After-Hours Enquiry</p>
-              <p className="text-xs sm:text-sm text-gray-300 mt-1">Never lose a call after business hours</p>
+              <div className="flex items-start gap-2">
+                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm sm:text-base text-white font-semibold">Capture Every After-Hours Enquiry</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Never lose a call after business hours</p>
+                </div>
+              </div>
             </div>
             <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
-              <p className="text-sm sm:text-base text-white font-semibold">Instant SMS Job Alerts</p>
-              <p className="text-xs sm:text-sm text-gray-300 mt-1">Get notified immediately by SMS</p>
+              <div className="flex items-start gap-2">
+                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm sm:text-base text-white font-semibold">Instant SMS Job Alerts</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Get notified immediately by SMS</p>
+                </div>
+              </div>
             </div>
             <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
-              <p className="text-sm sm:text-base text-white font-semibold">Auto-Book Emergency Call-Outs</p>
-              <p className="text-xs sm:text-sm text-gray-300 mt-1">Automatically schedule and confirm appointments</p>
+              <div className="flex items-start gap-2">
+                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm sm:text-base text-white font-semibold">Auto-Book Emergency Call-Outs</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Automatically schedule and confirm appointments</p>
+                </div>
+              </div>
             </div>
             <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
-              <p className="text-sm sm:text-base text-white font-semibold">Works 24/7 While You're On-Site or Asleep</p>
-              <p className="text-xs sm:text-sm text-gray-300 mt-1">Your AI handles jobs round the clock</p>
+              <div className="flex items-start gap-2">
+                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm sm:text-base text-white font-semibold">Works 24/7 While You're On-Site or Asleep</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Your AI handles jobs round the clock</p>
+                </div>
+              </div>
             </div>
           </motion.div>
 
