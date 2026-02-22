@@ -38,7 +38,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/book-consultation" element={<ConsultationFunnel />} />
       <Route path="/consultation-success" element={<ConsultationSuccess />} />
       <Route path="/admin/consultations" element={<ConsultationCalendar />} />
-      <Route path="/request-call" element={<RequestCallFunnel />} />
+      <Route path="/24-7-emergency-operator" element={<RequestCallFunnel />} />
       <Route path="/request-call-success" element={<RequestCallSuccess />} />
       <Route path="/lead-magnet" element={<LeadMagnet />} />
       <Route path="/lead-magnet-success" element={<LeadMagnetSuccess />} />

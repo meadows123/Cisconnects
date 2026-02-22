@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, Mail, Phone as PhoneIcon } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import SEO from './SEO';
 
 const RequestCallFunnel = () => {
   const navigate = useNavigate();
@@ -97,10 +98,16 @@ const RequestCallFunnel = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col">
-      {/* No Navigation - Funnel locked */}
-      <div className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="w-full max-w-2xl">
+    <>
+      <SEO
+        title="24/7 Emergency Operator | Capture Every After-Hours Call"
+        description="Get your 24/7 AI emergency booking assistant. Capture every after-hours call and book emergency jobs automatically."
+        url="/24-7-emergency-operator"
+      />
+      <div className="min-h-screen bg-slate-950 flex flex-col">
+        {/* No Navigation - Funnel locked */}
+        <div className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
+          <div className="w-full max-w-2xl">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -125,11 +132,23 @@ const RequestCallFunnel = () => {
             className="text-center mb-8 sm:mb-12"
           >
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-snug xs:leading-tight">
-              How Many Emergency Jobs Are You Missing After 10PM?
+              How Many <span className="border-b-2 border-blue-500">Emergency</span> Jobs Are You Missing After 10PM?
             </h1>
             <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-300 mb-6 xs:mb-8 sm:mb-10 md:mb-12">
-              If you miss just <span className="border-b-2 border-blue-500 text-white">3</span> calls a week, that's £<span className="border-b-2 border-blue-500 text-white">1,000</span>+ lost revenue. 📥
+              Miss just <span className="border-b-2 border-blue-500 text-white">3</span> emergency calls a week? <br className="hidden sm:block" />
+              That's £<span className="border-b-2 border-blue-500 text-white">1,000</span>+ lost revenue.
             </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('request-call-form').scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="inline-block px-6 xs:px-8 sm:px-10 py-2.5 xs:py-3 sm:py-3.5 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-sm xs:text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500"
+            >
+              See How It Works
+            </motion.button>
           </motion.div>
 
           {/* Benefits Section */}
@@ -140,20 +159,20 @@ const RequestCallFunnel = () => {
             className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-12"
           >
             <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
-              <p className="text-sm sm:text-base text-white font-semibold">Never Miss An Emergency Call Again</p>
-              <p className="text-xs sm:text-sm text-gray-300 mt-1">Capture emergency jobs and book meetings into calendar</p>
+              <p className="text-sm sm:text-base text-white font-semibold">Capture Every After-Hours Enquiry</p>
+              <p className="text-xs sm:text-sm text-gray-300 mt-1">Never lose a call after business hours</p>
             </div>
             <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
-              <p className="text-sm sm:text-base text-white font-semibold">Instant SMS Notifications</p>
-              <p className="text-xs sm:text-sm text-gray-300 mt-1">Get notified immediately by SMS the moment jobs come in</p>
+              <p className="text-sm sm:text-base text-white font-semibold">Instant SMS Job Alerts</p>
+              <p className="text-xs sm:text-sm text-gray-300 mt-1">Get notified immediately by SMS</p>
             </div>
             <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
-              <p className="text-sm sm:text-base text-white font-semibold">100% Business Retention</p>
-              <p className="text-xs sm:text-sm text-gray-300 mt-1">Never let another emergency job slip away</p>
+              <p className="text-sm sm:text-base text-white font-semibold">Auto-Book Emergency Call-Outs</p>
+              <p className="text-xs sm:text-sm text-gray-300 mt-1">Automatically schedule and confirm appointments</p>
             </div>
             <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
-              <p className="text-sm sm:text-base text-white font-semibold">Always Working For You</p>
-              <p className="text-xs sm:text-sm text-gray-300 mt-1">Your AI Assistant works 24/7 while you focus on delivery</p>
+              <p className="text-sm sm:text-base text-white font-semibold">Works 24/7 While You're On-Site or Asleep</p>
+              <p className="text-xs sm:text-sm text-gray-300 mt-1">Your AI handles jobs round the clock</p>
             </div>
           </motion.div>
 
@@ -219,11 +238,17 @@ const RequestCallFunnel = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border border-purple-500/50 rounded-lg p-5 sm:p-7 mb-8 sm:mb-12"
           >
-            <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-2">📢 LIMITED TIME OFFER THIS MONTH</p>
-            <p className="text-sm sm:text-base text-white">
-              <span className="font-bold">Purchase the AI Bot</span> and get a fully integrated <span className="font-bold">Website + Calendar</span> for just <span className="text-green-400 font-bold">+£25/month</span> (normally £99+)
+            <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-3">📢 LIMITED TIME OFFER THIS MONTH</p>
+            <p className="text-sm sm:text-base text-white mb-2">
+              <span className="font-bold">Get Your 24/7 Emergency Booking Assistant</span>
             </p>
-            <p className="text-xs sm:text-sm text-gray-300 mt-2">
+            <p className="text-sm sm:text-base text-white mb-2">
+              Fully Integrated Website & Calendar
+            </p>
+            <p className="text-lg sm:text-xl text-green-400 font-bold">
+              From £25/month
+            </p>
+            <p className="text-xs sm:text-sm text-gray-300 mt-3">
               Perfect if you don't have a website or calendar system yet!
             </p>
           </motion.div>
@@ -243,13 +268,13 @@ const RequestCallFunnel = () => {
               <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 sm:p-5">
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-semibold text-white">Ground Cover</span>
+                    <span className="text-sm font-semibold text-white">Jack</span>
                     <span className="text-yellow-400">★★★★★</span>
                   </div>
                   <span className="text-lg">Google</span>
                 </div>
                 <p className="text-sm text-gray-300">
-                  "We needed our website & AI chatbot to be brought up to a professional standard and Conxiea didn't disappoint. Fantastic communication throughout and some great additions and suggestions were made. 100% recommend."
+                  "Booked 2 emergency jobs this week and I had to do zero work. The AI assistant captured everything automatically. Truly awesome stuff!"
                 </p>
               </div>
 
@@ -257,13 +282,13 @@ const RequestCallFunnel = () => {
               <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 sm:p-5">
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-semibold text-white">Wild Adventure Coach</span>
+                    <span className="text-sm font-semibold text-white">Ryan</span>
                     <span className="text-yellow-400">★★★★★</span>
                   </div>
                   <span className="text-lg">Google</span>
                 </div>
                 <p className="text-sm text-gray-300">
-                  "I had an excellent experience working with this team. They were extremely efficient, delivered classy and visually appealing designs, and made the entire process smooth and enjoyable."
+                  "We have more business coming in to our company every single day now. It's truly incredible how many emergency jobs we're capturing. Best investment ever."
                 </p>
               </div>
 
@@ -285,6 +310,7 @@ const RequestCallFunnel = () => {
 
           {/* Form */}
           <motion.form
+            id="request-call-form"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             onSubmit={handleSubmit}
@@ -350,17 +376,17 @@ const RequestCallFunnel = () => {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 disabled:opacity-50 text-white font-bold text-sm sm:text-base rounded-lg flex items-center justify-center gap-2 transition shadow-lg min-h-12 sm:min-h-14"
+              className="w-full px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 disabled:opacity-50 text-slate-900 font-bold text-sm sm:text-base rounded-lg flex items-center justify-center gap-2 transition shadow-lg min-h-12 sm:min-h-14"
             >
               {isSubmitting ? (
                 <>
-                  <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" />
                   <span className="text-sm sm:text-base">Processing...</span>
                 </>
               ) : (
                 <>
                   <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="text-sm sm:text-base">Request a Call</span>
+                  <span className="text-sm sm:text-base">Get My 24/7 Assistant</span>
                 </>
               )}
             </motion.button>
@@ -381,7 +407,8 @@ const RequestCallFunnel = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
