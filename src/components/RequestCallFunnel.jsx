@@ -128,7 +128,7 @@ const RequestCallFunnel = () => {
               How Many Emergency Jobs Are You Missing After 10PM?
             </h1>
             <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-300 mb-6 xs:mb-8 sm:mb-10 md:mb-12">
-              If you miss just 3 calls a week, that's £1,000+ lost revenue. 📥
+              If you miss just <span className="border-b-2 border-blue-500 text-white">3</span> calls a week, that's £<span className="border-b-2 border-blue-500 text-white">1,000</span>+ lost revenue. 📥
             </p>
           </motion.div>
 
