@@ -147,7 +147,7 @@ const ConsultationFunnel = () => {
       };
 
       try {
-        await emailjs.send(serviceId, 'template_8stdmyq', adminEmailParams);
+        await emailjs.send(serviceId, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, adminEmailParams);
       } catch (emailError) {
         console.warn('Email notification failed:', emailError);
         // Don't throw - booking is still successful even if email fails

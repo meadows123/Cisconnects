@@ -64,7 +64,7 @@ const RequestCallFunnel = () => {
 
         await emailjs.send(
           serviceId,
-          import.meta.env.VITE_EMAILJS_TEMPLATE_ID_CONSULTATION,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
           {
             to_email: 'admin@cisconnects.com',
             from_name: formData.name,
