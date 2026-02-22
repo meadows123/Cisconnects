@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle, AlertCircle, Mail, Phone as PhoneIcon } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Mail, Phone as PhoneIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import SEO from './SEO';
 
@@ -14,6 +14,30 @@ const RequestCallFunnel = () => {
   });
   const [submitStatus, setSubmitStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+
+  const testimonials = [
+    {
+      name: 'Jack',
+      review: '"Booked 2 emergency jobs this week and I had to do zero work. The AI assistant captured everything automatically. Truly awesome stuff!"'
+    },
+    {
+      name: 'Jas',
+      review: '"Such a great service, all the calls I used to miss. Now just automatically get booked, saving the business a lot of reveune and I couldn\'t recommend enough."'
+    },
+    {
+      name: 'G Singh',
+      review: '"Brilliant experience from beginning to end. The team kept me updated throughout and handled everything promptly with real care. I\'d definitely recommend their services."'
+    }
+  ];
+
+  const nextTestimonial = () => {
+    setCurrentTestimonialIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -250,7 +274,7 @@ const RequestCallFunnel = () => {
             </p>
           </motion.div>
 
-          {/* Testimonials Section */}
+          {/* Testimonials Section - Slider */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -260,48 +284,57 @@ const RequestCallFunnel = () => {
             <h3 className="text-center text-lg sm:text-xl font-bold text-white mb-5 sm:mb-7">
               Trusted by <span className="text-blue-400">1,000+</span> businesses, like yours
             </h3>
-            <div className="space-y-4">
-              {/* Testimonial 1 */}
-              <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 sm:p-5">
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-semibold text-white">Jack</span>
-                    <span className="text-yellow-400">★★★★★</span>
-                  </div>
-                  <span className="text-lg">Google</span>
-                </div>
-                <p className="text-sm text-gray-300">
-                  "Booked 2 emergency jobs this week and I had to do zero work. The AI assistant captured everything automatically. Truly awesome stuff!"
-                </p>
-              </div>
+            <div className="flex items-center justify-between gap-3 sm:gap-4">
+              {/* Previous Arrow */}
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={prevTestimonial}
+                className="flex-shrink-0 p-2 sm:p-3 bg-blue-600/20 border border-blue-500/30 rounded-lg hover:bg-blue-600/40 transition text-white"
+              >
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+              </motion.button>
 
-              {/* Testimonial 2 */}
-              <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 sm:p-5">
-                <div className="flex items-center justify-between gap-2 mb-2">
+              {/* Testimonial Card */}
+              <motion.div
+                key={currentTestimonialIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="flex-1 bg-slate-800/50 border border-slate-700 rounded-lg p-4 sm:p-5"
+              >
+                <div className="flex items-center justify-between gap-2 mb-3">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-semibold text-white">Ryan</span>
+                    <span className="text-sm font-semibold text-white">{testimonials[currentTestimonialIndex].name}</span>
                     <span className="text-yellow-400">★★★★★</span>
                   </div>
                   <span className="text-lg">Google</span>
                 </div>
-                <p className="text-sm text-gray-300">
-                  "We have more business coming in to our company every single day now. It's truly incredible how many emergency jobs we're capturing. Best investment ever."
+                <p className="text-sm text-gray-300 mb-3">
+                  {testimonials[currentTestimonialIndex].review}
                 </p>
-              </div>
+                <div className="flex justify-center gap-2">
+                  {testimonials.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 rounded-full transition ${
+                        index === currentTestimonialIndex ? 'bg-blue-400' : 'bg-slate-600'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </motion.div>
 
-              {/* Testimonial 3 */}
-              <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 sm:p-5">
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-semibold text-white">G Singh</span>
-                    <span className="text-yellow-400">★★★★★</span>
-                  </div>
-                  <span className="text-lg">Google</span>
-                </div>
-                <p className="text-sm text-gray-300">
-                  "Brilliant experience from beginning to end. The team kept me updated throughout and handled everything promptly with real care. I'd definitely recommend their services."
-                </p>
-              </div>
+              {/* Next Arrow */}
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={nextTestimonial}
+                className="flex-shrink-0 p-2 sm:p-3 bg-blue-600/20 border border-blue-500/30 rounded-lg hover:bg-blue-600/40 transition text-white"
+              >
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+              </motion.button>
             </div>
           </motion.div>
 
