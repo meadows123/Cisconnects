@@ -124,11 +124,11 @@ const RequestCallFunnel = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-8 sm:mb-12"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2 sm:mb-4 leading-tight">
-              Request A Call From Our Team
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-snug xs:leading-tight">
+              How Many Emergency Jobs Are You Missing After 10PM?
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-gray-300">
-              Please add your contact details below...
+            <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-300 mb-6 xs:mb-8 sm:mb-10 md:mb-12">
+              If you miss just 3 calls a week, that's £1,000+ lost revenue. 📥
             </p>
           </motion.div>
 
