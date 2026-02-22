@@ -4,6 +4,10 @@ import bodyParser from 'body-parser';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createClient } from '@supabase/supabase-js';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env.local' });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +17,11 @@ const PORT = process.env.PORT || 5000;
 const CONSULTATIONS_FILE = path.join(__dirname, 'consultations.json');
 const CALLS_FILE = path.join(__dirname, 'calls.json');
 const LEADS_FILE = path.join(__dirname, 'leads.json');
+
+// Initialize Supabase
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE;
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Middleware
 app.use(cors());
@@ -231,9 +240,29 @@ app.delete('/api/calls/:id', (req, res) => {
 });
 
 // GET all leads
-app.get('/api/leads', (req, res) => {
+app.get('/api/leads', async (req, res) => {
   try {
-    const leads = readLeads();
+    let leads = [];
+    
+    // Try to fetch from Supabase first
+    if (supabaseUrl && supabaseKey) {
+      const { data, error } = await supabase
+        .from('leads')
+        .select('*')
+        .order('created_at', { ascending: false });
+      
+      if (error) {
+        console.error('Supabase fetch error:', error);
+        // Fall back to JSON file
+        leads = readLeads();
+      } else {
+        leads = data || [];
+      }
+    } else {
+      // Use JSON file if Supabase not configured
+      leads = readLeads();
+    }
+    
     res.json(leads);
   } catch (error) {
     console.error('Error fetching leads:', error);
@@ -242,7 +271,7 @@ app.get('/api/leads', (req, res) => {
 });
 
 // POST new lead
-app.post('/api/leads', (req, res) => {
+app.post('/api/leads', async (req, res) => {
   try {
     const { name, email, source } = req.body;
 
@@ -250,19 +279,44 @@ app.post('/api/leads', (req, res) => {
       return res.status(400).json({ error: 'Name and email are required' });
     }
 
-    const leads = readLeads();
     const newLead = {
-      id: generateId(),
       name,
       email,
       source: source || 'lead-magnet',
       status: 'pending',
-      createdAt: new Date().toISOString()
+      created_at: new Date().toISOString()
     };
 
-    leads.push(newLead);
+    // Save to Supabase
+    let supabaseError = null;
+    let savedLead = null;
+    
+    if (supabaseUrl && supabaseKey) {
+      const { data, error } = await supabase
+        .from('leads')
+        .insert([newLead])
+        .select();
+      
+      if (error) {
+        console.error('Supabase error:', error);
+        supabaseError = error;
+      } else if (data && data.length > 0) {
+        savedLead = data[0];
+      }
+    }
+
+    // Also save to JSON file as backup
+    const leads = readLeads();
+    const jsonLead = {
+      id: savedLead?.id || (Date.now().toString(36) + Math.random().toString(36).substr(2)),
+      ...newLead
+    };
+    leads.push(jsonLead);
     writeLeads(leads);
-    res.status(201).json(newLead);
+
+    // Return the saved lead
+    const responseData = savedLead ? { ...savedLead, backup: 'also saved to local file' } : jsonLead;
+    res.status(201).json(responseData);
   } catch (error) {
     console.error('Error creating lead:', error);
     res.status(500).json({ error: 'Failed to create lead' });
