@@ -132,6 +132,31 @@ const RequestCallFunnel = () => {
             </p>
           </motion.div>
 
+          {/* Benefits Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-12"
+          >
+            <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+              <p className="text-sm sm:text-base text-white font-semibold">✓ Free Expert Consultation</p>
+              <p className="text-xs sm:text-sm text-gray-300 mt-1">No cost to speak with our team</p>
+            </div>
+            <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+              <p className="text-sm sm:text-base text-white font-semibold">✓ Custom Solution For You</p>
+              <p className="text-xs sm:text-sm text-gray-300 mt-1">Tailored to your specific needs</p>
+            </div>
+            <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+              <p className="text-sm sm:text-base text-white font-semibold">✓ No Obligation</p>
+              <p className="text-xs sm:text-sm text-gray-300 mt-1">Just honest advice and insights</p>
+            </div>
+            <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+              <p className="text-sm sm:text-base text-white font-semibold">✓ Discover Hidden Revenue</p>
+              <p className="text-xs sm:text-sm text-gray-300 mt-1">Uncover missed business opportunities</p>
+            </div>
+          </motion.div>
+
           {/* Status Messages */}
           {submitStatus === 'success' && (
             <motion.div
@@ -186,6 +211,79 @@ const RequestCallFunnel = () => {
               </div>
             </motion.div>
           )}
+
+          {/* AI Assistant & Deal Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border border-purple-500/50 rounded-lg p-5 sm:p-7 mb-8 sm:mb-12"
+          >
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">🤖 24/7 AI Assistant</h3>
+                <p className="text-sm sm:text-base text-gray-200">
+                  Automatically capture emergency jobs, book meetings into your calendar, and never miss another call.
+                </p>
+              </div>
+              
+              <div className="border-t border-purple-500/30 pt-4">
+                <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-2">📢 LIMITED TIME OFFER THIS MONTH</p>
+                <p className="text-sm sm:text-base text-white">
+                  <span className="font-bold">Purchase the AI Bot</span> and get a fully integrated <span className="font-bold">Website + Calendar</span> for just <span className="text-green-400 font-bold">+£25/month</span> (normally £99+)
+                </p>
+                <p className="text-xs sm:text-sm text-gray-300 mt-2">
+                  Perfect if you don't have a website or calendar system yet!
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Testimonials Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-8 sm:mb-12"
+          >
+            <h3 className="text-center text-lg sm:text-xl font-bold text-white mb-5 sm:mb-7">
+              Trusted By Businesses Like Yours
+            </h3>
+            <div className="space-y-4">
+              {/* Testimonial 1 */}
+              <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 sm:p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-sm font-semibold text-white">Ground Cover</span>
+                  <span className="text-yellow-400">★★★★★</span>
+                </div>
+                <p className="text-sm text-gray-300">
+                  "We needed our website to be brought up to a professional standard and Cis didn't disappoint. Fantastic communication throughout and some great additions and suggestions were made. 100% recommend."
+                </p>
+              </div>
+
+              {/* Testimonial 2 */}
+              <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 sm:p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-sm font-semibold text-white">Wild Adventure Coach</span>
+                  <span className="text-yellow-400">★★★★★</span>
+                </div>
+                <p className="text-sm text-gray-300">
+                  "I had an excellent experience working with this team. They were extremely efficient, delivered classy and visually appealing designs, and made the entire process smooth and enjoyable."
+                </p>
+              </div>
+
+              {/* Testimonial 3 */}
+              <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 sm:p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-sm font-semibold text-white">G Singh</span>
+                  <span className="text-yellow-400">★★★★★</span>
+                </div>
+                <p className="text-sm text-gray-300">
+                  "Brilliant experience from beginning to end. The team kept me updated throughout and handled everything promptly with real care. I'd definitely recommend their services."
+                </p>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Form */}
           <motion.form
