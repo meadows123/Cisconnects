@@ -118,6 +118,31 @@ const LeadMagnet = () => {
               If you miss just <span className="border-b-2 border-blue-500 text-white">3</span> calls a week, that's £<span className="border-b-2 border-blue-500 text-white">1,000</span>+ lost revenue. 📥
             </motion.p>
 
+            {/* AI Benefits Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-12"
+            >
+              <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+                <p className="text-sm sm:text-base text-white font-semibold">🤖 Never Miss An Emergency Call Again</p>
+                <p className="text-xs sm:text-sm text-gray-300 mt-1">Capture emergency jobs and book meetings into calendar</p>
+              </div>
+              <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+                <p className="text-sm sm:text-base text-white font-semibold"> Instant SMS Notifications</p>
+                <p className="text-xs sm:text-sm text-gray-300 mt-1">Get notified immediately by SMS the moment jobs come in</p>
+              </div>
+              <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+                <p className="text-sm sm:text-base text-white font-semibold"> 100% Business Retention</p>
+                <p className="text-xs sm:text-sm text-gray-300 mt-1">Never let another emergency job slip away</p>
+              </div>
+              <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+                <p className="text-sm sm:text-base text-white font-semibold"> Always Working For You</p>
+                <p className="text-xs sm:text-sm text-gray-300 mt-1">Your AI works 24/7 while you focus on delivery</p>
+              </div>
+            </motion.div>
+
             {/* Blue Benefits Box */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
