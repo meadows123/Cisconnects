@@ -238,18 +238,15 @@ const RequestCallFunnel = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border border-purple-500/50 rounded-lg p-5 sm:p-7 mb-8 sm:mb-12"
           >
-            <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-3">📢 LIMITED TIME OFFER THIS MONTH</p>
-            <p className="text-sm sm:text-base text-white mb-2">
-              <span className="font-bold">Get Your 24/7 Emergency Booking Assistant</span>
+            <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-3">📢 PRICING</p>
+            <p className="text-sm sm:text-base text-white mb-3">
+              <span className="font-bold">24/7 Emergency Booking Assistant:</span> <span className="text-green-400 font-bold">£97/month</span>
             </p>
-            <p className="text-sm sm:text-base text-white mb-2">
-              Fully Integrated Website & Calendar
-            </p>
-            <p className="text-lg sm:text-xl text-green-400 font-bold">
-              From £25/month
+            <p className="text-sm sm:text-base text-white">
+              <span className="font-bold">Website & Calendar Add-on:</span> <span className="text-green-400 font-bold">£25/month</span>
             </p>
             <p className="text-xs sm:text-sm text-gray-300 mt-3">
-              Perfect if you don't have a website or calendar system yet!
+              Add the website & calendar if you don't have one yet!
             </p>
           </motion.div>
 
