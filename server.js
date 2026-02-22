@@ -7,6 +7,8 @@ import { fileURLToPath } from 'url';
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
 
+// Load environment variables from .env and .env.local
+dotenv.config({ path: '.env' });
 dotenv.config({ path: '.env.local' });
 
 const __filename = fileURLToPath(import.meta.url);
@@ -22,6 +24,12 @@ const LEADS_FILE = path.join(__dirname, 'leads.json');
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE;
 const supabase = createClient(supabaseUrl, supabaseKey);
+
+console.log('Environment loaded:');
+console.log('- Supabase URL:', supabaseUrl ? '✓ Configured' : '✗ Missing');
+console.log('- Supabase Key:', supabaseKey ? '✓ Configured' : '✗ Missing');
+console.log('- EmailJS Service ID:', process.env.VITE_EMAILJS_SERVICE_ID ? '✓ Configured' : '✗ Missing');
+console.log('- EmailJS Public Key:', process.env.VITE_EMAILJS_PUBLIC_KEY ? '✓ Configured' : '✗ Missing');
 
 // Middleware
 app.use(cors());
@@ -279,6 +287,8 @@ app.post('/api/leads', async (req, res) => {
       return res.status(400).json({ error: 'Name and email are required' });
     }
 
+    console.log(`📝 New lead request: ${name} (${email})`);
+
     const newLead = {
       name,
       email,
@@ -292,17 +302,21 @@ app.post('/api/leads', async (req, res) => {
     let savedLead = null;
     
     if (supabaseUrl && supabaseKey) {
+      console.log('📤 Attempting to save to Supabase...');
       const { data, error } = await supabase
         .from('leads')
         .insert([newLead])
         .select();
       
       if (error) {
-        console.error('Supabase error:', error);
+        console.error('❌ Supabase error:', error);
         supabaseError = error;
       } else if (data && data.length > 0) {
         savedLead = data[0];
+        console.log('✅ Successfully saved to Supabase:', savedLead.id);
       }
+    } else {
+      console.warn('⚠️ Supabase not configured, skipping database save');
     }
 
     // Also save to JSON file as backup
@@ -313,13 +327,14 @@ app.post('/api/leads', async (req, res) => {
     };
     leads.push(jsonLead);
     writeLeads(leads);
+    console.log('✅ Saved to JSON file');
 
     // Return the saved lead
     const responseData = savedLead ? { ...savedLead, backup: 'also saved to local file' } : jsonLead;
     res.status(201).json(responseData);
   } catch (error) {
-    console.error('Error creating lead:', error);
-    res.status(500).json({ error: 'Failed to create lead' });
+    console.error('❌ Error creating lead:', error);
+    res.status(500).json({ error: 'Failed to create lead', details: error.message });
   }
 });
 
