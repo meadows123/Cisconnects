@@ -17,6 +17,7 @@ import ConsultationFunnel from '@/components/ConsultationFunnel';
 import ConsultationSuccess from '@/components/ConsultationSuccess';
 import ConsultationCalendar from '@/components/ConsultationCalendar';
 import RequestCallFunnel from '@/components/RequestCallFunnel';
+import RequestCallFunnelV2 from '@/components/RequestCallFunnelV2';
 import RequestCallSuccess from '@/components/RequestCallSuccess';
 import LeadMagnet from '@/components/LeadMagnet';
 import LeadMagnetSuccess from '@/components/LeadMagnetSuccess';
@@ -39,6 +40,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/consultation-success" element={<ConsultationSuccess />} />
       <Route path="/admin/consultations" element={<ConsultationCalendar />} />
       <Route path="/24-7-emergency-operator" element={<RequestCallFunnel />} />
+      <Route path="/24-7-emergency-operator-v2" element={<RequestCallFunnelV2 />} />
       <Route path="/request-call-success" element={<RequestCallSuccess />} />
       <Route path="/lead-magnet" element={<LeadMagnet />} />
       <Route path="/lead-magnet-success" element={<LeadMagnetSuccess />} />
