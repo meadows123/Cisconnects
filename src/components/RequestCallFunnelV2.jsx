@@ -285,7 +285,6 @@ const RequestCallFunnelV2 = () => {
             <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-3">⏰ LIMITED TIME OFFER</p>
             <p className="text-sm sm:text-base text-white mb-3">
               <span className="font-bold">24/7 Emergency Booking Assistant:</span> <span className="text-green-400 font-bold">£97/month</span>
-              <span className="text-xs text-gray-400 ml-2">(Normally £100/month)</span>
             </p>
             <p className="text-sm sm:text-base text-white mb-3">
               <span className="font-bold">Website & Calendar Add-on:</span> <span className="text-green-400 font-bold">FREE</span>
