@@ -286,11 +286,11 @@ const RequestCallFunnel = () => {
             <p className="text-sm sm:text-base text-white mb-3">
               <span className="font-bold">24/7 Emergency Booking Assistant:</span> <span className="text-green-400 font-bold">£97/month</span>
             </p>
-            <p className="text-sm sm:text-base text-white">
-              <span className="font-bold">Website & Calendar Add-on:</span> <span className="text-green-400 font-bold">£25/month</span>
+            <p className="text-sm sm:text-base text-white mb-3">
+              <span className="font-bold">Website:</span> <span className="text-green-400 font-bold">£25/month</span>
             </p>
             <p className="text-xs sm:text-sm text-gray-300 mt-3">
-              Add the website & calendar if you don't have one yet!
+              ✨ Includes auto integration with any calendar
             </p>
           </motion.div>
 
