@@ -292,6 +292,9 @@ const RequestCallFunnel = () => {
             <p className="text-xs sm:text-sm text-gray-300 mt-3">
               ✨ Includes auto integration with any calendar
             </p>
+            <p className="text-xs sm:text-sm text-yellow-300 mt-2">
+              📢 Limited time: £25/month when purchasing the booking assistant (normally £100/month)
+            </p>
           </motion.div>
 
           {/* Testimonials Section - Slider */}

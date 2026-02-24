@@ -290,7 +290,7 @@ const RequestCallFunnelV2 = () => {
               <span className="font-bold">Website & Calendar Add-on:</span> <span className="text-green-400 font-bold">FREE</span>
             </p>
             <p className="text-xs sm:text-sm text-gray-300 mt-3">
-              ✨ Normally £25/month—included free with this limited time offer!
+              ✨ Normally £100/month—included free with this limited time offer!
             </p>
           </motion.div>
 
