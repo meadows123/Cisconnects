@@ -6,6 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
+import { createCalendarEvent, createCallEvent } from './utils/googleCalendar.js';
 
 // Load environment variables from .env and .env.local
 dotenv.config({ path: '.env' });
@@ -30,6 +31,7 @@ console.log('- Supabase URL:', supabaseUrl ? '✓ Configured' : '✗ Missing');
 console.log('- Supabase Key:', supabaseKey ? '✓ Configured' : '✗ Missing');
 console.log('- EmailJS Service ID:', process.env.VITE_EMAILJS_SERVICE_ID ? '✓ Configured' : '✗ Missing');
 console.log('- EmailJS Public Key:', process.env.VITE_EMAILJS_PUBLIC_KEY ? '✓ Configured' : '✗ Missing');
+console.log('- Google Calendar:', process.env.GOOGLE_CREDENTIALS ? '✓ Configured' : '✗ Missing');
 
 // Middleware
 app.use(cors());
@@ -92,7 +94,7 @@ app.get('/api/consultations', (req, res) => {
 });
 
 // POST new consultation
-app.post('/api/consultations', (req, res) => {
+app.post('/api/consultations', async (req, res) => {
   try {
     const {
       name,
@@ -130,6 +132,9 @@ app.post('/api/consultations', (req, res) => {
     const consultations = readConsultations();
     consultations.push(consultation);
     writeConsultations(consultations);
+
+    // Sync to Google Calendar
+    await createCalendarEvent(consultation);
 
     res.status(201).json(consultation);
   } catch (error) {
@@ -199,7 +204,7 @@ app.get('/api/calls', (req, res) => {
 });
 
 // POST new call request
-app.post('/api/calls', (req, res) => {
+app.post('/api/calls', async (req, res) => {
   try {
     const { name, email, phone, timestamp } = req.body;
 
@@ -220,6 +225,9 @@ app.post('/api/calls', (req, res) => {
     const calls = readCalls();
     calls.push(call);
     writeCalls(calls);
+
+    // Sync to Google Calendar
+    await createCallEvent(call);
 
     res.status(201).json(call);
   } catch (error) {
