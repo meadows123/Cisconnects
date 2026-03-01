@@ -15,6 +15,18 @@ import { Toaster } from './ui/toaster';
 const InfraAIOps = () => {
   const faqs = [
     {
+      question: "How much can I save?",
+      answer: "Up to 60% cost reduction. 75% fewer tickets. 5.25x ROI. Real numbers from real customers."
+    },
+    {
+      question: "How long does it take to deploy?",
+      answer: "Weeks, not months. We integrate with 300+ data sources out of the box. Minimal setup. Maximum impact."
+    },
+    {
+      question: "Does it work for cloud and on-premise?",
+      answer: "Yes. Both. AWS, Azure, Google Cloud, or your own servers. One platform. All covered."
+    },
+    {
       question: "What is AIOps and how can it save time?",
       answer: "AIOps (Artificial Intelligence for IT Operations) uses AI and machine learning to automate IT operations tasks. Our AIOps platform can reduce manual network management time by up to 80%, automate incident response, and provide predictive analytics to prevent issues before they occur. AIOps redefined means self-healing systems that automatically detect and resolve network problems without human intervention."
     },

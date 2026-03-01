@@ -10,7 +10,7 @@ import StructuredData from '@/components/StructuredData';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Solutions from '@/components/Solutions';
-import FAQ from '@/components/FAQ';
+import EnterpriseValue from '@/components/EnterpriseValue';
 import Testimonials from '@/components/Testimonials';
 import CTA from '@/components/CTA';
 import { 
@@ -29,20 +29,6 @@ import { Button } from '@/components/ui/button';
 import { Toaster } from '@/components/ui/toaster';
 
 function App() {
-  const faqs = [
-    {
-      question: "How much can I save?",
-      answer: "Up to 60% cost reduction. 75% fewer tickets. 5.25x ROI. Real numbers from real customers."
-    },
-    {
-      question: "How long does it take to deploy?",
-      answer: "Weeks, not months. We integrate with 300+ data sources out of the box. Minimal setup. Maximum impact."
-    },
-    {
-      question: "Does it work for cloud and on-premise?",
-      answer: "Yes. Both. AWS, Azure, Google Cloud, or your own servers. One platform. All covered."
-    }
-  ];
 
   return (
     <>
@@ -67,16 +53,12 @@ function App() {
           }
         }}
       />
-      <StructuredData
-        type="FAQPage"
-        data={{ faqs }}
-      />
       <div className="min-h-screen bg-slate-950 overflow-hidden">
         <Navigation />
         <Hero />
         <Features />
         <Solutions />
-        <FAQ faqs={faqs} />
+        <EnterpriseValue />
         <Testimonials />
         <LatestBlogs />
         <CTA />
