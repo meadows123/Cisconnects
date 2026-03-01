@@ -63,13 +63,13 @@ const Hero = () => {
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-gradient glow-effect">The future of infrastructure</span>
+              <span className="text-gradient glow-effect">You're Not Just Managing Systems.</span>
               <br />
-              <span className="text-white">operations is automated</span>
+              <span className="text-white">You're Managing Risk.</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 leading-relaxed">
-              Leading IT teams are reducing operational overhead, cutting manual checks, and improving uptime through AI-driven automation.
+              Operational complexity doesn't just strain your engineers. It increases exposure at the leadership level.
             </p>
 
             <div className="flex flex-wrap gap-8 justify-center lg:justify-start pt-6">
@@ -102,15 +102,11 @@ const Hero = () => {
             >
               <div>
                 <p className="text-2xl md:text-3xl font-bold text-gradient">30–50%</p>
-                <p className="text-slate-400 mt-2">Workload reduced in 90 days</p>
+                <p className="text-slate-400 mt-2">Less repetitive operational effort</p>
               </div>
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-gradient">60%</p>
-                <p className="text-slate-400 mt-2">Cost reduction typical</p>
-              </div>
-              <div>
-                <p className="text-lg font-semibold text-blue-300">Confidence</p>
-                <p className="text-slate-400 mt-2">Network is stable, compliant, and under control</p>
+                <p className="text-2xl md:text-3xl font-bold text-gradient">Up to 60%</p>
+                <p className="text-slate-400 mt-2">Lower manual overhead</p>
               </div>
             </motion.div>
           </motion.div>
