@@ -72,7 +72,7 @@ const Hero = () => {
               Leading IT teams are reducing operational overhead, cutting manual checks, and improving uptime through AI-driven automation.
             </p>
 
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
+            <div className="flex flex-wrap gap-8 justify-center lg:justify-start pt-6">
               <Link to="/contact">
                 <Button 
                   size="lg" 
@@ -82,13 +82,13 @@ const Hero = () => {
                   <Zap className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Link to="/book-demo">
+              <Link to="/contact">
                 <Button 
                   size="lg" 
                   variant="outline" 
                   className="border-2 border-blue-500/50 text-blue-300 hover:bg-blue-500/10 px-8 py-6 text-lg rounded-xl backdrop-blur-sm"
                 >
-                  Schedule Demo
+                  Learn More
                 </Button>
               </Link>
             </div>
@@ -98,19 +98,19 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="pt-8 flex flex-wrap justify-center lg:justify-start gap-8"
+              className="pt-8 flex flex-col lg:flex-row gap-12"
             >
               <div>
-                <p className="text-3xl md:text-4xl font-bold text-gradient">30–50%</p>
+                <p className="text-2xl md:text-3xl font-bold text-gradient">30–50%</p>
                 <p className="text-slate-400 mt-2">Workload reduced in 90 days</p>
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-bold text-gradient">60%</p>
+                <p className="text-2xl md:text-3xl font-bold text-gradient">60%</p>
                 <p className="text-slate-400 mt-2">Cost reduction typical</p>
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-bold text-gradient">75%</p>
-                <p className="text-slate-400 mt-2">Fewer manual tickets</p>
+                <p className="text-lg font-semibold text-blue-300">Confidence</p>
+                <p className="text-slate-400 mt-2">Network is stable, compliant, and under control</p>
               </div>
             </motion.div>
           </motion.div>
