@@ -72,7 +72,7 @@ const Hero = () => {
               Operational complexity doesn't just strain your engineers. It increases exposure at the leadership level.
             </p>
 
-            <div className="flex flex-wrap gap-8 justify-center lg:justify-start pt-6">
+            <div className="flex flex-wrap gap-12 justify-center lg:justify-start pt-6">
               <Link to="/contact">
                 <Button 
                   size="lg" 
@@ -111,55 +111,73 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Laptop Mockup */}
+          {/* Right Column - CTA Section */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative">
-              {/* Glow effect behind laptop */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-3xl rounded-full"></div>
-              
-              {/* Laptop Image */}
-              <motion.img
-                src="/Laptop-mockup.png"
-                alt="AI Automation Platform Dashboard"
-                className="relative z-10 w-full h-auto drop-shadow-2xl"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.4 }}
-              />
-
-              {/* Floating elements around laptop */}
+            <div className="bg-gradient-to-br from-blue-900/30 via-slate-900/40 to-purple-900/30 backdrop-blur-xl border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl">
               <motion.div
-                className="absolute -top-6 -right-6 bg-gradient-to-br from-blue-500 to-cyan-500 p-4 rounded-2xl shadow-2xl"
-                animate={{ 
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="space-y-6"
               >
-                <Zap className="w-8 h-8 text-white" />
-              </motion.div>
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-2">
+                    <span className="text-gradient">Ready to Cut Costs?</span>
+                  </h2>
+                  <p className="text-2xl font-semibold text-white">Let's Talk.</p>
+                </div>
 
-              <motion.div
-                className="absolute -bottom-6 -left-6 bg-gradient-to-br from-purple-500 to-pink-500 p-4 rounded-2xl shadow-2xl"
-                animate={{ 
-                  y: [0, 10, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  delay: 0.5,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <Cloud className="w-8 h-8 text-white" />
+                <p className="text-lg text-slate-300 leading-relaxed">
+                  Join 500+ companies saving millions with AI automation. Start today.
+                </p>
+
+                {/* ROI Benefits */}
+                <div className="space-y-4 pt-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
+                    <p className="text-slate-300">Reduce manual overhead by up to 60%</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
+                    <p className="text-slate-300">Free your team for strategic work</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
+                    <p className="text-slate-300">Deploy in weeks, see ROI in 90 days</p>
+                  </div>
+                </div>
+
+                <Link to="/contact">
+                  <Button 
+                    size="lg" 
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-6 text-lg rounded-xl shadow-lg shadow-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-500/70 mt-6"
+                  >
+                    Schedule Your Assessment
+                    <Zap className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
+
+                {/* Trust Stats */}
+                <div className="pt-8 border-t border-white/10 space-y-6">
+                  <div className="grid grid-cols-2 gap-6">
+                    <div>
+                      <p className="text-xl font-bold text-gradient">10,000+</p>
+                      <p className="text-sm text-slate-400 mt-1">Devices Automated</p>
+                    </div>
+                    <div>
+                      <p className="text-xl font-bold text-gradient">99.9%</p>
+                      <p className="text-sm text-slate-400 mt-1">Uptime Guarantee</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-lg font-semibold text-blue-300">24/7 Expert Support</p>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </motion.div>
