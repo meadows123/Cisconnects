@@ -59,17 +59,17 @@ const Hero = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-sm"
             >
               <Sparkles className="w-4 h-4 text-blue-400" />
-              <span className="text-sm text-blue-300">Cut Costs. Boost Efficiency. Automate Everything.</span>
+              <span className="text-sm text-blue-300">Leading or reacting? The choice is yours.</span>
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-gradient glow-effect">Infra Ops AI</span>
+              <span className="text-gradient glow-effect">The future of infrastructure</span>
               <br />
-              <span className="text-white">Automate Your Network</span>
+              <span className="text-white">operations is automated</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 leading-relaxed">
-              Reduce costs by 60%. Cut ticket volume by 75%. Deploy in weeks, not months. See how.
+              Leading IT teams are reducing operational overhead, cutting manual checks, and improving uptime through AI-driven automation.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
@@ -101,16 +101,16 @@ const Hero = () => {
               className="pt-8 flex flex-wrap justify-center lg:justify-start gap-8"
             >
               <div>
-                <p className="text-3xl md:text-4xl font-bold text-gradient">10,000+</p>
-                <p className="text-slate-400 mt-2">Devices Automated</p>
+                <p className="text-3xl md:text-4xl font-bold text-gradient">30–50%</p>
+                <p className="text-slate-400 mt-2">Workload reduced in 90 days</p>
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-bold text-gradient">99.9%</p>
-                <p className="text-slate-400 mt-2">Uptime Guarantee</p>
+                <p className="text-3xl md:text-4xl font-bold text-gradient">60%</p>
+                <p className="text-slate-400 mt-2">Cost reduction typical</p>
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-bold text-gradient">24/7</p>
-                <p className="text-slate-400 mt-2">Expert Support</p>
+                <p className="text-3xl md:text-4xl font-bold text-gradient">75%</p>
+                <p className="text-slate-400 mt-2">Fewer manual tickets</p>
               </div>
             </motion.div>
           </motion.div>
