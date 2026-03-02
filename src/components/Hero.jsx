@@ -99,7 +99,7 @@ const Hero = () => {
                   variant="outline" 
                   className="border-2 border-blue-500/50 text-blue-300 hover:bg-blue-500/10 px-8 py-6 text-lg rounded-xl backdrop-blur-sm"
                 >
-                  Learn More
+                  Get Free Demo
                 </Button>
               </Link>
             </div>
