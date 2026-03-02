@@ -1,11 +1,20 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, Zap, Cloud } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const floatingIcons = [
     { Icon: Sparkles, delay: 0, x: -100, y: -50 },
@@ -16,13 +25,15 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20 pt-40">
-      {/* Animated Background */}
+      {/* Animated Background - Disabled on Mobile */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-950 to-purple-950">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg1OSwgMTMwLCAyNDYsIDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
+        {!isMobile && (
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg1OSwgMTMwLCAyNDYsIDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
+        )}
       </div>
 
-      {/* Floating Icons */}
-      {floatingIcons.map(({ Icon, delay, x, y }, index) => (
+      {/* Floating Icons - Disabled on Mobile for Performance */}
+      {!isMobile && floatingIcons.map(({ Icon, delay, x, y }, index) => (
         <motion.div
           key={index}
           className="absolute text-blue-400/20"
@@ -122,17 +133,20 @@ const Hero = () => {
               {/* Glow effect behind laptop */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-3xl rounded-full"></div>
               
-              {/* Laptop Image */}
+              {/* Laptop Image - Lazy loaded */}
               <motion.img
                 src="/Laptop-mockup.png"
                 alt="AI Automation Platform Dashboard"
                 className="relative z-10 w-full h-auto drop-shadow-2xl"
+                loading="lazy"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 0.4 }}
               />
 
-              {/* Floating elements around laptop */}
+              {/* Floating elements - Reduced animations on mobile */}
+              {!isMobile && (
+                <>
               <motion.div
                 className="absolute -top-6 -right-6 bg-gradient-to-br from-blue-500 to-cyan-500 p-4 rounded-2xl shadow-2xl"
                 animate={{ 
@@ -161,6 +175,8 @@ const Hero = () => {
               >
                 <Cloud className="w-8 h-8 text-white" />
               </motion.div>
+                </>
+              )}
             </div>
           </motion.div>
         </div>

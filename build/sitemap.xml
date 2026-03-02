@@ -6,7 +6,7 @@
   
   <!-- Home Page -->
   <url>
-    <loc>https://cisconnects.com/</loc>
+    <loc>https://www.cisconnects.com/</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,28 +14,28 @@
   
   <!-- Main Pages -->
   <url>
-    <loc>https://cisconnects.com/about</loc>
+    <loc>https://www.cisconnects.com/about</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://cisconnects.com/services</loc>
+    <loc>https://www.cisconnects.com/services</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://cisconnects.com/contact</loc>
+    <loc>https://www.cisconnects.com/contact</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://cisconnects.com/blog</loc>
+    <loc>https://www.cisconnects.com/blog</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -43,21 +43,21 @@
   
   <!-- Service Pages -->
   <url>
-    <loc>https://cisconnects.com/infraaiops</loc>
+    <loc>https://www.cisconnects.com/infraaiops</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://cisconnects.com/missedcalltextback</loc>
+    <loc>https://www.cisconnects.com/missedcalltextback</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://cisconnects.com/websites</loc>
+    <loc>https://www.cisconnects.com/websites</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -65,14 +65,14 @@
   
   <!-- Legal Pages -->
   <url>
-    <loc>https://cisconnects.com/privacy-policy</loc>
+    <loc>https://www.cisconnects.com/privacy-policy</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
-    <loc>https://cisconnects.com/terms-of-service</loc>
+    <loc>https://www.cisconnects.com/terms-of-service</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -80,22 +80,36 @@
   
   <!-- Blog Posts -->
   <url>
-    <loc>https://cisconnects.com/blog/firewall-migration-2025</loc>
+    <loc>https://www.cisconnects.com/blog/firewall-migration-2025</loc>
     <lastmod>2025-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://cisconnects.com/blog/ai-global-economy-2030</loc>
+    <loc>https://www.cisconnects.com/blog/ai-economic-impact-2030</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://cisconnects.com/blog/mcp-langchain-network-automation</loc>
+    <loc>https://www.cisconnects.com/blog/mcp-langchain-network-automation</loc>
     <lastmod>2025-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cisconnects.com/blog/pyats-chatgpt-ollama-network-automation</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cisconnects.com/blog/how-64-percent-of-small-businesses-miss-potential-new-business</loc>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

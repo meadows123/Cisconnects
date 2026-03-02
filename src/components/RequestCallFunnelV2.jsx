@@ -180,9 +180,9 @@ const RequestCallFunnelV2 = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-12"
+            className="flex flex-col gap-4 sm:gap-5 mb-8 sm:mb-12"
           >
-            <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+            <div className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
@@ -191,7 +191,7 @@ const RequestCallFunnelV2 = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+            <div className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
@@ -200,7 +200,7 @@ const RequestCallFunnelV2 = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+            <div className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
@@ -209,7 +209,7 @@ const RequestCallFunnelV2 = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 sm:p-5">
+            <div className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
@@ -274,25 +274,6 @@ const RequestCallFunnelV2 = () => {
               </div>
             </motion.div>
           )}
-
-          {/* Limited Time Offer Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border border-purple-500/50 rounded-lg p-5 sm:p-7 mb-8 sm:mb-12"
-          >
-            <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-3">⏰ LIMITED TIME OFFER</p>
-            <p className="text-sm sm:text-base text-white mb-3">
-              <span className="font-bold">24/7 Emergency Booking Assistant:</span> <span className="text-green-400 font-bold">£97/month</span>
-            </p>
-            <p className="text-sm sm:text-base text-white mb-3">
-              <span className="font-bold">Website & Calendar Add-on:</span> <span className="text-green-400 font-bold">FREE</span>
-            </p>
-            <p className="text-xs sm:text-sm text-gray-300 mt-3">
-              ✨ Normally £100/month—included free with this limited time offer!
-            </p>
-          </motion.div>
 
           {/* Testimonials Section - Slider */}
           <motion.div
@@ -453,6 +434,25 @@ const RequestCallFunnelV2 = () => {
               )}
             </motion.button>
           </motion.form>
+
+          {/* Limited Time Offer Section - Moved to Bottom */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border border-purple-500/50 rounded-lg p-5 sm:p-7 mb-8 sm:mt-12"
+          >
+            <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-3">⏰ LIMITED TIME OFFER</p>
+            <p className="text-sm sm:text-base text-white mb-3">
+              <span className="font-bold">24/7 Emergency Booking Assistant:</span> <span className="text-green-400 font-bold">£97/month</span>
+            </p>
+            <p className="text-sm sm:text-base text-white mb-3">
+              <span className="font-bold">Website & Calendar Add-on:</span> <span className="text-green-400 font-bold">FREE</span>
+            </p>
+            <p className="text-xs sm:text-sm text-gray-300 mt-3">
+              ✨ Normally £100/month—included free with this limited time offer!
+            </p>
+          </motion.div>
 
           {/* Footer */}
           <div className="text-center mt-10 sm:mt-12 text-gray-500 text-xs sm:text-sm">
