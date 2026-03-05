@@ -22,11 +22,13 @@ import RequestCallSuccess from '@/components/RequestCallSuccess';
 import LeadMagnet from '@/components/LeadMagnet';
 import LeadMagnetSuccess from '@/components/LeadMagnetSuccess';
 import ScrollToTop from '@/components/ScrollToTop';
+import PixelTracker from '@/components/PixelTracker';
 import '@/index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <ScrollToTop />
+    <PixelTracker />
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/about" element={<About />} />
