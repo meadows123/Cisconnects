@@ -208,7 +208,61 @@ const RequestCallFunnel = () => {
             </div>
           </motion.div>
 
-          {/* Status Messages */}
+          {/* Feature Boxes Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-4 sm:space-y-5 mb-12 sm:mb-16"
+          >
+            {/* Feature 1 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">Phone rings at midnight while you're on a job</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">AI answers instantly, captures the customer's details and books them automatically</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: Emergency pipe burst call comes in at 11 PM while you're finishing another job. AI answers, gets the address and symptoms, and adds it to your calendar</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See How It Works
+                </button>
+              </Link>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">You can't answer calls while sleeping</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">24/7 AI assistant never closes, capturing every emergency job opportunity</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: After-hours emergency calls get answered instantly, qualified, and added to your schedule - all while you sleep</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See How It Works
+                </button>
+              </Link>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">Manual booking costs you 10 minutes per job</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">Jobs automatically added to your calendar - no data entry needed</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: Instead of writing down details and manually entering them, jobs appear on your calendar ready to go</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See How It Works
+                </button>
+              </Link>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">Customers get no updates until you reply</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">Instant SMS updates keep customers informed and reduce cancellations</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: Customer books a job and immediately gets confirmation text with your ETA - they're locked in and confident</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See How It Works
+                </button>
+              </Link>
+            </div>
+          </motion.div>
           {submitStatus === 'success' && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}

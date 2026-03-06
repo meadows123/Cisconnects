@@ -208,7 +208,61 @@ const RequestCallFunnelV2 = () => {
             </div>
           </motion.div>
 
-          {/* Status Messages */}
+          {/* Feature Boxes Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-4 sm:space-y-5 mb-12 sm:mb-16"
+          >
+            {/* Feature 1 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">60 seconds is all you get, then the job goes to a competitor</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">AI picks up in seconds, qualifies the customer, and books them before competitors even know it happened</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: Emergency gas leak call comes in. You're 5 minutes away from your phone, but AI has already booked it, sent confirmation, and got payment method</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See How It Works
+                </button>
+              </Link>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">You can't move faster than your phone</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">Beat competitors by answering in seconds, every single time</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: While your competitor is still ringing through, you're already confirmed in your calendar with payment ready</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See How It Works
+                </button>
+              </Link>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">Evenings and weekends lose you money</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">24/7 operation means you capture every single emergency call, every single time</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: Saturday night emergency calls are automatically captured and booked while you're with family - they're ready for you Monday morning</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See How It Works
+                </button>
+              </Link>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">Customer hangs up if you don't answer</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">Every call gets answered and qualified, no more "wrong number" or hung-up calls</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: Potential £500+ emergency job gets answered professionally by AI, qualified for urgency, and booked with your team</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See How It Works
+                </button>
+              </Link>
+            </div>
+          </motion.div>
           {submitStatus === 'success' && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
