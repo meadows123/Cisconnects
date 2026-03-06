@@ -180,14 +180,13 @@ const RequestCallFunnel = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col gap-4 sm:gap-5 mb-8 sm:mb-12"
+            className="flex flex-col gap-3 sm:gap-3 mb-12 sm:mb-16"
           >
             <div className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-sm sm:text-base text-white font-semibold">Capture Every After-Hours Enquiry</p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Never lose a call after business hours</p>
+                  <p className="text-xs sm:text-sm text-white font-semibold">Capture After-Hours</p>
                 </div>
               </div>
             </div>
@@ -195,8 +194,7 @@ const RequestCallFunnel = () => {
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-sm sm:text-base text-white font-semibold">Instant SMS Job Alerts</p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Get notified immediately by SMS</p>
+                  <p className="text-xs sm:text-sm text-white font-semibold">SMS Job Alerts</p>
                 </div>
               </div>
             </div>
@@ -204,8 +202,7 @@ const RequestCallFunnel = () => {
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-sm sm:text-base text-white font-semibold">Auto-Book Emergency Call-Outs</p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Automatically schedule and confirm appointments</p>
+                  <p className="text-xs sm:text-sm text-white font-semibold">Auto-Book Instantly</p>
                 </div>
               </div>
             </div>
@@ -213,10 +210,65 @@ const RequestCallFunnel = () => {
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-sm sm:text-base text-white font-semibold">Works 24/7 While You're On-Site or Asleep</p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Your AI handles jobs round the clock</p>
+                  <p className="text-xs sm:text-sm text-white font-semibold">24/7 Automation</p>
                 </div>
               </div>
+            </div>
+          </motion.div>
+
+          {/* Features Section - Full Width Boxes */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="space-y-4 sm:space-y-5 mb-12 sm:mb-16"
+          >
+            {/* Feature 1 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-xs sm:text-sm font-semibold text-red-400 mb-2">❌ Losing calls to voicemail</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-2">AI answers every call instantly, captures details automatically</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Perfect for: Emergency plumbers, electricians, HVAC contractors</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See It In Action
+                </button>
+              </Link>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-xs sm:text-sm font-semibold text-red-400 mb-2">❌ Manual booking takes time</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-2">Automatically schedules jobs and sends confirmation texts</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Perfect for: On-site teams, contractors managing multiple jobs</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See It In Action
+                </button>
+              </Link>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-xs sm:text-sm font-semibold text-red-400 mb-2">❌ Can't respond at night</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-2">24/7 AI assistant never sleeps, works while you rest</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Perfect for: Emergency call-out services, 24-hour support teams</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See It In Action
+                </button>
+              </Link>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
+              <p className="text-xs sm:text-sm font-semibold text-red-400 mb-2">❌ Communication gaps with clients</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-2">Sends real-time SMS updates keeps customers informed</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Perfect for: Reducing missed bookings and improving satisfaction</p>
+              <Link to="/book-demo">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
+                  See It In Action
+                </button>
+              </Link>
             </div>
           </motion.div>
 
