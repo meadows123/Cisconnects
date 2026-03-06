@@ -221,11 +221,15 @@ const RequestCallFunnelV2 = () => {
               <p className="text-sm sm:text-base text-white font-semibold mb-3">Our AI instantly replies to missed calls, answers questions, and books appointments automatically.</p>
               <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Customer calls about a blocked drain while you're on another job. AI replies instantly and books them in for tomorrow morning.</p>
               <div className="flex justify-center">
-                <Link to="/book-demo">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition">
-                    Turn Missed Calls Into Jobs
-                  </button>
-                </Link>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('request-call-form').scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer"
+                >
+                  Turn Missed Calls Into Jobs
+                </button>
               </div>
             </div>
 
@@ -235,11 +239,15 @@ const RequestCallFunnelV2 = () => {
               <p className="text-sm sm:text-base text-white font-semibold mb-3">AI handles incoming enquiries instantly so customers don't move on to the next plumber.</p>
               <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Customer calls for a boiler service quote. AI responds, collects details, and schedules the appointment automatically.</p>
               <div className="flex justify-center">
-                <Link to="/book-demo">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition">
-                    Capture Every Lead
-                  </button>
-                </Link>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('request-call-form').scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer"
+                >
+                  Capture Every Lead
+                </button>
               </div>
             </div>
 
@@ -249,11 +257,15 @@ const RequestCallFunnelV2 = () => {
               <p className="text-sm sm:text-base text-white font-semibold mb-3">AI replies in seconds and keeps the conversation moving.</p>
               <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: A homeowner messages asking about a leaking tap repair. AI answers instantly and books the visit.</p>
               <div className="flex justify-center">
-                <Link to="/book-demo">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition">
-                    Respond In Seconds
-                  </button>
-                </Link>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('request-call-form').scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer"
+                >
+                  Respond In Seconds
+                </button>
               </div>
             </div>
 
@@ -263,9 +275,14 @@ const RequestCallFunnelV2 = () => {
               <p className="text-sm sm:text-base text-white font-semibold mb-3">AI works 24/7, capturing enquiries and bookings while you focus on the job.</p>
               <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Late-night enquiry about a bathroom installation. AI captures the lead and schedules a call for the morning.</p>
               <div className="flex justify-center">
-                <Link to="/book-demo">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition">
-                    Keep Your Calendar Full
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('request-call-form').scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer"
+                >
+                  Keep Your Calendar Full
                   </button>
                 </Link>
               </div>
