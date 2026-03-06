@@ -185,37 +185,25 @@ const RequestCallFunnelV2 = () => {
             <div className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-sm sm:text-base text-white font-semibold">Instant Answer</p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">AI picks up in seconds, you get booked jobs</p>
-                </div>
+                <p className="text-sm sm:text-base text-white font-semibold">Calendar Bookings Instantly</p>
               </div>
             </div>
             <div className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-sm sm:text-base text-white font-semibold">Beat Your Competition</p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Answer before they even pick up the phone</p>
-                </div>
+                <p className="text-sm sm:text-base text-white font-semibold">24/7 Call Capture</p>
               </div>
             </div>
             <div className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-sm sm:text-base text-white font-semibold">No More Missed Calls</p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Every emergency gets answered and booked</p>
-                </div>
+                <p className="text-sm sm:text-base text-white font-semibold">More Emergency Bookings</p>
               </div>
             </div>
             <div className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-sm sm:text-base text-white font-semibold">24/7 Assistant</p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Your AI never sleeps or gets distracted</p>
-                </div>
+                <p className="text-sm sm:text-base text-white font-semibold">Always Answer Customers</p>
               </div>
             </div>
           </motion.div>
