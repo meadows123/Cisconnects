@@ -217,50 +217,58 @@ const RequestCallFunnelV2 = () => {
           >
             {/* Feature 1 */}
             <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">60 seconds is all you get, then the job goes to a competitor</p>
-              <p className="text-sm sm:text-base text-white font-semibold mb-3">AI picks up in seconds, qualifies the customer, and books them before competitors even know it happened</p>
-              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: Emergency gas leak call comes in. You're 5 minutes away from your phone, but AI has already booked it, sent confirmation, and got payment method</p>
-              <Link to="/book-demo">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
-                  See How It Works
-                </button>
-              </Link>
+              <p className="text-sm sm:text-base text-white mb-3">Every missed call is someone ready to book a job.</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">Our AI instantly replies to missed calls, answers questions, and books appointments automatically.</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Customer calls about a blocked drain while you're on another job. AI replies instantly and books them in for tomorrow morning.</p>
+              <div className="flex justify-center">
+                <Link to="/book-demo">
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition">
+                    → Turn Missed Calls Into Jobs
+                  </button>
+                </Link>
+              </div>
             </div>
 
             {/* Feature 2 */}
             <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">You can't move faster than your phone</p>
-              <p className="text-sm sm:text-base text-white font-semibold mb-3">Beat competitors by answering in seconds, every single time</p>
-              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: While your competitor is still ringing through, you're already confirmed in your calendar with payment ready</p>
-              <Link to="/book-demo">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
-                  See How It Works
-                </button>
-              </Link>
+              <p className="text-sm sm:text-base text-white mb-3">Plumbers are under sinks, in lofts, driving, or on-site.</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">AI handles incoming enquiries instantly so customers don't move on to the next plumber.</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Customer calls for a boiler service quote. AI responds, collects details, and schedules the appointment automatically.</p>
+              <div className="flex justify-center">
+                <Link to="/book-demo">
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition">
+                    → Capture Every Lead
+                  </button>
+                </Link>
+              </div>
             </div>
 
             {/* Feature 3 */}
             <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">Evenings and weekends lose you money</p>
-              <p className="text-sm sm:text-base text-white font-semibold mb-3">24/7 operation means you capture every single emergency call, every single time</p>
-              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: Saturday night emergency calls are automatically captured and booked while you're with family - they're ready for you Monday morning</p>
-              <Link to="/book-demo">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
-                  See How It Works
-                </button>
-              </Link>
+              <p className="text-sm sm:text-base text-white mb-3">If someone doesn't get a response quickly, they call the next business.</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">AI replies in seconds and keeps the conversation moving.</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: A homeowner messages asking about a leaking tap repair. AI answers instantly and books the visit.</p>
+              <div className="flex justify-center">
+                <Link to="/book-demo">
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition">
+                    → Respond In Seconds
+                  </button>
+                </Link>
+              </div>
             </div>
 
             {/* Feature 4 */}
             <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-              <p className="text-sm sm:text-base font-bold text-red-400 mb-3">Customer hangs up if you don't answer</p>
-              <p className="text-sm sm:text-base text-white font-semibold mb-3">Every call gets answered and qualified, no more "wrong number" or hung-up calls</p>
-              <p className="text-xs sm:text-sm text-gray-300 mb-4">Plumber's scenario: Potential £500+ emergency job gets answered professionally by AI, qualified for urgency, and booked with your team</p>
-              <Link to="/book-demo">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
-                  See How It Works
-                </button>
-              </Link>
+              <p className="text-sm sm:text-base text-white mb-3">Calls don't only happen during working hours.</p>
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">AI works 24/7, capturing enquiries and bookings while you focus on the job.</p>
+              <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Late-night enquiry about a bathroom installation. AI captures the lead and schedules a call for the morning.</p>
+              <div className="flex justify-center">
+                <Link to="/book-demo">
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition">
+                    → Keep Your Calendar Full
+                  </button>
+                </Link>
+              </div>
             </div>
           </motion.div>
           {submitStatus === 'success' && (
