@@ -180,13 +180,14 @@ const RequestCallFunnelV2 = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col gap-3 sm:gap-3 mb-12 sm:mb-16"
+            className="flex flex-col gap-4 sm:gap-5 mb-8 sm:mb-12"
           >
             <div className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs sm:text-sm text-white font-semibold">Instant Call Answer</p>
+                  <p className="text-sm sm:text-base text-white font-semibold">Instant Answer</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-1">AI picks up in seconds, you get booked jobs</p>
                 </div>
               </div>
             </div>
@@ -194,7 +195,8 @@ const RequestCallFunnelV2 = () => {
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs sm:text-sm text-white font-semibold">Beat Competition</p>
+                  <p className="text-sm sm:text-base text-white font-semibold">Beat Your Competition</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Answer before they even pick up the phone</p>
                 </div>
               </div>
             </div>
@@ -202,7 +204,8 @@ const RequestCallFunnelV2 = () => {
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs sm:text-sm text-white font-semibold">Zero Missed Calls</p>
+                  <p className="text-sm sm:text-base text-white font-semibold">No More Missed Calls</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Every emergency gets answered and booked</p>
                 </div>
               </div>
             </div>
@@ -210,65 +213,10 @@ const RequestCallFunnelV2 = () => {
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs sm:text-sm text-white font-semibold">Round-Clock Support</p>
+                  <p className="text-sm sm:text-base text-white font-semibold">24/7 Assistant</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Your AI never sleeps or gets distracted</p>
                 </div>
               </div>
-            </div>
-          </motion.div>
-
-          {/* Features Section - Full Width Boxes */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-4 sm:space-y-5 mb-12 sm:mb-16"
-          >
-            {/* Feature 1 */}
-            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-              <p className="text-xs sm:text-sm font-semibold text-red-400 mb-2">❌ Slow response loses the job</p>
-              <p className="text-sm sm:text-base text-white font-semibold mb-2">AI answers in seconds with customer details captured instantly</p>
-              <p className="text-xs sm:text-sm text-gray-300 mb-4">Perfect for: Service calls, repairs, urgent inquiries</p>
-              <Link to="/book-demo">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
-                  See It In Action
-                </button>
-              </Link>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-              <p className="text-xs sm:text-sm font-semibold text-red-400 mb-2">❌ Competitors answer first</p>
-              <p className="text-sm sm:text-base text-white font-semibold mb-2">Answer before humans can pick up - automated and faster</p>
-              <p className="text-xs sm:text-sm text-gray-300 mb-4">Perfect for: High-volume call centers, busy contractors</p>
-              <Link to="/book-demo">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
-                  See It In Action
-                </button>
-              </Link>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-              <p className="text-xs sm:text-sm font-semibold text-red-400 mb-2">❌ Phones ring after hours</p>
-              <p className="text-sm sm:text-base text-white font-semibold mb-2">Every call gets answered and booked - nothing falls through</p>
-              <p className="text-xs sm:text-sm text-gray-300 mb-4">Perfect for: Emergency services, after-hours support</p>
-              <Link to="/book-demo">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
-                  See It In Action
-                </button>
-              </Link>
-            </div>
-
-            {/* Feature 4 */}
-            <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-              <p className="text-xs sm:text-sm font-semibold text-red-400 mb-2">❌ Manual answering is exhausting</p>
-              <p className="text-sm sm:text-base text-white font-semibold mb-2">AI handles all inquiries 24/7 without fatigue or mistakes</p>
-              <p className="text-xs sm:text-sm text-gray-300 mb-4">Perfect for: Teams needing continuous availability</p>
-              <Link to="/book-demo">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition">
-                  See It In Action
-                </button>
-              </Link>
             </div>
           </motion.div>
 
