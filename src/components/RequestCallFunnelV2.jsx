@@ -283,8 +283,7 @@ const RequestCallFunnelV2 = () => {
                   className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer"
                 >
                   Keep Your Calendar Full
-                  </button>
-                </Link>
+                </button>
               </div>
             </div>
           </motion.div>
