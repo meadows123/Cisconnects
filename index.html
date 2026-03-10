@@ -20,30 +20,49 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'" />
 	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" /></noscript>
 <title>Conxiea - AI Network Automation</title>
-	<script src="https://analytics.ahrefs.com/analytics.js" data-key="CmIBZBRO60g2bXdk6M0tlw" async></script>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YWNS14MEWX"></script>
+	<!-- Analytics: all third-party scripts deferred until after page load
+	     to eliminate main-thread blocking (GTM was causing 141ms + 65ms tasks) -->
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+	  (function() {
+	    function loadAnalytics() {
+	      // Ahrefs
+	      var ahrefs = document.createElement('script');
+	      ahrefs.src = 'https://analytics.ahrefs.com/analytics.js';
+	      ahrefs.setAttribute('data-key', 'CmIBZBRO60g2bXdk6M0tlw');
+	      ahrefs.async = true;
+	      document.head.appendChild(ahrefs);
 
-	  gtag('config', 'G-YWNS14MEWX');
+	      // Google Analytics (GA4)
+	      window.dataLayer = window.dataLayer || [];
+	      function gtag(){dataLayer.push(arguments);}
+	      window.gtag = gtag;
+	      gtag('js', new Date());
+	      gtag('config', 'G-YWNS14MEWX');
+	      var ga = document.createElement('script');
+	      ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-YWNS14MEWX';
+	      ga.async = true;
+	      document.head.appendChild(ga);
+
+	      // Meta Pixel
+	      !function(f,b,e,v,n,t,s)
+	      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	      n.queue=[];t=b.createElement(e);t.async=!0;
+	      t.src=v;s=b.getElementsByTagName(e)[0];
+	      s.parentNode.insertBefore(t,s)}(window,document,'script',
+	      'https://connect.facebook.net/en_US/fbevents.js');
+	      fbq('init', '2489963461455774');
+	      fbq('track', 'PageView');
+	    }
+
+	    if (document.readyState === 'complete') {
+	      loadAnalytics();
+	    } else {
+	      window.addEventListener('load', loadAnalytics, { once: true });
+	    }
+	  })();
 	</script>
-	<!-- Meta Pixel Code -->
-	<script>
-	!function(f,b,e,v,n,t,s)
-	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-	n.queue=[];t=b.createElement(e);t.async=!0;
-	t.src=v;s=b.getElementsByTagName(e)[0];
-	s.parentNode.insertBefore(t,s)}(window, document,'script',
-	'https://connect.facebook.net/en_US/fbevents.js');
-	fbq('init', '2489963461455774');
-	fbq('track', 'PageView');
-	</script>
-	<!-- End Meta Pixel Code -->
 </head>
 	<body>
 		<noscript><img height="1" width="1" style="display:none"
