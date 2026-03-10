@@ -1,38 +1,41 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from '@/App';
-import BlogList from '@/components/BlogList';
-import BlogPost from '@/components/BlogPost';
-import Contact from '@/components/Contact';
-import Services from '@/components/Services';
-import About from '@/components/About';
-import MissedCallTextBack from '@/components/MissedCallTextBack';
-import InfraAIOps from '@/components/InfraAIOps';
-import WebsiteServices from '@/components/WebsiteServices';
-import PrivacyPolicy from '@/components/PrivacyPolicy';
-import TermsOfService from '@/components/TermsOfService';
-import BookDemo from '@/components/BookDemo';
-import ConsultationFunnel from '@/components/ConsultationFunnel';
-import ConsultationSuccess from '@/components/ConsultationSuccess';
-import ConsultationCalendar from '@/components/ConsultationCalendar';
-import RequestCallFunnel from '@/components/RequestCallFunnel';
-import RequestCallFunnelV2 from '@/components/RequestCallFunnelV2';
-import RequestCallSuccess from '@/components/RequestCallSuccess';
-import LeadMagnet from '@/components/LeadMagnet';
-import LeadMagnetSuccess from '@/components/LeadMagnetSuccess';
-import CafeWifi from '@/components/CafeWifi';
-import OfficeWifi from '@/components/OfficeWifi';
-import NetworkTroubleshooting from '@/components/NetworkTroubleshooting';
-import WifiOptimisation from '@/components/WifiOptimisation';
 import ScrollToTop from '@/components/ScrollToTop';
 import PixelTracker from '@/components/PixelTracker';
 import '@/index.css';
+
+// Route-level code splitting: each page only loads when navigated to
+const BlogList = lazy(() => import('@/components/BlogList'));
+const BlogPost = lazy(() => import('@/components/BlogPost'));
+const Contact = lazy(() => import('@/components/Contact'));
+const Services = lazy(() => import('@/components/Services'));
+const About = lazy(() => import('@/components/About'));
+const MissedCallTextBack = lazy(() => import('@/components/MissedCallTextBack'));
+const InfraAIOps = lazy(() => import('@/components/InfraAIOps'));
+const WebsiteServices = lazy(() => import('@/components/WebsiteServices'));
+const PrivacyPolicy = lazy(() => import('@/components/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('@/components/TermsOfService'));
+const BookDemo = lazy(() => import('@/components/BookDemo'));
+const ConsultationFunnel = lazy(() => import('@/components/ConsultationFunnel'));
+const ConsultationSuccess = lazy(() => import('@/components/ConsultationSuccess'));
+const ConsultationCalendar = lazy(() => import('@/components/ConsultationCalendar'));
+const RequestCallFunnel = lazy(() => import('@/components/RequestCallFunnel'));
+const RequestCallFunnelV2 = lazy(() => import('@/components/RequestCallFunnelV2'));
+const RequestCallSuccess = lazy(() => import('@/components/RequestCallSuccess'));
+const LeadMagnet = lazy(() => import('@/components/LeadMagnet'));
+const LeadMagnetSuccess = lazy(() => import('@/components/LeadMagnetSuccess'));
+const CafeWifi = lazy(() => import('@/components/CafeWifi'));
+const OfficeWifi = lazy(() => import('@/components/OfficeWifi'));
+const NetworkTroubleshooting = lazy(() => import('@/components/NetworkTroubleshooting'));
+const WifiOptimisation = lazy(() => import('@/components/WifiOptimisation'));
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <ScrollToTop />
     <PixelTracker />
+    <Suspense fallback={<div className="min-h-screen bg-slate-950" />}>
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/about" element={<About />} />
@@ -59,6 +62,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
     </Routes>
+    </Suspense>
   </BrowserRouter>
 );
   

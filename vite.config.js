@@ -235,6 +235,7 @@ export default defineConfig({
 	build: {
 		outDir: 'build',
 		emptyOutDir: true,
+		target: 'es2020',
 		rollupOptions: {
 			external: [
 				'@babel/parser',
