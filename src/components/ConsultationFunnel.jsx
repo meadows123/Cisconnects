@@ -141,7 +141,7 @@ const ConsultationFunnel = () => {
         comments: consultationData.comments || 'None',
         to_name: 'Admin',
         to_email: 'admin@conxiea.com',
-        website: 'https://www.cisconnects.com',
+        website: 'https://www.conxiea.com',
         current_date: new Date().toLocaleDateString(),
         current_time: new Date().toLocaleTimeString()
       };

@@ -11,8 +11,8 @@ const StructuredData = ({ type, data }) => {
           '@context': 'https://schema.org',
           '@type': 'Organization',
           name: 'Conxiea',
-          url: 'https://www.cisconnects.com',
-          logo: 'https://www.cisconnects.com/7.png',
+          url: 'https://www.conxiea.com',
+          logo: 'https://www.conxiea.com/7.png',
           description: 'AI network automation and IT infrastructure solutions provider',
           address: {
             '@type': 'PostalAddress',
@@ -30,7 +30,7 @@ const StructuredData = ({ type, data }) => {
             availableLanguage: 'English'
           },
           sameAs: [
-            'https://uk.trustpilot.com/review/cisconnects.com',
+            'https://uk.trustpilot.com/review/conxiea.com',
             'https://www.youtube.com/@conxiea',
             'https://www.instagram.com/conxiea',
             'https://www.linkedin.com/company/conxiea'
@@ -45,7 +45,7 @@ const StructuredData = ({ type, data }) => {
           serviceType: data.serviceType || 'Network Automation Service',
           provider: {
             '@type': 'Organization',
-            name: 'Cisconnects'
+            name: 'Conxiea'
           },
           areaServed: [
             {
@@ -91,7 +91,7 @@ const StructuredData = ({ type, data }) => {
             name: 'Conxiea',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.cisconnects.com/7.png'
+              url: 'https://www.conxiea.com/7.png'
             }
           },
           ...data

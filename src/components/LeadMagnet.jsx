@@ -66,7 +66,7 @@ const LeadMagnet = () => {
           serviceId,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
           {
-            to_email: 'admin@cisconnects.com',
+            to_email: 'admin@conxiea.com',
             from_name: formData.name,
             from_email: formData.email,
             message: `New lead magnet download request from ${formData.name}`,
@@ -298,7 +298,7 @@ const LeadMagnet = () => {
 
             {/* Footer */}
             <div className="text-center pt-6 xs:pt-8 sm:pt-10 md:pt-12 border-t border-slate-700 text-gray-500 text-xs xs:text-sm px-2">
-              <p className="mb-2">© 2026 Cisconnects. All rights reserved.</p>
+              <p className="mb-2">© 2026 Conxiea. All rights reserved.</p>
               <p className="text-xs xs:text-sm text-gray-600 leading-relaxed">
                 This is 100% free. No credit card required. Takes 2-3 minutes to read.
               </p>

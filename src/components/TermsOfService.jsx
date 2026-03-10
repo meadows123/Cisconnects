@@ -15,8 +15,8 @@ const TermsOfService = () => {
   return (
     <>
       <SEO
-        title="Terms of Service | Cisconnects - Service Terms & Conditions"
-        description="Cisconnects Terms of Service - Read our terms and conditions for using our services. Legal terms for AI network automation, website design, and digital solutions."
+        title="Terms of Service | Conxiea - Service Terms & Conditions"
+        description="Conxiea Terms of Service - Read our terms and conditions for using our services. Legal terms for AI network automation, website design, and digital solutions."
         url="/terms-of-service"
       />
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
@@ -56,7 +56,7 @@ const TermsOfService = () => {
                   1. Agreement to Terms
                 </h2>
                 <p className="text-slate-300 leading-relaxed mb-4">
-                  By accessing or using the services provided by Cisconnects ("we", "our", or "us"), including but not limited to our AI network automation platform (InfraAIOps), website design services, AI chatbots, missed call text-back services, and related services (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms").
+                  By accessing or using the services provided by Conxiea ("we", "our", or "us"), including but not limited to our AI network automation platform (InfraAIOps), website design services, AI chatbots, missed call text-back services, and related services (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms").
                 </p>
                 <p className="text-slate-300 leading-relaxed">
                   If you do not agree to these Terms, you must not use our Services. These Terms apply to all users, including clients, visitors, and others who access or use our Services.
@@ -67,7 +67,7 @@ const TermsOfService = () => {
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">2. Description of Services</h2>
                 <p className="text-slate-300 leading-relaxed mb-4">
-                  Cisconnects provides the following services:
+                  Conxiea provides the following services:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-slate-300 ml-4 mb-4">
                   <li><strong>AI Network Automation:</strong> Automated network infrastructure management and monitoring solutions</li>
@@ -139,7 +139,7 @@ const TermsOfService = () => {
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">6. Intellectual Property Rights</h2>
                 <p className="text-slate-300 leading-relaxed mb-4">
-                  <strong>6.1 Our Rights:</strong> All content, features, and functionality of the Services, including but not limited to text, graphics, logos, software, and source code, are owned by Cisconnects or its licensors and are protected by copyright, trademark, and other intellectual property laws.
+                  <strong>6.1 Our Rights:</strong> All content, features, and functionality of the Services, including but not limited to text, graphics, logos, software, and source code, are owned by Conxiea or its licensors and are protected by copyright, trademark, and other intellectual property laws.
                 </p>
                 <p className="text-slate-300 leading-relaxed mb-4">
                   <strong>6.2 Your Content:</strong> You retain ownership of any content you submit to us. By submitting content, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, and distribute such content for the purpose of providing and improving our Services.
@@ -191,7 +191,7 @@ const TermsOfService = () => {
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">9. Limitation of Liability</h2>
                 <p className="text-slate-300 leading-relaxed mb-4">
-                  To the maximum extent permitted by law, Cisconnects shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:
+                  To the maximum extent permitted by law, Conxiea shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-slate-300 ml-4 mb-4">
                   <li>Loss of profits, revenue, data, or business opportunities</li>
@@ -207,7 +207,7 @@ const TermsOfService = () => {
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">10. Indemnification</h2>
                 <p className="text-slate-300 leading-relaxed">
-                  You agree to indemnify, defend, and hold harmless Cisconnects, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in any way connected with your use of the Services, violation of these Terms, or infringement of any rights of another.
+                  You agree to indemnify, defend, and hold harmless Conxiea, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in any way connected with your use of the Services, violation of these Terms, or infringement of any rights of another.
                 </p>
               </section>
 
@@ -264,7 +264,7 @@ const TermsOfService = () => {
                   If you have any questions about these Terms of Service, please contact us:
                 </p>
                 <div className="space-y-2 text-slate-300">
-                  <p><strong className="text-white">Cisconnects</strong></p>
+                  <p><strong className="text-white">Conxiea</strong></p>
                   <p>25 Lyndey Road</p>
                   <p>Bristol, BS16 9HG</p>
                   <p>United Kingdom</p>

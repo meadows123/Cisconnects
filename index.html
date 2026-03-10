@@ -13,6 +13,12 @@
 	<meta name="apple-mobile-web-app-title" content="Conxiea" />
 	<meta name="mobile-web-app-capable" content="yes" />
 <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+	<!-- Preconnect to Google Fonts to eliminate DNS/TCP latency -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<!-- Non-blocking font load (replaces CSS @import which was render-blocking) -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'" />
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" /></noscript>
 <title>Conxiea - AI Network Automation</title>
 	<script src="https://analytics.ahrefs.com/analytics.js" data-key="CmIBZBRO60g2bXdk6M0tlw" async></script>
 	<!-- Google tag (gtag.js) -->

@@ -3,7 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+/* Google Fonts loaded via non-blocking <link> in index.html instead of here
+   to avoid render-blocking CSS @import on mobile */
 
 * {
   -webkit-tap-highlight-color: transparent;

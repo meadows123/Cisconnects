@@ -18,8 +18,8 @@ export default function BlogPost() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       <SEO
-        title={`${post.title} | Cisconnects Blog`}
-        description={post.excerpt || `Read about ${post.title} on the Cisconnects blog. Expert insights on network automation, AI, and IT infrastructure.`}
+        title={`${post.title} | Conxiea Blog`}
+        description={post.excerpt || `Read about ${post.title} on the Conxiea blog. Expert insights on network automation, AI, and IT infrastructure.`}
         url={`/blog/${post.slug}`}
         type="article"
       />

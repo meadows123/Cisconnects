@@ -3,8 +3,8 @@
   RewriteBase /
   
   # Redirect non-www to www
-  RewriteCond %{HTTP_HOST} ^cisconnects\.com [NC]
-  RewriteRule ^(.*)$ https://www.cisconnects.com/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} ^conxiea\.com [NC]
+  RewriteRule ^(.*)$ https://www.conxiea.com/$1 [R=301,L]
   
   # Handle client-side routing
   RewriteCond %{REQUEST_FILENAME} !-f

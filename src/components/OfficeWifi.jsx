@@ -12,11 +12,11 @@ const OfficeWifi = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   const testimonials = [
-    { name: 'James R.', initials: 'JR', role: 'Office Manager', result: 'Dead zones gone, Zoom calls rock solid', review: '"Dead zones all over the office, Zoom calls dropping every meeting. Cisconnects came in, did a proper survey, and sorted everything. Night and day difference."' },
-    { name: 'Anita S.', initials: 'AS', role: 'Operations Director', result: 'Staff stopped tethering to phones — fixed in one visit', review: '"Staff were tethering to their phones just to get work done. Cisconnects fixed the whole office in one visit. Nobody complains about WiFi anymore."' },
+    { name: 'James R.', initials: 'JR', role: 'Office Manager', result: 'Dead zones gone, Zoom calls rock solid', review: '"Dead zones all over the office, Zoom calls dropping every meeting. Conxiea came in, did a proper survey, and sorted everything. Night and day difference."' },
+    { name: 'Anita S.', initials: 'AS', role: 'Operations Director', result: 'Staff stopped tethering to phones — fixed in one visit', review: '"Staff were tethering to their phones just to get work done. Conxiea fixed the whole office in one visit. Nobody complains about WiFi anymore."' },
     { name: 'Tom W.', initials: 'TW', role: 'IT Manager', result: 'Teams calls have not dropped once since the fix', review: '"Fast, professional, and they actually explained what was wrong. Our Teams calls are rock solid now. Would recommend to any business."' },
-    { name: 'Chris M.', initials: 'CM', role: 'Managing Director', result: 'Network handled 30 new staff without issue', review: '"We doubled our headcount and the WiFi couldn\'t cope. Cisconnects redesigned the whole office network properly. Zero complaints since."' },
-    { name: 'Julia F.', initials: 'JF', role: 'CEO', result: 'VPN reliable for all remote workers now', review: '"Remote working was an absolute mess — VPN always failing, calls dropping. Our MSP couldn\'t fix it. Cisconnects found the issue immediately."' },
+    { name: 'Chris M.', initials: 'CM', role: 'Managing Director', result: 'Network handled 30 new staff without issue', review: '"We doubled our headcount and the WiFi couldn\'t cope. Conxiea redesigned the whole office network properly. Zero complaints since."' },
+    { name: 'Julia F.', initials: 'JF', role: 'CEO', result: 'VPN reliable for all remote workers now', review: '"Remote working was an absolute mess — VPN always failing, calls dropping. Our MSP couldn\'t fix it. Conxiea found the issue immediately."' },
   ];
 
   const nextTestimonial = () => setCurrentTestimonialIndex((prev) => (prev + 1) % testimonials.length);
@@ -47,7 +47,7 @@ const OfficeWifi = () => {
         phone: formData.phone,
         message: 'Enquiry from Office WiFi landing page',
         service_interest: 'Office WiFi Solution',
-        to_name: 'Cisconnects Team',
+        to_name: 'Conxiea Team',
         reply_to: formData.email,
       });
       setSubmitStatus('success');
@@ -63,8 +63,8 @@ const OfficeWifi = () => {
   return (
     <>
       <SEO
-        title="WiFi for Offices | Fix Slow Office WiFi & Dead Zones | Cisconnects"
-        description="Dropped Zoom calls, dead zones, slow meeting room internet? Cisconnects fixes slow office WiFi and eliminates dead zones permanently. Network engineers — not a helpdesk."
+        title="WiFi for Offices | Fix Slow Office WiFi & Dead Zones | Conxiea"
+        description="Dropped Zoom calls, dead zones, slow meeting room internet? Conxiea fixes slow office WiFi and eliminates dead zones permanently. Network engineers — not a helpdesk."
         url="/office-connectivity"
       />
       <div className="min-h-screen bg-slate-950 flex flex-col">
@@ -77,11 +77,11 @@ const OfficeWifi = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-8 sm:mb-12"
             >
-              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-snug xs:leading-tight">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
                 How Much Productivity Is Your Office{' '}
                 <span className="border-b-2 border-blue-500">Losing to Bad WiFi?</span>
               </h1>
-              <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-semibold text-gray-300 mb-6 xs:mb-8 sm:mb-10 md:mb-12">
+              <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
                 Dropped Zoom calls, dead zones, staff tethering to phones.{' '}
                 <span className="border-b-2 border-blue-500 text-white">It costs more than you think.</span>
               </p>
@@ -89,30 +89,10 @@ const OfficeWifi = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })}
-                className="inline-block px-6 xs:px-8 sm:px-10 py-2.5 xs:py-3 sm:py-3.5 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-sm xs:text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500"
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
               >
                 Fix My Office WiFi
               </motion.button>
-            </motion.div>
-
-            {/* Trust Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="grid grid-cols-2 gap-3 mb-8 sm:mb-12"
-            >
-              {[
-                { number: '50+', label: 'Offices Upgraded' },
-                { number: '4.9★', label: 'Google Rating' },
-                { number: '100%', label: 'Dead Zones Eliminated' },
-                { number: '100%', label: 'Fixed Price Guarantee' },
-              ].map((stat, i) => (
-                <div key={i} className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-3 sm:p-4 text-center">
-                  <p className="text-xl sm:text-2xl font-bold text-white">{stat.number}</p>
-                  <p className="text-xs sm:text-sm text-gray-400 mt-1">{stat.label}</p>
-                </div>
-              ))}
             </motion.div>
 
             {/* Benefits */}
@@ -149,7 +129,7 @@ const OfficeWifi = () => {
                 <p className="text-sm sm:text-base text-white font-semibold mb-3">We assess your office and install coverage that makes video calls reliable in every meeting room.</p>
                 <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Important client presentation. Zoom cuts out twice. We ensure your meeting rooms have dedicated, strong WiFi so it never happens again.</p>
                 <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer">Fix My Meeting Rooms</button>
+                  <button onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Fix My Meeting Rooms</button>
                 </div>
               </div>
               <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
@@ -157,7 +137,7 @@ const OfficeWifi = () => {
                 <p className="text-sm sm:text-base text-white font-semibold mb-3">We survey every area and eliminate dead zones so every desk has a strong, consistent signal.</p>
                 <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Staff at the far end of the office get barely 1 bar. They're slower, more frustrated, and less productive. We fix coverage across the whole floor.</p>
                 <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer">Eliminate Dead Zones</button>
+                  <button onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Eliminate Dead Zones</button>
                 </div>
               </div>
               <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
@@ -165,7 +145,7 @@ const OfficeWifi = () => {
                 <p className="text-sm sm:text-base text-white font-semibold mb-3">We build a network that actually works — so your team stops working around the problem.</p>
                 <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Three members of staff are using mobile data because the office WiFi is too slow. We fix the root cause, not the symptom.</p>
                 <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer">Sort My Office Network</button>
+                  <button onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Sort My Office Network</button>
                 </div>
               </div>
               <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
@@ -173,7 +153,7 @@ const OfficeWifi = () => {
                 <p className="text-sm sm:text-base text-white font-semibold mb-3">We're network engineers, not a helpdesk. We diagnose and fix the real problem, not the surface symptoms.</p>
                 <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: You've reported slow WiFi twice. Each time someone reboots the router and calls it done. We find and fix the actual cause.</p>
                 <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer">Get a Real Engineer</button>
+                  <button onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Get a Real Engineer</button>
                 </div>
               </div>
             </motion.div>
@@ -214,6 +194,19 @@ const OfficeWifi = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mb-8 sm:mb-12"
             >
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                {[
+                  { number: '50+', label: 'Offices Upgraded' },
+                  { number: '4.9★', label: 'Google Rating' },
+                  { number: '100%', label: 'Dead Zones Eliminated' },
+                  { number: '100%', label: 'Fixed Price Guarantee' },
+                ].map((stat, i) => (
+                  <div key={i} className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-3 sm:p-4 text-center">
+                    <p className="text-xl sm:text-2xl font-bold text-white">{stat.number}</p>
+                    <p className="text-xs sm:text-sm text-gray-400 mt-1">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
               <div className="flex items-center justify-center gap-3 mb-5 sm:mb-7">
                 <div className="h-px flex-1 bg-slate-700" />
                 <h3 className="text-center text-lg sm:text-xl font-bold text-white whitespace-nowrap">What our customers say</h3>
@@ -226,7 +219,7 @@ const OfficeWifi = () => {
                 <span className="text-gray-400 text-xs">· 30+ Google Reviews</span>
               </div>
               <div className="flex items-center justify-between gap-3 sm:gap-4">
-                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={prevTestimonial} className="flex-shrink-0 p-2 sm:p-3 bg-blue-600/20 border border-blue-500/30 rounded-lg hover:bg-blue-600/40 transition text-white">
+                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={prevTestimonial} className="flex-shrink-0 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center bg-blue-600/20 border border-blue-500/30 rounded-lg hover:bg-blue-600/40 active:bg-blue-600/60 transition text-white">
                   <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.button>
                 <motion.div key={currentTestimonialIndex} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="flex-1 bg-slate-800/50 border border-slate-700 rounded-lg p-4 sm:p-5">
@@ -258,7 +251,7 @@ const OfficeWifi = () => {
                     ))}
                   </div>
                 </motion.div>
-                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={nextTestimonial} className="flex-shrink-0 p-2 sm:p-3 bg-blue-600/20 border border-blue-500/30 rounded-lg hover:bg-blue-600/40 transition text-white">
+                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={nextTestimonial} className="flex-shrink-0 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center bg-blue-600/20 border border-blue-500/30 rounded-lg hover:bg-blue-600/40 active:bg-blue-600/60 transition text-white">
                   <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.button>
               </div>
@@ -281,24 +274,6 @@ const OfficeWifi = () => {
                 <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If your office WiFi isn't measurably better after we leave, you don't pay."</p>
                 <p className="text-sm text-gray-400">We survey properly, we fix properly. If you don't see a clear improvement, we won't charge you a penny.</p>
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { icon: '🛡', title: 'Fixed Price', desc: 'Agreed before we start — no surprises' },
-                  { icon: '⚡', title: 'Fast Response', desc: 'Same-day or next-day available' },
-                  { icon: '🔧', title: 'Real Engineers', desc: 'Network specialists, not a helpdesk' },
-                  { icon: '📋', title: 'Full Diagnosis', desc: 'You know exactly what was wrong' },
-                  { icon: '💬', title: 'Plain English', desc: 'No jargon — we explain everything' },
-                  { icon: '✅', title: 'No Fix, No Fee', desc: "No improvement? You pay nothing" },
-                ].map((item, i) => (
-                  <div key={i} className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-3 sm:p-4 flex gap-3 items-start">
-                    <span className="text-xl flex-shrink-0">{item.icon}</span>
-                    <div>
-                      <p className="text-sm font-semibold text-white">{item.title}</p>
-                      <p className="text-xs text-gray-400 mt-0.5">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </motion.div>
 
             {/* Form */}
@@ -311,15 +286,15 @@ const OfficeWifi = () => {
             >
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Your First Name <span className="text-red-500">*</span></label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your First Name" className="w-full px-3.5 sm:px-4 py-3 sm:py-3.5 text-sm sm:text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your First Name" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
               </div>
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Email Address <span className="text-red-500">*</span></label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter Your Email Address" className="w-full px-3.5 sm:px-4 py-3 sm:py-3.5 text-sm sm:text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter Your Email Address" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
               </div>
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Phone Number <span className="text-red-500">*</span></label>
-                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" className="w-full px-3.5 sm:px-4 py-3 sm:py-3.5 text-sm sm:text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
               </div>
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -352,7 +327,7 @@ const OfficeWifi = () => {
 
             {/* Footer */}
             <div className="text-center mt-10 sm:mt-12 text-gray-500 text-xs sm:text-sm">
-              <p className="mb-3 sm:mb-4 text-xs sm:text-sm">© 2026 Cisconnects. All rights reserved.</p>
+              <p className="mb-3 sm:mb-4 text-xs sm:text-sm">© 2026 Conxiea. All rights reserved.</p>
               <div className="flex justify-center gap-3 sm:gap-6 flex-wrap">
                 <Link to="/privacy-policy" className="hover:text-blue-400 transition text-xs sm:text-sm">Privacy Policy</Link>
                 <Link to="/terms-of-service" className="hover:text-blue-400 transition text-xs sm:text-sm">Terms of Service</Link>

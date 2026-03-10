@@ -241,7 +241,14 @@ export default defineConfig({
 				'@babel/traverse',
 				'@babel/generator',
 				'@babel/types'
-			]
+			],
+			output: {
+				manualChunks: {
+					'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+					'vendor-motion': ['framer-motion'],
+					'vendor-ui': ['lucide-react', '@emailjs/browser'],
+				}
+			}
 		}
 	}
 });

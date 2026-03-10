@@ -12,7 +12,7 @@ export default function BlogList() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       <SEO
-        title="Blog & Insights | Cisconnects - Network Automation & AI Articles"
+        title="Blog & Insights | Conxiea - Network Automation & AI Articles"
         description="Expert perspectives on network automation, AI, firewall migrations, and the future of IT infrastructure. Stay ahead with insights from industry-leading network automation experts."
         url="/blog"
       />

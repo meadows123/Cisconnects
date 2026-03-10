@@ -176,7 +176,7 @@ const TrustpilotWidget = () => {
 
           {/* Link to Trustpilot Reviews Page */}
           <a
-            href="https://uk.trustpilot.com/review/cisconnects.com"
+            href="https://uk.trustpilot.com/review/conxiea.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 hover:scale-105 transform"

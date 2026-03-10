@@ -10,7 +10,7 @@ const SEO = ({
 }) => {
   const siteUrl = typeof window !== 'undefined' 
     ? window.location.origin 
-    : 'https://www.cisconnects.com';
+    : 'https://www.conxiea.com';
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
 

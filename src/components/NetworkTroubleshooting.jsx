@@ -12,11 +12,11 @@ const NetworkTroubleshooting = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   const testimonials = [
-    { name: 'David M.', initials: 'DM', role: 'Operations Manager', result: 'Network fixed same day after 3 weeks of downtime', review: '"Our network had been broken for 3 weeks. Our MSP kept saying they were escalating it. Cisconnects diagnosed and fixed it the same day. Unbelievable."' },
-    { name: 'Claire H.', initials: 'CH', role: 'Finance Director', result: 'VPN & device issues resolved in a single session', review: '"VPN kept dropping, devices kept disconnecting. Cisconnects found the root cause immediately and explained everything clearly. Sorted in one session."' },
+    { name: 'David M.', initials: 'DM', role: 'Operations Manager', result: 'Network fixed same day after 3 weeks of downtime', review: '"Our network had been broken for 3 weeks. Our MSP kept saying they were escalating it. Conxiea diagnosed and fixed it the same day. Unbelievable."' },
+    { name: 'Claire H.', initials: 'CH', role: 'Finance Director', result: 'VPN & device issues resolved in a single session', review: '"VPN kept dropping, devices kept disconnecting. Conxiea found the root cause immediately and explained everything clearly. Sorted in one session."' },
     { name: 'Raj P.', initials: 'RP', role: 'IT Lead', result: 'Root cause identified and resolved — not just rebooted', review: '"Spoke to an actual engineer, not a script. Problem was fixed fast, and we finally understand what was causing it. Worth every penny."' },
-    { name: 'Sophie T.', initials: 'ST', role: 'Office Manager', result: 'ISP fault proved and resolved — no more random drops', review: '"We had random drops for months. Our ISP kept blaming our router. Cisconnects proved it was the ISP\'s fault and got it escalated and fixed within days."' },
-    { name: 'Mark O.', initials: 'MO', role: 'Managing Director', result: 'Staff back online in under 4 hours', review: '"Half the office couldn\'t connect. We were losing thousands an hour. Cisconnects came in fast, found the issue in the switching layer, and had everyone back online quickly."' },
+    { name: 'Sophie T.', initials: 'ST', role: 'Office Manager', result: 'ISP fault proved and resolved — no more random drops', review: '"We had random drops for months. Our ISP kept blaming our router. Conxiea proved it was the ISP\'s fault and got it escalated and fixed within days."' },
+    { name: 'Mark O.', initials: 'MO', role: 'Managing Director', result: 'Staff back online in under 4 hours', review: '"Half the office couldn\'t connect. We were losing thousands an hour. Conxiea came in fast, found the issue in the switching layer, and had everyone back online quickly."' },
   ];
 
   const nextTestimonial = () => setCurrentTestimonialIndex((prev) => (prev + 1) % testimonials.length);
@@ -47,7 +47,7 @@ const NetworkTroubleshooting = () => {
         phone: formData.phone,
         message: 'Enquiry from Network Troubleshooting landing page',
         service_interest: 'Network Troubleshooting (£350)',
-        to_name: 'Cisconnects Team',
+        to_name: 'Conxiea Team',
         reply_to: formData.email,
       });
       setSubmitStatus('success');
@@ -63,8 +63,8 @@ const NetworkTroubleshooting = () => {
   return (
     <>
       <SEO
-        title="Network Troubleshooting £350 | Network Problems Solved Fast | Cisconnects"
-        description="Network broken for weeks and nobody can fix it? Cisconnects resolves your network issues fast — by a certified network engineer, not a helpdesk. Fixed-price network troubleshooting from £350."
+        title="Network Troubleshooting £350 | Network Problems Solved Fast | Conxiea"
+        description="Network broken for weeks and nobody can fix it? Conxiea resolves your network issues fast — by a certified network engineer, not a helpdesk. Fixed-price network troubleshooting from £350."
         url="/network-troubleshooting"
       />
       <div className="min-h-screen bg-slate-950 flex flex-col">
@@ -77,12 +77,12 @@ const NetworkTroubleshooting = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-8 sm:mb-12"
             >
-              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-snug xs:leading-tight">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
                 Has Your Network Been{' '}
                 <span className="border-b-2 border-blue-500">Broken for Weeks</span>{' '}
                 and Nobody Can Fix It?
               </h1>
-              <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-semibold text-gray-300 mb-6 xs:mb-8 sm:mb-10 md:mb-12">
+              <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
                 Many MSPs take{' '}
                 <span className="border-b-2 border-blue-500 text-white">days to even escalate</span>{' '}
                 networking issues. We fix it.
@@ -91,30 +91,10 @@ const NetworkTroubleshooting = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })}
-                className="inline-block px-6 xs:px-8 sm:px-10 py-2.5 xs:py-3 sm:py-3.5 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-sm xs:text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500"
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
               >
                 Get My Network Fixed &mdash; £350
               </motion.button>
-            </motion.div>
-
-            {/* Trust Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="grid grid-cols-2 gap-3 mb-8 sm:mb-12"
-            >
-              {[
-                { number: '50+', label: 'Networks Fixed' },
-                { number: '4.9★', label: 'Google Rating' },
-                { number: 'Same Day', label: 'Response Time' },
-                { number: '£350', label: 'Fixed Price — No Surprises' },
-              ].map((stat, i) => (
-                <div key={i} className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-3 sm:p-4 text-center">
-                  <p className="text-xl sm:text-2xl font-bold text-white">{stat.number}</p>
-                  <p className="text-xs sm:text-sm text-gray-400 mt-1">{stat.label}</p>
-                </div>
-              ))}
             </motion.div>
 
             {/* Benefits */}
@@ -151,7 +131,7 @@ const NetworkTroubleshooting = () => {
                 <p className="text-sm sm:text-base text-white font-semibold mb-3">We identify the root cause of random dropouts and fix it properly — not just reboot and hope.</p>
                 <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Internet drops 4 times a day. Your MSP reboots the router each time. We find the actual cause — whether it's an ISP fault, hardware failure, or config issue — and fix it.</p>
                 <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer">Fix Random Dropouts</button>
+                  <button onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Fix Random Dropouts</button>
                 </div>
               </div>
               <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
@@ -159,7 +139,7 @@ const NetworkTroubleshooting = () => {
                 <p className="text-sm sm:text-base text-white font-semibold mb-3">We diagnose VPN and device connectivity issues at the network level, not just the software.</p>
                 <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Remote staff can't connect. IT tells them to reinstall the VPN client. We check the routing, firewall rules, and tunnel config to find the real issue.</p>
                 <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer">Fix My VPN Issues</button>
+                  <button onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Fix My VPN Issues</button>
                 </div>
               </div>
               <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
@@ -167,7 +147,7 @@ const NetworkTroubleshooting = () => {
                 <p className="text-sm sm:text-base text-white font-semibold mb-3">We trace device disconnection issues back to their source — DHCP, switching, wireless, or authentication.</p>
                 <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Specific devices keep dropping off the network. We analyse the logs and identify whether it's a DHCP lease issue, switch port config, or something else entirely.</p>
                 <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer">Fix Device Disconnections</button>
+                  <button onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Fix Device Disconnections</button>
                 </div>
               </div>
               <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
@@ -175,7 +155,7 @@ const NetworkTroubleshooting = () => {
                 <p className="text-sm sm:text-base text-white font-semibold mb-3">Network problems solved by a network engineer — not a helpdesk.</p>
                 <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Network broken for 2 weeks, tickets raised, nobody fixes it. We come in, diagnose it properly, and resolve it in a single session. Fixed price: £350.</p>
                 <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded transition cursor-pointer">Book a Session Now</button>
+                  <button onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Book a Session Now</button>
                 </div>
               </div>
             </motion.div>
@@ -216,6 +196,19 @@ const NetworkTroubleshooting = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mb-8 sm:mb-12"
             >
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                {[
+                  { number: '50+', label: 'Networks Fixed' },
+                  { number: '4.9★', label: 'Google Rating' },
+                  { number: 'Same Day', label: 'Response Time' },
+                  { number: '£350', label: 'Fixed Price — No Surprises' },
+                ].map((stat, i) => (
+                  <div key={i} className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-3 sm:p-4 text-center">
+                    <p className="text-xl sm:text-2xl font-bold text-white">{stat.number}</p>
+                    <p className="text-xs sm:text-sm text-gray-400 mt-1">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
               <div className="flex items-center justify-center gap-3 mb-5 sm:mb-7">
                 <div className="h-px flex-1 bg-slate-700" />
                 <h3 className="text-center text-lg sm:text-xl font-bold text-white whitespace-nowrap">What our customers say</h3>
@@ -228,7 +221,7 @@ const NetworkTroubleshooting = () => {
                 <span className="text-gray-400 text-xs">· 30+ Google Reviews</span>
               </div>
               <div className="flex items-center justify-between gap-3 sm:gap-4">
-                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={prevTestimonial} className="flex-shrink-0 p-2 sm:p-3 bg-blue-600/20 border border-blue-500/30 rounded-lg hover:bg-blue-600/40 transition text-white">
+                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={prevTestimonial} className="flex-shrink-0 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center bg-blue-600/20 border border-blue-500/30 rounded-lg hover:bg-blue-600/40 active:bg-blue-600/60 transition text-white">
                   <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.button>
                 <motion.div key={currentTestimonialIndex} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="flex-1 bg-slate-800/50 border border-slate-700 rounded-lg p-4 sm:p-5">
@@ -260,7 +253,7 @@ const NetworkTroubleshooting = () => {
                     ))}
                   </div>
                 </motion.div>
-                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={nextTestimonial} className="flex-shrink-0 p-2 sm:p-3 bg-blue-600/20 border border-blue-500/30 rounded-lg hover:bg-blue-600/40 transition text-white">
+                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={nextTestimonial} className="flex-shrink-0 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center bg-blue-600/20 border border-blue-500/30 rounded-lg hover:bg-blue-600/40 active:bg-blue-600/60 transition text-white">
                   <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.button>
               </div>
@@ -283,24 +276,6 @@ const NetworkTroubleshooting = () => {
                 <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If we can't diagnose your network problem in the session, you don't pay."</p>
                 <p className="text-sm text-gray-400">We only take on jobs we're confident we can resolve. No diagnosis means no charge — no questions asked.</p>
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { icon: '🛡', title: 'Fixed Price', desc: '£350 agreed upfront — no surprises' },
-                  { icon: '⚡', title: 'Fast Response', desc: 'Same-day or next-day available' },
-                  { icon: '🔧', title: 'Real Engineers', desc: 'Network specialists, not a helpdesk' },
-                  { icon: '📋', title: 'Full Diagnosis', desc: 'Written report of what was wrong' },
-                  { icon: '💬', title: 'Plain English', desc: 'No jargon — we explain everything' },
-                  { icon: '✅', title: 'No Fix, No Fee', desc: "Can't diagnose it? You pay nothing" },
-                ].map((item, i) => (
-                  <div key={i} className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-3 sm:p-4 flex gap-3 items-start">
-                    <span className="text-xl flex-shrink-0">{item.icon}</span>
-                    <div>
-                      <p className="text-sm font-semibold text-white">{item.title}</p>
-                      <p className="text-xs text-gray-400 mt-0.5">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </motion.div>
 
             {/* Form */}
@@ -313,15 +288,15 @@ const NetworkTroubleshooting = () => {
             >
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Your First Name <span className="text-red-500">*</span></label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your First Name" className="w-full px-3.5 sm:px-4 py-3 sm:py-3.5 text-sm sm:text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your First Name" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
               </div>
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Email Address <span className="text-red-500">*</span></label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter Your Email Address" className="w-full px-3.5 sm:px-4 py-3 sm:py-3.5 text-sm sm:text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter Your Email Address" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
               </div>
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Phone Number <span className="text-red-500">*</span></label>
-                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" className="w-full px-3.5 sm:px-4 py-3 sm:py-3.5 text-sm sm:text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
               </div>
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -353,7 +328,7 @@ const NetworkTroubleshooting = () => {
 
             {/* Footer */}
             <div className="text-center mt-10 sm:mt-12 text-gray-500 text-xs sm:text-sm">
-              <p className="mb-3 sm:mb-4 text-xs sm:text-sm">© 2026 Cisconnects. All rights reserved.</p>
+              <p className="mb-3 sm:mb-4 text-xs sm:text-sm">© 2026 Conxiea. All rights reserved.</p>
               <div className="flex justify-center gap-3 sm:gap-6 flex-wrap">
                 <Link to="/privacy-policy" className="hover:text-blue-400 transition text-xs sm:text-sm">Privacy Policy</Link>
                 <Link to="/terms-of-service" className="hover:text-blue-400 transition text-xs sm:text-sm">Terms of Service</Link>

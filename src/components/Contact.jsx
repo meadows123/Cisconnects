@@ -51,7 +51,7 @@ const Contact = () => {
         reply_to: formData.email,
         // Additional branded content
         company_name: 'InfraOpsAI',
-        website: 'https://www.cisconnects.com',
+        website: 'https://www.conxiea.com',
         current_date: new Date().toLocaleDateString(),
         current_time: new Date().toLocaleTimeString()
       };

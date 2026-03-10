@@ -91,7 +91,7 @@ const RequestCallFunnelV2 = () => {
           serviceId,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
           {
-            to_email: 'admin@cisconnects.com',
+            to_email: 'admin@conxiea.com',
             from_name: formData.name,
             from_email: formData.email,
             phone_number: formData.phone,
@@ -522,7 +522,7 @@ const RequestCallFunnelV2 = () => {
 
           {/* Footer */}
           <div className="text-center mt-10 sm:mt-12 text-gray-500 text-xs sm:text-sm">
-            <p className="mb-3 sm:mb-4 text-xs sm:text-sm">© 2026 Cisconnects. All rights reserved.</p>
+            <p className="mb-3 sm:mb-4 text-xs sm:text-sm">© 2026 Conxiea. All rights reserved.</p>
             <div className="flex justify-center gap-3 sm:gap-6 flex-wrap">
               <Link to="/privacy-policy" className="hover:text-blue-400 transition text-xs sm:text-sm">
                 Privacy Policy

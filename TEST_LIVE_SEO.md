@@ -6,7 +6,7 @@ Now that your site is live, here's how to verify all SEO elements are working:
 
 ### Method 1: Google Rich Results Test (Best for Structured Data)
 1. Go to: **https://search.google.com/test/rich-results**
-2. Enter your live URL: `https://cisconnects.com/infraaiops`
+2. Enter your live URL: `https://conxiea.com/infraaiops`
 3. Click "Test URL"
 4. **Expected Results:**
    - ✅ FAQPage schema detected
@@ -15,7 +15,7 @@ Now that your site is live, here's how to verify all SEO elements are working:
 
 ### Method 2: Schema Markup Validator
 1. Go to: **https://validator.schema.org/**
-2. Enter your live URL: `https://cisconnects.com/infraaiops`
+2. Enter your live URL: `https://conxiea.com/infraaiops`
 3. Click "Run Test"
 4. Should show all schemas as valid
 
@@ -23,22 +23,22 @@ Now that your site is live, here's how to verify all SEO elements are working:
 
 **Facebook Sharing Debugger:**
 - URL: https://developers.facebook.com/tools/debug/
-- Enter: `https://cisconnects.com/infraaiops`
+- Enter: `https://conxiea.com/infraaiops`
 - Click "Debug"
 - Should show Open Graph preview with title, description, and image
 
 **Twitter Card Validator:**
 - URL: https://cards-dev.twitter.com/validator
-- Enter: `https://cisconnects.com/infraaiops`
+- Enter: `https://conxiea.com/infraaiops`
 - Should show Twitter card preview
 
 **LinkedIn Post Inspector:**
 - URL: https://www.linkedin.com/post-inspector/
-- Enter: `https://cisconnects.com/infraaiops`
+- Enter: `https://conxiea.com/infraaiops`
 - Should show LinkedIn preview
 
 ### Method 4: Browser DevTools (On Live Site)
-1. Visit your live site: `https://cisconnects.com/infraaiops`
+1. Visit your live site: `https://conxiea.com/infraaiops`
 2. Press `F12` to open DevTools
 3. Go to **Elements** tab
 4. Expand `<html>` → `<head>`
@@ -49,7 +49,7 @@ Now that your site is live, here's how to verify all SEO elements are working:
    - `<script type="application/ld+json">` (should contain FAQPage)
 
 ### Method 5: View Page Source (Live Site)
-1. Visit: `https://cisconnects.com/infraaiops`
+1. Visit: `https://conxiea.com/infraaiops`
 2. Right-click → "View Page Source"
 3. Press `Ctrl+F` and search for:
    - `FAQPage` - Should find it in JSON-LD
@@ -87,8 +87,8 @@ Now that your site is live, here's how to verify all SEO elements are working:
 
 ### Google Search Console
 1. Go to: https://search.google.com/search-console
-2. Add your property: `https://cisconnects.com`
-3. Submit sitemap: `https://cisconnects.com/sitemap.xml`
+2. Add your property: `https://conxiea.com`
+3. Submit sitemap: `https://conxiea.com/sitemap.xml`
 4. Monitor for:
    - Indexing status
    - Rich results (FAQ snippets)
@@ -97,16 +97,16 @@ Now that your site is live, here's how to verify all SEO elements are working:
 ### Bing Webmaster Tools
 1. Go to: https://www.bing.com/webmasters
 2. Add your site
-3. Submit sitemap: `https://cisconnects.com/sitemap.xml`
+3. Submit sitemap: `https://conxiea.com/sitemap.xml`
 
 ### PageSpeed Insights
 1. Go to: https://pagespeed.web.dev/
-2. Enter: `https://cisconnects.com/infraaiops`
+2. Enter: `https://conxiea.com/infraaiops`
 3. Check SEO score (should be 90+)
 
 ## 🧪 Quick Console Test (Live Site)
 
-1. Visit: `https://cisconnects.com/infraaiops`
+1. Visit: `https://conxiea.com/infraaiops`
 2. Open DevTools Console (F12 → Console)
 3. Paste this code:
 

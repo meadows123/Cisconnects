@@ -221,7 +221,7 @@ const PrivacyPolicy = () => {
                   If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us:
                 </p>
                 <div className="space-y-2 text-slate-300">
-                  <p><strong className="text-white">Cisconnects</strong></p>
+                  <p><strong className="text-white">Conxiea</strong></p>
                   <p>25 Lyndey Road</p>
                   <p>Bristol, BS16 9HG</p>
                   <p>United Kingdom</p>
