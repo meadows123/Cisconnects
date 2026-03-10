@@ -50,8 +50,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/request-call-success" element={<RequestCallSuccess />} />
       <Route path="/lead-magnet" element={<LeadMagnet />} />
       <Route path="/lead-magnet-success" element={<LeadMagnetSuccess />} />
-      <Route path="/wifi-for-cafes" element={<CafeWifi />} />
-      <Route path="/wifi-for-offices" element={<OfficeWifi />} />
+      <Route path="/reliable-cafe-connectivity" element={<CafeWifi />} />
+      <Route path="/office-connectivity" element={<OfficeWifi />} />
       <Route path="/network-troubleshooting" element={<NetworkTroubleshooting />} />
       <Route path="/wifi-optimisation" element={<WifiOptimisation />} />
       <Route path="/blog" element={<BlogList />} />
