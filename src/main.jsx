@@ -1,10 +1,12 @@
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from '@/App';
 import ScrollToTop from '@/components/ScrollToTop';
 import PixelTracker from '@/components/PixelTracker';
 import '@/index.css';
+
+// Every route is lazily loaded — nothing beyond the router bootstraps upfront
+const App = lazy(() => import('@/App'));
 
 // Route-level code splitting: each page only loads when navigated to
 const BlogList = lazy(() => import('@/components/BlogList'));
