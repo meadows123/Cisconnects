@@ -21,6 +21,10 @@ import RequestCallFunnelV2 from '@/components/RequestCallFunnelV2';
 import RequestCallSuccess from '@/components/RequestCallSuccess';
 import LeadMagnet from '@/components/LeadMagnet';
 import LeadMagnetSuccess from '@/components/LeadMagnetSuccess';
+import CafeWifi from '@/components/CafeWifi';
+import OfficeWifi from '@/components/OfficeWifi';
+import NetworkTroubleshooting from '@/components/NetworkTroubleshooting';
+import WifiOptimisation from '@/components/WifiOptimisation';
 import ScrollToTop from '@/components/ScrollToTop';
 import PixelTracker from '@/components/PixelTracker';
 import '@/index.css';
@@ -46,6 +50,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/request-call-success" element={<RequestCallSuccess />} />
       <Route path="/lead-magnet" element={<LeadMagnet />} />
       <Route path="/lead-magnet-success" element={<LeadMagnetSuccess />} />
+      <Route path="/wifi-for-cafes" element={<CafeWifi />} />
+      <Route path="/wifi-for-offices" element={<OfficeWifi />} />
+      <Route path="/network-troubleshooting" element={<NetworkTroubleshooting />} />
+      <Route path="/wifi-optimisation" element={<WifiOptimisation />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
