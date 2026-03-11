@@ -108,11 +108,17 @@
   </url>
   
   <url>
-    <loc>https://www.conxiea.com/blog/how-64-percent-of-small-businesses-miss-potential-new-business</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.conxiea.com/blog/how-64-percent-of-small-businesses-miss-potential-new-business</loc><lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
+  <url>
+    <loc>https://www.conxiea.com/blog/mcpweb-ai-can-now-act-on-your-network</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
 

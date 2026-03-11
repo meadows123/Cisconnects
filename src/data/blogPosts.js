@@ -1718,6 +1718,100 @@ For data centre operations facing scale challenges, AI-enhanced network automati
 The future of data centre network operations belongs to teams that can scale their effectiveness without scaling headcount linearly. AI-enhanced automation is the tool that makes this possible. But it requires understanding what AI actually does, where it delivers value, and how to implement it thoughtfully. The organizations that get this right will operate more efficiently, respond faster, and maintain higher reliability than those that don't.
     `
   }
+  ,
+  {
+    id: 7,
+    slug: "mcpweb-ai-can-now-act-on-your-network",
+    title: "MCP for the Web: Why AI Is About to Stop Just Talking and Start Doing",
+    author: "Zak",
+    date: "11th March 2026",
+    category: "AI Network Automation",
+    excerpt: "The Model Context Protocol is bringing tool-use to the open web. For network engineers and IT leaders, this is the shift from AI as a search engine to AI as an operator — and it changes everything.",
+    readTime: "8 min read",
+    comments: 0,
+    content: `
+There is a version of AI that most people are already familiar with. You ask it a question, it gives you an answer. You describe a problem, it writes you some text. It is, at its core, a very sophisticated text machine.
+
+That version of AI is about to look extremely outdated.
+
+## The Wall AI Has Always Hit
+
+For all the hype around large language models, there has always been a fundamental limitation that rarely gets talked about plainly. AI, left to its own devices, can only read and generate text. That is it.
+
+You can ask it to diagnose a network problem and it will give you a plausible-sounding answer. But it cannot actually look at your network. It cannot query your monitoring system. It cannot check whether port 443 is actually open on your firewall. It cannot pull a live route table or inspect a BGP neighbour state. It can only reason about things it has seen in its training data — which is, at best, a description of the world as it was, not as it is right now.
+
+This is the wall. And the Model Context Protocol (MCP) is tearing it down.
+
+## What MCP Actually Changes
+
+MCP is an open standard, originally developed at Anthropic, that defines how AI models can connect to external tools and data sources. Think of it as a universal adapter. Instead of every AI vendor building bespoke integrations with every possible system, MCP gives any AI a standardised way to discover what tools are available and call them.
+
+Alex Nahas, a senior engineer at Arcade Dev, described it well: the protocol treats tools as first-class citizens. The AI is not hacking around the edges of a website trying to scrape data. The tools are explicitly exposed, described, and callable. The AI knows what they do, when to use them, and what to do with the results.
+
+**Without MCP (or equivalent tool exposure), an AI can only:**
+
+- Read text
+- Generate text
+- Maybe browse web pages for content
+
+**With MCP, the same AI can:**
+
+- Query live data — ask your monitoring system what is happening right now
+- Trigger actions — open a ticket, restart a service, push a config change
+- Inspect system state — check device health, interface errors, BGP sessions
+- Run workflows — execute a full change management process end to end
+
+This is not a subtle upgrade. It is the difference between a consultant who reads your documentation and one who can actually log into your systems.
+
+## Why "For the Web" Is the Big Deal
+
+MCP has existed in various forms for local and enterprise integrations for a while. What is new — and what makes this a genuine inflection point — is bringing the same standard to the open web.
+
+Most of the world's operational systems are not sitting inside a single enterprise's controlled environment. They are web services. APIs. SaaS platforms. Cloud portals. Network management tools with web interfaces. Monitoring dashboards. Ticketing systems.
+
+If MCP becomes a web-wide standard — and the trajectory strongly suggests it will — then any AI agent will be able to interact with any compliant web service without custom integration work. You would not need to build a specific connector for each tool. The AI discovers capabilities dynamically, understands them from their description, and calls them appropriately.
+
+For network teams, the implication is stark: the systems you operate today could become directly callable by AI agents within the next couple of years.
+
+## What This Looks Like in Practice
+
+Consider what an AI-assisted network operation looks like today versus what it could look like with MCP-enabled tooling:
+
+**Today:** An engineer describes a connectivity issue to an AI assistant. The AI suggests some diagnostic steps. The engineer manually runs each one, pastes the output back, and asks what it means. The AI reasons about text. The engineer is still doing all the actual work.
+
+**With MCP:** The engineer describes the issue. The AI calls your network monitoring tool directly, pulls the relevant interface metrics, checks the routing table, cross-references recent change logs, identifies the likely cause, and presents a diagnosis with supporting evidence — all in one pass. The engineer validates and approves. The AI handles the legwork.
+
+This is not science fiction. [Teams already building on InfraAIOps](/infraaiops) are doing versions of this today against structured network APIs. MCP standardises the protocol so it works everywhere, not just in bespoke integrations.
+
+## The Shift This Represents for Network Operations
+
+This is worth sitting with for a moment, because the implications run deeper than "AI can do more things."
+
+Network operations have always been constrained by human bandwidth. The number of devices you can monitor, the complexity of changes you can safely manage, the speed at which you can diagnose incidents — all of it ultimately comes down to how many skilled people you have and how fast they can move.
+
+AI with tool access changes that constraint. An AI agent operating over MCP-enabled systems is not reading about your network. It is operating on it. It can monitor thousands of devices simultaneously, correlate events across systems in real time, and execute remediation workflows faster than any human team.
+
+The organisations that understand this shift early and start building the operational foundations for it — [structured automation, AI-ready network tooling, clean APIs](/infraaiops) — will have a significant advantage over those that treat it as a future problem.
+
+## The Question to Start Asking Now
+
+Most network teams are not ready for this. Not because the technology is too complex, but because the operational model has not caught up. Networks are still largely managed through manual processes and point-in-time human intervention. There are no clean APIs. There is no structured way for an external system to query state or trigger actions.
+
+That is the gap that needs closing. And it does not close itself.
+
+If you are thinking about where to start, the right question is not "how do we use AI?" It is: "what would we need to expose, and how, for an AI agent to be genuinely useful in our operations?" That question leads somewhere concrete — to API design, to automation tooling, to workflow standardisation.
+
+[That is exactly what we help teams work through.](/contact) If MCP and AI-native network operations is a conversation worth having for your team, we would be glad to dig into it.
+
+> The shift from AI-as-reader to AI-as-operator is not five years away. It is happening now, in the tools being built this year. The only question is whether your infrastructure is ready for it.
+
+## Further Reading
+
+- [How AI Is Enhancing Network Automation in Large-Scale Data Centres](/blog/how-ai-enhances-network-automation-in-large-data-centres)
+- [MCP, LangChain and the Future of Network Automation Agents](/blog/mcp-langchain-network-automation)
+- [PyATS, ChatGPT and Ollama: Running AI-Driven Network Automation Locally](/blog/pyats-chatgpt-ollama-network-automation)
+    `
+  }
 ];
 
 export const getBlogPostBySlug = (slug) => {
