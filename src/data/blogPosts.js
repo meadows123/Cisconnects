@@ -1722,7 +1722,7 @@ The future of data centre network operations belongs to teams that can scale the
   {
     id: 7,
     slug: "mcpweb-ai-can-now-act-on-your-network",
-    title: "MCP for the Web: Why AI Is About to Stop Just Talking and Start Doing",
+    title: "WebMCP",
     author: "Zak",
     date: "11th March 2026",
     isoDate: "2026-03-11",
@@ -1790,6 +1790,8 @@ Through building WebMCP-enabled sites, Alex identified three distinct categories
 
 For network operations teams, this maps directly onto the work. Monitoring is read-only. Navigating between your management tools and dashboards is navigation. Pushing a config change, opening a ticket, or triggering a remediation workflow — those are write tools, with appropriate human approval gates built in.
 
+If you want to understand how this applies to your specific infrastructure, [book a demo with us](/book-demo) and we can walk through it against your environment.
+
 ## WebMCP and Security: A Meaningful Step Forward
 
 There is an honest security concern with AI agents operating on web systems that is worth naming directly. It has been called the "lethal trifecta": an agent with context from multiple browser tabs can potentially be manipulated by a malicious site to act on data from a trusted one. Tab A is your bank. Tab B is something hostile. An agent sitting in the middle treats both as equally valid sources of instruction.
@@ -1816,7 +1818,7 @@ The [automation infrastructure we help teams build](/infraaiops) is designed wit
 
 When WebMCP becomes standard — and the combination of Google, Microsoft, and W3C backing suggests it will — the organisations with that foundation already in place will be able to move immediately. Those without it will be starting from scratch.
 
-[If that conversation is worth having for your team, we are easy to reach.](/contact) The systems you are building now will either be AI-ready when this shift arrives, or they will not.
+If that conversation is worth having for your team, [book a demo and we can show you exactly what AI-ready network operations looks like in practice](/book-demo). The systems you are building now will either be ready when this shift arrives, or they will not.
 
 > The shift from AI-as-reader to AI-as-operator is not five years away. Official browser support is expected before the end of 2026. The question is not whether to prepare — it is whether you are starting now or catching up later.
 
