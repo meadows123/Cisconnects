@@ -22,6 +22,30 @@ export default function BlogPost() {
         description={post.excerpt || `Read about ${post.title} on the Conxiea blog. Expert insights on network automation, AI, and IT infrastructure.`}
         url={`/blog/${post.slug}`}
         type="article"
+        keywords={post.keywords}
+        author={post.author}
+        publishedTime={post.isoDate}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: post.title,
+          description: post.excerpt,
+          author: {
+            '@type': 'Person',
+            name: post.author,
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Conxiea',
+            url: 'https://www.conxiea.com',
+          },
+          datePublished: post.isoDate || post.date,
+          url: `https://www.conxiea.com/blog/${post.slug}`,
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `https://www.conxiea.com/blog/${post.slug}`,
+          },
+        }}
       />
       <Navigation />
       

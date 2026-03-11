@@ -1725,8 +1725,10 @@ The future of data centre network operations belongs to teams that can scale the
     title: "MCP for the Web: Why AI Is About to Stop Just Talking and Start Doing",
     author: "Zak",
     date: "11th March 2026",
+    isoDate: "2026-03-11",
     category: "AI Network Automation",
-    excerpt: "The Model Context Protocol is bringing tool-use to the open web. For network engineers and IT leaders, this is the shift from AI as a search engine to AI as an operator — and it changes everything.",
+    excerpt: "A new W3C web standard is turning every website into a callable AI tool. For network operations teams, this is the shift from AI that talks to AI that acts — and it is happening in 2026.",
+    keywords: "WebMCP, Web MCP standard, MCP browser, AI agent tools, W3C WebMCP, Alex Nahas MCP-B, network automation AI, AI network operations 2026, AI infrastructure automation, AI agents network",
     readTime: "8 min read",
     comments: 0,
     content: `
@@ -1734,76 +1736,89 @@ There is a version of AI that most people are already familiar with. You ask it 
 
 That version of AI is about to look extremely outdated.
 
-## The Wall AI Has Always Hit
+## The Wall AI Has Always Hit: Why Text-Only AI Has a Hard Limit
 
-For all the hype around large language models, there has always been a fundamental limitation that rarely gets talked about plainly. AI, left to its own devices, can only read and generate text. That is it.
+Until very recently, there were only two ways for an AI agent to interact with a website or web-based system.
 
-You can ask it to diagnose a network problem and it will give you a plausible-sounding answer. But it cannot actually look at your network. It cannot query your monitoring system. It cannot check whether port 443 is actually open on your firewall. It cannot pull a live route table or inspect a BGP neighbour state. It can only reason about things it has seen in its training data — which is, at best, a description of the world as it was, not as it is right now.
+The first is visual. The agent looks at screenshots, reads the text on screen, and tries to figure out where to click — just like a person squinting at an interface they have never used before.
 
-This is the wall. And the Model Context Protocol (MCP) is tearing it down.
+The second is semantic. The agent parses the raw underlying structure of the page — the accessibility tree, the DOM — trying to extract data and trigger actions buried in thousands of lines of code it was never meant to read directly.
 
-## What MCP Actually Changes
+Both approaches are slow, expensive, and unreliable. Every action requires the AI to reason its way through something that was built for human eyes, not machine calls. Tokens get burned. Mistakes get made. And the AI is still, fundamentally, only working with what it can see or infer — not with what is actually happening inside your systems right now.
 
-MCP is an open standard, originally developed at Anthropic, that defines how AI models can connect to external tools and data sources. Think of it as a universal adapter. Instead of every AI vendor building bespoke integrations with every possible system, MCP gives any AI a standardised way to discover what tools are available and call them.
+## The Third Option: WebMCP
 
-Alex Nahas, a senior engineer at Arcade Dev, described it well: the protocol treats tools as first-class citizens. The AI is not hacking around the edges of a website trying to scrape data. The tools are explicitly exposed, described, and callable. The AI knows what they do, when to use them, and what to do with the results.
+Alex Nahas was a backend engineer at Amazon when the Model Context Protocol (MCP) standard landed in early 2025. Amazon, with thousands of internal services, spun up an enormous MCP server — and the result was chaos. Too many tools fighting for space in the context window. Authentication that nothing could agree on. A mess.
 
-**Without MCP (or equivalent tool exposure), an AI can only:**
+The real insight Alex had was simpler: run MCP inside the browser. At Amazon, all authentication already worked through a single federated browser session. By integrating MCP into a client-side JavaScript application and communicating via a Chrome extension, he built something that worked with the identity systems that already existed rather than fighting them. He called it MCP-B — the B stands for browser.
 
-- Read text
-- Generate text
-- Maybe browse web pages for content
+Teams from Google Chrome and Microsoft Edge were already thinking along similar lines. Google was prototyping something called "script tools." When MCP-B arrived, they joined forces through the W3C Web Machine Learning Community Group, and the result is now being standardised as **WebMCP**.
 
-**With MCP, the same AI can:**
+The idea is straightforward. Instead of an AI agent fumbling through screenshots or raw DOM, a website can explicitly expose what it can do — as JavaScript functions, with descriptions, with structured schemas — so that an AI agent can call them directly.
 
-- Query live data — ask your monitoring system what is happening right now
-- Trigger actions — open a ticket, restart a service, push a config change
-- Inspect system state — check device health, interface errors, BGP sessions
-- Run workflows — execute a full change management process end to end
+Imagine your website telling a visitor's ChatGPT or Claude agent: here is what I can do, here is how to ask me to do it.
 
-This is not a subtle upgrade. It is the difference between a consultant who reads your documentation and one who can actually log into your systems.
+That is the shift.
 
-## Why "For the Web" Is the Big Deal
+## What WebMCP Means in Plain Terms
 
-MCP has existed in various forms for local and enterprise integrations for a while. What is new — and what makes this a genuine inflection point — is bringing the same standard to the open web.
+**Without WebMCP, an AI interacting with your systems has to:**
 
-Most of the world's operational systems are not sitting inside a single enterprise's controlled environment. They are web services. APIs. SaaS platforms. Cloud portals. Network management tools with web interfaces. Monitoring dashboards. Ticketing systems.
+- Take screenshots and guess what buttons do
+- Parse raw page code to find anything useful
+- Burn through tokens working out context that should have been handed to it directly
 
-If MCP becomes a web-wide standard — and the trajectory strongly suggests it will — then any AI agent will be able to interact with any compliant web service without custom integration work. You would not need to build a specific connector for each tool. The AI discovers capabilities dynamically, understands them from their description, and calls them appropriately.
+**With WebMCP, the same AI can:**
 
-For network teams, the implication is stark: the systems you operate today could become directly callable by AI agents within the next couple of years.
+- Call a clearly defined function: get the current device status, pull the route table, check service health
+- Navigate your application with a map it was given, not one it had to reverse-engineer
+- Submit changes, fill forms, trigger workflows — and pause for human approval before anything irreversible happens
 
-## What This Looks Like in Practice
+The functions being exposed are not new. They are the same functions your web application already uses to submit forms, query data, and update state. WebMCP just makes them discoverable and callable by agents.
 
-Consider what an AI-assisted network operation looks like today versus what it could look like with MCP-enabled tooling:
+As Alex put it: even an old WordPress site, with the right tools registered, becomes "basically an AI company." No framework required. Vanilla JavaScript is enough.
 
-**Today:** An engineer describes a connectivity issue to an AI assistant. The AI suggests some diagnostic steps. The engineer manually runs each one, pastes the output back, and asks what it means. The AI reasons about text. The engineer is still doing all the actual work.
+## WebMCP's Three Tool Types: Read, Navigate, Write
 
-**With MCP:** The engineer describes the issue. The AI calls your network monitoring tool directly, pulls the relevant interface metrics, checks the routing table, cross-references recent change logs, identifies the likely cause, and presents a diagnosis with supporting evidence — all in one pass. The engineer validates and approves. The AI handles the legwork.
+Through building WebMCP-enabled sites, Alex identified three distinct categories of tool that map cleanly onto how agents need to interact with any system:
 
-This is not science fiction. [Teams already building on InfraAIOps](/infraaiops) are doing versions of this today against structured network APIs. MCP standardises the protocol so it works everywhere, not just in bespoke integrations.
+**Read-only tools** are always available. These are your GET operations — fetching data, reading state, checking status. You surface everything and let the agent pull what it needs. No navigation required.
 
-## The Shift This Represents for Network Operations
+**Navigation tools** are the system prompt of your website. They tell the agent what the site does and where things live. Think of it as a blueprint: here are the links, here is where more tools will appear as you go deeper. These are marked as destructive because they cause visible changes (the page actually navigates), which means agents that are well-behaved will flag the action to the user first.
 
-This is worth sitting with for a moment, because the implications run deeper than "AI can do more things."
+**Write tools** take action. They fill out forms, submit data, trigger changes. This is where human oversight matters most — and WebMCP supports this through an elicitation flow: the agent can prepare a change, surface it to the user with "here is what I am about to do, yes or no?", and only execute on confirmation.
 
-Network operations have always been constrained by human bandwidth. The number of devices you can monitor, the complexity of changes you can safely manage, the speed at which you can diagnose incidents — all of it ultimately comes down to how many skilled people you have and how fast they can move.
+For network operations teams, this maps directly onto the work. Monitoring is read-only. Navigating between your management tools and dashboards is navigation. Pushing a config change, opening a ticket, or triggering a remediation workflow — those are write tools, with appropriate human approval gates built in.
 
-AI with tool access changes that constraint. An AI agent operating over MCP-enabled systems is not reading about your network. It is operating on it. It can monitor thousands of devices simultaneously, correlate events across systems in real time, and execute remediation workflows faster than any human team.
+## WebMCP and Security: A Meaningful Step Forward
 
-The organisations that understand this shift early and start building the operational foundations for it — [structured automation, AI-ready network tooling, clean APIs](/infraaiops) — will have a significant advantage over those that treat it as a future problem.
+There is an honest security concern with AI agents operating on web systems that is worth naming directly. It has been called the "lethal trifecta": an agent with context from multiple browser tabs can potentially be manipulated by a malicious site to act on data from a trusted one. Tab A is your bank. Tab B is something hostile. An agent sitting in the middle treats both as equally valid sources of instruction.
 
-## The Question to Start Asking Now
+WebMCP does not eliminate this problem entirely. But it meaningfully reduces the attack surface. Instead of the agent being able to see and act on everything a user can — screenshots, DOM, hidden elements, whatever — it can only call the tools the website has explicitly chosen to expose. You can hash tools to detect tampering. You can scope trust to specific domains with expiry times. You can build elicitation flows that require explicit human approval before anything consequential happens.
 
-Most network teams are not ready for this. Not because the technology is too complex, but because the operational model has not caught up. Networks are still largely managed through manual processes and point-in-time human intervention. There are no clean APIs. There is no structured way for an external system to query state or trigger actions.
+Going from "the model can see and do anything" to "the model can call these specific functions" is not a complete solution, but it is a significant narrowing of what is possible for an attacker to exploit.
 
-That is the gap that needs closing. And it does not close itself.
+## WebMCP Timeline: Where Things Stand in 2026
 
-If you are thinking about where to start, the right question is not "how do we use AI?" It is: "what would we need to expose, and how, for an AI agent to be genuinely useful in our operations?" That question leads somewhere concrete — to API design, to automation tooling, to workflow standardisation.
+WebMCP is early. The specification is moving from community incubation in the W3C Web Machine Learning Community Group toward a formal draft. Chrome has an experimental implementation available behind a flag in Chromium now. Official browser announcements from Google and Microsoft are expected around mid-to-late 2026.
 
-[That is exactly what we help teams work through.](/contact) If MCP and AI-native network operations is a conversation worth having for your team, we would be glad to dig into it.
+Alex maintains a polyfill that developers can use today — install \`@mcp-b/global\` and register tools with \`navigator.modelContext.registerTool()\` — and it works with any frontend framework. There is also a fork of Chrome DevTools that lets you call WebMCP tools directly, which means an AI coding agent can write and test its own WebMCP integrations.
 
-> The shift from AI-as-reader to AI-as-operator is not five years away. It is happening now, in the tools being built this year. The only question is whether your infrastructure is ready for it.
+The direction is set. When this lands in browsers at scale, every website that has registered its capabilities becomes, in effect, an interface that AI agents can use as fluently as a human expert would.
+
+## What This Means for Network Operations
+
+Most of the systems that network teams interact with daily are web-based. Monitoring dashboards. Device management portals. Cloud console interfaces. Ticketing platforms. Configuration management tools.
+
+Right now, an AI assistant working with your team can read documentation, suggest configurations, and help reason through problems — but it cannot touch any of those systems. It is, in the end, still a text machine.
+
+The [automation infrastructure we help teams build](/infraaiops) is designed with exactly this trajectory in mind — clean APIs, structured workflows, tooling that an AI agent can actually interface with rather than just read about.
+
+When WebMCP becomes standard — and the combination of Google, Microsoft, and W3C backing suggests it will — the organisations with that foundation already in place will be able to move immediately. Those without it will be starting from scratch.
+
+[If that conversation is worth having for your team, we are easy to reach.](/contact) The systems you are building now will either be AI-ready when this shift arrives, or they will not.
+
+> The shift from AI-as-reader to AI-as-operator is not five years away. Official browser support is expected before the end of 2026. The question is not whether to prepare — it is whether you are starting now or catching up later.
 
 ## Further Reading
 
