@@ -1721,7 +1721,7 @@ The future of data centre network operations belongs to teams that can scale the
   ,
   {
     id: 7,
-    slug: "mcpweb-ai-can-now-act-on-your-network",
+    slug: "mcpweb-the-web-standard-for-agents",
     title: "WebMCP: The Web Standard That Makes Every Website a Tool for Agents",
     author: "Zak",
     date: "11th March 2026",
