@@ -1732,6 +1732,8 @@ The future of data centre network operations belongs to teams that can scale the
     readTime: "8 min read",
     comments: 0,
     content: `
+![AI agent interacting with web applications and network infrastructure](https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=600&fit=crop)
+
 There is a version of AI that most people are already familiar with. You ask it a question, it gives you an answer. You describe a problem, it writes you some text. It is, at its core, a very sophisticated text machine.
 
 That version of AI is about to look extremely outdated.

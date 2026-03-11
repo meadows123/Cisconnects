@@ -117,6 +117,14 @@ export default function BlogPost() {
           <div className="article-content">
             <ReactMarkdown
               components={{
+                img: ({ src, alt }) => (
+                  <img
+                    src={src}
+                    alt={alt}
+                    className="w-full rounded-xl my-8 object-cover max-h-[480px] border border-white/10"
+                    loading="lazy"
+                  />
+                ),
                 h2: ({ children }) => (
                   <h2 className="text-3xl font-bold text-white mt-12 mb-6 pb-2 border-b-2 border-blue-500/30">
                     {children}
