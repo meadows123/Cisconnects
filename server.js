@@ -351,6 +351,11 @@ app.post('/api/leads', async (req, res) => {
     writeLeads(leads);
     console.log('✅ Saved to JSON file');
 
+    // Sync to GoHighLevel as a contact
+    syncCallToGHL({ name, email, phone: '', source, createdAt: newLead.created_at }).catch(err =>
+      console.error('GHL lead sync error (non-blocking):', err.message)
+    );
+
     // Return the saved lead
     const responseData = savedLead ? { ...savedLead, backup: 'also saved to local file' } : jsonLead;
     res.status(201).json(responseData);

@@ -170,12 +170,16 @@ export const syncConsultationToGHL = async (consultation) => {
  * Sync a call request (contact only) to GoHighLevel.
  */
 export const syncCallToGHL = async (call) => {
+  const tags = call.source === 'subscribe-popup'
+    ? ['email-subscriber', 'website-lead']
+    : ['call-request', 'website-lead'];
+
   return createGHLContact({
     name: call.name,
     email: call.email,
     phone: call.phone,
-    tags: ['call-request', 'website-lead'],
-    source: 'website-call-request',
+    tags,
+    source: call.source || 'website-call-request',
   });
 };
 
