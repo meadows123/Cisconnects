@@ -329,7 +329,7 @@ const About = () => {
                   Let's discuss how AI automation can transform your business operations
                 </p>
                 <Link
-                  to="/contact"
+                  to="/book-demo"
                   className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-lg hover:scale-105"
                 >
                   Get Started

@@ -84,7 +84,7 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-12 justify-center lg:justify-start pt-6">
-              <Link to="/contact">
+              <Link to="/book-demo">
                 <Button 
                   size="lg" 
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-500/70"
@@ -93,7 +93,7 @@ const Hero = () => {
                   <Zap className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Link to="/contact">
+              <Link to="/book-demo">
                 <Button 
                   size="lg" 
                   variant="outline" 

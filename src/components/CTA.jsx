@@ -71,7 +71,7 @@ const CTA = () => {
             transition={{ delay: 0.4 }}
             className="flex flex-wrap gap-6 justify-center pt-8"
           >
-            <Link to="/contact">
+            <Link to="/book-demo">
               <Button 
                 size="lg"
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-12 py-8 text-xl rounded-2xl shadow-2xl shadow-blue-500/50 transition-all hover:shadow-blue-500/70 hover:scale-105"
