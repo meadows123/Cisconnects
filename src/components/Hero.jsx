@@ -1,11 +1,12 @@
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, Zap, Cloud } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useBooking } from '@/context/BookingContext';
 
 const Hero = () => {
+  const { openBooking } = useBooking();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -84,24 +85,22 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-12 justify-center lg:justify-start pt-6">
-              <Link to="/book-demo">
-                <Button 
-                  size="lg" 
+              <Button
+                  size="lg"
+                  onClick={openBooking}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-500/70"
                 >
                   Get Started
                   <Zap className="ml-2 w-5 h-5" />
                 </Button>
-              </Link>
-              <Link to="/book-demo">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
+              <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={openBooking}
                   className="border-2 border-blue-500/50 text-blue-300 hover:bg-blue-500/10 px-8 py-6 text-lg rounded-xl backdrop-blur-sm"
                 >
                   Get Free Demo
                 </Button>
-              </Link>
             </div>
 
             {/* Stats */}

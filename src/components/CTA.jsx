@@ -1,12 +1,12 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useBooking } from '@/context/BookingContext';
 
 const CTA = () => {
-
+  const { openBooking } = useBooking();
   return (
     <section className="relative py-32 px-4 bg-gradient-to-b from-slate-900 to-slate-950 overflow-hidden">
       {/* Animated Background Elements */}
@@ -71,24 +71,22 @@ const CTA = () => {
             transition={{ delay: 0.4 }}
             className="flex flex-wrap gap-6 justify-center pt-8"
           >
-            <Link to="/book-demo">
-              <Button 
+            <Button
                 size="lg"
+                onClick={openBooking}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-12 py-8 text-xl rounded-2xl shadow-2xl shadow-blue-500/50 transition-all hover:shadow-blue-500/70 hover:scale-105"
               >
                 Get Started Free
                 <ArrowRight className="ml-3 w-6 h-6" />
               </Button>
-            </Link>
-            <Link to="/book-demo">
-              <Button 
+            <Button
                 size="lg"
                 variant="outline"
+                onClick={openBooking}
                 className="border-2 border-white/20 text-white hover:bg-white/10 px-12 py-8 text-xl rounded-2xl backdrop-blur-sm hover:scale-105 transition-all"
               >
                 Schedule Demo
               </Button>
-            </Link>
           </motion.div>
 
           <motion.div

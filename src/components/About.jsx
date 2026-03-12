@@ -20,9 +20,10 @@ import {
 import Navigation from './Navigation';
 import Footer from './Footer';
 import SEO from './SEO';
-import { Link } from 'react-router-dom';
+import { useBooking } from '@/context/BookingContext';
 
 const About = () => {
+  const { openBooking } = useBooking();
   const highlights = [
     { icon: Brain, label: 'Crafted AI Automation', gradient: 'from-blue-500 to-cyan-500' },
     { icon: Award, label: 'Proven Expertise', gradient: 'from-purple-500 to-pink-500' },
@@ -332,13 +333,13 @@ const About = () => {
                 <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
                   Let's discuss how AI automation can transform your business operations
                 </p>
-                <Link
-                  to="/book-demo"
+                <button
+                  onClick={openBooking}
                   className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-lg hover:scale-105"
                 >
                   Get Started
                   <ArrowRight className="w-5 h-5" />
-                </Link>
+                </button>
               </div>
             </div>
           </motion.section>

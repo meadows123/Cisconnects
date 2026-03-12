@@ -1,12 +1,12 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Cloud, Server, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useBooking } from '@/context/BookingContext';
 
 const Solutions = () => {
-
+  const { openBooking } = useBooking();
   const solutions = [
     {
       icon: Cloud,
@@ -80,15 +80,14 @@ const Solutions = () => {
                   ))}
                 </div>
 
-                <Link to="/book-demo">
-                  <Button 
+                <Button
                     size="lg"
+                    onClick={openBooking}
                     className={`bg-gradient-to-r ${solution.gradient} hover:opacity-90 text-white px-8 py-6 text-lg rounded-xl shadow-lg transition-all`}
                   >
                     Learn More
                     <Layers className="ml-2 w-5 h-5" />
                   </Button>
-                </Link>
               </div>
 
               <motion.div

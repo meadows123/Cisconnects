@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from '@/components/ScrollToTop';
 import PixelTracker from '@/components/PixelTracker';
+import { BookingProvider } from '@/context/BookingContext';
+import BookingModal from '@/components/BookingModal';
 import '@/index.css';
 
 // Every route is lazily loaded — nothing beyond the router bootstraps upfront
@@ -35,9 +37,11 @@ const WifiOptimisation = lazy(() => import('@/components/WifiOptimisation'));
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <ScrollToTop />
-    <PixelTracker />
-    <Suspense fallback={<div className="min-h-screen bg-slate-950" />}>
+    <BookingProvider>
+      <ScrollToTop />
+      <PixelTracker />
+      <BookingModal />
+      <Suspense fallback={<div className="min-h-screen bg-slate-950" />}>
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/about" element={<About />} />
@@ -65,6 +69,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/terms-of-service" element={<TermsOfService />} />
     </Routes>
     </Suspense>
+    </BookingProvider>
   </BrowserRouter>
 );
   
