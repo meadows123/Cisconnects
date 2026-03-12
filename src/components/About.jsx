@@ -69,6 +69,7 @@ const About = () => {
       name: 'Zak Meadows',
       role: 'CEO',
       avatar: 'Z',
+      photo: '/Zak-Photo.jpeg',
       gradient: 'from-blue-500 to-purple-600'
     },
     {
@@ -296,8 +297,11 @@ const About = () => {
                   className="text-center group"
                 >
                   <div className="relative mb-6 inline-block">
-                    <div className={`w-32 h-32 bg-gradient-to-br ${member.gradient} rounded-full flex items-center justify-center mx-auto shadow-2xl group-hover:scale-110 transition-transform`}>
-                      <span className="text-5xl font-bold text-white">{member.avatar}</span>
+                    <div className={`w-32 h-32 bg-gradient-to-br ${member.gradient} rounded-full flex items-center justify-center mx-auto shadow-2xl group-hover:scale-110 transition-transform overflow-hidden`}>
+                      {member.photo
+                        ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover rounded-full" />
+                        : <span className="text-5xl font-bold text-white">{member.avatar}</span>
+                      }
                     </div>
                     <div className={`absolute inset-0 bg-gradient-to-br ${member.gradient} rounded-full blur-xl opacity-50 group-hover:opacity-70 transition-opacity`}></div>
                   </div>
