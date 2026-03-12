@@ -5,6 +5,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 import PixelTracker from '@/components/PixelTracker';
 import { BookingProvider } from '@/context/BookingContext';
 import BookingModal from '@/components/BookingModal';
+import SubscribePopup from '@/components/SubscribePopup';
 import '@/index.css';
 
 // Every route is lazily loaded — nothing beyond the router bootstraps upfront
@@ -41,6 +42,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ScrollToTop />
       <PixelTracker />
       <BookingModal />
+      <SubscribePopup />
       <Suspense fallback={<div className="min-h-screen bg-slate-950" />}>
     <Routes>
       <Route path="/" element={<App />} />
