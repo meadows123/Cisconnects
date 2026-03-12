@@ -80,7 +80,7 @@ const Solutions = () => {
                   ))}
                 </div>
 
-                <Link to="/infraaiops">
+                <Link to="/book-demo">
                   <Button 
                     size="lg"
                     className={`bg-gradient-to-r ${solution.gradient} hover:opacity-90 text-white px-8 py-6 text-lg rounded-xl shadow-lg transition-all`}
