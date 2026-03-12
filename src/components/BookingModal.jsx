@@ -18,10 +18,25 @@ const BookingModal = () => {
     }
   }, []);
 
-  // Prevent background scroll when open
+  // Prevent background scroll when open — iOS-safe approach
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      if (scrollY) window.scrollTo(0, parseInt(scrollY, 10) * -1);
+    }
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+    };
   }, [isOpen]);
 
   // Close on Escape key
@@ -38,7 +53,7 @@ const BookingModal = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-0 sm:p-4"
         >
           {/* Backdrop */}
           <motion.div
@@ -55,8 +70,9 @@ const BookingModal = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-2xl bg-slate-900 rounded-2xl shadow-2xl border border-white/10 overflow-hidden"
-            style={{ maxHeight: '90vh' }}
+            className="relative w-full sm:max-w-2xl bg-slate-900 sm:rounded-2xl shadow-2xl border-0 sm:border border-white/10 overflow-hidden"
+            style={{ height: '100dvh', maxHeight: '90vh' }}
+            onTouchStart={() => {}}
           >
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
@@ -71,11 +87,14 @@ const BookingModal = () => {
             </div>
 
             {/* GHL Widget */}
-            <div className="overflow-y-auto" style={{ maxHeight: 'calc(90vh - 64px)' }}>
+            <div
+              className="overflow-y-auto"
+              style={{ height: 'calc(100dvh - 64px)', WebkitOverflowScrolling: 'touch' }}
+            >
               <iframe
                 src="https://api.leadconnectorhq.com/widget/booking/hTCZBgEPd1IaJvptd6JY"
-                style={{ width: '100%', border: 'none', minHeight: '700px' }}
-                scrolling="no"
+                style={{ width: '100%', border: 'none', minHeight: '700px', display: 'block' }}
+                scrolling="yes"
                 id="hTCZBgEPd1IaJvptd6JY_modal"
                 title="Book Your Demo"
               />
