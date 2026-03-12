@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Send, CheckCircle, AlertCircle, BookOpen, ArrowRight } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, BookOpen, ArrowRight } from 'lucide-react';
 import SEO from './SEO';
-import CalendarPicker from './CalendarPicker';
 import emailjs from '@emailjs/browser';
 
 const ConsultationFunnel = () => {
@@ -31,8 +30,6 @@ const ConsultationFunnel = () => {
     email: '',
     phone: '',
     company: '',
-    date: null,
-    time: '',
     currentStatus: '',
     reason: '',
     comments: '',
@@ -42,17 +39,19 @@ const ConsultationFunnel = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  const timeSlots = [
-    '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
-    '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
-    '15:00', '15:30', '16:00', '16:30', '17:00', '17:30'
-  ];
-
   const statusOptions = ['Business Owner'];
 
-  const handleDateSelect = (date) => {
-    setConsultationData(prev => ({ ...prev, date }));
-  };
+  // Load GHL booking widget script
+  useEffect(() => {
+    const scriptId = 'ghl-form-embed';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://api.leadconnectorhq.com/js/form_embed.js';
+      script.type = 'text/javascript';
+      document.body.appendChild(script);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -68,7 +67,7 @@ const ConsultationFunnel = () => {
     setSubmitStatus(null);
 
     // Validation
-    if (!consultationData.date || !consultationData.time || !consultationData.currentStatus || !consultationData.reason) {
+    if (!consultationData.currentStatus || !consultationData.reason) {
       setSubmitStatus('error_validation');
       setIsSubmitting(false);
       return;
@@ -108,8 +107,8 @@ const ConsultationFunnel = () => {
         email: consultationData.email,
         phone: consultationData.phone,
         company: consultationData.company,
-        date: consultationData.date,
-        time: consultationData.time,
+        date: new Date().toISOString().split('T')[0],
+        time: 'Via GHL Calendar',
         currentStatus: consultationData.currentStatus,
         reason: consultationData.reason,
         comments: consultationData.comments,
@@ -165,8 +164,6 @@ const ConsultationFunnel = () => {
         email: '',
         phone: '',
         company: '',
-        date: null,
-        time: '',
         currentStatus: '',
         reason: '',
         comments: '',
@@ -396,44 +393,19 @@ const ConsultationFunnel = () => {
                 </div>
               </div>
 
-              {/* Calendar Section */}
+              {/* Calendar Section — GHL Booking Widget */}
               <div className="mb-6 sm:mb-10">
                 <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 pb-4 border-b border-slate-700">
                   Select Your Consultation Time
                 </h2>
-
-                <div className="mb-4 sm:mb-6">
-                  <label className="block text-white font-medium text-sm sm:text-base mb-3 sm:mb-4">
-                    Choose Date <span className="text-red-500">*</span>
-                  </label>
-                  <CalendarPicker
-                    selectedDate={consultationData.date}
-                    onDateSelect={handleDateSelect}
+                <div className="rounded-xl overflow-hidden">
+                  <iframe
+                    src="https://api.leadconnectorhq.com/widget/booking/hTCZBgEPd1IaJvptd6JY"
+                    style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '700px' }}
+                    scrolling="no"
+                    id="hTCZBgEPd1IaJvptd6JY_1773347360886"
+                    title="Book Your Consultation"
                   />
-                </div>
-
-                <div>
-                  <label className="block text-white font-medium text-sm sm:text-base mb-3 sm:mb-4">
-                    Choose Time <span className="text-red-500">*</span>
-                  </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-                    {timeSlots.map((slot) => (
-                      <button
-                        key={slot}
-                        type="button"
-                        onClick={() =>
-                          setConsultationData(prev => ({ ...prev, time: slot }))
-                        }
-                        className={`px-2 sm:px-3 py-2 text-xs sm:text-sm rounded-lg font-medium transition ${
-                          consultationData.time === slot
-                            ? 'bg-blue-600 text-white'
-                            : 'bg-slate-800 text-gray-300 hover:bg-slate-700'
-                        }`}
-                      >
-                        {slot}
-                      </button>
-                    ))}
-                  </div>
                 </div>
               </div>
 
@@ -519,7 +491,7 @@ const ConsultationFunnel = () => {
                   />
                   <div className="flex-1">
                     <span className="text-slate-900 text-base font-medium leading-relaxed block">
-                      I confirm that I am able to take your call during the time period I selected above <span className="text-red-500">*</span>
+                      I confirm that I have selected my preferred time in the calendar above and I will be available <span className="text-red-500">*</span>
                     </span>
                     {consultationData.confirmAvailability && (
                       <div className="flex items-center gap-2 mt-3 text-green-600 font-medium">

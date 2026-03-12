@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
 import { createCalendarEvent, createCallEvent } from './utils/googleCalendar.js';
+import { syncConsultationToGHL, syncCallToGHL } from './utils/goHighLevel.js';
 
 // Load environment variables from .env and .env.local
 dotenv.config({ path: '.env' });
@@ -32,6 +33,9 @@ console.log('- Supabase Key:', supabaseKey ? '✓ Configured' : '✗ Missing');
 console.log('- EmailJS Service ID:', process.env.VITE_EMAILJS_SERVICE_ID ? '✓ Configured' : '✗ Missing');
 console.log('- EmailJS Public Key:', process.env.VITE_EMAILJS_PUBLIC_KEY ? '✓ Configured' : '✗ Missing');
 console.log('- Google Calendar:', process.env.GOOGLE_CREDENTIALS ? '✓ Configured' : '✗ Missing');
+console.log('- GoHighLevel API Key:', process.env.GHL_API_KEY ? '✓ Configured' : '✗ Missing');
+console.log('- GoHighLevel Location ID:', process.env.GHL_LOCATION_ID ? '✓ Configured' : '✗ Missing');
+console.log('- GoHighLevel Calendar ID:', process.env.GHL_CALENDAR_ID ? '✓ Configured' : '✗ Missing');
 
 // Middleware
 app.use(cors());
@@ -136,6 +140,11 @@ app.post('/api/consultations', async (req, res) => {
     // Sync to Google Calendar
     await createCalendarEvent(consultation);
 
+    // Sync to GoHighLevel (contact + appointment)
+    syncConsultationToGHL(consultation).catch(err =>
+      console.error('GHL consultation sync error (non-blocking):', err.message)
+    );
+
     res.status(201).json(consultation);
   } catch (error) {
     console.error('Error creating consultation:', error);
@@ -228,6 +237,11 @@ app.post('/api/calls', async (req, res) => {
 
     // Sync to Google Calendar
     await createCallEvent(call);
+
+    // Sync to GoHighLevel (contact)
+    syncCallToGHL(call).catch(err =>
+      console.error('GHL call sync error (non-blocking):', err.message)
+    );
 
     res.status(201).json(call);
   } catch (error) {

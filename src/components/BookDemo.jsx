@@ -1,111 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Send, CheckCircle, AlertCircle, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import SEO from './SEO';
-import CalendarPicker from './CalendarPicker';
-import emailjs from '@emailjs/browser';
 
 const BookDemo = () => {
-  const [bookingData, setBookingData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    date: null,
-    time: '',
-    message: ''
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
-  const timeSlots = [
-    '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
-    '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
-    '15:00', '15:30', '16:00', '16:30', '17:00', '17:30'
-  ];
-
-  const handleDateSelect = (date) => {
-    setBookingData(prev => ({ ...prev, date }));
-  };
-
-  const handleChange = (e) => {
-    setBookingData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    if (!bookingData.date) {
-      setSubmitStatus('error');
-      setIsSubmitting(false);
-      return;
+  // Load GHL booking widget script
+  useEffect(() => {
+    const scriptId = 'ghl-form-embed';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://api.leadconnectorhq.com/js/form_embed.js';
+      script.type = 'text/javascript';
+      document.body.appendChild(script);
     }
-
-    try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-
-      if (!serviceId || !publicKey || !templateId) {
-        throw new Error('EmailJS configuration is missing.');
-      }
-
-      emailjs.init(publicKey);
-
-      // Format the date properly (it comes as a string from CalendarPicker)
-      const formatDate = (dateString) => {
-        if (!dateString) return 'Not selected';
-        const date = new Date(dateString);
-        return date.toLocaleDateString('en-GB', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        });
-      };
-
-      const templateParams = {
-        from_name: bookingData.name,
-        from_email: bookingData.email,
-        company: bookingData.company || 'Not provided',
-        phone: bookingData.phone || 'Not provided',
-        service_interest: 'Demo Booking',
-        message: `Demo Booking Request\n\nDate: ${formatDate(bookingData.date)}\nTime: ${bookingData.time || 'Not selected'}\n\nAdditional Message: ${bookingData.message || 'None'}`,
-        to_name: 'Conxiea Team',
-        reply_to: bookingData.email,
-        company_name: 'Conxiea',
-        website: 'https://www.conxiea.com',
-        current_date: new Date().toLocaleDateString(),
-        current_time: new Date().toLocaleTimeString()
-      };
-
-      await emailjs.send(serviceId, templateId, templateParams);
-      
-      setSubmitStatus('success');
-      setBookingData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        date: null,
-        time: '',
-        message: ''
-      });
-    } catch (error) {
-      console.error('Booking Error:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
@@ -134,173 +45,20 @@ const BookDemo = () => {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            {/* Booking Form */}
+            {/* GHL Booking Widget */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-slate-800/50 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+              className="bg-slate-800/50 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden"
             >
-              <h2 className="text-2xl font-bold text-white mb-6">Schedule Your Demo</h2>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={bookingData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    placeholder="John Smith"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={bookingData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    placeholder="john@company.com"
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={bookingData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="+44 20 1234 5678"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-2">
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={bookingData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="Your Company"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
-                    <Calendar className="w-4 h-4 inline mr-2" />
-                    Select Date *
-                  </label>
-                  <CalendarPicker
-                    selectedDate={bookingData.date}
-                    onDateSelect={handleDateSelect}
-                    minDate={new Date()}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="time" className="block text-sm font-medium text-slate-300 mb-2">
-                    <Clock className="w-4 h-4 inline mr-2" />
-                    Select Time *
-                  </label>
-                  <select
-                    id="time"
-                    name="time"
-                    required
-                    value={bookingData.time}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                  >
-                    <option value="">Choose a time</option>
-                    {timeSlots.map(time => (
-                      <option key={time} value={time}>{time}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
-                    Additional Notes
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="4"
-                    value={bookingData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
-                    placeholder="Tell us what you'd like to see in the demo..."
-                  ></textarea>
-                </div>
-
-                {submitStatus === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-green-500/10 border border-green-500/30 rounded-lg p-4 flex items-center gap-3"
-                  >
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <div>
-                      <p className="text-green-400 font-medium">Demo booked successfully!</p>
-                      <p className="text-green-300 text-sm">We'll send you a confirmation email shortly.</p>
-                    </div>
-                  </motion.div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 flex items-center gap-3"
-                  >
-                    <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
-                    <div>
-                      <p className="text-red-400 font-medium">Failed to book demo</p>
-                      <p className="text-red-300 text-sm">Please try again or contact us directly.</p>
-                    </div>
-                  </motion.div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting || !bookingData.date}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-slate-600 disabled:to-slate-700 text-white px-8 py-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/50 hover:shadow-xl hover:shadow-blue-500/70 disabled:shadow-none"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      Booking...
-                    </>
-                  ) : (
-                    <>
-                      Confirm Booking
-                      <Send className="w-5 h-5" />
-                    </>
-                  )}
-                </button>
-              </form>
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/booking/hTCZBgEPd1IaJvptd6JY"
+                style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '700px' }}
+                scrolling="no"
+                id="hTCZBgEPd1IaJvptd6JY_1773347360886"
+                title="Book Your Demo"
+              />
             </motion.div>
 
             {/* Info Sidebar */}
