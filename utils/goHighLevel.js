@@ -57,8 +57,15 @@ export const createGHLContact = async (contactData) => {
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error(`GHL contact creation failed (${response.status}):`, errorText);
+      const errorData = await response.json().catch(() => ({}));
+
+      // Duplicate contact — GHL returns the existing contactId in meta
+      if (response.status === 400 && errorData.meta?.contactId) {
+        console.log('GHL contact already exists, using existing ID:', errorData.meta.contactId);
+        return { id: errorData.meta.contactId };
+      }
+
+      console.error(`GHL contact creation failed (${response.status}):`, JSON.stringify(errorData));
       return null;
     }
 
