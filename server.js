@@ -406,10 +406,151 @@ app.delete('/api/leads/:id', (req, res) => {
   }
 });
 
+// GET available booking slots for a given date
+// Tries GHL free-slots API first, falls back to default business hours
+app.get('/api/ghl-slots', async (req, res) => {
+  const { date } = req.query; // expects YYYY-MM-DD
+  if (!date) return res.status(400).json({ error: 'date query param required' });
+
+  const generateDefaultSlots = (dateStr) => {
+    const d = new Date(dateStr);
+    const day = d.getDay();
+    if (day === 0 || day === 6) return []; // no weekends
+    return [
+      '09:00','09:30','10:00','10:30','11:00','11:30',
+      '13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30'
+    ].map(time => ({ time }));
+  };
+
+  const calendarId = process.env.GHL_CALENDAR_ID;
+  const apiKey = process.env.GHL_API_KEY;
+
+  if (!calendarId || !apiKey) {
+    return res.json({ slots: generateDefaultSlots(date), source: 'default' });
+  }
+
+  try {
+    const start = new Date(date);
+    start.setHours(0, 0, 0, 0);
+    const end = new Date(date);
+    end.setHours(23, 59, 59, 999);
+
+    const url = `https://services.leadconnectorhq.com/calendars/${calendarId}/free-slots?startDate=${start.getTime()}&endDate=${end.getTime()}&timezone=Europe%2FLondon`;
+    const response = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Version': '2021-07-28',
+      },
+    });
+
+    if (!response.ok) throw new Error(`GHL slots ${response.status}`);
+
+    const data = await response.json();
+    // GHL returns { _dates_: { 'YYYY-MM-DD': [ { slots: ['ISO...'] } ] } }
+    const dateKey = Object.keys(data._dates_ || {})[0] || date;
+    const rawSlots = data._dates_?.[dateKey]?.[0]?.slots || [];
+    const slots = rawSlots.map(s => ({
+      time: new Date(s).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/London' }),
+    }));
+
+    res.json({ slots: slots.length ? slots : generateDefaultSlots(date), source: slots.length ? 'ghl' : 'default' });
+  } catch (err) {
+    console.error('GHL slots error:', err.message);
+    res.json({ slots: generateDefaultSlots(date), source: 'default' });
+  }
+});
+
+// GHL Webhook — receives appointment/contact events from GoHighLevel
+// Configure in GHL: Settings → Integrations → Webhooks → add your URL:
+//   https://YOUR_DOMAIN/api/ghl-webhook
+// Events to enable: AppointmentCreate, ContactCreate
+app.post('/api/ghl-webhook', async (req, res) => {
+  try {
+    const payload = req.body;
+    const eventType = payload?.type || payload?.event || '';
+
+    console.log('📥 GHL Webhook received:', eventType);
+
+    // Extract contact/appointment fields regardless of payload shape
+    const contactData = payload?.contact || payload?.data || payload || {};
+    const appointmentData = payload?.appointment || payload?.data || {};
+
+    const name = [contactData.firstName, contactData.lastName].filter(Boolean).join(' ').trim()
+      || contactData.name || appointmentData.title?.replace(/^Consultation:\s*/i, '') || 'Unknown';
+    const email = contactData.email || appointmentData.email || '';
+    const phone = contactData.phone || contactData.phoneNumber || appointmentData.phone || '';
+    const company = contactData.companyName || contactData.company || '';
+
+    // Only save if we have at least an email
+    if (!email) {
+      console.warn('GHL webhook: no email in payload, skipping save');
+      return res.status(200).json({ received: true, saved: false });
+    }
+
+    const startTime = appointmentData.startTime || payload.startTime || null;
+    const date = startTime ? new Date(startTime).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+    const time = startTime
+      ? new Date(startTime).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false })
+      : '';
+
+    const consultation = {
+      id: generateId(),
+      name,
+      email,
+      phone,
+      company,
+      date,
+      time,
+      currentStatus: 'GHL Booking',
+      reason: `Booked via website widget (${eventType || 'appointment'})`,
+      comments: `GHL Contact ID: ${contactData.id || 'n/a'} | Calendar: ${appointmentData.calendarId || 'n/a'}`,
+      source: 'ghl-booking-widget',
+      status: 'confirmed',
+      bookedAt: startTime || new Date().toISOString(),
+      createdAt: new Date().toISOString(),
+    };
+
+    // Save to consultations.json
+    const consultations = readConsultations();
+    // Avoid duplicates from re-delivered webhooks
+    const alreadyExists = consultations.some(c => c.email === email && c.date === date && c.time === time);
+    if (!alreadyExists) {
+      consultations.push(consultation);
+      writeConsultations(consultations);
+      console.log(`✅ GHL booking saved: ${name} (${email})`);
+    } else {
+      console.log(`⚠️ GHL booking duplicate skipped: ${name} (${email})`);
+    }
+
+    // Save to Supabase if configured
+    if (supabaseUrl && supabaseKey) {
+      const { error } = await supabase.from('consultations').insert([consultation]);
+      if (error) console.error('Supabase GHL webhook save error:', error.message);
+      else console.log('✅ GHL booking saved to Supabase');
+    }
+
+    res.status(200).json({ received: true, saved: !alreadyExists });
+  } catch (error) {
+    console.error('GHL Webhook error:', error.message);
+    // Always return 200 so GHL doesn't retry endlessly
+    res.status(200).json({ received: true, error: error.message });
+  }
+});
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'OK' });
 });
+
+// Serve built frontend — must come after all API routes
+const BUILD_DIR = path.join(__dirname, 'build');
+if (fs.existsSync(BUILD_DIR)) {
+  app.use(express.static(BUILD_DIR));
+  // Fallback to index.html for client-side routing
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(BUILD_DIR, 'index.html'));
+  });
+}
 
 // Error handling middleware
 app.use((err, req, res, next) => {
