@@ -25,7 +25,12 @@ const LEADS_FILE = path.join(__dirname, 'leads.json');
 // Initialize Supabase (optional — falls back to JSON files if not configured)
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE;
-const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
+let supabase = null;
+try {
+  if (supabaseUrl && supabaseKey) supabase = createClient(supabaseUrl, supabaseKey);
+} catch (e) {
+  console.warn('Supabase init skipped:', e.message);
+}
 
 console.log('Environment loaded:');
 console.log('- Supabase URL:', supabaseUrl ? '✓ Configured' : '✗ Missing');
