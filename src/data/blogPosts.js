@@ -1830,6 +1830,403 @@ If that conversation is worth having for your team, [book a demo and we can show
 - [MCP, LangChain and the Future of Network Automation Agents](/blog/mcp-langchain-network-automation)
 - [PyATS, ChatGPT and Ollama: Running AI-Driven Network Automation Locally](/blog/pyats-chatgpt-ollama-network-automation)
     `
+  },
+  {
+    id: 8,
+    slug: "bt-business-broadband-fault",
+    title: "BT Business Broadband Fault: What to Do, How to Escalate, and How to Stop Waiting",
+    author: "Zak",
+    date: "4th June 2025",
+    category: "Business Connectivity",
+    excerpt: "A BT business broadband fault can bring operations to a standstill. This guide covers exactly what to check, how to escalate effectively, what SLAs to hold BT to — and why businesses that rely solely on BT support keep losing hours they can't get back.",
+    readTime: "10 min read",
+    comments: 0,
+    content: `
+## The Problem: Your BT Business Broadband Is Down and Work Has Stopped
+
+It starts the same way every time. Emails stop loading. The VoIP phones go dead. Someone in accounts can't access the cloud system. And then the calls start — to the IT person, to management, to BT.
+
+A BT business broadband fault is not just an inconvenience. For most businesses, it means stopped operations, missed customer calls, delayed deliveries, and transactions that can't go through. Every hour the connection is down has a cost — often a significant one.
+
+The frustrating reality is that BT's business support process was designed for a time when internet connectivity was a convenience rather than the backbone of daily operations. Today, it rarely moves at the speed your business needs it to.
+
+This guide covers exactly what you should do when a BT business broadband fault occurs, how to escalate it properly, what SLAs you can hold BT to, and — critically — why businesses that depend on a single line managed entirely by BT keep facing the same painful wait every time something goes wrong.
+
+## What Causes a BT Business Broadband Fault?
+
+Before you can fix a BT business broadband fault, it helps to understand what can actually cause one. Faults broadly fall into three categories: issues on BT's network, issues at the exchange or cabinet, and issues on your own premises.
+
+### BT Network or Exchange Problems
+
+BT's network spans billions of metres of copper and fibre infrastructure across the UK. At any point, physical faults can occur — a cable severed by roadworks, water ingress at a street cabinet, hardware failure at an exchange, or a configuration problem following an upgrade. These faults are entirely outside your control and can affect anything from a single line to an entire area.
+
+Major outages are less common but do happen, particularly following storm damage or large-scale infrastructure work. These are tracked on [BT's service status checker](https://www.bt.com/help/broadband/broadband_services/outage_checker.html).
+
+### Line Quality Degradation
+
+Faults are not always complete outages. BT business broadband faults often manifest as intermittent connectivity, dramatically reduced speeds, or excessive packet loss. These are caused by line noise, aging copper infrastructure, corroded joints, or interference from nearby cables. They are harder to diagnose and harder to get BT to treat with urgency.
+
+### Router or On-Premises Equipment Issues
+
+Before raising a fault with BT, it is worth ruling out equipment on your side. A faulty BT router, a damaged cable between the socket and router, or a misconfigured internal network can all look like a BT broadband fault from the user's perspective. BT will ask you to check these things before they despatch an engineer.
+
+### BT Wholesale Infrastructure (Openreach)
+
+BT's consumer and business broadband products use the Openreach network, which is a legally separate entity. This matters because when your BT business broadband has a fault, the investigation and physical fix is usually carried out by Openreach engineers rather than BT directly. This adds a layer of coordination and is one reason response times can feel slow.
+
+## Step One: Check Whether It Is Actually a BT Fault
+
+When connectivity fails, the first step is to isolate where the problem actually is. Working through this quickly saves time and ensures you have the right information when you contact BT.
+
+### Basic Checks to Run First
+
+**Restart your router.** Switch it off at the wall, wait 60 seconds, and switch it back on. This resolves more reported faults than any other single action.
+
+**Check the broadband indicator on your router.** A solid broadband light typically means the line is connected. A flashing or absent light usually confirms a genuine line fault. Consult your specific router model's indicator guide for accuracy.
+
+**Test with a microfilter.** If you are on ADSL, plug a phone directly into the master socket with a microfilter. Dial 17070 and select option 2 (quiet line test). Crackling or interference on the line suggests a physical line fault.
+
+**Test at the master socket.** Disconnect your internal wiring entirely and plug your router directly into the BT test socket (usually found behind the faceplate of the master socket). If connectivity is restored, the fault is in your internal wiring rather than BT's network.
+
+**Check your internal network.** If the broadband indicator shows a connection but devices can't reach the internet, check whether the problem is a DNS issue, a firewall rule, or a routing problem on your internal network rather than the BT line itself.
+
+### Check the BT Service Status Page
+
+BT maintains a service status checker for reported outages and known faults in specific areas. If your area is already listed with a known outage, BT is aware of it and working on it — raising a separate fault report won't speed things up.
+
+### Document What You Are Seeing
+
+Before you contact BT, note down: when the fault started, what symptoms you are seeing (no connection, slow speeds, intermittent drops), what checks you have already run, and whether any changes were made to your router or internal network recently. This information will be asked for and having it ready shortens the call.
+
+## Step Two: Reporting a BT Business Broadband Fault
+
+BT business broadband faults should be reported through BT Business support, not BT consumer channels. Using the wrong team wastes time and can result in misinformed guidance.
+
+### How to Contact BT Business Broadband Support
+
+**Online:** BT's My Account portal allows you to run a line test and raise a fault report. This is often the fastest starting point, as the automated line test can identify some faults without a support call.
+
+**Phone:** Call **0800 800 152** for BT Business broadband support. Business customers typically receive elevated support compared to residential lines, but wait times can still be significant.
+
+**Online chat:** Available through the BT Business support pages during business hours.
+
+When you report the fault, ask for a **fault reference number**. You will need this for all subsequent follow-up. Without a reference number, every follow-up call risks starting from scratch.
+
+### What BT Will Ask and Do
+
+BT support will run a remote line test. If they detect a fault, they will notify Openreach to investigate. If they are unable to detect a fault remotely, they may request you to run additional tests, or they may schedule an engineer visit.
+
+Be explicit that you are a business customer and that the outage is causing direct operational impact. This is relevant to how your fault is prioritised.
+
+## Step Three: Understanding BT Business Broadband SLAs
+
+This is where many businesses are caught off-guard. BT's standard broadband products do not carry the same SLAs as managed leased line services.
+
+### Standard Business Broadband SLAs
+
+BT's standard business broadband (delivered over the Openreach FTTC or ADSL network) typically carries a **target fix time of the next working day**. In practice, this often means:
+
+- Fault diagnosed and Openreach engineer booked: 24–48 hours
+- Openreach engineer visit: 1–3 working days
+- Total time from fault to resolution: 2–5 working days in complex cases
+
+That is a long time for a business that cannot function without internet access.
+
+### BT Halo for Business
+
+BT's Halo for Business product includes enhanced support, an always-connected guarantee using 4G backup when the main line is down, and proactive monitoring. If you are currently on standard BT business broadband and experiencing repeated outages, Halo is worth evaluating as an upgrade.
+
+### Escalating Within BT
+
+If your fault is not being resolved within the committed timeframe, you have the right to escalate. Ask to speak with a duty manager rather than front-line support. Reference your SLA terms explicitly and the business impact you are experiencing. If the fault remains unresolved, you can refer the case to the [Communications Ombudsman](https://www.commsombudsman.org/) after following BT's formal complaints process.
+
+Keep a log of every contact: date, time, reference number, and what was agreed. This is essential if you need to escalate formally.
+
+## Step Four: The Workarounds While You Wait
+
+While BT investigates and Openreach schedules an engineer, you cannot simply wait. Your business needs to function.
+
+### Mobile Hotspot or 4G Router
+
+A smartphone hotspot or a dedicated 4G router can provide temporary connectivity for critical systems. This will not support high-bandwidth operations for the whole office, but it can keep email, voice calls, and cloud-based applications functioning for a small number of users.
+
+**Important:** Check your mobile data plan before routing business traffic through it. Data charges can escalate quickly.
+
+### Identify Critical Systems and Prioritise
+
+If bandwidth is limited during a fault period, decide in advance which systems take priority. Typically: payment processing, customer-facing communications, and operational management systems. Non-critical browsing and software updates can wait.
+
+### Communicate Proactively
+
+If your customer-facing systems are affected, tell customers before they discover it themselves. A brief outbound message — "We are currently experiencing connectivity issues and apologise for any delay" — reduces inbound queries and manages expectations.
+
+## The Real Problem: Why BT Faults Hit Small and Mid-Sized Businesses Hardest
+
+The steps above will get you through a BT business broadband fault. But the deeper problem is the model itself — a single broadband line, managed entirely by BT, with no visibility of the fault before it happens and no alternative path when it fails.
+
+This model made sense when internet connectivity was peripheral to operations. It no longer makes sense when your phone system, your ERP, your customer data, and your payment processing all run over the same single line.
+
+When that line goes down, you lose everything simultaneously. When BT's fix timeline stretches across working days, you lose the revenue and productivity that goes with it. And when the fault eventually gets fixed, nothing has changed — the same single-point-of-failure sits waiting for the next fault event.
+
+### What the Data Shows About SME Downtime
+
+Industry research consistently shows that SMEs underestimate the cost of broadband downtime. When you account for lost transactions, reduced staff productivity, customer service impact, and management time spent on the fault, a two-day outage can cost a small business thousands of pounds. Some estimates put the average cost of a network outage for a small business at over £3,500 per day.
+
+Yet the response from most businesses is to wait it out. Because they do not have an alternative.
+
+## The Solution: Managed Connectivity That Doesn't Depend on a Single Point of Failure
+
+This is where the problem has an actual answer — not just a better troubleshooting process, but a different operational model entirely.
+
+### What Managed Connectivity Looks Like
+
+A managed connectivity service replaces the single-broadband-line model with a resilient, monitored solution. The key differences are:
+
+**Redundant connections.** A primary fibre or leased line connection, backed by an automatic failover path — typically 4G/5G or a secondary broadband circuit. When the primary line fails, traffic switches to the backup within seconds. You likely never notice.
+
+**Proactive monitoring.** Instead of discovering a fault when someone can't send an email, monitoring systems detect line degradation, unusual latency, or packet loss before they become full outages. Engineers are often aware of an issue before users report one.
+
+**Dedicated support.** Rather than calling BT's general business line and joining the queue, you have a direct relationship with a technical team that knows your setup and can act quickly on your behalf — including liaising with Openreach directly to escalate priority.
+
+**SLAs that match your business.** Managed services carry defined service levels with penalties for breaches, not target times that slip without consequence.
+
+### How AI Monitoring Makes Managed Connectivity Even More Effective
+
+At Cisconnects, our managed network services include AI-assisted network monitoring that continuously analyses traffic patterns, line quality metrics, and device health across your connection. This means:
+
+- Faults are detected and investigated before users are impacted in most cases
+- Root cause analysis is faster because we have historical baseline data against which anomalies stand out
+- Our team can correlate multiple data points simultaneously rather than running through a linear troubleshooting checklist
+
+This is not theoretical. Businesses running on managed connectivity with active monitoring experience significantly fewer unplanned outages than those on unmanaged broadband, and when faults do occur, resolution times are measured in hours rather than days.
+
+### Is Managed Connectivity Right for Your Business?
+
+If any of the following applies to your business, the answer is almost certainly yes:
+
+- You have experienced a BT business broadband fault in the last twelve months that caused measurable operational impact
+- Your phone system, CRM, payment processing, or ERP runs over your broadband connection
+- You have staff who cannot work effectively without internet connectivity
+- You do not have a documented failover plan for when your primary connection fails
+
+The cost of a managed connectivity service is often comparable to, or not significantly more than, the direct cost of a single unmanaged downtime event per year. When you account for the indirect costs — management time, customer impact, staff productivity — the case is clear.
+
+## What to Do Right Now If You Are on Standard BT Business Broadband
+
+If you are reading this during an active BT business broadband fault, work through the steps in this guide. The checklist summary:
+
+1. Restart your router and check the broadband indicator
+2. Test at the master socket using the BT test socket
+3. Check BT's service status page for known area outages
+4. Call BT Business on **0800 800 152**, request a line test, and get a fault reference number
+5. Ask explicitly what the committed fix time is under your contract
+6. Set up a mobile hotspot for critical systems while you wait
+7. If the fix time passes without resolution, escalate to a duty manager
+
+Once the fault is resolved, the harder question is what you do next. A single fault is recoverable. A pattern of faults is a business risk.
+
+## Moving Beyond "Wait for BT": The Cisconnects Approach
+
+We work with businesses across the UK to replace the reactive, single-point-of-failure connectivity model with resilient managed connections that include proactive monitoring, automatic failover, and a technical team that acts before your users are impacted.
+
+If your business has been caught out by a BT business broadband fault — or you'd simply like to understand what a resilient managed connection would look like for your specific setup — [book a free consultation with our team](/book-consultation). We'll assess your current connectivity, identify your risk exposure, and give you an honest picture of what it would take to ensure a fault on the BT network never stops your business again.
+
+[Book a Demo →](/book-demo)
+
+> A BT business broadband fault is not an unusual event. It will happen again. The question is whether your business is set up to absorb it — or whether you'll be back on hold with BT support the next time it does.
+
+## Key Questions About BT Business Broadband Faults
+
+**How long does BT take to fix a business broadband fault?**
+
+BT's standard business broadband typically carries a next-working-day target fix time. In practice, faults often take 2–5 working days to fully resolve once Openreach engineer visits are factored in. Enhanced products like BT Halo for Business carry stronger SLAs and 4G backup.
+
+**Can I get compensation for a BT business broadband fault?**
+
+Under Ofcom's Automatic Compensation Scheme, residential customers can claim compensation for delayed repairs. Business customers on standard broadband are not automatically covered by this scheme — your entitlement depends on the specific contract terms you hold with BT. Leased line and enhanced business products typically carry contractual service credits for SLA breaches.
+
+**What is the BT business broadband fault number?**
+
+Call **0800 800 152** for BT Business broadband support. Have your account details and fault reference number ready for any follow-up calls.
+
+**How do I stop BT broadband faults from disrupting my business?**
+
+The most effective approach is to stop relying on a single unmanaged broadband line. Managed connectivity services with automatic failover, proactive monitoring, and dedicated support eliminate the majority of business-impacting outages and dramatically reduce resolution time when faults do occur.
+
+**What is the difference between BT broadband and BT Openreach?**
+
+BT sells broadband products to businesses and consumers. Openreach — a structurally separate entity within the BT Group — owns and maintains the physical network infrastructure (the cables, cabinets, and exchange equipment). When you report a fault to BT, the physical investigation and repair is typically carried out by Openreach engineers. This handoff is one reason support timelines can extend.
+    `
+  },
+  {
+    id: 9,
+    slug: "why-does-wifi-keep-dropping-in-cafes",
+    title: "Why Does WiFi Keep Dropping in Cafés?",
+    author: "Zak",
+    date: "13th March 2026",
+    category: "Business Connectivity, WiFi",
+    excerpt: "Café WiFi that drops constantly isn't just an inconvenience — it costs you customers, reputation, and revenue. In almost every case, the cause is the same: the wrong equipment installed the wrong way. Here's what's actually going wrong and how proper business WiFi installation fixes it for good.",
+    readTime: "9 min read",
+    comments: 0,
+    content: `
+## The Problem Is Never the Internet Speed
+
+When a café's WiFi keeps dropping, the first thing most owners do is call their broadband provider and ask for a faster line. In almost every case, that misses the point entirely.
+
+Broadband speed is rarely the issue. The issue is what happens between the broadband line and the devices connecting to it — the router, the access points, the channel configuration, the placement of hardware on a ceiling or shelf, the number of devices competing for airtime. These are installation and configuration problems, not speed problems. And they don't get fixed by upgrading your broadband package.
+
+This guide explains why café WiFi drops, what the real causes are, and what proper business WiFi installation looks like when it's done correctly.
+
+## Why Café WiFi Is a Harder Problem Than Home WiFi
+
+Most cafés start with a home broadband router sitting on a shelf behind the counter. It works on day one. Within a few weeks, customers are complaining. The owner restarts the router, it improves briefly, then the problem returns.
+
+The reason home routers fail in café environments is straightforward: they are not designed for the conditions.
+
+**High device density.** A home router is designed for 10–20 devices. A busy café at peak time might have 50–80 devices attempting to connect — customer phones, tablets, laptops, the card payment terminal, the music system, the EPOS system, and staff devices all on the same network. Consumer routers handle this badly. They slow down, queue connections incorrectly, and drop sessions under load.
+
+**Channel congestion.** WiFi operates on shared radio frequencies. In a high street location, your router is competing with every other WiFi network in the surrounding buildings. Consumer routers do not manage channel selection intelligently. They sit on a congested channel and stay there, causing interference that looks like your WiFi is "dropping" when it's actually being overwhelmed by RF noise.
+
+**Physical range and obstacles.** A single router placed behind a counter cannot reliably serve a space with thick walls, multiple rooms, a garden terrace, or a basement seating area. The signal degrades as customers move further away, leading to repeated disconnections as devices struggle to maintain a weak signal.
+
+**No separation between customer and business traffic.** When customers and your payment terminals share the same network, a surge in customer usage can directly impact the reliability of your card machine or your till. This is also a PCI compliance concern that many café owners are unaware of until a problem occurs.
+
+## The Most Common Causes of Dropping WiFi in Cafés
+
+Understanding the specific cause of your dropping WiFi is the first step toward fixing it. These are the most common culprits.
+
+### Overloaded Consumer Router
+
+The single most common cause. Consumer routers are not built to manage high connection counts or sustained throughput from many devices simultaneously. When too many devices connect, the router's CPU and memory become overwhelmed. It starts dropping connections, timing out sessions, and eventually rebooting itself — which looks to customers like the WiFi "going down".
+
+**The fix:** Replace the consumer router with a business-grade router designed for high device counts and sustained throughput. Business routers manage connection queues properly and include features like client load balancing that consumer devices simply don't have.
+
+### Single Access Point Coverage Gaps
+
+A single access point — even a good one — cannot reliably cover every corner of a café, particularly in older buildings with solid walls or unusual layouts. Customers in coverage gaps experience weak signal, which causes frequent disconnections as their device constantly re-searches for a better connection.
+
+This is particularly noticeable in garden areas, mezzanine levels, toilets areas (where people check their phones), and any space more than 15 metres from the router.
+
+**The fix:** Deploy multiple access points positioned to overlap coverage zones. Business-grade access points using a unified controller can hand devices between them seamlessly as customers move around. This is called a roaming configuration and it eliminates the disconnection problem caused by coverage gaps.
+
+### Channel Interference and Congestion
+
+WiFi operates primarily on the 2.4GHz and 5GHz frequency bands. The 2.4GHz band has only three non-overlapping channels, and in any busy high street location, all three are likely congested. If your router is locked to a congested channel, performance degrades significantly — connections appear to drop, speeds become erratic, and latency increases.
+
+Modern consumer routers claim to select channels automatically, but they rarely do it well. They make a decision at boot time and stick with it regardless of changing conditions.
+
+**The fix:** Business-grade access points perform continuous background channel scanning and switch channels dynamically as conditions change. They also make better use of the 5GHz band, which has more available channels and less congestion — though shorter range.
+
+### Firmware and Hardware Age
+
+Older routers accumulate memory leaks. The internal software develops small errors that compound over days of operation, eventually causing the device to become unstable and restart. This is why restarting the router "fixes" a problem temporarily — you're clearing the accumulated error state, not addressing the underlying cause.
+
+**The fix:** Replace aging hardware. Consumer routers have a practical operational lifespan of 2–3 years. Running one for 4–5 years in a business environment guarantees instability. Business-grade hardware with commercial support and regular firmware updates behaves reliably over longer periods.
+
+### No Network Segmentation
+
+Running customer devices and business systems on the same network creates problems in two directions. First, heavy customer usage degrades business system performance. Second, it creates a security exposure where a compromised customer device could potentially access your business network.
+
+**The fix:** Proper business WiFi installation includes network segmentation — typically a separate VLAN or SSID for customer traffic, with quality-of-service rules that prioritise traffic to your payment terminals and EPOS systems regardless of how many customers are connected.
+
+## What Proper Business WiFi Installation Looks Like
+
+This is where many cafés get let down — not by the hardware itself, but by how it is installed and configured. Buying a more expensive router from a consumer electronics shop and plugging it in does not constitute business WiFi installation. It's just more expensive home WiFi.
+
+Proper business WiFi installation for a café involves a site survey, hardware selection matched to the specific space, professional physical installation, and network configuration that reflects how your business actually operates.
+
+### Site Survey
+
+Before any hardware is selected or installed, the space needs to be assessed. A site survey identifies: the dimensions and layout of the space, wall materials and their signal attenuation properties, the location of the incoming broadband line, existing cabling infrastructure, the number of expected concurrent users, and any areas with specific requirements (garden terrace, basement, mezzanine).
+
+This determines how many access points are needed, where they should be mounted, and how they should be configured. Skipping the site survey is the most common reason business WiFi installations underperform.
+
+### Hardware Selection
+
+Business WiFi installations use access points from commercial ranges — Cisco Meraki, Ubiquiti UniFi, Ruckus, and similar — rather than consumer equipment. The practical differences are significant:
+
+| Feature | Consumer Router | Business Access Point |
+|---|---|---|
+| Concurrent device support | 20–30 | 100–250+ |
+| Channel management | Basic / manual | Automatic / dynamic |
+| Multiple SSIDs/VLANs | Rarely | Standard |
+| Centralised management | No | Yes |
+| Seamless roaming | No | Yes |
+| Commercial support | No | Yes |
+| Hardware lifespan | 2–3 years | 5–7 years |
+
+### Professional Installation
+
+Access points need to be ceiling-mounted at the correct height and angle to provide optimal coverage. Cable runs need to be clean and correctly rated. Power-over-Ethernet switches need to be correctly sized. Configuration needs to reflect the specific requirements of the venue.
+
+Done correctly, a café WiFi installation is largely invisible. Customers connect reliably, the network hands them between access points without disconnection, and the business systems operate on their own segregated network with guaranteed priority.
+
+### Ongoing Monitoring and Support
+
+A professionally installed system should include ongoing monitoring. If an access point goes offline, if interference suddenly increases, or if a device is consuming unusual bandwidth on the customer network, these events should be detected and addressed before customers notice.
+
+This is the difference between a one-time installation and a managed connectivity service — the latter includes ongoing responsibility for performance, not just the initial setup.
+
+## The Business Cost of Getting WiFi Wrong
+
+Café owners often underestimate what unreliable WiFi actually costs. The direct costs are visible: customers who leave because they can't connect, negative reviews mentioning the WiFi, the time staff spend restarting routers and troubleshooting.
+
+The hidden costs are larger. A card machine that goes offline during the lunch rush because customer traffic overwhelmed the shared network. An EPOS system that loses its connection mid-transaction. Staff spending time on WiFi complaints instead of serving customers.
+
+Research consistently shows that reliable WiFi is among the top factors customers consider when choosing where to spend time working or socialising. Cafés with reliable connectivity retain customers longer and see higher average spend. Cafés with unreliable WiFi lose that cohort entirely — and lose the associated word-of-mouth recommendation.
+
+The cost of getting business WiFi installation right is typically recovered in months, not years.
+
+## What to Do If Your Café WiFi Keeps Dropping Right Now
+
+If you are experiencing dropping WiFi in your café today, here is what to check:
+
+1. **Count your connected devices.** Go into your router admin and see how many devices are currently connected. If it's above 20 and you're running a consumer router, that's very likely your primary problem.
+
+2. **Check whether the problem is time-correlated.** Does the WiFi drop more at busy times? That confirms a capacity problem rather than a line fault.
+
+3. **Check your router's age.** If it's more than 3 years old, hardware instability is a likely contributor. If it's rebooting itself regularly, replace it.
+
+4. **Check channel congestion.** Apps like WiFi Analyser (Android) or similar tools show you how congested the channels around you are. If you're on a very congested channel, even manually switching to a less congested one can provide immediate improvement.
+
+5. **Separate your network.** If your card machine and till are on the same WiFi as your customers, that needs to change as a priority — both for reliability and for PCI compliance.
+
+These steps will help diagnose the problem. The lasting fix, however, is proper business WiFi installation.
+
+## How Cisconnects Solves Café WiFi for Good
+
+We install and manage business WiFi for cafés, coffee shops, and hospitality venues across the UK. Our approach starts with a site survey, uses commercial-grade hardware matched to your space, and includes ongoing monitoring so that problems are identified and resolved before your customers notice them.
+
+Every installation includes network segmentation as standard — your card payment systems and business operations run on a separate, protected network with traffic priority, completely isolated from the customer WiFi network.
+
+We don't just install and disappear. Our managed WiFi service means you have a technical team monitoring your connection and available when something needs attention. No more restarting the router and hoping for the best.
+
+If your café WiFi keeps dropping and you're ready to fix it properly, [see our café connectivity service](/reliable-cafe-connectivity) to find out what a professionally installed and managed system looks like for your venue.
+
+> Poor WiFi in a café is almost always a business WiFi installation problem, not a broadband problem. The right hardware, correctly installed and properly configured, makes the issue disappear entirely.
+
+## Frequently Asked Questions About Café WiFi Problems
+
+**Why does my café WiFi keep dropping even though I have good broadband speed?**
+
+Broadband speed and WiFi reliability are separate things. The most common cause of dropping WiFi in cafés is a consumer router that cannot handle the number of devices connecting simultaneously, channel interference from neighbouring networks, or coverage gaps that cause devices to lose signal as customers move around the space. Proper business WiFi installation addresses all of these independently of your broadband speed.
+
+**How much does business WiFi installation cost for a café?**
+
+The cost depends on the size of the venue and the number of access points required. A small café with straightforward layout typically requires 1–2 commercial access points plus a business-grade router. A larger venue with multiple rooms or an outdoor area may need 3–5 access points. [Get in touch for a site assessment and quote](/reliable-cafe-connectivity) — we'll survey the space and give you an accurate figure.
+
+**Do I need to separate my customer WiFi from my business network?**
+
+Yes. Running your card payment terminal, EPOS system, and customer devices on the same network creates reliability problems and is not compliant with PCI DSS standards for card payment security. Proper business WiFi installation includes separate networks (VLANs) for customer traffic and business systems as standard.
+
+**Can I just buy a better router from a shop?**
+
+An upgrade from a very old or failing consumer router will provide some improvement, but consumer hardware — regardless of price — is not designed for the device counts, channel management requirements, or multi-access-point configurations that a café environment needs. The practical ceiling of consumer hardware is too low for a busy hospitality venue.
+
+**How do I stop customers from using all my bandwidth?**
+
+Business WiFi installations include bandwidth management features that allow you to set a per-device or per-SSID bandwidth cap on the customer network. This prevents a single high-usage customer from degrading the experience for everyone else, and ensures your business systems always have the bandwidth they need.
+    `
   }
 ];
 
