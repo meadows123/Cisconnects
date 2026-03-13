@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Calendar, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Calendar, Send, CheckCircle, AlertCircle, Video, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import SEO from './SEO';
 import emailjs from '@emailjs/browser';
+import { useBooking } from '../context/BookingContext';
 
 const Contact = () => {
+  const { openBooking } = useBooking();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -298,6 +300,27 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="space-y-8"
             >
+              {/* Booking CTAs */}
+              <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-white mb-2">Schedule a Meeting</h3>
+                <p className="text-slate-400 mb-6">Pick a time that works for you and we'll walk you through everything.</p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button
+                    onClick={openBooking}
+                    className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50"
+                  >
+                    <Video className="w-5 h-5" />
+                    Book a Demo
+                  </button>
+                  <button
+                    onClick={openBooking}
+                    className="flex-1 flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 border border-white/10 text-white px-6 py-3 rounded-xl font-semibold transition-all"
+                  >
+                    <Users className="w-5 h-5" />
+                    Free Consultation
+                  </button>
+                </div>
+              </div>
               {/* Contact Cards */}
               <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>

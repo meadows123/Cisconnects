@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Mail, Home, Menu, X, Settings, Info, ChevronDown, MessageSquare, BrainCircuit, Globe } from 'lucide-react';
+import { useBooking } from '@/context/BookingContext';
 
 export default function Navigation() {
+  const { openBooking } = useBooking();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
@@ -77,6 +79,22 @@ export default function Navigation() {
                   location.pathname === '/websites'
                 ));
               
+              // Contact button opens booking modal
+              if (link.highlight) {
+                return (
+                  <motion.button
+                    key={link.to}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={openBooking}
+                    className="relative flex items-center gap-2 px-4 py-2 rounded-lg transition-all bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/30"
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span className="font-medium">{link.label}</span>
+                  </motion.button>
+                );
+              }
+
               // Services dropdown
               if (link.to === '/services') {
                 return (
@@ -354,20 +372,28 @@ export default function Navigation() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
                       >
-                        <Link
-                          to={link.to}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                            link.highlight
-                              ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                              : isActive
-                              ? 'bg-blue-500/20 border border-blue-500/40 text-blue-300'
-                              : 'bg-blue-500/10 border border-blue-500/20 text-blue-300 hover:bg-blue-500/20'
-                          }`}
-                        >
-                          <Icon className="w-5 h-5" />
-                          <span className="font-medium">{link.label}</span>
-                        </Link>
+                        {link.highlight ? (
+                          <button
+                            onClick={() => { setMobileMenuOpen(false); openBooking(); }}
+                            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                          >
+                            <Icon className="w-5 h-5" />
+                            <span className="font-medium">{link.label}</span>
+                          </button>
+                        ) : (
+                          <Link
+                            to={link.to}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+                              isActive
+                                ? 'bg-blue-500/20 border border-blue-500/40 text-blue-300'
+                                : 'bg-blue-500/10 border border-blue-500/20 text-blue-300 hover:bg-blue-500/20'
+                            }`}
+                          >
+                            <Icon className="w-5 h-5" />
+                            <span className="font-medium">{link.label}</span>
+                          </Link>
+                        )}
                       </motion.div>
                     );
                   })}
