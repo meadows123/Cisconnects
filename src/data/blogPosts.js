@@ -2241,7 +2241,14 @@ const parseDate = (dateStr) => {
   return new Date(cleaned);
 };
 
+const isAIPost = (post) => /ai/i.test(post.category);
+
 export const getAllBlogPosts = () => {
-  return blogPosts.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+  return [...blogPosts].sort((a, b) => {
+    const aIsAI = isAIPost(a) ? 0 : 1;
+    const bIsAI = isAIPost(b) ? 0 : 1;
+    if (aIsAI !== bIsAI) return aIsAI - bIsAI;
+    return parseDate(b.date) - parseDate(a.date);
+  });
 };
 
