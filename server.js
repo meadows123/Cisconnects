@@ -22,10 +22,10 @@ const CONSULTATIONS_FILE = path.join(__dirname, 'consultations.json');
 const CALLS_FILE = path.join(__dirname, 'calls.json');
 const LEADS_FILE = path.join(__dirname, 'leads.json');
 
-// Initialize Supabase
+// Initialize Supabase (optional — falls back to JSON files if not configured)
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE;
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
 console.log('Environment loaded:');
 console.log('- Supabase URL:', supabaseUrl ? '✓ Configured' : '✗ Missing');
