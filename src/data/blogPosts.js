@@ -2095,6 +2095,133 @@ An upgrade from a very old or failing consumer router will provide some improvem
 Business WiFi installations include bandwidth management features that allow you to set a per-device or per-SSID bandwidth cap on the customer network. This prevents a single high-usage customer from degrading the experience for everyone else, and ensures your business systems always have the bandwidth they need.
     `
   }
+  ,
+  {
+    id: 10,
+    slug: "network-automation-software-infraops-2026",
+    title: "Network Automation Software: How InfraOps is Transforming Modern IT",
+    author: "Zak",
+    date: "17th March 2026",
+    isoDate: "2026-03-17",
+    category: "Network Automation, AI, InfraOps",
+    excerpt: "Discover how InfraOps is redefining network automation software in 2026. Learn about config templates, troubleshooting packs, infra approval systems, cloud integration, and the revolutionary chat function for human-like interaction.",
+    keywords: "Network automation software, InfraOps, config templates, troubleshooting packs, infra approval system, cloud environments, network chat, AI network automation",
+    readTime: "13 min read",
+    comments: 0,
+    content: `
+![Network Automation Software dashboard with AI chat and config templates](https://images.unsplash.com/photo-1519389950473-47c0e7f7c2b9?w=1200&h=600&fit=crop)
+
+## What Is InfraOps?
+
+InfraOps is a unified platform for network automation, designed to simplify and accelerate every aspect of IT infrastructure management. It empowers teams to automate configurations, troubleshoot issues, manage approvals, and interact with their network using natural language.
+
+### Config Templates: Standardize and Automate
+
+InfraOps lets you deploy pre-built or custom config templates across your network. This ensures consistency, reduces manual errors, and accelerates change management. Templates can be versioned, audited, and rolled back as needed.
+
+### Troubleshooting Packs: Intelligent Diagnostics
+
+InfraOps offers troubleshooting packs that leverage AI and historical data to diagnose issues, recommend fixes, and automate remediation. These packs help IT teams resolve incidents faster and with greater confidence.
+
+### Infra Approval System: Secure Change Management
+
+Managing changes in cloud environments requires robust approval workflows. InfraOps integrates an infra approval system that tracks requests, automates compliance checks, and ensures only authorized changes are deployed—minimizing risk and maximizing uptime.
+
+### Cloud Environment Integration
+
+InfraOps seamlessly connects with public and private cloud platforms, enabling automated provisioning, scaling, and monitoring. Whether you’re running hybrid or multi-cloud, InfraOps keeps your network agile and secure.
+
+### Chat Function: Speak to Your Network
+
+The standout feature is InfraOps’ chat interface. You can “speak” to your network in human language—ask for status, request changes, or troubleshoot issues. The AI-powered chat understands context and executes tasks, making network management as easy as sending a message.
+
+## Why Network Automation Matters
+
+Automating network operations reduces downtime, improves security, and accelerates business agility. InfraOps empowers IT teams to:
+
+- Deploy changes confidently with config templates.
+- Resolve incidents quickly using troubleshooting packs.
+- Maintain compliance with automated approval workflows.
+- Scale infrastructure effortlessly in cloud environments.
+- Interact naturally with the network using chat-based commands.
+
+## Conclusion
+
+InfraOps is redefining network automation software by combining intelligent templates, troubleshooting packs, approval systems, cloud integration, and conversational AI. If you want to future-proof your network and empower your team, InfraOps is the solution to explore.
+
+## Internal Links
+
+- [InfraAIOps: Building AI-Ready Network Operations](/infraaiops)
+- [Network Automation Tools Guide for 2026](/blog/network-automation-tools-guide-2026)
+- [How AI Is Enhancing Network Automation in Large-Scale Data Centres](/blog/how-ai-enhances-network-automation-in-large-data-centres)
+
+## Call to Action
+
+Ready to see InfraOps in action? [Book a demo](/book-demo) or [contact us](/contact) for a free consultation.
+    `
+  }
+  ,
+  {
+    id: 11,
+    slug: "ansible-network-automation-guide-2026",
+    title: "Ansible Network Automation: The Essential Guide for 2026",
+    author: "Zak",
+    date: "17th March 2026",
+    isoDate: "2026-03-17",
+    category: "Network Automation, Ansible, AI",
+    excerpt: "Discover how Ansible is transforming network automation in 2026. Learn about agentless operation, multi-vendor support, playbooks, compliance, and real-world use cases.",
+    keywords: "Ansible network automation, Ansible playbooks, network automation 2026, Cisco automation, Juniper automation, Arista automation, network compliance, network troubleshooting, YAML automation",
+    readTime: "12 min read",
+    comments: 0,
+    content: `
+![Ansible automating network devices across multi-vendor environments](https://images.unsplash.com/photo-1519389950473-47c0e7f7c2b9?w=1200&h=600&fit=crop)
+
+## What Is Ansible Network Automation?
+
+Ansible Network Automation uses simple, human-readable playbooks to automate tasks like device provisioning, configuration management, and operational checks. With support for Cisco, Juniper, Arista, and many other vendors, Ansible enables seamless automation across hybrid and cloud networks.
+
+### Key Features
+
+- **Agentless Operation:** No software required on network devices.
+- **Multi-Vendor Support:** Automate Cisco, Juniper, Arista, and more.
+- **Playbooks & Roles:** Reusable templates for common tasks.
+- **Compliance Checks:** Enforce configuration standards automatically.
+- **Integration:** Works with cloud platforms, CI/CD pipelines, and ITSM tools.
+
+### Real-World Use Cases
+
+- Automated switch/router configuration
+- Zero-touch provisioning for new devices
+- Network backup and restore
+- Compliance auditing and remediation
+- Automated troubleshooting and diagnostics
+
+### Why Choose Ansible for Network Automation?
+
+- **Simplicity:** YAML playbooks are easy to write and understand.
+- **Scalability:** Manage thousands of devices with a single command.
+- **Community:** Extensive modules and support from the open-source community.
+- **Cost:** Free to use, with enterprise options available.
+
+### Getting Started
+
+1. Inventory your network devices.
+2. Install Ansible and required modules.
+3. Write playbooks for common tasks.
+4. Test automation in a lab environment.
+5. Deploy automation to production.
+
+### Internal Links
+
+- [Network Automation Tools Guide for 2026](/blog/network-automation-tools-guide-2026)
+- [InfraAIOps: Building AI-Ready Network Operations](/infraaiops)
+- [How AI Is Enhancing Network Automation in Large-Scale Data Centres](/blog/how-ai-enhances-network-automation-in-large-data-centres)
+
+### Call to Action
+
+Ready to automate your network with Ansible? [Book a demo](/book-demo) or [contact us](/contact) for expert guidance.
+    `
+  }
 ];
 
 export const getBlogPostBySlug = (slug) => {
