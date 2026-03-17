@@ -1049,7 +1049,7 @@ Looking at the architecture of this mix is key. It's a complex system that needs
 
 ### Key Components and Functions
 
-The main parts are PyATS, ChatGPT, and ollama models. Each is vital for the system's success. For example, ChatGPT lets you use natural language to control network devices.
+The main parts
 
 ### Implementation Prerequisites
 
