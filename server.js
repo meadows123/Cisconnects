@@ -45,8 +45,8 @@ console.log('- GoHighLevel Calendar ID:', process.env.GHL_CALENDAR_ID ? '✓ Con
 // Redirect any non-canonical host to www.conxiea.com
 app.use((req, res, next) => {
   const host = req.hostname;
-  if (host && host !== 'www.conxiea.com' && process.env.NODE_ENV === 'production') {
-    return res.redirect(301, `https://www.conxiea.com${req.originalUrl}`);
+  if (host && host !== 'conxiea.com' && process.env.NODE_ENV === 'production') {
+    return res.redirect(301, `https://conxiea.com${req.originalUrl}`);
   }
   next();
 });
