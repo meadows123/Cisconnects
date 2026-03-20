@@ -12,9 +12,7 @@ const SEO = ({
   author,
   structuredData
 }) => {
-  const siteUrl = typeof window !== 'undefined' 
-    ? window.location.origin 
-    : 'https://www.conxiea.com';
+  const siteUrl = 'https://www.conxiea.com';
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
 

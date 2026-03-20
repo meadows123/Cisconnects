@@ -42,6 +42,15 @@ console.log('- GoHighLevel API Key:', process.env.GHL_API_KEY ? '✓ Configured'
 console.log('- GoHighLevel Location ID:', process.env.GHL_LOCATION_ID ? '✓ Configured' : '✗ Missing');
 console.log('- GoHighLevel Calendar ID:', process.env.GHL_CALENDAR_ID ? '✓ Configured' : '✗ Missing');
 
+// Redirect any non-canonical host to www.conxiea.com
+app.use((req, res, next) => {
+  const host = req.hostname;
+  if (host && host !== 'www.conxiea.com' && process.env.NODE_ENV === 'production') {
+    return res.redirect(301, `https://www.conxiea.com${req.originalUrl}`);
+  }
+  next();
+});
+
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
