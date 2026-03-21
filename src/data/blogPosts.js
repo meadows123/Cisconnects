@@ -2221,6 +2221,100 @@ Ansible Network Automation uses simple, human-readable playbooks to automate tas
 
 Ready to automate your network with Ansible? [Book a demo](/book-demo) or [contact us](/contact) for expert guidance.
     `
+  },
+  {
+    id: 12,
+    slug: "cafe-connectivity-wifi-setup",
+    title: "Café Connectivity & WiFi Setup: Business WiFi Troubleshooting Guide",
+    author: "Zak",
+    date: "21st March 2026",
+    category: "WiFi & Connectivity",
+    excerpt: "Nothing breaks a busy café faster than bad internet. This guide covers the most common business WiFi troubleshooting problems in cafés — from slow WiFi and card machine drops to POS systems losing connection — and exactly how we fix them.",
+    readTime: "8 min read",
+    content: `
+Running a café is hard enough. The last thing you need is your WiFi dropping mid-service, your card machine cutting out during a lunch rush, or your POS system losing connection right when a queue is forming at the counter. Yet for many café owners, these aren't rare disasters — they're a weekly reality.
+
+At Cisconnects, we work with independent cafés and hospitality businesses across the UK to design networks that are built for the demands of a real trading environment. This guide covers the most common connectivity problems we see in cafés, and exactly how we fix them.
+
+## Nothing Breaks a Busy Café Faster Than Bad Internet
+
+Most cafés set up their internet with a standard consumer broadband router — the one the ISP ships in the box. That's fine for a home. It's a problem for a business that needs to run customer WiFi, a card terminal, a POS system, and potentially CCTV and music streaming all at the same time.
+
+Consumer-grade routers aren't designed for high-density environments. They struggle with multiple simultaneous connections, can't prioritise business-critical traffic like payments, and offer no meaningful visibility when something goes wrong. You find out there's a problem when a customer tells you — or worse, when a card payment fails.
+
+A properly configured café network separates your traffic, keeps your payments isolated and secure, and gives you the stability to run your business without worrying about your connection.
+
+## Common Connectivity Problems in Cafés
+
+### Slow WiFi in Busy Cafés
+
+Walk into any busy café at peak hours and you'll often find the customer WiFi barely usable. This is one of the most reported business WiFi troubleshooting complaints we hear from hospitality owners. The problem is almost always one of two things: too many devices sharing too little bandwidth, or a single access point trying to cover a space it wasn't designed for.
+
+When every customer connects a phone and a laptop, the number of active devices on your network climbs fast. Without the right access point hardware and channel management, devices start competing for airtime and speeds drop sharply.
+
+The fix isn't always more bandwidth from your ISP. Often it's better hardware placement, splitting 2.4GHz and 5GHz bands correctly, and configuring your access points to hand off devices cleanly as customers move around the space.
+
+### Card Machines Disconnecting
+
+Card machine drops are one of the most damaging connectivity problems a café can face. Every failed transaction is lost revenue and a frustrated customer — and repeated failures damage trust in your business.
+
+Most card terminals communicate over WiFi or a 4G backup. When they share a network with heavy customer traffic, they're competing for the same resources. A poorly configured router may not prioritise payment traffic, meaning a customer streaming video can effectively knock out your card machine.
+
+The solution is network segmentation — putting your payment terminals on a dedicated VLAN, isolated from customer devices, with quality of service rules that ensure payment traffic always gets through. Some setups also benefit from a dedicated wired connection for the terminal to remove WiFi variability entirely.
+
+### POS Systems Losing Internet
+
+Your point-of-sale system is the operational backbone of your café. If it loses connectivity, you may lose the ability to take orders, print receipts, or update your till. Modern cloud-based POS systems are particularly vulnerable because they depend on a live internet connection to function.
+
+We regularly see POS systems falling off the network because they're connected to a consumer router with aggressive device limits, or because a router reboot during a software update has kicked connected devices. In some cases, the POS is on the same network as customers and is being starved of bandwidth.
+
+A commercial-grade managed switch, a dedicated SSID for business devices, and a properly configured DHCP reservation so your POS always gets the same IP address — these are small changes that make a significant difference to reliability.
+
+## How We Fix Café Network Problems
+
+When we survey a café, we're looking at the whole picture: your ISP connection, your router, your switch infrastructure, how your access points are placed, and what's on each part of your network.
+
+From there, we design and install a solution that typically includes:
+
+**Managed switching and routing** — commercial hardware that gives you proper traffic separation between customer WiFi, payment systems, and back-of-house devices. No consumer kit.
+
+**Network segmentation with VLANs** — your card machines and POS systems live on their own isolated network. Customers can't interfere with business-critical traffic.
+
+**Quality of service (QoS) configuration** — payment and POS traffic is always prioritised. Even during peak hours with dozens of customer devices connected, your business systems stay stable.
+
+**Access point placement and configuration** — we position access points based on your floor plan and test coverage across the whole space, including outdoor seating areas if needed. Roaming between access points is seamless.
+
+**Ongoing monitoring** — we can keep an eye on your network remotely and flag issues before they cause problems on the floor.
+
+Every café is different. We work with your existing infrastructure where it makes sense, and recommend replacements only where the current setup is genuinely limiting you.
+
+## Frequently Asked Questions
+
+**Do I need business broadband or will standard broadband work?**
+Business broadband typically includes an SLA (service level agreement) with guaranteed response times if the line goes down — that matters if connectivity is critical to taking payments. Standard broadband can work in lower-traffic setups, but we'd always recommend at minimum having a 4G failover in place so a line fault doesn't stop your card machines.
+
+**How many access points does my café need?**
+It depends on the size and layout of your space, the building materials (thick stone walls absorb signal badly), and how many simultaneous devices you expect. A small single-room café may need just one well-placed access point. A larger venue with an outdoor area might need three or four. We'll advise after a site survey.
+
+**Can you work around an existing ISP router?**
+Yes. We can put your ISP router into modem-only mode and place a commercial router behind it, which gives us full control over the network configuration without needing to change your broadband contract.
+
+**How long does installation take?**
+Most café network installations take between half a day and a full day, depending on complexity. We work around your trading hours where possible.
+
+**What happens if something goes wrong after installation?**
+We offer ongoing support and remote monitoring. If something does go wrong, we can diagnose it remotely in most cases and resolve it without needing to visit site.
+
+### Internal Links
+
+- [How to Plan a Successful Firewall Migration in 2025](/blog/firewall-migration-2025)
+- [Network Automation Tools Guide for 2026](/blog/network-automation-tools-guide-2026)
+- [InfraAIOps: Building AI-Ready Network Operations](/infraaiops)
+
+### Call to Action
+
+Struggling with your café's connectivity? [Get in touch](/contact) for a free network survey, or [book a demo](/book-demo) to see what a properly configured business network looks like.
+    `
   }
 ];
 
