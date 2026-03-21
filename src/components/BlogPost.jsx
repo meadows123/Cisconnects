@@ -1,4 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getBlogPostBySlug } from '../data/blogPosts';
@@ -6,10 +7,57 @@ import ReactMarkdown from 'react-markdown';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import SEO from './SEO';
+import emailjs from '@emailjs/browser';
 
 export default function BlogPost() {
   const { slug } = useParams();
   const post = getBlogPostBySlug(slug);
+
+  const [commentForm, setCommentForm] = useState({ name: '', email: '', website: '', comment: '' });
+  const [commentStatus, setCommentStatus] = useState(null); // 'success' | 'error' | null
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleCommentChange = (e) => {
+    setCommentForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setCommentStatus(null);
+
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
+      if (!serviceId || !publicKey || !templateId) {
+        throw new Error('EmailJS configuration missing');
+      }
+
+      emailjs.init(publicKey);
+
+      await emailjs.send(serviceId, templateId, {
+        from_name: commentForm.name,
+        from_email: commentForm.email,
+        reply_to: commentForm.email,
+        message: `Blog comment on "${post.title}"\n\nWebsite: ${commentForm.website || 'N/A'}\n\n${commentForm.comment}`,
+        to_name: 'Conxiea',
+        company_name: 'Conxiea',
+        website: 'https://www.conxiea.com',
+        current_date: new Date().toLocaleDateString(),
+        current_time: new Date().toLocaleTimeString(),
+      });
+
+      setCommentStatus('success');
+      setCommentForm({ name: '', email: '', website: '', comment: '' });
+    } catch (err) {
+      console.error('Comment submit error:', err);
+      setCommentStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -275,7 +323,7 @@ export default function BlogPost() {
           
           {/* Comment Form */}
           <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl shadow-md p-8 border border-white/10">
-            <form className="space-y-6">
+            <form onSubmit={handleCommentSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
@@ -286,11 +334,13 @@ export default function BlogPost() {
                     id="name"
                     name="name"
                     required
+                    value={commentForm.name}
+                    onChange={handleCommentChange}
                     className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                     placeholder="Your name"
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
                     Email *
@@ -300,6 +350,8 @@ export default function BlogPost() {
                     id="email"
                     name="email"
                     required
+                    value={commentForm.email}
+                    onChange={handleCommentChange}
                     className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                     placeholder="your.email@example.com"
                   />
@@ -314,6 +366,8 @@ export default function BlogPost() {
                   type="url"
                   id="website"
                   name="website"
+                  value={commentForm.website}
+                  onChange={handleCommentChange}
                   className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                   placeholder="https://yourwebsite.com"
                 />
@@ -328,28 +382,26 @@ export default function BlogPost() {
                   name="comment"
                   required
                   rows="6"
+                  value={commentForm.comment}
+                  onChange={handleCommentChange}
                   className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
                   placeholder="Share your thoughts..."
                 ></textarea>
               </div>
 
-              <div className="flex items-start gap-3">
-                <input
-                  type="checkbox"
-                  id="save-info"
-                  name="save-info"
-                  className="mt-1 w-4 h-4 text-blue-600 border-slate-700 rounded focus:ring-blue-500 bg-slate-900"
-                />
-                <label htmlFor="save-info" className="text-sm text-slate-400">
-                  Save my name, email, and website in this browser for the next time I comment.
-                </label>
-              </div>
+              {commentStatus === 'success' && (
+                <p className="text-green-400 text-sm font-medium">Thanks for your comment! We'll review it shortly.</p>
+              )}
+              {commentStatus === 'error' && (
+                <p className="text-red-400 text-sm font-medium">Something went wrong. Please try again.</p>
+              )}
 
               <button
                 type="submit"
-                className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30"
+                disabled={isSubmitting}
+                className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:opacity-60 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30"
               >
-                Post Comment
+                {isSubmitting ? 'Sending...' : 'Post Comment'}
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
                 </svg>
