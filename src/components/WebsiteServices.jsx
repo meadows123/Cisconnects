@@ -39,8 +39,8 @@ const WebsiteServices = () => {
   const basePlans = [
     {
       tier: 'Basic',
-      basePrice: 499,
-      pricePeriod: ' one-time',
+      basePrice: 45,
+      pricePeriod: '/month',
       description: 'Perfect for small businesses getting started online',
       icon: Award,
       gradient: 'from-amber-500 to-orange-600',
@@ -59,8 +59,8 @@ const WebsiteServices = () => {
     },
     {
       tier: 'Professional',
-      basePrice: 1000,
-      pricePeriod: ' one-time',
+      basePrice: 87,
+      pricePeriod: '/month',
       description: 'Ideal for businesses needing database and payment functionality',
       icon: Star,
       gradient: 'from-slate-400 to-slate-600',
@@ -80,8 +80,8 @@ const WebsiteServices = () => {
     },
     {
       tier: 'Enterprise',
-      basePrice: 3000,
-      pricePeriod: ' one-time',
+      basePrice: 250,
+      pricePeriod: '/month',
       description: 'Complete solution for established businesses with complex needs',
       icon: Crown,
       gradient: 'from-yellow-400 to-amber-500',
@@ -201,7 +201,7 @@ const WebsiteServices = () => {
     <>
       <SEO
         title="Website Design Services | Professional Web Development Packages | Conxiea"
-        description={`Professional website design services with one-time payment packages. All packages include domain registration, hosting, and support. Responsive design, SEO optimization, and e-commerce solutions.`}
+        description={`Professional website design services with flexible monthly plans. All plans include domain registration, hosting, and support. Responsive design, SEO optimization, and e-commerce solutions.`}
         url="/websites"
       />
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
@@ -234,7 +234,7 @@ const WebsiteServices = () => {
               </h1>
               
               <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto">
-                Get a custom website that drives results. Choose the perfect one-time payment package for your business needs. All packages include domain registration (one-time), hosting, and ongoing support.
+                Get a custom website that drives results. Choose the perfect monthly plan for your business needs. All packages include domain registration, hosting, and ongoing support.
               </p>
             </motion.div>
 
@@ -251,7 +251,7 @@ const WebsiteServices = () => {
                   Choose Your Package
                 </h2>
                 <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                  Three one-time payment packages designed to meet your business needs. Pay once and get your professional website delivered.
+                  Three monthly plans designed to meet your business needs. Get your professional website delivered and keep it running smoothly.
                 </p>
               </motion.div>
 
@@ -287,7 +287,7 @@ const WebsiteServices = () => {
                           <span className="text-5xl font-bold text-white">{plan.price}</span>
                           <span className="text-xl text-slate-300 ml-2">{plan.pricePeriod}</span>
                         </div>
-                        <p className="text-sm text-slate-400 mb-4">+ Domain registration (one-time payment)</p>
+                        <p className="text-sm text-slate-400 mb-4">Domain registration & hosting included</p>
                       </div>
 
                       <ul className="space-y-3 mb-8">
