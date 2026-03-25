@@ -35,6 +35,7 @@ const CafeWifi = lazy(() => import('@/components/CafeWifi'));
 const OfficeWifi = lazy(() => import('@/components/OfficeWifi'));
 const NetworkTroubleshooting = lazy(() => import('@/components/NetworkTroubleshooting'));
 const WifiOptimisation = lazy(() => import('@/components/WifiOptimisation'));
+const ElectricianWebsiteServices = lazy(() => import('@/components/ElectricianWebsiteServices'));
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -65,6 +66,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/office-connectivity" element={<OfficeWifi />} />
       <Route path="/network-troubleshooting" element={<NetworkTroubleshooting />} />
       <Route path="/wifi-optimisation" element={<WifiOptimisation />} />
+      <Route path="/website-for-electricians" element={<ElectricianWebsiteServices />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
