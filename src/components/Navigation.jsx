@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Mail, Home, Menu, X, Settings, Info, ChevronDown, MessageSquare, BrainCircuit, Globe } from 'lucide-react';
+import { BookOpen, Mail, Home, Menu, X, Settings, Info, ChevronDown, MessageSquare, BrainCircuit, Globe, FileText } from 'lucide-react';
 import { useBooking } from '@/context/BookingContext';
 
 export default function Navigation() {
@@ -209,6 +209,18 @@ export default function Navigation() {
             })}
           </div>
 
+          {/* Request Quote — Desktop */}
+          <Link to="/contact" className="hidden md:block">
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-semibold shadow-lg shadow-yellow-500/20 transition-colors"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Request Quote</span>
+            </motion.div>
+          </Link>
+
           {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.9 }}
@@ -398,6 +410,16 @@ export default function Navigation() {
                     );
                   })}
                 </div>
+
+                {/* Request Quote — Mobile */}
+                <Link
+                  to="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-semibold transition-colors"
+                >
+                  <FileText className="w-5 h-5" />
+                  <span>Request Quote</span>
+                </Link>
 
                 {/* Mobile Menu Footer */}
                 <motion.div

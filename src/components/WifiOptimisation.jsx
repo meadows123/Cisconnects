@@ -46,7 +46,7 @@ const WifiOptimisation = () => {
         from_email: formData.email,
         phone: formData.phone,
         message: 'Enquiry from WiFi Optimisation landing page',
-        service_interest: 'WiFi Optimisation (£300)',
+        service_interest: 'WiFi Optimisation',
         to_name: 'Conxiea Team',
         reply_to: formData.email,
       });
@@ -63,8 +63,8 @@ const WifiOptimisation = () => {
   return (
     <>
       <SEO
-        title="WiFi Optimisation £300 | Turn Weak WiFi Into Reliable Coverage | Conxiea"
-        description="Fast broadband but terrible WiFi? Conxiea delivers fixed-price WiFi optimisation from £300 — better coverage, faster speeds, and no more dead zones across your building."
+        title="WiFi Optimisation | Turn Weak WiFi Into Reliable Coverage | Conxiea"
+        description="Fast broadband but terrible WiFi? Conxiea optimises your WiFi coverage — better signal, faster speeds, and no more dead zones. Tell us your problem and we'll get back to you the same day."
         url="/wifi-optimisation"
       />
       <div className="min-h-screen bg-slate-950 flex flex-col">
@@ -92,7 +92,7 @@ const WifiOptimisation = () => {
                 onClick={() => document.getElementById('optimisation-form').scrollIntoView({ behavior: 'smooth' })}
                 className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
               >
-                Optimise My WiFi — £300
+                Tell Us Your Problem — We'll Get Back to You Today
               </motion.button>
             </motion.div>
 
@@ -152,7 +152,7 @@ const WifiOptimisation = () => {
               <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
                 <p className="text-sm sm:text-base text-red-400 mb-3">A router in the wrong place is one of the most common causes of terrible WiFi — and the easiest to fix.</p>
                 <p className="text-sm sm:text-base text-white font-semibold mb-3">We assess your layout and reposition or extend your network so signal reaches where you actually need it.</p>
-                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Router is tucked away in a cabinet at one end of the building. Half the space gets no signal. We redesign the layout for £300 fixed price.</p>
+                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Router is tucked away in a cabinet at one end of the building. Half the space gets no signal. Tell us your setup and we'll give you a clear quote before any work starts.</p>
                 <div className="flex justify-center">
                   <button onClick={() => document.getElementById('optimisation-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Book My Optimisation</button>
                 </div>
@@ -200,7 +200,7 @@ const WifiOptimisation = () => {
                   { number: '50+', label: 'Homes & Offices Optimised' },
                   { number: '4.9★', label: 'Google Rating' },
                   { number: '100%', label: 'Coverage Guaranteed' },
-                  { number: '£300', label: 'Fixed Price — No Surprises' },
+                  { number: '100%', label: 'Transparent Pricing — Quoted Before We Start' },
                 ].map((stat, i) => (
                   <div key={i} className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-3 sm:p-4 text-center">
                     <p className="text-xl sm:text-2xl font-bold text-white">{stat.number}</p>
@@ -307,22 +307,34 @@ const WifiOptimisation = () => {
                 {isSubmitting ? (
                   <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
                 ) : (
-                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Book WiFi Optimisation — £300</span></>
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Send My Enquiry — We'll Call You Back Today</span></>
                 )}
               </motion.button>
             </motion.form>
 
-            {/* Pricing */}
+            {/* What Happens Next */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border border-purple-500/50 rounded-lg p-5 sm:p-7 mt-8 sm:mt-12"
             >
-              <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-3">📢 PRICING</p>
-              <p className="text-sm sm:text-base text-white mb-3"><span className="font-bold">WiFi Optimisation Session:</span> <span className="text-green-400 font-bold">£300 fixed price</span></p>
-              <p className="text-xs sm:text-sm text-gray-300 mt-3">✨ Includes survey, diagnosis, repositioning & configuration</p>
-              <p className="text-xs sm:text-sm text-yellow-300 mt-2">📢 Fixed price — no hidden extras. Honest advice guaranteed.</p>
+              <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-4">📋 WHAT HAPPENS NEXT</p>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-400 font-bold text-sm flex-shrink-0 mt-0.5">1.</span>
+                  <p className="text-sm sm:text-base text-white"><span className="font-semibold">You send your enquiry</span> — describe what's happening with your WiFi.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-400 font-bold text-sm flex-shrink-0 mt-0.5">2.</span>
+                  <p className="text-sm sm:text-base text-white"><span className="font-semibold">We call you back the same day</span> — a real engineer who'll understand your space and the problem.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-400 font-bold text-sm flex-shrink-0 mt-0.5">3.</span>
+                  <p className="text-sm sm:text-base text-white"><span className="font-semibold">We give you a clear quote</span> — based on your actual setup, before any work starts.</p>
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-gray-400 mt-4">✨ No commitment. No surprise invoices. Honest advice — if you don't need us, we'll tell you.</p>
             </motion.div>
 
             {/* Footer */}

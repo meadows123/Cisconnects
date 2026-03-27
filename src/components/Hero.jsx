@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Zap, Cloud } from 'lucide-react';
+import { Sparkles, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useBooking } from '@/context/BookingContext';
 
@@ -121,62 +121,40 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Laptop Mockup */}
+          {/* Right Column - Dashboard Screenshot */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="relative hidden lg:flex items-center justify-center"
           >
-            <div className="relative">
-              {/* Glow effect behind laptop */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-3xl rounded-full"></div>
-              
-              {/* Laptop Image - Lazy loaded */}
+            {/* Glow behind the image */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-3xl rounded-full pointer-events-none" />
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              style={{
+                perspective: '1200px',
+              }}
+            >
               <motion.img
-                src="/Laptop-mockup.png"
-                alt="AI Automation Platform Dashboard"
-                className="relative z-10 w-full h-auto drop-shadow-2xl"
+                src="/Trying to slant a design.png"
+                alt="Network monitoring dashboard"
+                className="relative z-10 w-full h-auto rounded-xl"
+                style={{
+                  transform: 'rotateY(-14deg) rotateX(4deg) rotateZ(-1deg)',
+                  transformOrigin: 'center center',
+                  boxShadow: '0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06)',
+                }}
                 loading="lazy"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.4 }}
+                whileHover={{
+                  transform: 'rotateY(-8deg) rotateX(2deg) rotateZ(-0.5deg)',
+                  transition: { duration: 0.4 },
+                }}
               />
-
-              {/* Floating elements - Reduced animations on mobile */}
-              {!isMobile && (
-                <>
-              <motion.div
-                className="absolute -top-6 -right-6 bg-gradient-to-br from-blue-500 to-cyan-500 p-4 rounded-2xl shadow-2xl"
-                animate={{ 
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <Zap className="w-8 h-8 text-white" />
-              </motion.div>
-
-              <motion.div
-                className="absolute -bottom-6 -left-6 bg-gradient-to-br from-purple-500 to-pink-500 p-4 rounded-2xl shadow-2xl"
-                animate={{ 
-                  y: [0, 10, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  delay: 0.5,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <Cloud className="w-8 h-8 text-white" />
-              </motion.div>
-                </>
-              )}
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
