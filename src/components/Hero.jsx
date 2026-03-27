@@ -126,15 +126,14 @@ const Hero = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:flex items-center justify-center"
+            className="relative flex items-center justify-center mt-8 lg:mt-0"
           >
-            {/* Dot grid — right side, clearly visible behind the image */}
+            {/* Dot grid — right side, shifted lower so they show beneath the image */}
             <div
-              className="absolute pointer-events-none"
+              className="absolute pointer-events-none hidden lg:block"
               style={{
                 right: '-60px',
-                top: '50%',
-                transform: 'translateY(-50%)',
+                top: '60%',
                 width: '280px',
                 height: '400px',
                 backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.55) 2px, transparent 2px)',
@@ -144,10 +143,10 @@ const Hero = () => {
             />
             {/* Second dot cluster — bottom right corner for depth */}
             <div
-              className="absolute pointer-events-none"
+              className="absolute pointer-events-none hidden lg:block"
               style={{
                 right: '-20px',
-                bottom: '-30px',
+                bottom: '-60px',
                 width: '180px',
                 height: '180px',
                 backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.35) 2px, transparent 2px)',
@@ -159,17 +158,17 @@ const Hero = () => {
             {/* Glow behind the image */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-25 blur-3xl rounded-full pointer-events-none" />
 
-            {/* Perspective wrapper */}
-            <div style={{ perspective: '900px', perspectiveOrigin: '55% 50%', position: 'relative', zIndex: 1 }}>
+            {/* Perspective wrapper — only meaningful on desktop, mobile renders flat */}
+            <div className="w-full" style={{ perspective: '900px', perspectiveOrigin: '55% 50%', position: 'relative', zIndex: 1 }}>
               {/* Framer-motion handles ALL transforms so they compose correctly */}
               <motion.div
-                initial={{ opacity: 0, y: 40, rotateY: -22, rotateX: 6, rotateZ: -2 }}
+                initial={{ opacity: 0, y: 40, rotateY: isMobile ? 0 : -22, rotateX: isMobile ? 0 : 6, rotateZ: isMobile ? 0 : -2 }}
                 animate={{
                   opacity: 1,
-                  y: [0, -12, 0],
-                  rotateY: -22,
-                  rotateX: 6,
-                  rotateZ: -2,
+                  y: isMobile ? 0 : [0, -12, 0],
+                  rotateY: isMobile ? 0 : -22,
+                  rotateX: isMobile ? 0 : 6,
+                  rotateZ: isMobile ? 0 : -2,
                 }}
                 transition={{
                   opacity: { duration: 0.8, delay: 0.4 },
