@@ -128,6 +128,21 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative hidden lg:flex items-center justify-center"
           >
+            {/* Dot pattern — bottom-right, behind the image */}
+            <div
+              className="absolute pointer-events-none"
+              style={{
+                right: '-40px',
+                bottom: '-40px',
+                width: '320px',
+                height: '320px',
+                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.18) 1.5px, transparent 1.5px)',
+                backgroundSize: '22px 22px',
+                maskImage: 'radial-gradient(ellipse at bottom right, black 30%, transparent 75%)',
+                WebkitMaskImage: 'radial-gradient(ellipse at bottom right, black 30%, transparent 75%)',
+              }}
+            />
+
             {/* Glow behind the image */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-25 blur-3xl rounded-full pointer-events-none" />
 
