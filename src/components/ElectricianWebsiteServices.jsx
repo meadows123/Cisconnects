@@ -330,19 +330,42 @@ const ElectricianWebsiteServices = () => {
               </motion.button>
             </motion.form>
 
-            {/* What's Included */}
+            {/* April Offer */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border border-purple-500/50 rounded-lg p-5 sm:p-7 mt-8 sm:mt-12"
+              className="mt-8 sm:mt-12"
             >
-              <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-3">📢 WHAT'S INCLUDED</p>
-              <p className="text-sm sm:text-base text-white mb-3"><span className="font-bold">Custom Electrician Website:</span> <span className="text-green-400 font-bold">Included</span></p>
-              <p className="text-sm sm:text-base text-white mb-3"><span className="font-bold">Domain Registration & Hosting:</span> <span className="text-green-400 font-bold">Included</span></p>
-              <p className="text-sm sm:text-base text-white mb-3"><span className="font-bold">Local SEO & Google Optimisation:</span> <span className="text-green-400 font-bold">Included</span></p>
-              <p className="text-xs sm:text-sm text-gray-300 mt-3">✨ Covers accreditations, reviews, services pages & contact form</p>
-              <p className="text-xs sm:text-sm text-yellow-300 mt-2">📢 Get in touch for a fixed-price quote tailored to your business</p>
+              <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border-2 border-yellow-400/60 rounded-xl p-5 sm:p-7">
+                <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+                  <p className="text-xs sm:text-sm font-bold text-yellow-300 uppercase tracking-wide">🔥 April Only — Limited Offer</p>
+                  <span className="text-xs bg-yellow-400/20 border border-yellow-400/40 text-yellow-300 font-semibold px-2.5 py-1 rounded-full">Ends 30th April</span>
+                </div>
+                <div className="flex items-end gap-3 mb-4">
+                  <span className="text-4xl sm:text-5xl font-bold text-white">£35</span>
+                  <div className="pb-1">
+                    <span className="text-base sm:text-lg text-gray-400 line-through">£45/mo</span>
+                    <p className="text-xs text-gray-400">per month</p>
+                  </div>
+                  <div className="ml-auto pb-1">
+                    <span className="bg-green-500/20 border border-green-500/40 text-green-400 font-bold text-sm px-3 py-1 rounded-full">Save £10/mo</span>
+                  </div>
+                </div>
+                <div className="border-t border-yellow-400/20 pt-4 space-y-2 mb-4">
+                  <p className="text-sm sm:text-base text-white"><span className="text-green-400 font-bold mr-2">✓</span><span className="font-semibold">Custom Electrician Website</span></p>
+                  <p className="text-sm sm:text-base text-white"><span className="text-green-400 font-bold mr-2">✓</span><span className="font-semibold">Domain Registration & Hosting</span></p>
+                  <p className="text-sm sm:text-base text-white"><span className="text-green-400 font-bold mr-2">✓</span><span className="font-semibold">Local SEO & Google Optimisation</span></p>
+                  <p className="text-sm sm:text-base text-white"><span className="text-green-400 font-bold mr-2">✓</span><span className="font-semibold">Accreditations, Reviews & Contact Form</span></p>
+                </div>
+                <button
+                  onClick={() => document.getElementById('electrician-form').scrollIntoView({ behavior: 'smooth' })}
+                  className="w-full bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-sm sm:text-base py-3.5 rounded-lg transition shadow-lg min-h-[44px]"
+                >
+                  Claim My April Price — £35/mo
+                </button>
+                <p className="text-center text-xs text-gray-400 mt-3">Price locks in at £35/mo for as long as you stay. No contracts.</p>
+              </div>
             </motion.div>
 
             {/* Footer */}
