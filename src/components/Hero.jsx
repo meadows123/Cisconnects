@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Zap } from 'lucide-react';
+import { Sparkles, Zap, Cloud } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useBooking } from '@/context/BookingContext';
 
