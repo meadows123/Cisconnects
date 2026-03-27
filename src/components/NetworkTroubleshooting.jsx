@@ -46,7 +46,7 @@ const NetworkTroubleshooting = () => {
         from_email: formData.email,
         phone: formData.phone,
         message: 'Enquiry from Network Troubleshooting landing page',
-        service_interest: 'Network Troubleshooting (£350)',
+        service_interest: 'Network Troubleshooting',
         to_name: 'Conxiea Team',
         reply_to: formData.email,
       });
@@ -63,8 +63,8 @@ const NetworkTroubleshooting = () => {
   return (
     <>
       <SEO
-        title="Network Troubleshooting £350 | Network Problems Solved Fast | Conxiea"
-        description="Network broken for weeks and nobody can fix it? Conxiea resolves your network issues fast — by a certified network engineer, not a helpdesk. Fixed-price network troubleshooting from £350."
+        title="Network Troubleshooting | Network Problems Solved Fast | Conxiea"
+        description="Network broken for weeks and nobody can fix it? Conxiea resolves your network issues fast — by a certified network engineer, not a helpdesk. Tell us your problem and we'll get back to you the same day."
         url="/network-troubleshooting"
       />
       <div className="min-h-screen bg-slate-950 flex flex-col">
@@ -94,7 +94,7 @@ const NetworkTroubleshooting = () => {
                 onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })}
                 className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
               >
-                Get My Network Fixed &mdash; £350
+                Tell Us Your Problem — We'll Get Back to You Today
               </motion.button>
             </motion.div>
 
@@ -154,7 +154,7 @@ const NetworkTroubleshooting = () => {
               <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
                 <p className="text-sm sm:text-base text-red-400 mb-3">Staff can't work. Your MSP says they're working on it. Days pass. Nothing changes.</p>
                 <p className="text-sm sm:text-base text-white font-semibold mb-3">Network problems solved by a network engineer — not a helpdesk.</p>
-                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Network broken for 2 weeks, tickets raised, nobody fixes it. We come in, diagnose it properly, and resolve it in a single session. Fixed price: £350.</p>
+                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Network broken for 2 weeks, tickets raised, nobody fixes it. We come in, diagnose it properly, and resolve it — tell us what's happening and we'll give you a clear quote before anything starts.</p>
                 <div className="flex justify-center">
                   <button onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Book a Session Now</button>
                 </div>
@@ -202,7 +202,7 @@ const NetworkTroubleshooting = () => {
                   { number: '50+', label: 'Networks Fixed' },
                   { number: '4.9★', label: 'Google Rating' },
                   { number: 'Same Day', label: 'Response Time' },
-                  { number: '£350', label: 'Fixed Price — No Surprises' },
+                  { number: '100%', label: 'Transparent Pricing — Quoted Before We Start' },
                 ].map((stat, i) => (
                   <div key={i} className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-3 sm:p-4 text-center">
                     <p className="text-xl sm:text-2xl font-bold text-white">{stat.number}</p>
@@ -309,22 +309,34 @@ const NetworkTroubleshooting = () => {
                 {isSubmitting ? (
                   <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
                 ) : (
-                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Book Troubleshooting Session &mdash; £350</span></>
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Send My Enquiry — We'll Call You Back Today</span></>
                 )}
               </motion.button>
             </motion.form>
 
-            {/* Pricing */}
+            {/* What Happens Next */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border border-purple-500/50 rounded-lg p-5 sm:p-7 mt-8 sm:mt-12"
             >
-              <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-3">📢 PRICING</p>
-              <p className="text-sm sm:text-base text-white mb-3"><span className="font-bold">Network Troubleshooting Session:</span> <span className="text-green-400 font-bold">£350 fixed price</span></p>
-              <p className="text-xs sm:text-sm text-gray-300 mt-3">✨ One session. Real engineer. Covers diagnosis &amp; resolution.</p>
-              <p className="text-xs sm:text-sm text-yellow-300 mt-2">📢 Fixed price — no hidden extras. If we can't help, we'll be honest about it.</p>
+              <p className="text-xs sm:text-sm font-semibold text-yellow-300 mb-4">📋 WHAT HAPPENS NEXT</p>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-400 font-bold text-sm flex-shrink-0 mt-0.5">1.</span>
+                  <p className="text-sm sm:text-base text-white"><span className="font-semibold">You send your enquiry</span> — describe what's happening with your network.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-400 font-bold text-sm flex-shrink-0 mt-0.5">2.</span>
+                  <p className="text-sm sm:text-base text-white"><span className="font-semibold">We call you back the same day</span> — a real engineer, not a helpdesk, who'll ask the right questions.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-400 font-bold text-sm flex-shrink-0 mt-0.5">3.</span>
+                  <p className="text-sm sm:text-base text-white"><span className="font-semibold">We give you a clear quote</span> — based on your actual problem, before any work starts.</p>
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-gray-400 mt-4">✨ No commitment. No surprise invoices. If we can't help, we'll tell you straight.</p>
             </motion.div>
 
             {/* Footer */}
