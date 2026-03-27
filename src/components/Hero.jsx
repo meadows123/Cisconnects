@@ -131,30 +131,29 @@ const Hero = () => {
             {/* Glow behind the image */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-3xl rounded-full pointer-events-none" />
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              style={{
-                perspective: '1200px',
-              }}
-            >
+            {/* Perspective wrapper — never changes, keeps the 3D space */}
+            <div style={{ perspective: '900px', perspectiveOrigin: '60% 50%' }}>
               <motion.img
-                src="/Trying to slant a design.png"
+                src="/slanting.png"
                 alt="Network monitoring dashboard"
                 className="relative z-10 w-full h-auto rounded-xl"
                 style={{
-                  transform: 'rotateY(-14deg) rotateX(4deg) rotateZ(-1deg)',
-                  transformOrigin: 'center center',
-                  boxShadow: '0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06)',
+                  transform: 'rotateY(-22deg) rotateX(6deg) rotateZ(-2deg)',
+                  transformOrigin: 'left center',
+                  boxShadow: '0 50px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.07)',
                 }}
                 loading="lazy"
-                whileHover={{
-                  transform: 'rotateY(-8deg) rotateX(2deg) rotateZ(-0.5deg)',
-                  transition: { duration: 0.4 },
+                initial={{ opacity: 0, y: 30 }}
+                animate={{
+                  opacity: 1,
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  opacity: { duration: 0.8, delay: 0.4 },
+                  y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 },
                 }}
               />
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
