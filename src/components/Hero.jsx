@@ -128,18 +128,31 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative hidden lg:flex items-center justify-center"
           >
-            {/* Dot pattern — bottom-right, behind the image */}
+            {/* Dot grid — right side, clearly visible behind the image */}
             <div
               className="absolute pointer-events-none"
               style={{
-                right: '-40px',
-                bottom: '-40px',
-                width: '320px',
-                height: '320px',
-                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.18) 1.5px, transparent 1.5px)',
-                backgroundSize: '22px 22px',
-                maskImage: 'radial-gradient(ellipse at bottom right, black 30%, transparent 75%)',
-                WebkitMaskImage: 'radial-gradient(ellipse at bottom right, black 30%, transparent 75%)',
+                right: '-60px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: '280px',
+                height: '400px',
+                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.55) 2px, transparent 2px)',
+                backgroundSize: '24px 24px',
+                zIndex: 0,
+              }}
+            />
+            {/* Second dot cluster — bottom right corner for depth */}
+            <div
+              className="absolute pointer-events-none"
+              style={{
+                right: '-20px',
+                bottom: '-30px',
+                width: '180px',
+                height: '180px',
+                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.35) 2px, transparent 2px)',
+                backgroundSize: '24px 24px',
+                zIndex: 0,
               }}
             />
 
@@ -147,7 +160,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-25 blur-3xl rounded-full pointer-events-none" />
 
             {/* Perspective wrapper */}
-            <div style={{ perspective: '900px', perspectiveOrigin: '55% 50%' }}>
+            <div style={{ perspective: '900px', perspectiveOrigin: '55% 50%', position: 'relative', zIndex: 1 }}>
               {/* Framer-motion handles ALL transforms so they compose correctly */}
               <motion.div
                 initial={{ opacity: 0, y: 40, rotateY: -22, rotateX: 6, rotateZ: -2 }}
