@@ -128,62 +128,63 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative flex items-center justify-center mt-8 lg:mt-0"
           >
-            {/* Dot grid — sits behind the image, peeks out underneath */}
-            <div
-              className="absolute pointer-events-none hidden lg:block"
-              style={{
-                left: '5%',
-                right: '-10px',
-                top: '5%',
-                bottom: '-55px',
-                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 2px, transparent 2px)',
-                backgroundSize: '24px 24px',
-                zIndex: 0,
-              }}
-            />
-
             {/* Glow behind the image */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-25 blur-3xl rounded-full pointer-events-none" />
 
-            {/* Perspective wrapper — only meaningful on desktop, mobile renders flat */}
-            <div className="w-full" style={{ perspective: '900px', perspectiveOrigin: '55% 50%', position: 'relative', zIndex: 1 }}>
-              {/* Framer-motion handles ALL transforms so they compose correctly */}
-              <motion.div
-                initial={{ opacity: 0, y: 40, rotateY: isMobile ? 0 : -22, rotateX: isMobile ? 0 : 6, rotateZ: isMobile ? 0 : -2 }}
-                animate={{
-                  opacity: 1,
-                  y: isMobile ? 0 : [0, -12, 0],
-                  rotateY: isMobile ? 0 : -22,
-                  rotateX: isMobile ? 0 : 6,
-                  rotateZ: isMobile ? 0 : -2,
-                }}
-                transition={{
-                  opacity: { duration: 0.8, delay: 0.4 },
-                  y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1.2 },
-                  rotateY: { duration: 0 },
-                  rotateX: { duration: 0 },
-                  rotateZ: { duration: 0 },
-                }}
+            {/* Wrapper — dots and image share the same bounding box */}
+            <div className="relative w-full">
+
+              {/* Dot grid — z-0, fills the image area + 55px below so it peeks out underneath */}
+              <div
+                className="absolute pointer-events-none hidden lg:block"
                 style={{
-                  transformOrigin: 'left center',
-                  borderRadius: '12px',
-                  overflow: 'hidden',
-                  boxShadow: '0 60px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08)',
+                  inset: 0,
+                  bottom: '-55px',
+                  backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 2px, transparent 2px)',
+                  backgroundSize: '24px 24px',
+                  zIndex: 0,
                 }}
-              >
-                {/* Browser chrome bar */}
-                <div style={{ background: '#0f172a', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '7px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ef4444aa' }} />
-                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#eab308aa' }} />
-                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#22c55eaa' }} />
-                </div>
-                <img
-                  src="/slanting.png"
-                  alt="Network monitoring dashboard"
-                  style={{ display: 'block', width: '100%', height: 'auto' }}
-                  loading="lazy"
-                />
-              </motion.div>
+              />
+
+              {/* Perspective wrapper — z-1, sits on top of dots */}
+              <div style={{ perspective: '900px', perspectiveOrigin: '55% 50%', position: 'relative', zIndex: 1 }}>
+                <motion.div
+                  initial={{ opacity: 0, y: 40, rotateY: isMobile ? 0 : -22, rotateX: isMobile ? 0 : 6, rotateZ: isMobile ? 0 : -2 }}
+                  animate={{
+                    opacity: 1,
+                    y: isMobile ? 0 : [0, -12, 0],
+                    rotateY: isMobile ? 0 : -22,
+                    rotateX: isMobile ? 0 : 6,
+                    rotateZ: isMobile ? 0 : -2,
+                  }}
+                  transition={{
+                    opacity: { duration: 0.8, delay: 0.4 },
+                    y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1.2 },
+                    rotateY: { duration: 0 },
+                    rotateX: { duration: 0 },
+                    rotateZ: { duration: 0 },
+                  }}
+                  style={{
+                    transformOrigin: 'left center',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    boxShadow: '0 60px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08)',
+                  }}
+                >
+                  {/* Browser chrome bar */}
+                  <div style={{ background: '#0f172a', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '7px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                    <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ef4444aa' }} />
+                    <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#eab308aa' }} />
+                    <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#22c55eaa' }} />
+                  </div>
+                  <img
+                    src="/slanting.png"
+                    alt="Network monitoring dashboard"
+                    style={{ display: 'block', width: '100%', height: 'auto' }}
+                    loading="lazy"
+                  />
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
