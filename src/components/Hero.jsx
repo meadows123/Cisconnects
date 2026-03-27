@@ -129,30 +129,47 @@ const Hero = () => {
             className="relative hidden lg:flex items-center justify-center"
           >
             {/* Glow behind the image */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-3xl rounded-full pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-25 blur-3xl rounded-full pointer-events-none" />
 
-            {/* Perspective wrapper — never changes, keeps the 3D space */}
-            <div style={{ perspective: '900px', perspectiveOrigin: '60% 50%' }}>
-              <motion.img
-                src="/slanting.png"
-                alt="Network monitoring dashboard"
-                className="relative z-10 w-full h-auto rounded-xl"
-                style={{
-                  transform: 'rotateY(-22deg) rotateX(6deg) rotateZ(-2deg)',
-                  transformOrigin: 'left center',
-                  boxShadow: '0 50px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.07)',
-                }}
-                loading="lazy"
-                initial={{ opacity: 0, y: 30 }}
+            {/* Perspective wrapper */}
+            <div style={{ perspective: '900px', perspectiveOrigin: '55% 50%' }}>
+              {/* Framer-motion handles ALL transforms so they compose correctly */}
+              <motion.div
+                initial={{ opacity: 0, y: 40, rotateY: -22, rotateX: 6, rotateZ: -2 }}
                 animate={{
                   opacity: 1,
-                  y: [0, -10, 0],
+                  y: [0, -12, 0],
+                  rotateY: -22,
+                  rotateX: 6,
+                  rotateZ: -2,
                 }}
                 transition={{
                   opacity: { duration: 0.8, delay: 0.4 },
-                  y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 },
+                  y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1.2 },
+                  rotateY: { duration: 0 },
+                  rotateX: { duration: 0 },
+                  rotateZ: { duration: 0 },
                 }}
-              />
+                style={{
+                  transformOrigin: 'left center',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  boxShadow: '0 60px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08)',
+                }}
+              >
+                {/* Browser chrome bar */}
+                <div style={{ background: '#0f172a', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '7px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ef4444aa' }} />
+                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#eab308aa' }} />
+                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#22c55eaa' }} />
+                </div>
+                <img
+                  src="/slanting.png"
+                  alt="Network monitoring dashboard"
+                  style={{ display: 'block', width: '100%', height: 'auto' }}
+                  loading="lazy"
+                />
+              </motion.div>
             </div>
           </motion.div>
         </div>
