@@ -131,60 +131,71 @@ const Hero = () => {
             {/* Glow behind the image */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-25 blur-3xl rounded-full pointer-events-none" />
 
-            {/* Wrapper — dots and image share the same bounding box */}
-            <div className="relative w-full">
+            {/* Single perspective context — dots and image share same 3D plane */}
+            <div className="relative w-full" style={{ perspective: '700px', perspectiveOrigin: '50% 50%' }}>
 
-              {/* Dot grid — z-0, fills the image area + 55px below so it peeks out underneath */}
-              <div
-                className="absolute pointer-events-none hidden lg:block"
-                style={{
-                  inset: 0,
-                  bottom: '-55px',
-                  backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 2px, transparent 2px)',
-                  backgroundSize: '24px 24px',
-                  zIndex: 0,
-                }}
-              />
-
-              {/* Perspective wrapper — z-1, sits on top of dots */}
-              <div style={{ perspective: '900px', perspectiveOrigin: '55% 50%', position: 'relative', zIndex: 1 }}>
+              {/* Dot grid — same transform as image so it follows the same angle.
+                  Extends 80px below the image so it peeks out underneath. */}
+              {!isMobile && (
                 <motion.div
-                  initial={{ opacity: 0, y: 40, rotateY: isMobile ? 0 : -22, rotateX: isMobile ? 0 : 6, rotateZ: isMobile ? 0 : -2 }}
-                  animate={{
-                    opacity: 1,
-                    y: isMobile ? 0 : [0, -12, 0],
-                    rotateY: isMobile ? 0 : -22,
-                    rotateX: isMobile ? 0 : 6,
-                    rotateZ: isMobile ? 0 : -2,
-                  }}
-                  transition={{
-                    opacity: { duration: 0.8, delay: 0.4 },
-                    y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1.2 },
-                    rotateY: { duration: 0 },
-                    rotateX: { duration: 0 },
-                    rotateZ: { duration: 0 },
-                  }}
+                  className="absolute pointer-events-none"
                   style={{
+                    inset: 0,
+                    bottom: '-80px',
+                    right: '0px',
+                    backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.6) 2px, transparent 2px)',
+                    backgroundSize: '24px 24px',
                     transformOrigin: 'left center',
                     borderRadius: '12px',
-                    overflow: 'hidden',
-                    boxShadow: '0 60px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08)',
+                    zIndex: 0,
                   }}
-                >
-                  {/* Browser chrome bar */}
-                  <div style={{ background: '#0f172a', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '7px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                    <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ef4444aa' }} />
-                    <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#eab308aa' }} />
-                    <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#22c55eaa' }} />
-                  </div>
-                  <img
-                    src="/slanting.png"
-                    alt="Network monitoring dashboard"
-                    style={{ display: 'block', width: '100%', height: 'auto' }}
-                    loading="lazy"
-                  />
-                </motion.div>
-              </div>
+                  animate={{
+                    rotateY: -35,
+                    rotateX: 8,
+                    rotateZ: -3,
+                  }}
+                />
+              )}
+
+              {/* Image — same transform, sits in front of dots */}
+              <motion.div
+                initial={{ opacity: 0, y: 40, rotateY: isMobile ? 0 : -35, rotateX: isMobile ? 0 : 8, rotateZ: isMobile ? 0 : -3 }}
+                animate={{
+                  opacity: 1,
+                  y: isMobile ? 0 : [0, -12, 0],
+                  rotateY: isMobile ? 0 : -35,
+                  rotateX: isMobile ? 0 : 8,
+                  rotateZ: isMobile ? 0 : -3,
+                }}
+                transition={{
+                  opacity: { duration: 0.8, delay: 0.4 },
+                  y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1.2 },
+                  rotateY: { duration: 0 },
+                  rotateX: { duration: 0 },
+                  rotateZ: { duration: 0 },
+                }}
+                style={{
+                  transformOrigin: 'left center',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  zIndex: 1,
+                  boxShadow: '0 60px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08)',
+                }}
+              >
+                {/* Browser chrome bar */}
+                <div style={{ background: '#0f172a', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '7px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ef4444aa' }} />
+                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#eab308aa' }} />
+                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#22c55eaa' }} />
+                </div>
+                <img
+                  src="/slanting.png"
+                  alt="Network monitoring dashboard"
+                  style={{ display: 'block', width: '100%', height: 'auto' }}
+                  loading="lazy"
+                />
+              </motion.div>
             </div>
           </motion.div>
         </div>
