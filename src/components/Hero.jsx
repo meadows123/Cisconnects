@@ -75,9 +75,9 @@ const Hero = () => {
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-gradient glow-effect">High-Performing Infrastructure Teams</span>
+              <span className="text-gradient glow-effect">Infrastructure That</span>
               <br />
-              <span className="text-white">Don't Operate in Firefighting Mode.</span>
+              <span className="text-white">Monitors and Fixes Itself.</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 leading-relaxed">
