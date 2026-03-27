@@ -132,40 +132,41 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-25 blur-3xl rounded-full pointer-events-none" />
 
             {/* Single perspective context — dots and image share same 3D plane */}
-            <div className="relative w-full" style={{ perspective: '700px', perspectiveOrigin: '50% 50%' }}>
+            <div className="relative w-full" style={{ perspective: '900px', perspectiveOrigin: '50% 50%' }}>
 
-              {/* Dot grid — same transform as image so it follows the same angle.
-                  Extends 80px below the image so it peeks out underneath. */}
+              {/* Dot grid — anchored to bottom-right corner only, same transform as image.
+                  Starts at ~40% down / 30% in from left so dots only show at bottom-right,
+                  then extends 55px past the image edge — just like the SolarWinds reference. */}
               {!isMobile && (
                 <motion.div
                   className="absolute pointer-events-none"
                   style={{
-                    inset: 0,
-                    bottom: '-80px',
-                    right: '0px',
-                    backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.6) 2px, transparent 2px)',
-                    backgroundSize: '24px 24px',
+                    top: '38%',
+                    left: '28%',
+                    right: '-55px',
+                    bottom: '-55px',
+                    backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.55) 2px, transparent 2px)',
+                    backgroundSize: '22px 22px',
                     transformOrigin: 'left center',
-                    borderRadius: '12px',
                     zIndex: 0,
                   }}
                   animate={{
-                    rotateY: -35,
-                    rotateX: 8,
-                    rotateZ: -3,
+                    rotateY: -22,
+                    rotateX: 4,
+                    rotateZ: -1,
                   }}
                 />
               )}
 
               {/* Image — same transform, sits in front of dots */}
               <motion.div
-                initial={{ opacity: 0, y: 40, rotateY: isMobile ? 0 : -35, rotateX: isMobile ? 0 : 8, rotateZ: isMobile ? 0 : -3 }}
+                initial={{ opacity: 0, y: 40, rotateY: isMobile ? 0 : -22, rotateX: isMobile ? 0 : 4, rotateZ: isMobile ? 0 : -1 }}
                 animate={{
                   opacity: 1,
                   y: isMobile ? 0 : [0, -12, 0],
-                  rotateY: isMobile ? 0 : -35,
-                  rotateX: isMobile ? 0 : 8,
-                  rotateZ: isMobile ? 0 : -3,
+                  rotateY: isMobile ? 0 : -22,
+                  rotateX: isMobile ? 0 : 4,
+                  rotateZ: isMobile ? 0 : -1,
                 }}
                 transition={{
                   opacity: { duration: 0.8, delay: 0.4 },
