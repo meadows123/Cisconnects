@@ -128,28 +128,15 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative flex items-center justify-center mt-8 lg:mt-0"
           >
-            {/* Dot grid — right side, shifted lower so they show beneath the image */}
+            {/* Dot grid — sits behind the image, peeks out underneath */}
             <div
               className="absolute pointer-events-none hidden lg:block"
               style={{
-                right: '-60px',
-                top: '60%',
-                width: '280px',
-                height: '400px',
-                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.55) 2px, transparent 2px)',
-                backgroundSize: '24px 24px',
-                zIndex: 0,
-              }}
-            />
-            {/* Second dot cluster — bottom right corner for depth */}
-            <div
-              className="absolute pointer-events-none hidden lg:block"
-              style={{
-                right: '-20px',
-                bottom: '-60px',
-                width: '180px',
-                height: '180px',
-                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.35) 2px, transparent 2px)',
+                left: '5%',
+                right: '-10px',
+                top: '5%',
+                bottom: '-55px',
+                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 2px, transparent 2px)',
                 backgroundSize: '24px 24px',
                 zIndex: 0,
               }}
