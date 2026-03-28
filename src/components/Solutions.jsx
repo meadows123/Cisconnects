@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, ArrowRight, Play } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Play, Server, MessageSquare, ShieldCheck, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useBooking } from '@/context/BookingContext';
 
@@ -8,6 +8,7 @@ const tabs = [
   {
     id: 'approval',
     label: 'Infrastructure Approval',
+    icon: Server,
     headline: 'Approve Changes in Seconds, Not Hours.',
     description:
       'AI reviews every change request with automatic risk scoring and a generated rollback plan — so your team moves fast without breaking things. Full audit trail, zero manual effort.',
@@ -21,6 +22,7 @@ const tabs = [
   {
     id: 'chat',
     label: 'Chat Window',
+    icon: MessageSquare,
     headline: 'Ask Your Network Anything.',
     description:
       'Natural language queries, real-time answers. No CLI, no digging through dashboards — just type what you need and get the data instantly. Escalate to a ticket with one click.',
@@ -34,6 +36,7 @@ const tabs = [
   {
     id: 'troubleshooting',
     label: 'Troubleshooting Pack',
+    icon: ShieldCheck,
     headline: 'Issues Resolved Before You Notice Them.',
     description:
       'AI monitors your infrastructure 24/7, detects anomalies, traces root causes, and runs remediation playbooks automatically. Your team stops firefighting and starts leading.',
@@ -47,6 +50,7 @@ const tabs = [
   {
     id: 'config',
     label: 'Configuration Templates',
+    icon: Settings,
     headline: 'Standardised Configs. Deployed in Minutes.',
     description:
       'Pre-built and custom configuration templates for Cisco, Juniper, Fortinet and more — applied consistently across every device, every time. Compliance validated before deployment.',
@@ -210,24 +214,32 @@ const Solutions = () => {
           </h2>
         </motion.div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-0 border-b border-slate-700 mb-16">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActive(tab.id)}
-              className={`relative px-5 py-3 text-sm font-semibold transition-colors whitespace-nowrap
-                ${active === tab.id ? 'text-white' : 'text-slate-400 hover:text-slate-200'}`}
-            >
-              {tab.label}
-              {active === tab.id && (
-                <motion.div
-                  layoutId="tab-underline"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"
-                />
-              )}
-            </button>
-          ))}
+        {/* Cards (replacing tabs) */}
+        <div className="flex flex-wrap justify-center gap-6 mb-16">
+          {tabs.map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActive(tab.id)}
+                className={`group relative flex flex-col items-center justify-center w-40 h-40 rounded-2xl shadow-lg transition-all border-2
+                  ${active === tab.id
+                    ? 'bg-gradient-to-br from-orange-400 to-yellow-400 border-orange-400 scale-105 shadow-orange-300/40'
+                    : 'bg-slate-800 border-slate-700 hover:bg-slate-700 hover:border-blue-400'}
+                `}
+                style={{ cursor: 'pointer' }}
+              >
+                <Icon size={40} className={`mb-3 transition-colors ${active === tab.id ? 'text-white' : 'text-blue-300 group-hover:text-white'}`} />
+                <span className={`text-lg font-semibold transition-colors ${active === tab.id ? 'text-white' : 'text-slate-200 group-hover:text-white'}`}>{tab.label}</span>
+                {active === tab.id && (
+                  <motion.div
+                    layoutId="card-highlight"
+                    className="absolute inset-0 rounded-2xl ring-4 ring-orange-300/40 pointer-events-none"
+                  />
+                )}
+              </button>
+            );
+          })}
         </div>
 
         {/* Tab content */}
