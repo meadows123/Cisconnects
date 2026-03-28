@@ -214,32 +214,42 @@ const Solutions = () => {
           </h2>
         </motion.div>
 
-        {/* Cards (replacing tabs) */}
-        <div className="flex flex-wrap justify-center gap-6 mb-16">
-          {tabs.map((tab) => {
-            const Icon = tab.icon;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActive(tab.id)}
-                className={`group relative flex flex-col items-center justify-center w-40 h-40 rounded-2xl shadow-lg transition-all border-2
-                  ${active === tab.id
-                    ? 'bg-gradient-to-br from-orange-400 to-yellow-400 border-orange-400 scale-105 shadow-orange-300/40'
-                    : 'bg-slate-800 border-slate-700 hover:bg-slate-700 hover:border-blue-400'}
-                `}
-                style={{ cursor: 'pointer' }}
-              >
-                <Icon size={40} className={`mb-3 transition-colors ${active === tab.id ? 'text-white' : 'text-blue-300 group-hover:text-white'}`} />
-                <span className={`text-lg font-semibold transition-colors ${active === tab.id ? 'text-white' : 'text-slate-200 group-hover:text-white'}`}>{tab.label}</span>
-                {active === tab.id && (
-                  <motion.div
-                    layoutId="card-highlight"
-                    className="absolute inset-0 rounded-2xl ring-4 ring-orange-300/40 pointer-events-none"
-                  />
-                )}
-              </button>
-            );
-          })}
+        {/* Horizontal bar of cards - exact match styling */}
+        <div className="flex justify-center mb-16">
+          <div className="flex bg-transparent gap-0">
+            {tabs.map((tab, idx) => {
+              const Icon = tab.icon;
+              const isActive = active === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActive(tab.id)}
+                  className={`group relative flex flex-col items-center justify-center w-64 h-64 rounded-2xl transition-all font-extrabold select-none
+                    ${isActive
+                      ? 'bg-gradient-to-br from-yellow-300 via-yellow-400 to-yellow-500 text-white scale-105 z-10'
+                      : 'bg-[#23283a] text-blue-200 shadow-inner'}
+                  `}
+                  style={{
+                    cursor: 'pointer',
+                    marginLeft: idx !== 0 ? '24px' : 0,
+                    boxShadow: isActive
+                      ? '0 0 120px 40px #ffe066cc, 0 0 0 0 #0000'
+                      : 'inset 0 2px 16px 0 #181c27',
+                  }}
+                >
+                  <Icon size={48} className={`mb-4 transition-colors ${isActive ? 'text-white' : 'text-blue-200 group-hover:text-white'}`} />
+                  <span className={`text-2xl font-extrabold transition-colors text-center leading-tight ${isActive ? 'text-white' : 'text-blue-100 group-hover:text-white'}`}>{tab.label}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="card-highlight"
+                      className="absolute inset-0 rounded-2xl pointer-events-none"
+                      style={{boxShadow: '0 0 160px 60px #ffe066cc'}}
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Tab content */}
