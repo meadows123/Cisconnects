@@ -6,14 +6,30 @@
 // Each module has: { frontmatter, html, content }
 const blogFiles = import.meta.glob('../blogs/*.md', { eager: true });
 
-const blogs = Object.entries(blogFiles).map(([path, mod]) => {
-  const slug = path.split('/').pop().replace('.md', '');
-  return {
-    ...mod.frontmatter,
-    slug,
-    content: mod.html || mod.content, // html if configured, else raw markdown
-  };
-});
+const blogs = Object.entries(blogFiles)
+  .filter(([path, mod]) => mod && (mod.frontmatter || mod.content || mod.html))
+  .map(([path, mod]) => {
+    // Defensive: ensure path is a string and has .md
+    let slug = '';
+    if (typeof path === 'string' && path.includes('.md')) {
+      slug = path.split('/').pop().replace('.md', '');
+    }
+    const frontmatter = mod.frontmatter || {};
+    return {
+      ...frontmatter,
+      slug,
+      content: mod.html || mod.content || '',
+      category: frontmatter.category || '',
+      author: frontmatter.author || '',
+      date: frontmatter.date || '',
+      title: frontmatter.title || slug,
+      excerpt: frontmatter.excerpt || '',
+      readTime: frontmatter.readTime || '',
+      comments: frontmatter.comments || 0,
+      keywords: frontmatter.keywords || [],
+      isoDate: frontmatter.isoDate || frontmatter.date || '',
+    };
+  });
 
 // Sort blogs by date (descending)
 blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
