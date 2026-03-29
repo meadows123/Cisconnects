@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, ArrowRight, Play, Server, MessageSquare, ShieldCheck, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useBooking } from '@/context/BookingContext';
+import DonutChartInteractive from './DonutChartInteractive';
 
 const tabs = [
   {
@@ -186,7 +187,8 @@ const TiltedVideo = ({ label, isMobile }) => (
 
 const Solutions = () => {
   const { openBooking } = useBooking();
-  const [active, setActive] = useState(tabs[0].id);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const active = tabs[activeIdx].id;
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const current = tabs.find((t) => t.id === active);
 
@@ -214,42 +216,13 @@ const Solutions = () => {
           </h2>
         </motion.div>
 
-        {/* Horizontal bar of cards - exact match styling */}
+        {/* Circular donut chart navigation */}
         <div className="flex justify-center mb-16">
-          <div className="flex bg-transparent gap-0">
-            {tabs.map((tab, idx) => {
-              const Icon = tab.icon;
-              const isActive = active === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActive(tab.id)}
-                  className={`group relative flex flex-col items-center justify-center w-64 h-64 rounded-2xl transition-all font-extrabold select-none
-                    ${isActive
-                      ? 'bg-gradient-to-br from-yellow-300 via-yellow-400 to-yellow-500 text-white scale-105 z-10'
-                      : 'bg-[#23283a] text-blue-200 shadow-inner'}
-                  `}
-                  style={{
-                    cursor: 'pointer',
-                    marginLeft: idx !== 0 ? '24px' : 0,
-                    boxShadow: isActive
-                      ? '0 0 120px 40px #ffe066cc, 0 0 0 0 #0000'
-                      : 'inset 0 2px 16px 0 #181c27',
-                  }}
-                >
-                  <Icon size={48} className={`mb-4 transition-colors ${isActive ? 'text-white' : 'text-blue-200 group-hover:text-white'}`} />
-                  <span className={`text-2xl font-extrabold transition-colors text-center leading-tight ${isActive ? 'text-white' : 'text-blue-100 group-hover:text-white'}`}>{tab.label}</span>
-                  {isActive && (
-                    <motion.div
-                      layoutId="card-highlight"
-                      className="absolute inset-0 rounded-2xl pointer-events-none"
-                      style={{boxShadow: '0 0 160px 60px #ffe066cc'}}
-                    />
-                  )}
-                </button>
-              );
-            })}
-          </div>
+          <DonutChartInteractive
+            size={340}
+            segmentLabels={tabs.map(tab => tab.label)}
+            onSegmentClick={setActiveIdx}
+          />
         </div>
 
         {/* Tab content */}
@@ -288,8 +261,8 @@ const Solutions = () => {
               </Button>
             </div>
 
-            {/* Right — tilted video placeholder */}
-            <TiltedVideo label={current.label} isMobile={isMobile} />
+            {/* Right — static video placeholder (always first tab's label) */}
+            <TiltedVideo label={tabs[0].label} isMobile={isMobile} />
           </motion.div>
         </AnimatePresence>
 
