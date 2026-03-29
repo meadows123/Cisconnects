@@ -81,4 +81,4 @@ You don’t need to be an enterprise to benefit from automation. Start with one 
 
 **Need help choosing or implementing a tool? [Contact us](mailto:info@cisconnects.com) for a free consultation.**
 
-[← Back to Network Automation Pillar Blog](./network-automation-tools.md)
+[← Back to Network Automation Pillar Blog](/blogs/network-automation-tools)

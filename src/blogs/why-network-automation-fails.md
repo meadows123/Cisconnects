@@ -9,7 +9,7 @@ You’ve invested in the tools. You’ve written the scripts. Maybe you’ve eve
 
 Sound familiar? You’re not alone. Most businesses set out to automate their networks and end up with a patchwork of scripts, half-finished playbooks, and frustrated engineers. The promise of automation—speed, reliability, less firefighting—feels just out of reach.
 
-> **CTA:** [See real-world network automation wins in our pillar guide →](./network-automation-tools.md)
+> **CTA:** [See real-world network automation wins in our pillar guide →](/blogs/network-automation-tools)
 
 ## The Real Reasons Network Automation Fails
 
@@ -67,7 +67,7 @@ The answer isn’t just “more tools.” It’s a new way of thinking about aut
 
 If you’re tired of seeing network automation projects stall, it’s time for a new approach. InfraOps isn’t just about technology—it’s about people, process, and a relentless focus on outcomes.
 
-- Want to see how leading teams are making automation work? [Read our pillar blog.](./network-automation-tools.md)
+- Want to see how leading teams are making automation work? [Read our pillar blog.](/blogs/network-automation-tools)
 - Need a roadmap for your own journey? [Book a call with our experts.](#)
 - Want to benchmark your readiness? [Download the checklist.](#)
 
@@ -85,7 +85,7 @@ If you’re tired of seeing network automation projects stall, it’s time for a
 
 ---
 
-*Internal Links:*
-- [Network Automation Tools (Pillar Blog)](./network-automation-tools.md)
+-*Internal Links:*
+- [Network Automation Tools (Pillar Blog)](/blogs/network-automation-tools)
 - [ROI of Network Automation](#)
 - [InfraOps Services](#)
