@@ -1,9 +1,11 @@
+
 import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import { createLogger, defineConfig } from 'vite';
 import inlineEditPlugin from './plugins/visual-editor/vite-plugin-react-inline-editor.js';
 import editModeDevPlugin from './plugins/visual-editor/vite-plugin-edit-mode.js';
 import iframeRouteRestorationPlugin from './plugins/vite-plugin-iframe-route-restoration.js';
+import markdown from 'vite-plugin-markdown';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -206,6 +208,7 @@ export default defineConfig({
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin(), iframeRouteRestorationPlugin()] : []),
 		react(),
+		markdown({ mode: ['html', 'toc', 'react'] }),
 		addTransformIndexHtml
 	],
 	server: {
