@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
-import { getAllBlogPosts } from '../data/blogPosts';
+import { getAllBlogPosts } from '../data/blogLoader';
 
 const LatestBlogs = () => {
   const blogPosts = getAllBlogPosts().slice(0, 3); // Get the 3 latest posts

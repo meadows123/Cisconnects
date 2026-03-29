@@ -2,7 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
-import { getBlogPostBySlug } from '../data/blogPosts';
+import { getBlogPostBySlug } from '../data/blogLoader';
 import ReactMarkdown from 'react-markdown';
 import Navigation from './Navigation';
 import Footer from './Footer';
