@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
-import { getAllBlogPosts } from '../data/blogPosts';
+import { getAllBlogPosts } from '../data/blogLoader';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import SEO from './SEO';
