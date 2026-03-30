@@ -11,10 +11,10 @@ const SEGMENT_COLORS = [
 ];
 
 const ICONS = [
-  <Network   size={26} strokeWidth={2} color="#fff" />,
-  <Database  size={26} strokeWidth={2} color="#fff" />,
+  <Network     size={26} strokeWidth={2} color="#fff" />,
+  <Database    size={26} strokeWidth={2} color="#fff" />,
   <ShieldCheck size={26} strokeWidth={2} color="#fff" />,
-  <Settings  size={26} strokeWidth={2} color="#fff" />,
+  <Settings    size={26} strokeWidth={2} color="#fff" />,
 ];
 
 // ── Geometry helpers ────────────────────────────────────────────────────────
@@ -66,13 +66,16 @@ export default function DonutChartInteractive({
 }) {
   const [active, setActive] = useState(0);
 
-  const GAP   = 4;            // degrees gap between segments
-  const DEPTH = 30;           // 3-D thickness in SVG px
-  const cx    = size / 2;
-  const cy    = size / 2;
-  const rOut  = size / 2 - 10;
-  const rIn   = size / 2 - 60;
-  const svgH  = size + DEPTH + 10;
+  const GAP       = 4;
+  const DEPTH     = 30;
+  const LIFT_OUT  = 18;   // px radially outward when active
+  const LIFT_UP   = 12;   // px upward in SVG space (appears to rise toward viewer)
+
+  const cx   = size / 2;
+  const cy   = size / 2;
+  const rOut = size / 2 - 10;
+  const rIn  = size / 2 - 60;
+  const svgH = size + DEPTH + 10;
 
   const segs = [
     { start:   0 + GAP / 2, end:  90 - GAP / 2 },
@@ -81,14 +84,28 @@ export default function DonutChartInteractive({
     { start: 270 + GAP / 2, end: 360 - GAP / 2 },
   ];
 
-  // Painter's order: back (top of SVG = away from viewer with rotateX) → front
-  // Segment mid-angle sine: seg0→45°(+), seg1→135°(+), seg2→225°(-), seg3→315°(-)
-  // Higher positive sine = lower Y = closer to viewer → render last
-  const renderOrder = [2, 3, 0, 1];
-
-  // Icon / label midpoint helpers
   const iconR  = (rOut + rIn) / 2;
   const midDeg = (i) => (segs[i].start + segs[i].end) / 2;
+
+  // Painter's order for inactive segments: back → front
+  // Seg2(225°) and Seg3(315°) are back, Seg0(45°) and Seg1(135°) are front
+  // Active segment always renders last so it floats on top of everything
+  const inactiveOrder = [2, 3, 0, 1].filter(i => i !== active);
+  const drawOrder = [...inactiveOrder, active];
+
+  // Compute the lift translation for a segment
+  const liftStyle = (i) => {
+    const isActive = i === active;
+    const mid = toRad(midDeg(i));
+    const dx = isActive ? LIFT_OUT * Math.cos(mid) : 0;
+    const dy = isActive ? LIFT_OUT * Math.sin(mid) - LIFT_UP : 0;
+    return {
+      transform: `translate(${dx}px, ${dy}px)`,
+      // Spring-like easing: overshoots slightly then settles — feels physical
+      transition: 'transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1)',
+      cursor: 'pointer',
+    };
+  };
 
   return (
     <div
@@ -98,6 +115,7 @@ export default function DonutChartInteractive({
         position: 'relative',
         perspective: '700px',
         perspectiveOrigin: `${cx}px ${cy * 0.55}px`,
+        overflow: 'visible',
       }}
     >
       <svg
@@ -129,96 +147,94 @@ export default function DonutChartInteractive({
             <stop offset="100%" stopColor="#0a1018" />
           </radialGradient>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feGaussianBlur stdDeviation="4" result="blur" />
             <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
           </filter>
         </defs>
 
-        {/* ── Bottom faces ─────────────────────────────────────────────── */}
-        {renderOrder.map((i) => (
-          <path
-            key={`bot-${i}`}
-            d={donutArcPath(cx, cy + DEPTH, rOut, rIn, segs[i].start, segs[i].end)}
-            fill={SEGMENT_COLORS[i].wallDark}
-            opacity={0.7}
-          />
-        ))}
+        {/* ── All segment geometry grouped per-segment so the lift
+             transform moves every layer (bottom, walls, top, icon) together ── */}
+        {drawOrder.map((i) => {
+          const seg      = segs[i];
+          const isActive = i === active;
+          const mid      = midDeg(i);
 
-        {/* ── Outer walls ──────────────────────────────────────────────── */}
-        {renderOrder.map((i) => (
-          <path
-            key={`ow-${i}`}
-            d={outerWallPath(cx, cy, rOut, segs[i].start, segs[i].end, DEPTH)}
-            fill={`url(#wg${i})`}
-          />
-        ))}
-
-        {/* ── Inner walls (front-facing segments only) ──────────────────── */}
-        {[0, 1].map((i) => (
-          <path
-            key={`iw-${i}`}
-            d={innerWallPath(cx, cy, rIn, segs[i].start, segs[i].end, DEPTH)}
-            fill={`url(#wg${i})`}
-            opacity={0.35}
-          />
-        ))}
-
-        {/* ── Radial side walls at each gap ────────────────────────────── */}
-        {[90, 180, 270].map((angle) => (
-          <path
-            key={`sw-${angle}`}
-            d={sideWallPath(cx, cy, rOut, rIn, angle - GAP / 2, DEPTH)}
-            fill="#0a1018"
-            opacity={0.4}
-          />
-        ))}
-
-        {/* ── Top faces (clickable) ─────────────────────────────────────── */}
-        {renderOrder.map((i) => (
-          <g
-            key={`top-${i}`}
-            style={{ cursor: 'pointer' }}
-            onClick={() => { setActive(i); if (onSegmentClick) onSegmentClick(i); }}
-          >
-            <path
-              d={donutArcPath(cx, cy, rOut, rIn, segs[i].start, segs[i].end)}
-              fill={`url(#tg${i})`}
-              stroke={i === active ? '#93c5fd' : 'rgba(255,255,255,0.1)'}
-              strokeWidth={i === active ? 2 : 0.5}
-              opacity={i === active ? 1 : 0.8}
-              filter={i === active ? 'url(#glow)' : undefined}
-              style={{ transition: 'opacity 0.3s, stroke 0.3s' }}
-            />
-
-            {/* Icon centred in segment arc */}
-            <foreignObject
-              x={cx + iconR * Math.cos(toRad(midDeg(i))) - 18}
-              y={cy + iconR * Math.sin(toRad(midDeg(i))) - 18}
-              width={36}
-              height={36}
+          return (
+            <g
+              key={i}
+              style={liftStyle(i)}
+              onClick={() => { setActive(i); if (onSegmentClick) onSegmentClick(i); }}
             >
-              <div
-                xmlns="http://www.w3.org/1999/xhtml"
-                style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  width: 36, height: 36,
-                  opacity: i === active ? 1 : 0.55,
-                  transition: 'opacity 0.3s',
-                }}
-              >
-                {ICONS[i]}
-              </div>
-            </foreignObject>
-          </g>
-        ))}
+              {/* Bottom face */}
+              <path
+                d={donutArcPath(cx, cy + DEPTH, rOut, rIn, seg.start, seg.end)}
+                fill={SEGMENT_COLORS[i].wallDark}
+                opacity={0.7}
+              />
 
-        {/* ── Donut hole ────────────────────────────────────────────────── */}
+              {/* Outer wall */}
+              <path
+                d={outerWallPath(cx, cy, rOut, seg.start, seg.end, DEPTH)}
+                fill={`url(#wg${i})`}
+              />
+
+              {/* Inner wall — visible on front-facing segments */}
+              {(i === 0 || i === 1) && (
+                <path
+                  d={innerWallPath(cx, cy, rIn, seg.start, seg.end, DEPTH)}
+                  fill={`url(#wg${i})`}
+                  opacity={0.35}
+                />
+              )}
+
+              {/* Radial side wall at segment start edge */}
+              <path
+                d={sideWallPath(cx, cy, rOut, rIn, seg.start, DEPTH)}
+                fill="#0a1018"
+                opacity={0.45}
+              />
+
+              {/* Top face */}
+              <path
+                d={donutArcPath(cx, cy, rOut, rIn, seg.start, seg.end)}
+                fill={`url(#tg${i})`}
+                stroke={isActive ? '#93c5fd' : 'rgba(255,255,255,0.08)'}
+                strokeWidth={isActive ? 2.5 : 0.5}
+                opacity={isActive ? 1 : 0.75}
+                filter={isActive ? 'url(#glow)' : undefined}
+                style={{ transition: 'opacity 0.3s' }}
+              />
+
+              {/* Icon centred in arc */}
+              <foreignObject
+                x={cx + iconR * Math.cos(toRad(mid)) - 18}
+                y={cy + iconR * Math.sin(toRad(mid)) - 18}
+                width={36}
+                height={36}
+              >
+                <div
+                  xmlns="http://www.w3.org/1999/xhtml"
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    width: 36, height: 36,
+                    opacity: isActive ? 1 : 0.5,
+                    transition: 'opacity 0.3s',
+                  }}
+                >
+                  {ICONS[i]}
+                </div>
+              </foreignObject>
+            </g>
+          );
+        })}
+
+        {/* ── Donut hole — rendered after segments so it always sits on top ── */}
         <circle cx={cx} cy={cy + DEPTH} r={rIn - 4} fill="url(#holeGrad)" opacity={0.6} />
         <circle cx={cx} cy={cy}         r={rIn - 4} fill="url(#holeGrad)" />
         <circle cx={cx} cy={cy}         r={rIn - 4} fill="none"
           stroke="rgba(255,255,255,0.07)" strokeWidth={1} />
 
-        {/* ── Centre label (rendered on top face, tilts with chart) ─────── */}
+        {/* ── Centre label ─────────────────────────────────────────────────── */}
         <foreignObject
           x={cx - (rIn - 8)}
           y={cy - (rIn - 8)}
