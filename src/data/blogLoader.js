@@ -7,14 +7,14 @@
 const blogFiles = import.meta.glob('../blogs/*.md', { eager: true });
 
 const blogs = Object.entries(blogFiles)
-  .filter(([path, mod]) => mod && (mod.frontmatter || mod.content || mod.html))
+  .filter(([path, mod]) => mod && (mod.attributes || mod.html))
   .map(([path, mod]) => {
     // Defensive: ensure path is a string and has .md
     let slug = '';
     if (typeof path === 'string' && path.includes('.md')) {
       slug = path.split('/').pop().replace('.md', '');
     }
-    const frontmatter = mod.frontmatter || {};
+    const frontmatter = mod.attributes || {};
     return {
       ...frontmatter,
       slug,
@@ -23,7 +23,7 @@ const blogs = Object.entries(blogFiles)
       author: frontmatter.author || '',
       date: frontmatter.date || '',
       title: frontmatter.title || slug,
-      excerpt: frontmatter.excerpt || '',
+      excerpt: frontmatter.excerpt || frontmatter.description || '',
       readTime: frontmatter.readTime || '',
       comments: frontmatter.comments || 0,
       keywords: frontmatter.keywords || [],
