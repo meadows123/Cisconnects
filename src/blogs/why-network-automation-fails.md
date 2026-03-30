@@ -9,6 +9,7 @@ keywords: [network automation, automation failure, InfraOps, network management,
 
 ## The Pain: Why Does Network Automation Feel So Hard?
 
+![Frustrated engineer staring at a complex network diagram — automation should be easier](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop)
 
 You’ve invested in the tools. You’ve written the scripts. Maybe you’ve even hired a consultant or two. But somehow, your network automation project is stuck—or worse, it’s making life harder, not easier.
 
@@ -51,6 +52,8 @@ Let’s be honest: it’s rarely about the technology. Here’s what really gets
 > **External Resource:** [Red Hat Ansible for Network Automation](https://www.ansible.com/solutions/network-automation)
 
 The answer isn’t just “more tools.” It’s a new way of thinking about automation:
+
+![Team collaborating on a network automation strategy](https://images.unsplash.com/photo-1519389950473-47c0e7f7c2b9?w=1200&h=600&fit=crop)
 
 ### 1. Orchestrate, Don’t Just Automate
 - Connect your tools, teams, and processes.

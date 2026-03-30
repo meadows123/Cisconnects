@@ -9,6 +9,8 @@ keywords: [network automation, small business, network management, automation to
 
 Are you a small business owner or IT manager tired of manual network tasks, but overwhelmed by enterprise-grade automation platforms? You’re not alone. The good news: you don’t need a massive budget or a team of engineers to automate your network and boost reliability.
 
+![Small business IT team reviewing their network setup](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=600&fit=crop)
+
 ## Why Small Businesses Need Network Automation
 
 - **Save time** on repetitive tasks
@@ -24,6 +26,8 @@ Are you a small business owner or IT manager tired of manual network tasks, but 
 - Affordable pricing
 - Easy to use—no coding or certifications needed
 - Good support and documentation
+
+![Laptop showing network dashboard — simple tools built for small teams](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&h=600&fit=crop)
 
 ## Top Network Automation Tools for Small Businesses
 

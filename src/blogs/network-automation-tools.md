@@ -11,6 +11,8 @@ keywords: [network automation, InfraOps, network tools, automation strategy, inf
 
 If you ask any network engineer what their week looks like, you’ll hear the same story: hours lost to repetitive, manual tasks. Checking device configs. Verifying changes. Troubleshooting the same issues, over and over. It’s not just tedious—it’s a massive drain on time and talent.
 
+![Network engineers managing infrastructure in a modern data centre](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=600&fit=crop)
+
 Here’s the kicker: most teams already have automation tools. But the busywork hasn’t gone away. Why?
 
 ## The Real Problem with Network Automation
@@ -35,6 +37,8 @@ Network automation tools are the backbone of modern IT operations. At their core
 But not all automation tools are created equal. Some are simple scripts, others are full-blown orchestration platforms. The best ones fit seamlessly into your workflow, are easy to scale, and actually make your life easier—not harder.
 
 Let’s break down the most important network automation tools you should know about, and what makes each one unique.
+
+![Server racks in a modern data centre — the foundation of network automation](https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop)
 
 ## 7 Network Automation Tools Worth Knowing
 
