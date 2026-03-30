@@ -2,6 +2,7 @@
 title: Why Network Automation Fails in Most Businesses (And How to Fix It)
 date: 2026-03-28
 excerpt: Most network automation projects stall—not because of the technology, but because of siloed teams, short-term thinking, and no closed-loop validation. Here's how to fix it.
+category: "Network Automation, AI, InfraOps"
 keywords: [network automation, automation failure, InfraOps, network management, orchestration, Ansible]
 ---
 
