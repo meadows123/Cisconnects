@@ -1,5 +1,7 @@
-// Blog loader for Vite: dynamically imports all markdown files in src/blogs/
-// and parses frontmatter/metadata for use in your blog system.
+// Blog loader for Vite: combines static blogPosts.js entries with dynamically
+// imported markdown files from src/blogs/*.md
+
+import { blogPosts as staticPosts } from './blogPosts';
 
 function formatDate(raw) {
   if (!raw) return '';
@@ -8,42 +10,51 @@ function formatDate(raw) {
   return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
+function parseDate(str) {
+  if (!str) return new Date(0);
+  const cleaned = String(str).replace(/(\d+)(st|nd|rd|th)/, '$1');
+  const d = new Date(cleaned);
+  return isNaN(d.getTime()) ? new Date(0) : d;
+}
+
 // vite-plugin-markdown parses markdown at build time
 // Each module exports: { attributes (frontmatter), html, toc }
 const blogFiles = import.meta.glob('../blogs/*.md', { eager: true });
 
-const blogs = Object.entries(blogFiles)
-  .filter(([path, mod]) => mod && (mod.attributes || mod.html))
+const markdownBlogs = Object.entries(blogFiles)
+  .filter(([, mod]) => mod && (mod.attributes || mod.html))
   .map(([path, mod]) => {
-    // Defensive: ensure path is a string and has .md
-    let slug = '';
-    if (typeof path === 'string' && path.includes('.md')) {
-      slug = path.split('/').pop().replace('.md', '');
-    }
-    const frontmatter = mod.attributes || {};
+    const slug = path.split('/').pop().replace('.md', '');
+    const fm = mod.attributes || {};
     return {
-      ...frontmatter,
+      ...fm,
       slug,
-      content: mod.html || mod.content || '',
-      category: frontmatter.category || '',
-      author: frontmatter.author || '',
-      date: formatDate(frontmatter.date),
-      title: frontmatter.title || slug,
-      excerpt: frontmatter.excerpt || frontmatter.description || '',
-      readTime: frontmatter.readTime || '',
-      comments: frontmatter.comments || 0,
-      keywords: frontmatter.keywords || [],
-      isoDate: frontmatter.isoDate || frontmatter.date || '',
+      content: mod.html || '',
+      category: fm.category || '',
+      author: fm.author || '',
+      date: formatDate(fm.date),
+      title: fm.title || slug,
+      excerpt: fm.excerpt || fm.description || '',
+      readTime: fm.readTime || '',
+      comments: fm.comments || 0,
+      keywords: fm.keywords || [],
+      isoDate: fm.isoDate || fm.date || '',
     };
   });
 
-// Sort blogs by date (descending)
-blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
+// Merge: markdown posts take precedence over static posts with the same slug
+const staticSlugs = new Set(markdownBlogs.map((b) => b.slug));
+const combined = [
+  ...markdownBlogs,
+  ...staticPosts.filter((p) => !staticSlugs.has(p.slug)),
+];
+
+combined.sort((a, b) => parseDate(b.date) - parseDate(a.date));
 
 export function getAllBlogPosts() {
-  return blogs;
+  return combined;
 }
 
 export function getBlogPostBySlug(slug) {
-  return blogs.find((b) => b.slug === slug);
+  return combined.find((b) => b.slug === slug);
 }
