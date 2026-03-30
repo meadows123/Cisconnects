@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getBlogPostBySlug } from '../data/blogLoader';
-import ReactMarkdown from 'react-markdown';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import SEO from './SEO';
@@ -162,104 +161,10 @@ export default function BlogPost() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="prose prose-lg prose-invert max-w-none bg-slate-800/30 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
         >
-          <div className="article-content">
-            <ReactMarkdown
-              components={{
-                img: ({ src, alt }) => (
-                  <img
-                    src={src}
-                    alt={alt}
-                    className="w-full rounded-xl my-8 object-cover max-h-[480px] border border-white/10"
-                    loading="lazy"
-                  />
-                ),
-                h2: ({ children }) => (
-                  <h2 className="text-3xl font-bold text-white mt-12 mb-6 pb-2 border-b-2 border-blue-500/30">
-                    {children}
-                  </h2>
-                ),
-                h3: ({ children }) => (
-                  <h3 className="text-2xl font-bold text-white mt-8 mb-4">
-                    {children}
-                  </h3>
-                ),
-                h4: ({ children }) => (
-                  <h4 className="text-xl font-bold text-white mt-6 mb-3">
-                    {children}
-                  </h4>
-                ),
-                p: ({ children }) => (
-                  <p className="text-slate-300 leading-relaxed mb-6">
-                    {children}
-                  </p>
-                ),
-                ul: ({ children }) => (
-                  <ul className="list-disc list-inside space-y-2 mb-6 text-slate-300">
-                    {children}
-                  </ul>
-                ),
-                ol: ({ children }) => (
-                  <ol className="list-decimal list-inside space-y-2 mb-6 text-slate-300">
-                    {children}
-                  </ol>
-                ),
-                li: ({ children }) => (
-                  <li className="ml-4">
-                    {children}
-                  </li>
-                ),
-                blockquote: ({ children }) => (
-                  <blockquote className="border-l-4 border-blue-500 pl-6 py-2 my-6 italic text-blue-300 bg-blue-500/10 rounded-r-lg">
-                    {children}
-                  </blockquote>
-                ),
-                table: ({ children }) => (
-                  <div className="overflow-x-auto my-8">
-                    <table className="min-w-full divide-y divide-slate-700 border border-slate-700 rounded-lg">
-                      {children}
-                    </table>
-                  </div>
-                ),
-                thead: ({ children }) => (
-                  <thead className="bg-slate-900/50">
-                    {children}
-                  </thead>
-                ),
-                tbody: ({ children }) => (
-                  <tbody className="divide-y divide-slate-700 bg-slate-800/50">
-                    {children}
-                  </tbody>
-                ),
-                th: ({ children }) => (
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-white">
-                    {children}
-                  </th>
-                ),
-                td: ({ children }) => (
-                  <td className="px-4 py-3 text-sm text-slate-300">
-                    {children}
-                  </td>
-                ),
-                code: ({ inline, children }) =>
-                  inline ? (
-                    <code className="bg-slate-900 text-blue-300 px-2 py-1 rounded text-sm font-mono">
-                      {children}
-                    </code>
-                  ) : (
-                    <code className="block bg-slate-950 text-slate-200 p-4 rounded-lg overflow-x-auto text-sm font-mono my-6 border border-slate-700">
-                      {children}
-                    </code>
-                  ),
-                strong: ({ children }) => (
-                  <strong className="font-bold text-white">
-                    {children}
-                  </strong>
-                ),
-              }}
-            >
-              {post.content}
-            </ReactMarkdown>
-          </div>
+          <div
+            className="article-content"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
         </motion.div>
 
         {/* External Resources Section */}

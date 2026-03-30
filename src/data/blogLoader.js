@@ -1,9 +1,15 @@
 // Blog loader for Vite: dynamically imports all markdown files in src/blogs/
 // and parses frontmatter/metadata for use in your blog system.
 
+function formatDate(raw) {
+  if (!raw) return '';
+  const d = new Date(raw);
+  if (isNaN(d.getTime())) return String(raw);
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
 
 // vite-plugin-markdown parses markdown at build time
-// Each module has: { frontmatter, html, content }
+// Each module exports: { attributes (frontmatter), html, toc }
 const blogFiles = import.meta.glob('../blogs/*.md', { eager: true });
 
 const blogs = Object.entries(blogFiles)
@@ -21,7 +27,7 @@ const blogs = Object.entries(blogFiles)
       content: mod.html || mod.content || '',
       category: frontmatter.category || '',
       author: frontmatter.author || '',
-      date: frontmatter.date || '',
+      date: formatDate(frontmatter.date),
       title: frontmatter.title || slug,
       excerpt: frontmatter.excerpt || frontmatter.description || '',
       readTime: frontmatter.readTime || '',
