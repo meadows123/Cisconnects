@@ -76,6 +76,8 @@ You don’t need to be an enterprise to benefit from automation. Start with one 
 
 ---
 
+[← Get A Free Demo From Our Team](/contact)
+
 ### More Resources for Small Business IT
 - [Auvik’s Guide to Network Automation](https://www.auvik.com/franklyit/blog/network-automation/)
 - [Network Automation on Network Computing](https://www.networkcomputing.com/network-automation)
@@ -84,6 +86,6 @@ You don’t need to be an enterprise to benefit from automation. Start with one 
 
 ---
 
-**Need help choosing or implementing a tool? [Contact us](mailto:info@cisconnects.com) for a free consultation.**
+**Need help choosing or implementing a tool? [Contact us](mailto:admin@conxiea.com) for a free consultation.**
 
-[← Back to Network Automation Pillar Blog](/blogs/network-automation-tools)
+[← Back to Network Automation Pillar Blog](/blogs)

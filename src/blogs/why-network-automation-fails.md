@@ -8,8 +8,6 @@ keywords: [network automation, automation failure, InfraOps, network management,
 
 # Why Network Automation Fails in Most Businesses (And How to Fix It)
 
-## The Pain: Why Does Network Automation Feel So Hard?
-
 ![Frustrated engineer staring at a complex network diagram — automation should be easier](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop)
 
 You’ve invested in the tools. You’ve written the scripts. Maybe you’ve even hired a consultant or two. But somehow, your network automation project is stuck—or worse, it’s making life harder, not easier.
@@ -18,7 +16,7 @@ You’ve invested in the tools. You’ve written the scripts. Maybe you’ve eve
 
 Sound familiar? You’re not alone. Most businesses set out to automate their networks and end up with a patchwork of scripts, half-finished playbooks, and frustrated engineers. The promise of automation—speed, reliability, less firefighting—feels just out of reach.
 
-> **CTA:** [See real-world network automation wins in our pillar guide →](/blogs/network-automation-tools)
+> [See real-world network automation wins in our pillar guide →](/blog)
 
 ## The Real Reasons Network Automation Fails
 
@@ -47,8 +45,6 @@ Let’s be honest: it’s rarely about the technology. Here’s what really gets
 - Quick wins are celebrated, but there’s no long-term strategy.
 - Automation is treated as a project, not a core capability.
 
-> **CTA:** [Download our Network Automation Readiness Checklist →](#)
-
 
 > **External Resource:** [Red Hat Ansible for Network Automation](https://www.ansible.com/solutions/network-automation)
 
@@ -72,15 +68,14 @@ The answer isn’t just “more tools.” It’s a new way of thinking about aut
 - Treat automation as a journey, not a one-off project.
 - Invest in documentation, version control, and continuous improvement.
 
-> **CTA:** [Book a free InfraOps strategy call →](#)
+> [Book a free InfraOps strategy call →](/contact)
 
 ## Ready to Stop Firefighting?
 
 If you’re tired of seeing network automation projects stall, it’s time for a new approach. InfraOps isn’t just about technology—it’s about people, process, and a relentless focus on outcomes.
 
-- Want to see how leading teams are making automation work? [Read our pillar blog.](/blogs/network-automation-tools)
-- Need a roadmap for your own journey? [Book a call with our experts.](#)
-- Want to benchmark your readiness? [Download the checklist.](#)
+- Want to see how leading teams are making automation work? [Read our pillar blog.](/blog)
+- Need a roadmap for your own journey? [Book a call with our experts.](/contact)
 
 
 **Stop automating in circles. Start building a network that runs itself.**
@@ -98,5 +93,5 @@ If you’re tired of seeing network automation projects stall, it’s time for a
 
 -*Internal Links:*
 - [Network Automation Tools (Pillar Blog)](/blogs/network-automation-tools)
-- [ROI of Network Automation](#)
-- [InfraOps Services](#)
+- [ROI of Network Automation](/blog/roi-of-network-automation)
+- [InfraOps Services](/infraaiops)
