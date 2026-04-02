@@ -34,6 +34,7 @@ const LeadMagnetSuccess = lazy(() => import('@/components/LeadMagnetSuccess'));
 const CafeWifi = lazy(() => import('@/components/CafeWifi'));
 const OfficeWifi = lazy(() => import('@/components/OfficeWifi'));
 const NetworkTroubleshooting = lazy(() => import('@/components/NetworkTroubleshooting'));
+const NetworkTroubleshootingV2 = lazy(() => import('@/components/NetworkTroubleshootingV2'));
 const WifiOptimisation = lazy(() => import('@/components/WifiOptimisation'));
 const ElectricianWebsiteServices = lazy(() => import('@/components/ElectricianWebsiteServices'));
 const TradesWebsiteServices = lazy(() => import('@/components/TradesWebsiteServices'));
@@ -66,6 +67,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/reliable-cafe-connectivity" element={<CafeWifi />} />
       <Route path="/office-connectivity" element={<OfficeWifi />} />
       <Route path="/network-troubleshooting" element={<NetworkTroubleshooting />} />
+      <Route path="/network-troubleshooting-v2" element={<NetworkTroubleshootingV2 />} />
       <Route path="/wifi-optimisation" element={<WifiOptimisation />} />
       <Route path="/website-for-electricians" element={<ElectricianWebsiteServices />} />
       <Route path="/website-for-trades" element={<TradesWebsiteServices />} />
