@@ -6,7 +6,7 @@ import SEO from './SEO';
 import emailjs from '@emailjs/browser';
 
 const NetworkTroubleshootingV2 = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', description: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
@@ -29,7 +29,7 @@ const NetworkTroubleshootingV2 = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.description.trim()) {
       setSubmitStatus('error_validation');
       setTimeout(() => setSubmitStatus(null), 5000);
       return;
@@ -45,13 +45,13 @@ const NetworkTroubleshootingV2 = () => {
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
-        message: 'Enquiry from Network Troubleshooting V2 landing page',
+        message: formData.description,
         service_interest: 'Network Troubleshooting',
         to_name: 'Conxiea Team',
         reply_to: formData.email,
       });
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '' });
+      setFormData({ name: '', email: '', phone: '', description: '' });
     } catch (err) {
       console.error(err);
       setSubmitStatus('error');
@@ -338,6 +338,10 @@ const NetworkTroubleshootingV2 = () => {
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Phone Number <span className="text-red-500">*</span></label>
                 <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+              </div>
+              <div>
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Describe Your Issue <span className="text-red-500">*</span></label>
+                <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Tell us what's happening — e.g. random dropouts, slow speeds, VPN issues, devices not connecting..." rows={4} className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation resize-none" required />
               </div>
               <motion.button
                 whileHover={{ scale: 1.02 }}
