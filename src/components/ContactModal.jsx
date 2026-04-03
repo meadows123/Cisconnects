@@ -1,14 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, CheckCircle, Loader2 } from 'lucide-react';
+import { X, Send, CheckCircle, Loader2, Clock, Calendar, ChevronLeft } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
+
+const getAvailableDates = () => {
+  const dates = [];
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  while (dates.length < 14) {
+    const day = d.getDay();
+    if (day !== 0 && day !== 6) {
+      dates.push(new Date(d));
+    }
+    d.setDate(d.getDate() + 1);
+  }
+  return dates;
+};
+
+const formatDate = (date) =>
+  date.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
+
+const formatDateISO = (date) => date.toISOString().split('T')[0];
 
 const ContactModal = () => {
   const { isOpen, closeBooking } = useBooking();
+
+  const [step, setStep] = useState(1); // 1 = pick date/time, 2 = details, 3 = success
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+  const [submitStatus, setSubmitStatus] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const availableDates = getAvailableDates();
+
+  const timeSlots = [
+    '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
+    '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30'
+  ];
 
   // Lock body scroll when modal opens
   useEffect(() => {
@@ -48,14 +78,16 @@ const ContactModal = () => {
     setErrorMessage('');
 
     try {
-      // Save to leads database
+      // Save to leads database with date and time
       const response = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          source: 'contact-form'
+          source: 'contact-form',
+          date: formatDateISO(selectedDate),
+          time: selectedTime
         })
       });
 
@@ -66,6 +98,9 @@ const ContactModal = () => {
       setTimeout(() => {
         setSubmitStatus(null);
         closeBooking();
+        setStep(1);
+        setSelectedDate(null);
+        setSelectedTime(null);
       }, 2000);
     } catch (error) {
       console.error('Error:', error);
@@ -97,12 +132,22 @@ const ContactModal = () => {
             onClick={closeBooking}
           >
             <div
-              className="bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl w-full max-w-md"
+              className="bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-slate-700">
-                <h2 className="text-2xl font-bold text-white">Get in Touch</h2>
+              <div className="flex items-center justify-between p-6 border-b border-slate-700 sticky top-0 bg-slate-900">
+                {step > 1 && (
+                  <button
+                    onClick={() => setStep(step - 1)}
+                    className="text-gray-400 hover:text-white transition p-1"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                )}
+                <h2 className="text-2xl font-bold text-white flex-1">
+                  {step === 1 ? 'Pick a Time' : step === 2 ? 'Your Details' : 'Confirmed'}
+                </h2>
                 <button
                   onClick={closeBooking}
                   className="text-gray-400 hover:text-white transition p-1"
@@ -112,7 +157,7 @@ const ContactModal = () => {
               </div>
 
               {/* Success State */}
-              {submitStatus === 'success' ? (
+              {submitStatus === 'success' && (
                 <div className="p-8 text-center">
                   <motion.div
                     initial={{ scale: 0 }}
@@ -124,12 +169,74 @@ const ContactModal = () => {
                       <CheckCircle className="w-12 h-12 text-green-400" />
                     </div>
                   </motion.div>
-                  <h3 className="text-xl font-bold text-white mb-2">Thank You!</h3>
-                  <p className="text-gray-300">We've received your contact information. Our team will reach out shortly.</p>
+                  <h3 className="text-xl font-bold text-white mb-2">Booking Confirmed!</h3>
+                  <p className="text-gray-300 mb-4">Your appointment has been added to the calendar.</p>
+                  <p className="text-sm text-gray-400">
+                    {selectedDate && formatDate(selectedDate)} at {selectedTime}
+                  </p>
                 </div>
-              ) : (
-                /* Form */
+              )}
+
+              {/* Step 1: Date Selection */}
+              {step === 1 && submitStatus !== 'success' && (
+                <div className="p-6 space-y-4">
+                  <div className="flex items-center gap-2 text-gray-300 mb-4">
+                    <Calendar className="w-5 h-5" />
+                    <span className="font-medium">Select a Date</span>
+                  </div>
+                  <div className="space-y-2">
+                    {availableDates.map((date) => (
+                      <motion.button
+                        key={formatDateISO(date)}
+                        onClick={() => {
+                          setSelectedDate(date);
+                          setStep(2);
+                        }}
+                        className={`w-full p-3 rounded-lg border transition text-left ${
+                          selectedDate && formatDateISO(selectedDate) === formatDateISO(date)
+                            ? 'bg-blue-600 border-blue-500 text-white'
+                            : 'bg-slate-800 border-slate-600 text-gray-300 hover:border-blue-500'
+                        }`}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        {formatDate(date)}
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Step 2: Time & Details */}
+              {step === 2 && submitStatus !== 'success' && (
                 <form onSubmit={handleSubmit} className="p-6 space-y-4">
+                  {/* Time Selection */}
+                  <div>
+                    <div className="flex items-center gap-2 text-gray-300 mb-3">
+                      <Clock className="w-5 h-5" />
+                      <span className="font-medium">Select a Time</span>
+                    </div>
+                    <div className="grid grid-cols-4 gap-2 mb-6">
+                      {timeSlots.map((time) => (
+                        <motion.button
+                          key={time}
+                          type="button"
+                          onClick={() => setSelectedTime(time)}
+                          className={`p-2 rounded-lg border text-sm transition ${
+                            selectedTime === time
+                              ? 'bg-blue-600 border-blue-500 text-white'
+                              : 'bg-slate-800 border-slate-600 text-gray-300 hover:border-blue-500'
+                          }`}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {time}
+                        </motion.button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Contact Details */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
                       Name <span className="text-red-400">*</span>
@@ -189,25 +296,21 @@ const ContactModal = () => {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !selectedTime}
                     className="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 disabled:opacity-50 text-slate-900 font-bold rounded-lg flex items-center justify-center gap-2 transition"
                   >
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Sending...</span>
+                        <span>Booking...</span>
                       </>
                     ) : (
                       <>
                         <Send className="w-4 h-4" />
-                        <span>Send</span>
+                        <span>Confirm</span>
                       </>
                     )}
                   </button>
-
-                  <p className="text-xs text-gray-400 text-center">
-                    We'll create a calendar event and contact you within 24 hours
-                  </p>
                 </form>
               )}
             </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Mail, Home, Menu, X, Settings, Info, ChevronDown, MessageSquare, BrainCircuit, Globe, FileText } from 'lucide-react';
+import { BookOpen, Mail, Home, Menu, X, Settings, Info, ChevronDown, MessageSquare, BrainCircuit, Globe, FileText, Calendar } from 'lucide-react';
 import { useBooking } from '@/context/BookingContext';
 
 export default function Navigation() {
@@ -79,19 +79,19 @@ export default function Navigation() {
                   location.pathname === '/websites'
                 ));
               
-              // Contact button opens booking modal
+              // Contact button goes to contact page
               if (link.highlight) {
                 return (
-                  <motion.button
-                    key={link.to}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={openBooking}
-                    className="relative flex items-center gap-2 px-4 py-2 rounded-lg transition-all bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/30"
-                  >
-                    <Icon className="w-4 h-4" />
-                    <span className="font-medium">{link.label}</span>
-                  </motion.button>
+                  <Link key={link.to} to={link.to}>
+                    <motion.button
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="relative flex items-center gap-2 px-4 py-2 rounded-lg transition-all bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/30"
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span className="font-medium">{link.label}</span>
+                    </motion.button>
+                  </Link>
                 );
               }
 
@@ -209,17 +209,16 @@ export default function Navigation() {
             })}
           </div>
 
-          {/* Request Quote — Desktop */}
-          <Link to="/contact" className="hidden md:block">
-            <motion.div
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg shadow-blue-500/30 transition-all"
-            >
-              <FileText className="w-4 h-4" />
-              <span>Request Quote</span>
-            </motion.div>
-          </Link>
+          {/* Book Consultation — Desktop */}
+          <motion.button
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={openBooking}
+            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium shadow-lg shadow-yellow-500/30 transition-all"
+          >
+            <Calendar className="w-4 h-4" />
+            <span>Book Consultation</span>
+          </motion.button>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -411,15 +410,16 @@ export default function Navigation() {
                   })}
                 </div>
 
-                {/* Request Quote — Mobile */}
-                <Link
-                  to="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg transition-all"
+                {/* Book Consultation — Mobile */}
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => { setMobileMenuOpen(false); openBooking(); }}
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium shadow-lg transition-all"
                 >
-                  <FileText className="w-5 h-5" />
-                  <span>Request Quote</span>
-                </Link>
+                  <Calendar className="w-5 h-5" />
+                  <span>Book Consultation</span>
+                </motion.button>
 
                 {/* Mobile Menu Footer */}
                 <motion.div

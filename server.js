@@ -317,7 +317,7 @@ app.get('/api/leads', async (req, res) => {
 // POST new lead
 app.post('/api/leads', async (req, res) => {
   try {
-    const { name, email, source } = req.body;
+    const { name, email, source, date, time } = req.body;
 
     if (!name || !email) {
       return res.status(400).json({ error: 'Name and email are required' });
@@ -336,14 +336,14 @@ app.post('/api/leads', async (req, res) => {
     // Save to Supabase
     let supabaseError = null;
     let savedLead = null;
-    
+
     if (supabaseUrl && supabaseKey) {
       console.log('📤 Attempting to save to Supabase...');
       const { data, error } = await supabase
         .from('leads')
         .insert([newLead])
         .select();
-      
+
       if (error) {
         console.error('❌ Supabase error:', error);
         supabaseError = error;
@@ -365,10 +365,23 @@ app.post('/api/leads', async (req, res) => {
     writeLeads(leads);
     console.log('✅ Saved to JSON file');
 
-    // Sync to Google Calendar
-    await createCallEvent({ name, email, phone: '', createdAt: newLead.created_at }).catch(err =>
-      console.error('Google Calendar lead sync error (non-blocking):', err.message)
-    );
+    // Sync to Google Calendar with optional date/time
+    if (date && time) {
+      await createCalendarEvent({
+        name,
+        email,
+        phone: '',
+        date,
+        time,
+        createdAt: newLead.created_at
+      }).catch(err =>
+        console.error('Google Calendar lead sync error (non-blocking):', err.message)
+      );
+    } else {
+      await createCallEvent({ name, email, phone: '', createdAt: newLead.created_at }).catch(err =>
+        console.error('Google Calendar lead sync error (non-blocking):', err.message)
+      );
+    }
 
     // Sync to GoHighLevel as a contact
     syncCallToGHL({ name, email, phone: '', source, createdAt: newLead.created_at }).catch(err =>
