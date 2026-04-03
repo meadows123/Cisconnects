@@ -6,8 +6,6 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
-import { createClient } from '@supabase/supabase-js';
-import dotenv from 'dotenv';
 import { createCalendarEvent, createCallEvent } from './utils/googleCalendar.js';
 import { syncConsultationToGHL, syncCallToGHL } from './utils/goHighLevel.js';
 
