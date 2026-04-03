@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from '@/components/ScrollToTop';
 import PixelTracker from '@/components/PixelTracker';
 import { BookingProvider } from '@/context/BookingContext';
-import BookingModal from '@/components/BookingModal';
+import BookingModal from '@/components/ContactModal';
 import SubscribePopup from '@/components/SubscribePopup';
 import '@/index.css';
 

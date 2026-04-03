@@ -300,11 +300,11 @@ const About = () => {
                   <div className="relative mb-6 inline-block">
                     <div className={`w-32 h-32 bg-gradient-to-br ${member.gradient} rounded-full flex items-center justify-center mx-auto shadow-2xl group-hover:scale-110 transition-transform overflow-hidden`}>
                       {member.photo
-                        ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover rounded-full" />
+                        ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-center rounded-full" style={{ imageRendering: 'crisp-edges' }} />
                         : <span className="text-5xl font-bold text-white">{member.avatar}</span>
                       }
                     </div>
-                    <div className={`absolute inset-0 bg-gradient-to-br ${member.gradient} rounded-full blur-xl opacity-50 group-hover:opacity-70 transition-opacity`}></div>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${member.gradient} rounded-full blur-2xl opacity-30 group-hover:opacity-40 transition-opacity pointer-events-none`}></div>
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
                   <p className="text-blue-400 font-medium">{member.role}</p>
