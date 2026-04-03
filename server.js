@@ -337,7 +337,7 @@ app.post('/api/leads', async (req, res) => {
     let supabaseError = null;
     let savedLead = null;
 
-    if (supabaseUrl && supabaseKey) {
+    if (supabase && supabaseUrl && supabaseKey) {
       console.log('📤 Attempting to save to Supabase...');
       const { data, error } = await supabase
         .from('leads')
@@ -555,7 +555,7 @@ app.post('/api/ghl-webhook', async (req, res) => {
     }
 
     // Save to Supabase if configured
-    if (supabaseUrl && supabaseKey) {
+    if (supabase && supabaseUrl && supabaseKey) {
       const { error } = await supabase.from('consultations').insert([consultation]);
       if (error) console.error('Supabase GHL webhook save error:', error.message);
       else console.log('✅ GHL booking saved to Supabase');

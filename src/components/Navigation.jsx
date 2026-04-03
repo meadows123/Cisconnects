@@ -214,7 +214,7 @@ export default function Navigation() {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             onClick={openBooking}
-            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium shadow-lg shadow-yellow-500/30 transition-all"
+            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg shadow-blue-500/30 transition-all"
           >
             <Calendar className="w-4 h-4" />
             <span>Book Consultation</span>
@@ -415,7 +415,7 @@ export default function Navigation() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => { setMobileMenuOpen(false); openBooking(); }}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium shadow-lg transition-all"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg transition-all"
                 >
                   <Calendar className="w-5 h-5" />
                   <span>Book Consultation</span>
