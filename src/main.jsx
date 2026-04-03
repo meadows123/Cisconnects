@@ -32,6 +32,7 @@ const RequestCallSuccess = lazy(() => import('@/components/RequestCallSuccess'))
 const LeadMagnet = lazy(() => import('@/components/LeadMagnet'));
 const LeadMagnetSuccess = lazy(() => import('@/components/LeadMagnetSuccess'));
 const CafeWifi = lazy(() => import('@/components/CafeWifi'));
+const CafeWifiV2 = lazy(() => import('@/components/CafeWifiV2'));
 const OfficeWifi = lazy(() => import('@/components/OfficeWifi'));
 const NetworkTroubleshooting = lazy(() => import('@/components/NetworkTroubleshooting'));
 const NetworkTroubleshootingV2 = lazy(() => import('@/components/NetworkTroubleshootingV2'));
@@ -65,6 +66,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/lead-magnet" element={<LeadMagnet />} />
       <Route path="/lead-magnet-success" element={<LeadMagnetSuccess />} />
       <Route path="/reliable-cafe-connectivity" element={<CafeWifi />} />
+      <Route path="/reliable-cafe-connectivity-v2" element={<CafeWifiV2 />} />
       <Route path="/office-connectivity" element={<OfficeWifi />} />
       <Route path="/network-troubleshooting" element={<NetworkTroubleshooting />} />
       <Route path="/network-troubleshooting-v2" element={<NetworkTroubleshootingV2 />} />
