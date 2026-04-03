@@ -6,6 +6,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
+import { createClient } from '@supabase/supabase-js';
+import dotenv from 'dotenv';
 import { createCalendarEvent, createCallEvent } from './utils/googleCalendar.js';
 import { syncConsultationToGHL, syncCallToGHL } from './utils/goHighLevel.js';
 
@@ -364,6 +366,11 @@ app.post('/api/leads', async (req, res) => {
     leads.push(jsonLead);
     writeLeads(leads);
     console.log('✅ Saved to JSON file');
+
+    // Sync to Google Calendar
+    await createCallEvent({ name, email, phone: '', createdAt: newLead.created_at }).catch(err =>
+      console.error('Google Calendar lead sync error (non-blocking):', err.message)
+    );
 
     // Sync to GoHighLevel as a contact
     syncCallToGHL({ name, email, phone: '', source, createdAt: newLead.created_at }).catch(err =>

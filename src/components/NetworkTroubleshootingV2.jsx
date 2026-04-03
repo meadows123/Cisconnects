@@ -50,6 +50,18 @@ const NetworkTroubleshootingV2 = () => {
         to_name: 'Conxiea Team',
         reply_to: formData.email,
       });
+
+      // Save to leads database
+      await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          source: 'network-troubleshooting'
+        })
+      });
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', description: '' });
     } catch (err) {
