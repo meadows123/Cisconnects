@@ -12,7 +12,7 @@ const OfficeWifi = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   const testimonials = [
-    { name: 'James R.', initials: 'JR', role: 'Office Manager', result: 'Dead zones gone, Zoom calls rock solid', review: '"Dead zones all over the office, Zoom calls dropping every meeting. Conxiea came in, did a proper survey, and sorted everything. Night and day difference."' },
+    { name: 'James R.', initials: 'JR', role: 'Office Manager', result: 'Dead zones gone, Teams calls rock solid', review: '"Dead zones all over the office, Teams calls dropping every meeting. Conxiea came in, did a proper survey, and sorted everything. Night and day difference."' },
     { name: 'Anita S.', initials: 'AS', role: 'Operations Director', result: 'Staff stopped tethering to phones — fixed in one visit', review: '"Staff were tethering to their phones just to get work done. Conxiea fixed the whole office in one visit. Nobody complains about WiFi anymore."' },
     { name: 'Tom W.', initials: 'TW', role: 'IT Manager', result: 'Teams calls have not dropped once since the fix', review: '"Fast, professional, and they actually explained what was wrong. Our Teams calls are rock solid now. Would recommend to any business."' },
     { name: 'Chris M.', initials: 'CM', role: 'Managing Director', result: 'Network handled 30 new staff without issue', review: '"We doubled our headcount and the WiFi couldn\'t cope. Conxiea redesigned the whole office network properly. Zero complaints since."' },
@@ -64,7 +64,7 @@ const OfficeWifi = () => {
     <>
       <SEO
         title="WiFi for Offices | Fix Slow Office WiFi & Dead Zones | Conxiea"
-        description="Dropped Zoom calls, dead zones, slow meeting room internet? Conxiea fixes slow office WiFi and eliminates dead zones permanently. Network engineers — not a helpdesk."
+        description="Dropped Teams calls, dead zones, slow meeting room internet? Conxiea fixes slow office WiFi and eliminates dead zones permanently. Network engineers — not a helpdesk."
         url="/office-connectivity"
       />
       <div className="min-h-screen bg-slate-950 flex flex-col">
@@ -83,7 +83,7 @@ const OfficeWifi = () => {
                 <span className="border-b-2 border-blue-500">Losing to Bad WiFi?</span>
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
-                Dropped Zoom calls, dead zones, staff tethering to phones —{' '}
+                Dropped Teams calls, dead zones, staff tethering to phones —{' '}
                 <span className="border-b-2 border-blue-500 text-white">it costs more than you think.</span>
               </p>
               <motion.button
@@ -105,7 +105,7 @@ const OfficeWifi = () => {
             >
               <p className="text-sm sm:text-base text-gray-300 mb-3">The WiFi works… until you actually need it.</p>
               <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
-                Zoom drops mid-call.<br />
+                Teams calls drop mid-meeting.<br />
                 Desks in the corner can't connect.<br />
                 Staff tether to their phones just to work.
               </p>
@@ -340,7 +340,7 @@ const OfficeWifi = () => {
               </div>
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Describe Your Issue <span className="text-red-500">*</span></label>
-                <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Tell us what's happening — e.g. dead zones, dropped Zoom calls, slow speeds in certain areas..." rows={4} className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation resize-none" required />
+                <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Tell us what's happening — e.g. dead zones, dropped Teams calls, slow speeds in certain areas..." rows={4} className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation resize-none" required />
               </div>
               <motion.button
                 whileHover={{ scale: 1.02 }}
