@@ -569,6 +569,82 @@ app.post('/api/ghl-webhook', async (req, res) => {
   }
 });
 
+// Get available time slots from Google Calendar
+app.get('/api/available-slots', async (req, res) => {
+  const { date } = req.query; // expects YYYY-MM-DD
+  if (!date) return res.status(400).json({ error: 'date query param required' });
+
+  const allTimeSlots = [
+    '09:00','09:30','10:00','10:30','11:00','11:30',
+    '13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30'
+  ];
+
+  try {
+    // Import Google Calendar utilities
+    const { google } = await import('googleapis');
+
+    // Get auth client (same logic as googleCalendar.js)
+    let credentialsJson = process.env.GOOGLE_CREDENTIALS_B64 || process.env.GOOGLE_CREDENTIALS;
+    if (!credentialsJson) {
+      return res.json({ availableSlots: allTimeSlots, bookedSlots: [] });
+    }
+
+    if (process.env.GOOGLE_CREDENTIALS_B64) {
+      credentialsJson = Buffer.from(credentialsJson, 'base64').toString('utf8');
+    }
+
+    const credentials = JSON.parse(credentialsJson);
+    const auth = new google.auth.GoogleAuth({
+      credentials,
+      scopes: ['https://www.googleapis.com/auth/calendar'],
+    });
+
+    const calendar = google.calendar({ version: 'v3', auth });
+    const calendarId = process.env.GOOGLE_CALENDAR_ID || 'zak.meadows15@gmail.com';
+
+    // Query events for the given date
+    const startOfDay = new Date(date);
+    startOfDay.setHours(0, 0, 0, 0);
+    const endOfDay = new Date(date);
+    endOfDay.setHours(23, 59, 59, 999);
+
+    const response = await calendar.events.list({
+      calendarId,
+      timeMin: startOfDay.toISOString(),
+      timeMax: endOfDay.toISOString(),
+      singleEvents: true,
+      orderBy: 'startTime',
+    });
+
+    const events = response.data.items || [];
+    const bookedSlots = [];
+
+    // Extract booked times from events
+    events.forEach(event => {
+      if (event.start.dateTime) {
+        const eventStart = new Date(event.start.dateTime);
+        const eventEnd = new Date(event.end.dateTime);
+        const startTime = eventStart.toLocaleTimeString('en-GB', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+          timeZone: 'UTC'
+        });
+        bookedSlots.push(startTime);
+      }
+    });
+
+    // Calculate available slots (exclude booked ones)
+    const availableSlots = allTimeSlots.filter(slot => !bookedSlots.includes(slot));
+
+    res.json({ availableSlots, bookedSlots });
+  } catch (error) {
+    console.error('Error checking available slots:', error.message);
+    // Return all slots on error (fail open)
+    res.json({ availableSlots: allTimeSlots, bookedSlots: [] });
+  }
+});
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'OK' });

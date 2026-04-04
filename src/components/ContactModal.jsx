@@ -32,6 +32,9 @@ const ContactModal = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+  const [availableSlots, setAvailableSlots] = useState([]);
+  const [bookedSlots, setBookedSlots] = useState([]);
+  const [loadingSlots, setLoadingSlots] = useState(false);
 
   const availableDates = getAvailableDates();
 
@@ -58,6 +61,26 @@ const ContactModal = () => {
       document.body.style.top = '';
     };
   }, [isOpen]);
+
+  // Fetch available slots when date is selected
+  useEffect(() => {
+    if (step === 2 && selectedDate) {
+      setLoadingSlots(true);
+      const dateStr = formatDateISO(selectedDate);
+      fetch(`/api/available-slots?date=${dateStr}`)
+        .then(res => res.json())
+        .then(data => {
+          setAvailableSlots(data.availableSlots || []);
+          setBookedSlots(data.bookedSlots || []);
+          setSelectedTime(null); // Reset time selection
+        })
+        .catch(err => {
+          console.error('Error fetching slots:', err);
+          setAvailableSlots(timeSlots); // Fallback to all slots
+        })
+        .finally(() => setLoadingSlots(false));
+    }
+  }, [step, selectedDate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -215,25 +238,51 @@ const ContactModal = () => {
                     <div className="flex items-center gap-2 text-gray-300 mb-3">
                       <Clock className="w-5 h-5" />
                       <span className="font-medium">Select a Time</span>
+                      {bookedSlots.length > 0 && (
+                        <span className="text-xs text-gray-500">({availableSlots.length} available)</span>
+                      )}
                     </div>
-                    <div className="grid grid-cols-4 gap-2 mb-6">
-                      {timeSlots.map((time) => (
-                        <motion.button
-                          key={time}
-                          type="button"
-                          onClick={() => setSelectedTime(time)}
-                          className={`p-2 rounded-lg border text-sm transition ${
-                            selectedTime === time
-                              ? 'bg-blue-600 border-blue-500 text-white'
-                              : 'bg-slate-800 border-slate-600 text-gray-300 hover:border-blue-500'
-                          }`}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          {time}
-                        </motion.button>
-                      ))}
-                    </div>
+                    {loadingSlots ? (
+                      <div className="flex items-center justify-center py-8">
+                        <Loader2 className="w-5 h-5 animate-spin text-blue-400" />
+                        <span className="ml-2 text-gray-400">Loading available times...</span>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-4 gap-2 mb-6">
+                        {timeSlots.map((time) => {
+                          const isBooked = bookedSlots.includes(time);
+                          const isAvailable = availableSlots.includes(time);
+                          return (
+                            <motion.button
+                              key={time}
+                              type="button"
+                              onClick={() => !isBooked && setSelectedTime(time)}
+                              disabled={isBooked}
+                              className={`p-2 rounded-lg border text-sm transition relative group ${
+                                selectedTime === time
+                                  ? 'bg-blue-600 border-blue-500 text-white'
+                                  : isBooked
+                                  ? 'bg-slate-700 border-slate-600 text-gray-500 cursor-not-allowed opacity-50'
+                                  : 'bg-slate-800 border-slate-600 text-gray-300 hover:border-blue-500'
+                              }`}
+                              whileHover={!isBooked ? { scale: 1.05 } : {}}
+                              whileTap={!isBooked ? { scale: 0.95 } : {}}
+                              title={isBooked ? 'Already booked' : ''}
+                            >
+                              {time}
+                              {isBooked && (
+                                <span className="absolute top-1 right-1 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+                              )}
+                            </motion.button>
+                          );
+                        })}
+                      </div>
+                    )}
+                    {bookedSlots.length > 0 && (
+                      <p className="text-xs text-gray-500 mt-2">
+                        Times with a red dot are already booked.
+                      </p>
+                    )}
                   </div>
 
                   {/* Contact Details */}
@@ -296,8 +345,8 @@ const ContactModal = () => {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    disabled={isSubmitting || !selectedTime}
-                    className="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 disabled:opacity-50 text-slate-900 font-bold rounded-lg flex items-center justify-center gap-2 transition"
+                    disabled={isSubmitting || !selectedTime || loadingSlots}
+                    className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 text-white font-bold rounded-lg flex items-center justify-center gap-2 transition"
                   >
                     {isSubmitting ? (
                       <>
