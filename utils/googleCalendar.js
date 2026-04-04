@@ -88,7 +88,11 @@ ${bookingData.comments ? `Comments: ${bookingData.comments}` : ''}
         timeZone: 'Europe/London',
       },
       reminders: {
-        useDefault: true,
+        useDefault: false,
+        overrides: [
+          { method: 'email', minutes: 0 },    // Email at time of event
+          { method: 'notification', minutes: 15 }  // Desktop notification 15 min before
+        ]
       },
     };
 
@@ -154,7 +158,11 @@ Call Request Date: ${new Date(callData.createdAt).toLocaleString()}
         timeZone: 'Europe/London',
       },
       reminders: {
-        useDefault: true,
+        useDefault: false,
+        overrides: [
+          { method: 'email', minutes: 0 },    // Email at time of event
+          { method: 'notification', minutes: 15 }  // Desktop notification 15 min before
+        ]
       },
     };
 
