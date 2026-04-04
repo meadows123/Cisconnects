@@ -410,7 +410,9 @@ app.post('/api/leads', async (req, res) => {
         const templateParams = {
           from_name: bookingData.name,
           from_email: bookingData.email,
+          company: 'Not provided',
           phone: bookingData.phone || 'Not provided',
+          service_interest: 'booking',
           message: `Booking confirmed for ${bookingData.date} at ${bookingData.time}`,
           to_name: 'InfraOpsAI Team',
           reply_to: bookingData.email,
