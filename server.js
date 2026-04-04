@@ -383,98 +383,56 @@ app.post('/api/leads', async (req, res) => {
       );
     }
 
-    // Send confirmation email via EmailJS
+    // Send confirmation email via EmailJS (same as contact form template)
     const sendBookingEmail = async (bookingData) => {
       try {
-        const emailjsServiceId = process.env.VITE_EMAILJS_SERVICE_ID;
-        const emailjsPublicKey = process.env.VITE_EMAILJS_PUBLIC_KEY;
-        const emailjsTemplateId = process.env.VITE_EMAILJS_BOOKING_TEMPLATE_ID || 'template_booking_notification';
+        const serviceId = process.env.VITE_EMAILJS_SERVICE_ID;
+        const publicKey = process.env.VITE_EMAILJS_PUBLIC_KEY;
+        const templateId = process.env.VITE_EMAILJS_TEMPLATE_ID;
 
-        if (!emailjsServiceId || !emailjsPublicKey) {
-          console.warn('EmailJS not configured, skipping notification email');
+        if (!serviceId || !publicKey || !templateId) {
+          console.warn('EmailJS not configured, skipping booking email');
           return;
         }
 
         const templateParams = {
-          to_email: bookingData.email,
-          to_name: bookingData.name,
-          booking_date: bookingData.date,
-          booking_time: bookingData.time,
-          user_email: bookingData.email,
-          service_id: emailjsServiceId,
-          template_id: emailjsTemplateId,
-          user_id: emailjsPublicKey,
+          from_name: bookingData.name,
+          from_email: bookingData.email,
+          phone: bookingData.phone || 'Not provided',
+          message: `Booking confirmed for ${bookingData.date} at ${bookingData.time}`,
+          to_name: 'InfraOpsAI Team',
+          reply_to: bookingData.email,
+          company_name: 'InfraOpsAI',
+          website: 'https://www.conxiea.com',
+          current_date: new Date().toLocaleDateString(),
+          current_time: new Date().toLocaleTimeString()
         };
 
         const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            service_id: emailjsServiceId,
-            template_id: emailjsTemplateId,
-            user_id: emailjsPublicKey,
+            service_id: serviceId,
+            template_id: templateId,
+            user_id: publicKey,
             template_params: templateParams,
           }),
         });
 
         if (!response.ok) {
-          console.error('EmailJS notification error:', response.status);
+          console.error('EmailJS booking email error:', response.status);
           return;
         }
 
-        console.log('✉️ Booking confirmation email sent to:', bookingData.email);
+        console.log('✉️ Booking email sent via EmailJS to:', bookingData.email);
       } catch (error) {
         console.error('Error sending booking email:', error.message);
       }
     };
 
-    // Send admin notification email when someone books
-    const sendAdminNotification = async (bookingData) => {
-      try {
-        const adminEmail = process.env.ADMIN_EMAIL;
-        const emailjsServiceId = process.env.VITE_EMAILJS_SERVICE_ID;
-        const emailjsPublicKey = process.env.VITE_EMAILJS_PUBLIC_KEY;
-        const emailjsTemplateId = process.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID || 'template_admin_notification';
-
-        if (!adminEmail || !emailjsServiceId || !emailjsPublicKey) {
-          console.warn('Admin email not configured, skipping admin notification');
-          return;
-        }
-
-        const templateParams = {
-          to_email: adminEmail,
-          client_name: bookingData.name,
-          client_email: bookingData.email,
-          booking_date: bookingData.date,
-          booking_time: bookingData.time,
-        };
-
-        const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            service_id: emailjsServiceId,
-            template_id: emailjsTemplateId,
-            user_id: emailjsPublicKey,
-            template_params: templateParams,
-          }),
-        });
-
-        if (!response.ok) {
-          console.error('EmailJS admin notification error:', response.status);
-          return;
-        }
-
-        console.log('📬 Admin notification sent to:', adminEmail);
-      } catch (error) {
-        console.error('Error sending admin notification:', error.message);
-      }
-    };
-
-    // Send emails for bookings
+    // Send booking notification email when someone books with date/time
     if (source === 'contact-form' && date && time) {
-      await sendBookingEmail({ name, email, date, time });
-      await sendAdminNotification({ name, email, date, time });
+      await sendBookingEmail({ name, email, phone: '', date, time });
     }
     const responseData = savedLead ? { ...savedLead, backup: 'also saved to local file' } : jsonLead;
     res.status(201).json(responseData);
