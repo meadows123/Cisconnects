@@ -50,29 +50,20 @@ export const createCalendarEvent = async (bookingData) => {
     const calendar = google.calendar({ version: 'v3', auth });
     const calendarId = process.env.GOOGLE_CALENDAR_ID || 'zak.meadows15@gmail.com';
 
-    // Parse date and time - treating as Europe/London time
-    const [year, month, day] = bookingData.date.split('-').map(Number);
-    const [hours, minutes] = bookingData.time ? bookingData.time.split(':').map(Number) : [9, 0];
+    // Parse date and time - build ISO string directly without timezone conversion
+    const startTimeStr = `${bookingData.date}T${bookingData.time}:00`;
 
-    console.log('Creating calendar event with:', { date: bookingData.date, time: bookingData.time, year, month, day, hours, minutes });
+    // For end time, add 1 hour
+    const [hours, minutes] = bookingData.time.split(':').map(Number);
+    const endHours = String((hours + 1) % 24).padStart(2, '0');
+    const endTimeStr = `${bookingData.date}T${endHours}:${bookingData.time.split(':')[1]}:00`;
 
-    // Create date in Europe/London timezone (not UTC)
-    const startTime = new Date(year, month - 1, day, hours, minutes, 0);
-    const endTime = new Date(startTime);
-    endTime.setHours(endTime.getHours() + 1); // 1 hour duration
-
-    console.log('Formatted times:', { startTime: startTime.toString(), endTime: endTime.toString() });
-
-    // Format times as RFC 3339
-    const formatDateTime = (date) => {
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-      const hours = String(date.getHours()).padStart(2, '0');
-      const mins = String(date.getMinutes()).padStart(2, '0');
-      const secs = String(date.getSeconds()).padStart(2, '0');
-      return `${year}-${month}-${day}T${hours}:${mins}:${secs}`;
-    };
+    console.log('📅 createCalendarEvent called with:', JSON.stringify({
+      date: bookingData.date,
+      time: bookingData.time,
+      startTimeStr,
+      endTimeStr
+    }));
 
     const event = {
       summary: `Booking: ${bookingData.name}`,
@@ -85,11 +76,11 @@ ${bookingData.reason ? `Reason: ${bookingData.reason}` : ''}
 ${bookingData.comments ? `Comments: ${bookingData.comments}` : ''}
       `.trim(),
       start: {
-        dateTime: formatDateTime(startTime),
+        dateTime: startTimeStr,
         timeZone: 'Europe/London',
       },
       end: {
-        dateTime: formatDateTime(endTime),
+        dateTime: endTimeStr,
         timeZone: 'Europe/London',
       },
       reminders: {
@@ -129,23 +120,12 @@ export const createCallEvent = async (callData) => {
     const calendarId = process.env.GOOGLE_CALENDAR_ID || 'zak.meadows15@gmail.com';
 
     // Create event for tomorrow at 2 PM as a default catch-up time
-    const eventDate = new Date();
-    eventDate.setDate(eventDate.getDate() + 1);
-    eventDate.setHours(14, 0, 0, 0);
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
 
-    const endTime = new Date(eventDate);
-    endTime.setHours(endTime.getHours() + 0.5); // 30 min call
-
-    // Format times as RFC 3339
-    const formatDateTime = (date) => {
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-      const hours = String(date.getHours()).padStart(2, '0');
-      const mins = String(date.getMinutes()).padStart(2, '0');
-      const secs = String(date.getSeconds()).padStart(2, '0');
-      return `${year}-${month}-${day}T${hours}:${mins}:${secs}`;
-    };
+    const tomorrowStr = `${String(tomorrow.getFullYear())}-${String(tomorrow.getMonth() + 1).padStart(2, '0')}-${String(tomorrow.getDate()).padStart(2, '0')}`;
+    const callStartStr = `${tomorrowStr}T14:00:00`;
+    const callEndStr = `${tomorrowStr}T14:30:00`;
 
     const event = {
       summary: `Call Request: ${callData.name}`,
@@ -156,11 +136,11 @@ Phone: ${callData.phone}
 Call Request Date: ${new Date(callData.createdAt).toLocaleString()}
       `.trim(),
       start: {
-        dateTime: formatDateTime(eventDate),
+        dateTime: callStartStr,
         timeZone: 'Europe/London',
       },
       end: {
-        dateTime: formatDateTime(endTime),
+        dateTime: callEndStr,
         timeZone: 'Europe/London',
       },
       reminders: {
