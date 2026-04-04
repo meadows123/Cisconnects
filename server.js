@@ -633,7 +633,7 @@ app.get('/api/available-slots', async (req, res) => {
           hour: '2-digit',
           minute: '2-digit',
           hour12: false,
-          timeZone: 'Europe/Amsterdam'
+          timeZone: 'Europe/London'
         });
         bookedSlots.push(startTime);
       }
