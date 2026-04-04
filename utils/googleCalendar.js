@@ -101,7 +101,9 @@ ${bookingData.comments ? `Comments: ${bookingData.comments}` : ''}
     return response.data;
   } catch (error) {
     console.error('Error creating calendar event:', error.message);
-    console.error('Full error details:', error);
+    if (error.response && error.response.data && error.response.data.error) {
+      console.error('Google API error details:', JSON.stringify(error.response.data.error, null, 2));
+    }
     // Don't throw - allow booking to succeed even if calendar fails
     return null;
   }
@@ -161,6 +163,9 @@ Call Request Date: ${new Date(callData.createdAt).toLocaleString()}
     return response.data;
   } catch (error) {
     console.error('Error creating call event:', error.message);
+    if (error.response && error.response.data && error.response.data.error) {
+      console.error('Google API error details:', JSON.stringify(error.response.data.error, null, 2));
+    }
     return null;
   }
 };
