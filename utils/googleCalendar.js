@@ -19,7 +19,6 @@ const getAuthClient = () => {
     }
 
     console.log('GOOGLE_CREDENTIALS length:', credentialsJson.length);
-    console.log('GOOGLE_CREDENTIALS starts with:', credentialsJson.substring(0, 100));
 
     const credentials = JSON.parse(credentialsJson);
     console.log('Parsed credentials - type:', credentials.type, 'client_email:', credentials.client_email);
