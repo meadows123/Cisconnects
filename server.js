@@ -6,6 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
+import nodemailer from 'nodemailer';
 import { createCalendarEvent, createCallEvent } from './utils/googleCalendar.js';
 import { syncConsultationToGHL, syncCallToGHL } from './utils/goHighLevel.js';
 
@@ -48,6 +49,59 @@ console.log('- Google Calendar:', process.env.GOOGLE_CREDENTIALS ? '✓ Configur
 console.log('- GoHighLevel API Key:', process.env.GHL_API_KEY ? '✓ Configured' : '✗ Missing');
 console.log('- GoHighLevel Location ID:', process.env.GHL_LOCATION_ID ? '✓ Configured' : '✗ Missing');
 console.log('- GoHighLevel Calendar ID:', process.env.GHL_CALENDAR_ID ? '✓ Configured' : '✗ Missing');
+
+// Initialize Email Transporter
+let mailTransporter = null;
+try {
+  if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+    mailTransporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT || 587,
+      secure: false,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+    console.log('✅ Email transporter initialized');
+  } else {
+    console.warn('⚠️ Email credentials not configured');
+  }
+} catch (e) {
+  console.error('❌ Email transporter error:', e.message);
+}
+
+// Function to send booking notification email
+const sendBookingNotification = async (bookingData) => {
+  if (!mailTransporter) {
+    console.warn('Email not configured, skipping notification');
+    return;
+  }
+
+  try {
+    const mailOptions = {
+      from: process.env.SMTP_USER,
+      to: process.env.NOTIFICATION_EMAIL,
+      subject: `New Booking: ${bookingData.name}`,
+      html: `
+        <h2>New Booking Received</h2>
+        <p><strong>Name:</strong> ${bookingData.name}</p>
+        <p><strong>Email:</strong> ${bookingData.email}</p>
+        <p><strong>Phone:</strong> ${bookingData.phone}</p>
+        <p><strong>Date:</strong> ${bookingData.date}</p>
+        <p><strong>Time:</strong> ${bookingData.time}</p>
+        <p><strong>Status:</strong> Confirmed</p>
+        <hr>
+        <p>Calendar event has been created automatically.</p>
+      `,
+    };
+
+    await mailTransporter.sendMail(mailOptions);
+    console.log('📧 Booking notification email sent to:', process.env.NOTIFICATION_EMAIL);
+  } catch (error) {
+    console.error('Error sending booking notification:', error.message);
+  }
+};
 
 // Redirect any non-canonical host to www.conxiea.com
 app.use((req, res, next) => {
@@ -377,7 +431,7 @@ app.post('/api/leads', async (req, res) => {
     writeLeads(leads);
     console.log('✅ Saved to JSON file');
 
-    // Sync to Google Calendar with optional date/time
+    // Sync to Google Calendar with optional date/time and send notification email
     if (date && time) {
       await createCalendarEvent({
         name,
@@ -389,6 +443,15 @@ app.post('/api/leads', async (req, res) => {
       }).catch(err =>
         console.error('Google Calendar lead sync error (non-blocking):', err.message)
       );
+
+      // Send booking notification email
+      await sendBookingNotification({
+        name,
+        email,
+        phone: req.body.phone || '',
+        date,
+        time
+      });
     } else {
       await createCallEvent({ name, email, phone: '', createdAt: newLead.created_at }).catch(err =>
         console.error('Google Calendar lead sync error (non-blocking):', err.message)
