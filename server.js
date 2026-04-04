@@ -395,59 +395,6 @@ app.post('/api/leads', async (req, res) => {
       );
     }
 
-    // Send confirmation email via EmailJS (same as contact form template)
-    const sendBookingEmail = async (bookingData) => {
-      try {
-        const serviceId = process.env.VITE_EMAILJS_SERVICE_ID;
-        const publicKey = process.env.VITE_EMAILJS_PUBLIC_KEY;
-        const templateId = process.env.VITE_EMAILJS_TEMPLATE_ID;
-
-        if (!serviceId || !publicKey || !templateId) {
-          console.warn('EmailJS not configured, skipping booking email');
-          return;
-        }
-
-        const templateParams = {
-          from_name: bookingData.name,
-          from_email: bookingData.email,
-          company: 'Not provided',
-          phone: bookingData.phone || 'Not provided',
-          service_interest: 'booking',
-          message: `Booking confirmed for ${bookingData.date} at ${bookingData.time}`,
-          to_name: 'InfraOpsAI Team',
-          reply_to: bookingData.email,
-          company_name: 'InfraOpsAI',
-          website: 'https://www.conxiea.com',
-          current_date: new Date().toLocaleDateString(),
-          current_time: new Date().toLocaleTimeString()
-        };
-
-        const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            service_id: serviceId,
-            template_id: templateId,
-            user_id: publicKey,
-            template_params: templateParams,
-          }),
-        });
-
-        if (!response.ok) {
-          console.error('EmailJS booking email error:', response.status);
-          return;
-        }
-
-        console.log('✉️ Booking email sent via EmailJS to:', bookingData.email);
-      } catch (error) {
-        console.error('Error sending booking email:', error.message);
-      }
-    };
-
-    // Send booking notification email when someone books with date/time
-    if (source === 'contact-form' && date && time) {
-      await sendBookingEmail({ name, email, phone: '', date, time });
-    }
     const responseData = savedLead ? { ...savedLead, backup: 'also saved to local file' } : jsonLead;
     res.status(201).json(responseData);
   } catch (error) {
@@ -686,7 +633,7 @@ app.get('/api/available-slots', async (req, res) => {
           hour: '2-digit',
           minute: '2-digit',
           hour12: false,
-          timeZone: 'Europe/London'
+          timeZone: 'Europe/Amsterdam'
         });
         bookedSlots.push(startTime);
       }

@@ -80,11 +80,11 @@ ${bookingData.comments ? `Comments: ${bookingData.comments}` : ''}
       `.trim(),
       start: {
         dateTime: formatDateTime(startTime),
-        timeZone: 'Europe/London',
+        timeZone: 'Europe/Amsterdam',
       },
       end: {
         dateTime: formatDateTime(endTime),
-        timeZone: 'Europe/London',
+        timeZone: 'Europe/Amsterdam',
       },
       reminders: {
         useDefault: false,
