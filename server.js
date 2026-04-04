@@ -27,9 +27,16 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE;
 let supabase = null;
 try {
-  if (supabaseUrl && supabaseKey) supabase = createClient(supabaseUrl, supabaseKey);
+  if (supabaseUrl && supabaseKey) {
+    console.log('🔄 Initializing Supabase with URL:', supabaseUrl.substring(0, 30) + '...');
+    supabase = createClient(supabaseUrl, supabaseKey);
+    console.log('✅ Supabase client initialized successfully');
+  } else {
+    console.warn('⚠️ Supabase credentials missing - URL:', !!supabaseUrl, 'Key:', !!supabaseKey);
+  }
 } catch (e) {
-  console.warn('Supabase init skipped:', e.message);
+  console.error('❌ Supabase initialization error:', e.message);
+  console.error('Stack:', e.stack);
 }
 
 console.log('Environment loaded:');
