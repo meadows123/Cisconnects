@@ -7,15 +7,20 @@ dotenv.config({ path: '.env.local' });
 // Parse credentials from environment variable
 const getAuthClient = () => {
   try {
-    const credentialsJson = process.env.GOOGLE_CREDENTIALS;
+    let credentialsJson = process.env.GOOGLE_CREDENTIALS_B64 || process.env.GOOGLE_CREDENTIALS;
     if (!credentialsJson) {
       console.warn('GOOGLE_CREDENTIALS not found in environment variables');
       return null;
     }
 
+    // If using base64 encoding, decode it
+    if (process.env.GOOGLE_CREDENTIALS_B64) {
+      credentialsJson = Buffer.from(credentialsJson, 'base64').toString('utf8');
+    }
+
     console.log('GOOGLE_CREDENTIALS length:', credentialsJson.length);
     console.log('GOOGLE_CREDENTIALS starts with:', credentialsJson.substring(0, 100));
-    
+
     const credentials = JSON.parse(credentialsJson);
     console.log('Parsed credentials - type:', credentials.type, 'client_email:', credentials.client_email);
     
