@@ -49,7 +49,7 @@ export const createCalendarEvent = async (bookingData) => {
     const calendarId = process.env.GOOGLE_CALENDAR_ID || 'zak.meadows15@gmail.com';
 
     // Parse date and time
-    const eventDate = new Date(bookingData.date);
+    const eventDate = new Date(bookingData.date + 'T00:00:00');
     const [hours, minutes] = bookingData.time ? bookingData.time.split(':') : ['09', '00'];
 
     const startTime = new Date(eventDate);
@@ -57,6 +57,17 @@ export const createCalendarEvent = async (bookingData) => {
 
     const endTime = new Date(startTime);
     endTime.setHours(endTime.getHours() + 1); // 1 hour duration
+
+    // Format times as RFC 3339 without UTC conversion (let Google Calendar handle timezone)
+    const formatDateTime = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const mins = String(date.getMinutes()).padStart(2, '0');
+      const secs = String(date.getSeconds()).padStart(2, '0');
+      return `${year}-${month}-${day}T${hours}:${mins}:${secs}`;
+    };
 
     const event = {
       summary: `Booking: ${bookingData.name}`,
@@ -69,11 +80,11 @@ ${bookingData.reason ? `Reason: ${bookingData.reason}` : ''}
 ${bookingData.comments ? `Comments: ${bookingData.comments}` : ''}
       `.trim(),
       start: {
-        dateTime: startTime.toISOString(),
+        dateTime: formatDateTime(startTime),
         timeZone: 'Europe/London',
       },
       end: {
-        dateTime: endTime.toISOString(),
+        dateTime: formatDateTime(endTime),
         timeZone: 'Europe/London',
       },
       reminders: {
@@ -115,6 +126,17 @@ export const createCallEvent = async (callData) => {
     const endTime = new Date(eventDate);
     endTime.setHours(endTime.getHours() + 0.5); // 30 min call
 
+    // Format times as RFC 3339 without UTC conversion
+    const formatDateTime = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const mins = String(date.getMinutes()).padStart(2, '0');
+      const secs = String(date.getSeconds()).padStart(2, '0');
+      return `${year}-${month}-${day}T${hours}:${mins}:${secs}`;
+    };
+
     const event = {
       summary: `Call Request: ${callData.name}`,
       description: `
@@ -124,12 +146,12 @@ Phone: ${callData.phone}
 Call Request Date: ${new Date(callData.createdAt).toLocaleString()}
       `.trim(),
       start: {
-        dateTime: eventDate.toISOString(),
-        timeZone: 'UTC',
+        dateTime: formatDateTime(eventDate),
+        timeZone: 'Europe/London',
       },
       end: {
-        dateTime: endTime.toISOString(),
-        timeZone: 'UTC',
+        dateTime: formatDateTime(endTime),
+        timeZone: 'Europe/London',
       },
       reminders: {
         useDefault: true,
