@@ -383,12 +383,99 @@ app.post('/api/leads', async (req, res) => {
       );
     }
 
-    // Sync to GoHighLevel as a contact
-    syncCallToGHL({ name, email, phone: '', source, createdAt: newLead.created_at }).catch(err =>
-      console.error('GHL lead sync error (non-blocking):', err.message)
-    );
+    // Send confirmation email via EmailJS
+    const sendBookingEmail = async (bookingData) => {
+      try {
+        const emailjsServiceId = process.env.VITE_EMAILJS_SERVICE_ID;
+        const emailjsPublicKey = process.env.VITE_EMAILJS_PUBLIC_KEY;
+        const emailjsTemplateId = process.env.VITE_EMAILJS_BOOKING_TEMPLATE_ID || 'template_booking_notification';
 
-    // Return the saved lead
+        if (!emailjsServiceId || !emailjsPublicKey) {
+          console.warn('EmailJS not configured, skipping notification email');
+          return;
+        }
+
+        const templateParams = {
+          to_email: bookingData.email,
+          to_name: bookingData.name,
+          booking_date: bookingData.date,
+          booking_time: bookingData.time,
+          user_email: bookingData.email,
+          service_id: emailjsServiceId,
+          template_id: emailjsTemplateId,
+          user_id: emailjsPublicKey,
+        };
+
+        const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            service_id: emailjsServiceId,
+            template_id: emailjsTemplateId,
+            user_id: emailjsPublicKey,
+            template_params: templateParams,
+          }),
+        });
+
+        if (!response.ok) {
+          console.error('EmailJS notification error:', response.status);
+          return;
+        }
+
+        console.log('✉️ Booking confirmation email sent to:', bookingData.email);
+      } catch (error) {
+        console.error('Error sending booking email:', error.message);
+      }
+    };
+
+    // Send admin notification email when someone books
+    const sendAdminNotification = async (bookingData) => {
+      try {
+        const adminEmail = process.env.ADMIN_EMAIL;
+        const emailjsServiceId = process.env.VITE_EMAILJS_SERVICE_ID;
+        const emailjsPublicKey = process.env.VITE_EMAILJS_PUBLIC_KEY;
+        const emailjsTemplateId = process.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID || 'template_admin_notification';
+
+        if (!adminEmail || !emailjsServiceId || !emailjsPublicKey) {
+          console.warn('Admin email not configured, skipping admin notification');
+          return;
+        }
+
+        const templateParams = {
+          to_email: adminEmail,
+          client_name: bookingData.name,
+          client_email: bookingData.email,
+          booking_date: bookingData.date,
+          booking_time: bookingData.time,
+        };
+
+        const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            service_id: emailjsServiceId,
+            template_id: emailjsTemplateId,
+            user_id: emailjsPublicKey,
+            template_params: templateParams,
+          }),
+        });
+
+        if (!response.ok) {
+          console.error('EmailJS admin notification error:', response.status);
+          return;
+        }
+
+        console.log('📬 Admin notification sent to:', adminEmail);
+      } catch (error) {
+        console.error('Error sending admin notification:', error.message);
+      }
+    };
+
+    // Send emails for bookings
+    if (source === 'contact-form' && date && time) {
+      await sendBookingEmail({ name, email, date, time });
+      await sendAdminNotification({ name, email, date, time });
+    }
     const responseData = savedLead ? { ...savedLead, backup: 'also saved to local file' } : jsonLead;
     res.status(201).json(responseData);
   } catch (error) {
@@ -576,7 +663,7 @@ app.get('/api/available-slots', async (req, res) => {
 
   const allTimeSlots = [
     '09:00','09:30','10:00','10:30','11:00','11:30',
-    '13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30'
+    '12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30'
   ];
 
   try {
