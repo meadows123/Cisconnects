@@ -52,7 +52,7 @@ export const createCalendarEvent = async (bookingData) => {
     // Parse date and time
     const eventDate = new Date(bookingData.date);
     const [hours, minutes] = bookingData.time ? bookingData.time.split(':') : ['09', '00'];
-    
+
     const startTime = new Date(eventDate);
     startTime.setHours(parseInt(hours), parseInt(minutes), 0);
 
@@ -71,11 +71,11 @@ ${bookingData.comments ? `Comments: ${bookingData.comments}` : ''}
       `.trim(),
       start: {
         dateTime: startTime.toISOString(),
-        timeZone: 'UTC',
+        timeZone: 'Europe/London',
       },
       end: {
         dateTime: endTime.toISOString(),
-        timeZone: 'UTC',
+        timeZone: 'Europe/London',
       },
       reminders: {
         useDefault: true,

@@ -623,12 +623,11 @@ app.get('/api/available-slots', async (req, res) => {
     events.forEach(event => {
       if (event.start.dateTime) {
         const eventStart = new Date(event.start.dateTime);
-        const eventEnd = new Date(event.end.dateTime);
         const startTime = eventStart.toLocaleTimeString('en-GB', {
           hour: '2-digit',
           minute: '2-digit',
           hour12: false,
-          timeZone: 'UTC'
+          timeZone: 'Europe/London'
         });
         bookedSlots.push(startTime);
       }
