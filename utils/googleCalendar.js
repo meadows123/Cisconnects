@@ -52,10 +52,14 @@ export const createCalendarEvent = async (bookingData) => {
     const [year, month, day] = bookingData.date.split('-').map(Number);
     const [hours, minutes] = bookingData.time ? bookingData.time.split(':').map(Number) : [9, 0];
 
+    console.log('Creating calendar event with:', { date: bookingData.date, time: bookingData.time, year, month, day, hours, minutes });
+
     // Create date in Europe/London timezone (not UTC)
     const startTime = new Date(year, month - 1, day, hours, minutes, 0);
     const endTime = new Date(startTime);
     endTime.setHours(endTime.getHours() + 1); // 1 hour duration
+
+    console.log('Formatted times:', { startTime: startTime.toString(), endTime: endTime.toString() });
 
     // Format times as RFC 3339
     const formatDateTime = (date) => {
