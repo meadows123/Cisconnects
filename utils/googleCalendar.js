@@ -45,6 +45,8 @@ export const createCalendarEvent = async (bookingData) => {
       return null;
     }
 
+    console.log('📅 createCalendarEvent called with:', JSON.stringify(bookingData));
+
     const calendar = google.calendar({ version: 'v3', auth });
     const calendarId = process.env.GOOGLE_CALENDAR_ID || 'zak.meadows15@gmail.com';
 
@@ -108,6 +110,7 @@ ${bookingData.comments ? `Comments: ${bookingData.comments}` : ''}
     return response.data;
   } catch (error) {
     console.error('Error creating calendar event:', error.message);
+    console.error('Full error details:', error);
     // Don't throw - allow booking to succeed even if calendar fails
     return null;
   }
