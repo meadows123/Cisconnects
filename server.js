@@ -328,7 +328,10 @@ app.post('/api/leads', async (req, res) => {
     const newLead = {
       name,
       email,
+      phone: req.body.phone || '',
       source: source || 'lead-magnet',
+      date: date || null,
+      time: time || null,
       status: 'pending',
       created_at: new Date().toISOString()
     };
@@ -336,6 +339,8 @@ app.post('/api/leads', async (req, res) => {
     // Save to Supabase
     let supabaseError = null;
     let savedLead = null;
+
+    console.log('Supabase client check:', { supabase: !!supabase, supabaseUrl: !!supabaseUrl, supabaseKey: !!supabaseKey });
 
     if (supabase && supabaseUrl && supabaseKey) {
       console.log('📤 Attempting to save to Supabase...');
