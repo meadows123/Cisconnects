@@ -108,6 +108,7 @@ const ContactModal = () => {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          phone: formData.phone,
           source: 'contact-form',
           date: formatDateISO(selectedDate),
           time: selectedTime
