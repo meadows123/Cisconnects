@@ -48,17 +48,16 @@ export const createCalendarEvent = async (bookingData) => {
     const calendar = google.calendar({ version: 'v3', auth });
     const calendarId = process.env.GOOGLE_CALENDAR_ID || 'zak.meadows15@gmail.com';
 
-    // Parse date and time
-    const eventDate = new Date(bookingData.date + 'T00:00:00');
-    const [hours, minutes] = bookingData.time ? bookingData.time.split(':') : ['09', '00'];
+    // Parse date and time - treating as Europe/London time
+    const [year, month, day] = bookingData.date.split('-').map(Number);
+    const [hours, minutes] = bookingData.time ? bookingData.time.split(':').map(Number) : [9, 0];
 
-    const startTime = new Date(eventDate);
-    startTime.setHours(parseInt(hours), parseInt(minutes), 0);
-
+    // Create date in Europe/London timezone (not UTC)
+    const startTime = new Date(year, month - 1, day, hours, minutes, 0);
     const endTime = new Date(startTime);
     endTime.setHours(endTime.getHours() + 1); // 1 hour duration
 
-    // Format times as RFC 3339 without UTC conversion (let Google Calendar handle timezone)
+    // Format times as RFC 3339
     const formatDateTime = (date) => {
       const year = date.getFullYear();
       const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -130,7 +129,7 @@ export const createCallEvent = async (callData) => {
     const endTime = new Date(eventDate);
     endTime.setHours(endTime.getHours() + 0.5); // 30 min call
 
-    // Format times as RFC 3339 without UTC conversion
+    // Format times as RFC 3339
     const formatDateTime = (date) => {
       const year = date.getFullYear();
       const month = String(date.getMonth() + 1).padStart(2, '0');
