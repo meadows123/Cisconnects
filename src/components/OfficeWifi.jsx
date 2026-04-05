@@ -91,12 +91,12 @@ const OfficeWifi = () => {
               className="text-center mb-8 sm:mb-12"
             >
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
-                How Much Productivity Is Your Office{' '}
-                <span className="border-b-2 border-blue-500">Losing to Bad WiFi?</span>
+                If Your Business Relies on Internet,{' '}
+                <span className="border-b-2 border-blue-500">It Needs to Work — Every Time</span>
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
-                Dropped Teams calls, dead zones, staff tethering to phones —{' '}
-                <span className="border-b-2 border-blue-500 text-white">it costs more than you think.</span>
+                Payments, POS systems, staff devices, and cloud apps all depend on your network.{' '}
+                <span className="border-b-2 border-blue-500 text-white">When it fails, your business slows down or stops.</span>
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -115,13 +115,14 @@ const OfficeWifi = () => {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="bg-gradient-to-r from-red-900/30 to-slate-900/30 border border-red-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
-              <p className="text-sm sm:text-base text-gray-300 mb-3">The WiFi works… until you actually need it.</p>
+              <p className="text-sm sm:text-base text-gray-300 mb-3">One network failure costs you money. Real money.</p>
               <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
-                Teams calls drop mid-meeting.<br />
-                Desks in the corner can't connect.<br />
-                Staff tether to their phones just to work.
+                Payments locked. Customers waiting at checkout.<br />
+                Staff can't access files. Work stops.<br />
+                VoIP down. Your phone lines are dead.<br />
+                Cloud systems unavailable. Data access frozen.
               </p>
-              <p className="text-sm sm:text-base text-gray-300">Your IT team checks the router — and calls it fine.</p>
+              <p className="text-sm sm:text-base text-red-400 font-semibold">And every minute it's down costs you.</p>
             </motion.div>
 
             {/* Positioning */}
@@ -131,9 +132,11 @@ const OfficeWifi = () => {
               transition={{ duration: 0.4, delay: 0.15 }}
               className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
-              <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                Most IT teams treat office WiFi as low priority.<br />
-                <span className="text-white font-semibold">We specialise in fixing it properly — survey, root cause, and a solution that lasts.</span>
+              <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-3">
+                Most businesses ignore their network until it breaks. By then, it's too late.
+              </p>
+              <p className="text-white font-semibold">
+                We build networks that don't fail — so you never have to find out what network downtime actually costs.
               </p>
             </motion.div>
 
@@ -145,15 +148,15 @@ const OfficeWifi = () => {
               className="mb-5 sm:mb-6"
             >
               <p className="text-sm sm:text-base text-gray-300 mb-4">
-                We survey every corner of your office and eliminate the root cause — not just reboot the router.
+                We eliminate the risk. Here's what you get:
               </p>
               <div className="flex flex-col gap-3">
                 {[
-                  'Fast WiFi in every corner of the office',
-                  'Video calls that never drop',
-                  'Dead zones eliminated for good',
-                  'No more staff tethering to phones',
-                  'Complex multi-floor and multi-building environments',
+                  'Payment systems that process 24/7 without interruption',
+                  'Business-critical cloud apps stay connected, always',
+                  'VoIP and video conferencing that never drops in the middle of deals',
+                  'Growth-ready infrastructure so network scaling isn\'t a crisis',
+                  'Redundancy built-in so one component failure doesn\'t take everything down',
                 ].map((item, i) => (
                   <div key={i} className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
                     <div className="flex items-start gap-2">
@@ -172,7 +175,7 @@ const OfficeWifi = () => {
               transition={{ duration: 0.4, delay: 0.22 }}
               className="border border-slate-600 rounded-lg p-4 sm:p-5 mb-5 sm:mb-6 text-center"
             >
-              <p className="text-base sm:text-lg font-bold text-white">If the WiFi was fine, you wouldn't be here.</p>
+              <p className="text-base sm:text-lg font-bold text-white">Network reliability isn't optional — it's essential.</p>
             </motion.div>
 
             {/* Speed / Outcome */}
@@ -180,10 +183,10 @@ const OfficeWifi = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.24 }}
-              className="bg-gradient-to-r from-blue-900/40 to-slate-900/40 border border-blue-500/40 rounded-lg p-4 sm:p-5 mb-5 sm:mb-6 text-center"
+              className="bg-gradient-to-r from-red-900/40 to-slate-900/40 border border-red-500/40 rounded-lg p-4 sm:p-5 mb-5 sm:mb-6 text-center"
             >
-              <p className="text-xl sm:text-2xl font-bold text-white mb-1">Same-Day Survey Available</p>
-              <p className="text-sm sm:text-base text-gray-300">Most offices assessed and scoped within 24 hours</p>
+              <p className="text-xl sm:text-2xl font-bold text-white mb-1">Don't Wait for Failure</p>
+              <p className="text-sm sm:text-base text-gray-300">Most issues we fix have already cost businesses thousands in lost revenue</p>
             </motion.div>
 
             {/* Scenario */}
@@ -193,11 +196,11 @@ const OfficeWifi = () => {
               transition={{ duration: 0.4, delay: 0.26 }}
               className="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12"
             >
-              <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-2">
-                Your office WiFi works for some people, some of the time.<br />
-                But meeting rooms drop, far desks struggle, and no one knows why.
+              <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
+                Your network isn't failing yet. But when it does:<br />
+                <span className="text-red-400">Revenue stops. Customers get frustrated. Staff can't work. Trust gets damaged.</span>
               </p>
-              <p className="text-sm sm:text-base text-green-400 font-semibold">That's exactly where we come in.</p>
+              <p className="text-sm sm:text-base text-green-400 font-semibold">A proper network makes this impossible.</p>
             </motion.div>
 
             {/* Status Messages */}
