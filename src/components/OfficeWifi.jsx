@@ -194,17 +194,6 @@ const OfficeWifi = () => {
               <p className="text-base sm:text-lg font-bold text-white">Network reliability isn't optional — it's essential.</p>
             </motion.div>
 
-            {/* Speed / Outcome */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.24 }}
-              className="bg-gradient-to-r from-red-900/40 to-slate-900/40 border border-red-500/40 rounded-lg p-4 sm:p-5 mb-5 sm:mb-6 text-center"
-            >
-              <p className="text-xl sm:text-2xl font-bold text-white mb-1">Don't Wait for Failure</p>
-              <p className="text-sm sm:text-base text-gray-300">Most issues we fix have already cost businesses thousands in lost revenue</p>
-            </motion.div>
-
             {/* Scenario */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
