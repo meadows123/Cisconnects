@@ -91,12 +91,12 @@ const CafeWifi = () => {
               className="text-center mb-8 sm:mb-12"
             >
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
-                Nothing Breaks a Busy Café Faster Than{' '}
-                <span className="border-b-2 border-blue-500">Bad Internet</span>
+                Most Cafés Don't Realise Their{' '}
+                <span className="border-b-2 border-blue-500">WiFi Is Costing Them Money</span>
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
-                When payments fail and POS systems disconnect,{' '}
-                <span className="border-b-2 border-blue-500 text-white">service slows to a halt — and customers don't come back.</span>
+                Slow, unreliable connections affect how long customers stay,{' '}
+                <span className="border-b-2 border-blue-500 text-white">how much they spend, and whether they come back.</span>
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -128,6 +128,16 @@ const CafeWifi = () => {
                   </div>
                 </div>
               ))}
+            </motion.div>
+
+            {/* Feature Boxes */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="mb-4 sm:mb-5 text-center"
+            >
+              <p className="text-sm sm:text-base text-gray-300 font-semibold">Slow, unreliable connections affect how long customers stay, how much they spend, and whether they come back.</p>
             </motion.div>
 
             {/* Feature Boxes */}
