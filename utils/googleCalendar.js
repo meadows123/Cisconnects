@@ -21,7 +21,7 @@ const getAuthClient = () => {
     console.log('GOOGLE_CREDENTIALS length:', credentialsJson.length);
 
     const credentials = JSON.parse(credentialsJson);
-    console.log('Parsed credentials - type:', credentials.type, 'client_email:', credentials.client_email);
+    console.log('Parsed credentials - type:', credentials.type);
     
     const auth = new google.auth.GoogleAuth({
       credentials,
@@ -45,25 +45,13 @@ export const createCalendarEvent = async (bookingData) => {
       return null;
     }
 
-    console.log('📅 createCalendarEvent called with:', JSON.stringify(bookingData));
-
     const calendar = google.calendar({ version: 'v3', auth });
     const calendarId = process.env.GOOGLE_CALENDAR_ID || 'zak.meadows15@gmail.com';
 
-    // Parse date and time - format as local time (no Z) with timeZone parameter
-    const startTimeStr = `${bookingData.date}T${bookingData.time}:00`;
-
-    // For end time, add 1 hour
-    const [hours, minutes] = bookingData.time.split(':').map(Number);
-    const endHours = String((hours + 1) % 24).padStart(2, '0');
-    const endTimeStr = `${bookingData.date}T${endHours}:${bookingData.time.split(':')[1]}:00`;
-
-    console.log('📅 createCalendarEvent called with:', JSON.stringify({
-      date: bookingData.date,
-      time: bookingData.time,
-      startTimeStr,
-      endTimeStr
-    }));
+    // Parse date and time - use toISOString format that was working before
+    const eventDate = new Date(bookingData.date + 'T' + bookingData.time + ':00Z');
+    const endDate = new Date(eventDate);
+    endDate.setHours(endDate.getHours() + 1);
 
     const event = {
       summary: `Booking: ${bookingData.name}`,
@@ -76,23 +64,15 @@ ${bookingData.reason ? `Reason: ${bookingData.reason}` : ''}
 ${bookingData.comments ? `Comments: ${bookingData.comments}` : ''}
       `.trim(),
       start: {
-        dateTime: startTimeStr,
-        timeZone: 'Europe/London',
+        dateTime: eventDate.toISOString(),
       },
       end: {
-        dateTime: endTimeStr,
-        timeZone: 'Europe/London',
+        dateTime: endDate.toISOString(),
       },
       reminders: {
-        useDefault: false,
-        overrides: [
-          { method: 'email', minutes: 0 },
-          { method: 'notification', minutes: 15 }
-        ]
+        useDefault: true,
       },
     };
-
-    console.log('📤 Sending booking event to Google Calendar:', JSON.stringify(event, null, 2));
 
     const response = await calendar.events.insert({
       calendarId,
