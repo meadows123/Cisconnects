@@ -50,31 +50,19 @@ export const createCalendarEvent = async (bookingData) => {
     const calendar = google.calendar({ version: 'v3', auth });
     const calendarId = process.env.GOOGLE_CALENDAR_ID || 'zak.meadows15@gmail.com';
 
-    // Parse date and time - build ISO string with timezone offset for UK
-    // April is BST (UTC+1), but calculate offset dynamically to be safe
-    const testDate = new Date(bookingData.date);
-    const tzOffset = new Date(bookingData.date).toLocaleString('en-GB', { timeZone: 'Europe/London' });
-    const jan = new Date(bookingData.date.split('-')[0], 0, 1);
-    const july = new Date(bookingData.date.split('-')[0], 6, 1);
-    const winterOffset = jan.getTimezoneOffset();
-    const summerOffset = july.getTimezoneOffset();
-    const isDST = testDate.getTimezoneOffset() < Math.max(winterOffset, summerOffset);
-    const offset = isDST ? '+01:00' : '+00:00'; // BST is +01:00, GMT is +00:00
+    // Parse date and time - use ISO format with Z suffix (Google Calendar will respect timezone)
+    const eventDate = new Date(bookingData.date + 'T' + bookingData.time + ':00');
+    const endDate = new Date(eventDate);
+    endDate.setHours(endDate.getHours() + 1);
 
-    const startTimeStr = `${bookingData.date}T${bookingData.time}:00${offset}`;
-
-    // For end time, add 1 hour
-    const [hours, minutes] = bookingData.time.split(':').map(Number);
-    const endHours = String((hours + 1) % 24).padStart(2, '0');
-    const endTimeStr = `${bookingData.date}T${endHours}:${bookingData.time.split(':')[1]}:00${offset}`;
+    const startTimeStr = eventDate.toISOString();
+    const endTimeStr = endDate.toISOString();
 
     console.log('📅 createCalendarEvent called with:', JSON.stringify({
       date: bookingData.date,
       time: bookingData.time,
       startTimeStr,
-      endTimeStr,
-      isDST,
-      offset
+      endTimeStr
     }));
 
     const event = {
@@ -89,9 +77,11 @@ ${bookingData.comments ? `Comments: ${bookingData.comments}` : ''}
       `.trim(),
       start: {
         dateTime: startTimeStr,
+        timeZone: 'Europe/London',
       },
       end: {
         dateTime: endTimeStr,
+        timeZone: 'Europe/London',
       },
       reminders: {
         useDefault: false,
@@ -136,19 +126,13 @@ export const createCallEvent = async (callData) => {
     // Create event for tomorrow at 2 PM as a default catch-up time
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(14, 0, 0, 0);
 
-    const tomorrowStr = `${String(tomorrow.getFullYear())}-${String(tomorrow.getMonth() + 1).padStart(2, '0')}-${String(tomorrow.getDate()).padStart(2, '0')}`;
+    const endTime = new Date(tomorrow);
+    endTime.setHours(endTime.getHours() + 0.5); // 30 min call
 
-    // Calculate UK timezone offset (BST +01:00 or GMT +00:00)
-    const jan = new Date(tomorrow.getFullYear(), 0, 1);
-    const july = new Date(tomorrow.getFullYear(), 6, 1);
-    const winterOffset = jan.getTimezoneOffset();
-    const summerOffset = july.getTimezoneOffset();
-    const isDST = tomorrow.getTimezoneOffset() < Math.max(winterOffset, summerOffset);
-    const offset = isDST ? '+01:00' : '+00:00';
-
-    const callStartStr = `${tomorrowStr}T14:00:00${offset}`;
-    const callEndStr = `${tomorrowStr}T14:30:00${offset}`;
+    const callStartStr = tomorrow.toISOString();
+    const callEndStr = endTime.toISOString();
 
     const event = {
       summary: `Call Request: ${callData.name}`,
