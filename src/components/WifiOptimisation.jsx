@@ -82,6 +82,10 @@ const WifiOptimisation = () => {
                 Your Internet Isn't the Problem{' '}
                 <span className="border-b-2 border-blue-500">— Your WiFi Is</span>
               </h1>
+              <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
+                You're paying for fast internet, but{' '}
+                <span className="border-b-2 border-blue-500 text-white">poor coverage, interference, and bad design stop it performing where it matters.</span>
+              </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -143,6 +147,19 @@ const WifiOptimisation = () => {
               </p>
             </motion.div>
 
+            {/* Solution */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12 text-center"
+            >
+              <p className="text-base sm:text-lg font-bold text-white">
+                We redesign and optimise your WiFi so your connection performs properly across your entire space{' '}
+                <span className="text-green-400">— not just near the router.</span>
+              </p>
+            </motion.div>
+
             {/* Pre-form CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -158,7 +175,7 @@ const WifiOptimisation = () => {
                 onClick={() => document.getElementById('optimisation-form').scrollIntoView({ behavior: 'smooth' })}
                 className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
               >
-                Get Started
+                Fix My WiFi Performance
               </motion.button>
             </motion.div>
             {submitStatus === 'success' && (

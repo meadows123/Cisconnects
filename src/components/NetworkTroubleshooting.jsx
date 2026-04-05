@@ -79,42 +79,48 @@ const NetworkTroubleshooting = () => {
               className="text-center mb-8 sm:mb-12"
             >
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
-                Has Your Network Been{' '}
-                <span className="border-b-2 border-blue-500">Broken for Weeks</span>{' '}
-                and Nobody Can Fix It?
+                Slow Network? Dropouts?{' '}
+                <span className="border-b-2 border-blue-500">We'll Find the Problem Fast.</span>
               </h1>
-              <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
-                Many MSPs take{' '}
-                <span className="border-b-2 border-blue-500 text-white">days to even escalate</span>{' '}
-                networking issues. We fix it.
-              </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('troubleshoot-form').scrollIntoView({ behavior: 'smooth' })}
                 className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
               >
-                Tell Us Your Problem — We'll Get Back to You Today
+                Diagnose My Network Problem
               </motion.button>
             </motion.div>
 
-            {/* Benefits */}
+            {/* Speed Stat */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.05 }}
+              className="text-center mb-8 sm:mb-12"
+            >
+              <p className="text-lg sm:text-xl font-bold text-white">Most issues diagnosed within 24–48 hours</p>
+            </motion.div>
+
+            {/* Common Issues We Solve */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
               className="flex flex-col gap-4 sm:gap-5 mb-8 sm:mb-12"
             >
+              <p className="text-sm sm:text-base text-gray-300 font-semibold mb-2">Common Issues We Solve</p>
               {[
-                'Problems Diagnosed & Solved Quickly',
-                'Minimal Downtime for Your Business',
-                'Clear Diagnosis — You Know What Went Wrong',
-                'Network Stability Restored',
-              ].map((benefit, i) => (
+                'Intermittent network dropouts',
+                'Slow performance with no clear cause',
+                'VPN or remote access issues',
+                'WiFi problems that come and go',
+                'Issues after network or firewall changes',
+              ].map((issue, i) => (
                 <div key={i} className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
                   <div className="flex items-start gap-2">
                     <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    <p className="text-sm sm:text-base text-white font-semibold">{benefit}</p>
+                    <p className="text-sm sm:text-base text-white font-semibold">{issue}</p>
                   </div>
                 </div>
               ))}
@@ -274,8 +280,8 @@ const NetworkTroubleshooting = () => {
                   </div>
                 </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
-                <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If we can't diagnose your network problem in the session, you don't pay."</p>
-                <p className="text-sm text-gray-400">We only take on jobs we're confident we can resolve. No diagnosis means no charge — no questions asked.</p>
+                <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If we can't identify the root cause, you don't pay."</p>
+                <p className="text-sm text-gray-400">We only take on jobs we're confident we can resolve. No root cause found means no charge — no questions asked.</p>
               </div>
             </motion.div>
 
@@ -309,7 +315,7 @@ const NetworkTroubleshooting = () => {
                 {isSubmitting ? (
                   <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
                 ) : (
-                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Send My Enquiry — We'll Call You Back Today</span></>
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Diagnose My Network Problem</span></>
                 )}
               </motion.button>
             </motion.form>

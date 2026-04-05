@@ -92,8 +92,7 @@ const NetworkTroubleshootingV2 = () => {
             >
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
                 Network Issues{' '}
-                <span className="border-b-2 border-blue-500">No One Can Fix?</span>{' '}
-                We Will.
+                <span className="border-b-2 border-blue-500">No One Can Fix? We Will.</span>
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
                 Intermittent dropouts, slow performance, random failures —{' '}
@@ -317,6 +316,17 @@ const NetworkTroubleshootingV2 = () => {
                 <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If we can't identify the root cause, you don't pay."</p>
                 <p className="text-sm text-gray-400">We only take on jobs we're confident we can resolve. No root cause found means no charge — no questions asked.</p>
               </div>
+            </motion.div>
+
+            {/* Speed & Urgency */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.5 }}
+              className="text-center mb-6 sm:mb-8"
+            >
+              <p className="text-lg sm:text-xl font-bold text-white mb-2">Most issues diagnosed within 24–48 hours</p>
+              <p className="text-sm text-gray-300">No long waits. No guesswork. Fast diagnosis, clear path to fix.</p>
             </motion.div>
 
             {/* Pre-form CTA */}
