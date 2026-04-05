@@ -79,87 +79,80 @@ const WifiOptimisation = () => {
               className="text-center mb-8 sm:mb-12"
             >
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
-                Your Internet Is Fast. So Why Is Your{' '}
-                <span className="border-b-2 border-blue-500">WiFi Terrible?</span>
+                Your Internet Isn't the Problem{' '}
+                <span className="border-b-2 border-blue-500">— Your WiFi Is</span>
               </h1>
-              <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
-                Turn weak WiFi into{' '}
-                <span className="border-b-2 border-blue-500 text-white">reliable coverage across your building.</span>
-              </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('optimisation-form').scrollIntoView({ behavior: 'smooth' })}
                 className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
               >
-                Tell Us Your Problem — We'll Get Back to You Today
+                Fix My WiFi Performance
               </motion.button>
             </motion.div>
 
-            {/* Benefits */}
+            {/* Scenarios */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="flex flex-col gap-4 sm:gap-5 mb-8 sm:mb-12"
+              className="space-y-4 sm:space-y-5 mb-8 sm:mb-12"
             >
-              {[
-                'Better Coverage Across Every Room',
-                'Faster Speeds — Get What You\'re Paying For',
-                'Reliable Connectivity With No Random Drops',
-                'Dead Zones Eliminated for Good',
-              ].map((benefit, i) => (
-                <div key={i} className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
-                  <div className="flex items-start gap-2">
-                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    <p className="text-sm sm:text-base text-white font-semibold">{benefit}</p>
-                  </div>
-                </div>
-              ))}
+              <div className="bg-gradient-to-r from-red-900/30 to-slate-900/30 border border-red-500/40 rounded-lg p-5 sm:p-6">
+                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
+                  You've upgraded your internet.
+                  <br />
+                  But in certain areas, it's still slow.
+                  <br />
+                  <span className="text-red-400">Dead zones. Weak signal. Frustration.</span>
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-orange-900/30 to-slate-900/30 border border-orange-500/40 rounded-lg p-5 sm:p-6">
+                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
+                  It works fine in one room…
+                  <br />
+                  but drops in another.
+                  <br />
+                  <span className="text-orange-400">Inconsistent performance across your space.</span>
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-yellow-900/30 to-slate-900/30 border border-yellow-500/40 rounded-lg p-5 sm:p-6">
+                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
+                  Everything is technically "connected"…
+                  <br />
+                  but it's slow.
+                  <br />
+                  <span className="text-yellow-400">Your network isn't performing properly.</span>
+                </p>
+              </div>
             </motion.div>
 
-            {/* Feature Boxes */}
+            {/* Root Cause */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
-              className="space-y-4 sm:space-y-5 mb-12 sm:mb-16"
+              className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12 text-center"
             >
-              <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-sm sm:text-base text-red-400 mb-3">Weak WiFi in parts of the building means some rooms are effectively useless for work.</p>
-                <p className="text-sm sm:text-base text-white font-semibold mb-3">We survey your space and install access points exactly where they're needed for full, even coverage.</p>
-                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Back office or upstairs rooms barely get signal. We map coverage and add hardware in the right spots to eliminate those weak areas completely.</p>
-                <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('optimisation-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Fix My Coverage</button>
-                </div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-sm sm:text-base text-red-400 mb-3">You're paying for a fast broadband package but getting a fraction of the speed on WiFi.</p>
-                <p className="text-sm sm:text-base text-white font-semibold mb-3">We optimise your router placement, channels, and configuration so you actually get the speeds you're paying for.</p>
-                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Speed test on a cable gets 150Mbps. On WiFi it's 20Mbps. We find the bottleneck — interference, wrong channel, poor placement — and fix it.</p>
-                <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('optimisation-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Get Faster WiFi</button>
-                </div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-sm sm:text-base text-red-400 mb-3">Interference from neighbouring networks causes random disconnections and slow speeds that are hard to diagnose.</p>
-                <p className="text-sm sm:text-base text-white font-semibold mb-3">We analyse the WiFi environment and configure your network to avoid interference channels entirely.</p>
-                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: WiFi works fine in the morning but degrades during the day as nearby businesses start up. We switch channels and adjust power settings to prevent it.</p>
-                <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('optimisation-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Stop the Interference</button>
-                </div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-sm sm:text-base text-red-400 mb-3">A router in the wrong place is one of the most common causes of terrible WiFi — and the easiest to fix.</p>
-                <p className="text-sm sm:text-base text-white font-semibold mb-3">We assess your layout and reposition or extend your network so signal reaches where you actually need it.</p>
-                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Router is tucked away in a cabinet at one end of the building. Half the space gets no signal. Tell us your setup and we'll give you a clear quote before any work starts.</p>
-                <div className="flex justify-center">
-                  <button onClick={() => document.getElementById('optimisation-form').scrollIntoView({ behavior: 'smooth' })} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Book My Optimisation</button>
-                </div>
-              </div>
+              <p className="text-base sm:text-lg font-bold text-white mb-3">
+                Most WiFi problems aren't caused by your internet connection.
+              </p>
+              <p className="text-sm sm:text-base text-blue-300 font-semibold">
+                They're caused by poor design, bad coverage, and interference.
+              </p>
             </motion.div>
 
-            {/* Status Messages */}
+            {/* Pre-form CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              className="text-center mb-6 sm:mb-8"
+            >
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Fix My WiFi Performance</h2>
+              <p className="text-sm sm:text-base text-gray-300">Find out what's causing poor coverage and slow speeds — and how to fix it.</p>
+            </motion.div>
             {submitStatus === 'success' && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-green-500/10 border border-green-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
                 <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-0.5" />
@@ -307,7 +300,7 @@ const WifiOptimisation = () => {
                 {isSubmitting ? (
                   <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
                 ) : (
-                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Send My Enquiry — We'll Call You Back Today</span></>
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Fix My WiFi Performance</span></>
                 )}
               </motion.button>
             </motion.form>

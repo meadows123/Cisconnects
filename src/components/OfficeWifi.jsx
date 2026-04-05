@@ -91,12 +91,12 @@ const OfficeWifi = () => {
               className="text-center mb-8 sm:mb-12"
             >
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
-                If Your Business Relies on Internet,{' '}
-                <span className="border-b-2 border-blue-500">It Needs to Work — Every Time</span>
+                Your Team Isn't Slow{' '}
+                <span className="border-b-2 border-blue-500">— Your Network Is</span>
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
-                Payments, POS systems, staff devices, and cloud apps all depend on your network.{' '}
-                <span className="border-b-2 border-blue-500 text-white">When it fails, your business slows down or stops.</span>
+                Slow systems, dropped calls, and lagging applications don't just frustrate your team{' '}
+                <span className="border-b-2 border-blue-500 text-white">— they reduce productivity across your entire business.</span>
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
