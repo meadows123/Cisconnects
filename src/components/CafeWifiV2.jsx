@@ -115,7 +115,6 @@ const CafeWifiV2 = () => {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="bg-gradient-to-r from-red-900/30 to-slate-900/30 border border-red-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
-              <p className="text-sm sm:text-base text-gray-300 mb-3">🚨 Scenario 1: The Customer Who Leaves Early</p>
               <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
                 A customer sits down with a laptop.<br />
                 Orders a coffee.<br />
@@ -135,7 +134,6 @@ const CafeWifiV2 = () => {
               transition={{ duration: 0.4, delay: 0.15 }}
               className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
-              <p className="text-sm sm:text-base text-gray-300 mb-3">🔁 Scenario 2: The Repeat Customer Gone</p>
               <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
                 A customer finds your café as a place to work.<br />
                 <br />
@@ -154,7 +152,6 @@ const CafeWifiV2 = () => {
               transition={{ duration: 0.4, delay: 0.18 }}
               className="bg-gradient-to-r from-yellow-900/30 to-slate-900/30 border border-yellow-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
-              <p className="text-sm sm:text-base text-gray-300 mb-3">📉 Scenario 3: The Revenue Impact</p>
               <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
                 Your café looks busy.<br />
                 <br />
