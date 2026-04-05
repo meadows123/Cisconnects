@@ -111,6 +111,8 @@ ${bookingData.comments ? `Comments: ${bookingData.comments}` : ''}
 
     console.log('Calendar event created:', response.data.id);
     return response.data;
+  } catch (error) {
+    console.error('Error creating calendar event:', error.message);
     if (error.response && error.response.data && error.response.data.error) {
       console.error('Google API error details:', JSON.stringify(error.response.data.error, null, 2));
     }
