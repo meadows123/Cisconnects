@@ -75,8 +75,8 @@ const CafeWifiV2 = () => {
   return (
     <>
       <SEO
-        title="Reliable Café Connectivity | Conxiea"
-        description="Nothing breaks a busy café faster than bad internet. We install reliable café connectivity so payments go through, POS stays online, and everything works when it matters most."
+        title="Café WiFi That Keeps Customers Working Longer | Conxiea"
+        description="The longer customers can work in your café, the more they spend. Reliable WiFi isn't just infrastructure — it's revenue. See how proper café WiFi affects customer dwell time."
         url="/reliable-cafe-connectivity-v2"
       />
       <div className="min-h-screen bg-slate-950 flex flex-col">
@@ -91,20 +91,20 @@ const CafeWifiV2 = () => {
               className="text-center mb-8 sm:mb-12"
             >
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
-                Nothing Breaks a Busy Café Faster Than{' '}
-                <span className="border-b-2 border-blue-500">Bad Internet</span>
+                The Longer Customers Stay,{' '}
+                <span className="border-b-2 border-blue-500">The More They Spend</span>
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
-                When payments fail and POS systems disconnect,{' '}
-                <span className="border-b-2 border-blue-500 text-white">service slows to a halt — and customers don't come back.</span>
+                Unless your WiFi lets them down.{' '}
+                <span className="border-b-2 border-blue-500 text-white">A customer working from your café is a customer ordering more coffee.</span>
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('cafe-v2-form').scrollIntoView({ behavior: 'smooth' })}
-                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-blue-500 min-h-[44px]"
               >
-                Get a Fixed-Price Network Plan for Your Café
+                See How WiFi is Affecting Your Revenue
               </motion.button>
             </motion.div>
 
@@ -115,10 +115,16 @@ const CafeWifiV2 = () => {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="bg-gradient-to-r from-red-900/30 to-slate-900/30 border border-red-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
+              <p className="text-sm sm:text-base text-gray-300 mb-3">🚨 Scenario 1: The Customer Who Leaves Early</p>
               <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
-                Saturday morning.<br />
-                Queue out the door.<br />
-                Card machine drops.
+                A customer sits down with a laptop.<br />
+                Orders a coffee.<br />
+                <br />
+                Plans to stay for an hour or two.<br />
+                <br />
+                The WiFi is slow… then drops.<br />
+                <br />
+                <span className="text-red-400">They leave after 20 minutes instead.</span>
               </p>
             </motion.div>
 
@@ -129,9 +135,33 @@ const CafeWifiV2 = () => {
               transition={{ duration: 0.4, delay: 0.15 }}
               className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
-              <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                Most café networks aren't built for peak hours.<br />
-                They're built like home WiFi — and that's the problem.
+              <p className="text-sm sm:text-base text-gray-300 mb-3">🔁 Scenario 2: The Repeat Customer Gone</p>
+              <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
+                A customer finds your café as a place to work.<br />
+                <br />
+                But the connection is unreliable.<br />
+                <br />
+                <span className="text-blue-400">Next time, they choose somewhere else.</span><br />
+                And the time after that.<br />
+                And they never come back.
+              </p>
+            </motion.div>
+
+            {/* Scenario 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.18 }}
+              className="bg-gradient-to-r from-yellow-900/30 to-slate-900/30 border border-yellow-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
+            >
+              <p className="text-sm sm:text-base text-gray-300 mb-3">📉 Scenario 3: The Revenue Impact</p>
+              <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
+                Your café looks busy.<br />
+                <br />
+                But customers aren't staying long.<br />
+                <br />
+                <span className="text-yellow-400">Fewer repeat orders. Less time per table. Lower spend.</span><br />
+                And you don't realise your WiFi is the reason.
               </p>
             </motion.div>
 
@@ -143,16 +173,17 @@ const CafeWifiV2 = () => {
               className="mb-5 sm:mb-6"
             >
               <p className="text-sm sm:text-base text-gray-300 mb-4">
-                We design café networks specifically for how your business actually runs during peak hours — so payments, staff, and customers stay connected when it matters most.
+                We design café WiFi specifically for customer experience — so people can stay longer, keep working, and keep ordering.
               </p>
               <div className="flex flex-col gap-3">
                 {[
-                  'Card machines stay online all day',
-                  'POS never drops mid-order',
-                  'Staff WiFi works every shift',
-                  'Guest WiFi keeps customers longer',
+                  'Guest WiFi customers can work for hours without drops',
+                  'Customers comfortable working = more coffee, more food',
+                  'Become the café people choose to work from',
+                  'Reliable payments and POS for peak hours',
+                  'Repeat business from the work-from-café crowd',
                 ].map((item, i) => (
-                  <div key={i} className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
+                  <div key={i} className="border-l-4 border-green-500 pl-4 sm:pl-5 py-2">
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
                       <p className="text-sm sm:text-base text-white font-semibold">{item}</p>
@@ -169,10 +200,14 @@ const CafeWifiV2 = () => {
               transition={{ duration: 0.4, delay: 0.25 }}
               className="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12"
             >
+              <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-2">
+                🎯 What Actually Happens With Reliable WiFi
+              </p>
               <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
-                Full café. Queue building. Payments flowing.<br />
-                <span className="text-green-400">No dropouts. No delays. No lost payments.<br />
-                Everything just works — exactly when you need it.</span>
+                Customer sits down with a laptop.<br />
+                <span className="text-green-400">Connection is perfect. Minutes turn into hours.</span><br />
+                They order another coffee. A snack. Maybe lunch.<br />
+                <span className="text-green-400">They come back tomorrow. And the day after that.</span>
               </p>
             </motion.div>
 
@@ -183,15 +218,15 @@ const CafeWifiV2 = () => {
               transition={{ duration: 0.4, delay: 0.3 }}
               className="text-center mb-8 sm:mb-10"
             >
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Get a Fixed-Price Network Plan for Your Café</h2>
-              <p className="text-sm sm:text-base text-gray-300 mb-5">Find out exactly what's causing your connectivity issues — and how to fix them.</p>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">See How WiFi is Affecting Your Revenue</h2>
+              <p className="text-sm sm:text-base text-gray-300 mb-5">Most café owners don't realise how much their WiFi affects how long customers stay — and how much they spend.</p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('cafe-v2-form').scrollIntoView({ behavior: 'smooth' })}
-                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-blue-500 min-h-[44px]"
               >
-                Book Your Assessment
+                Improve Your Café WiFi Experience
               </motion.button>
             </motion.div>
 
