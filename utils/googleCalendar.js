@@ -50,19 +50,31 @@ export const createCalendarEvent = async (bookingData) => {
     const calendar = google.calendar({ version: 'v3', auth });
     const calendarId = process.env.GOOGLE_CALENDAR_ID || 'zak.meadows15@gmail.com';
 
-    // Parse date and time - build ISO string directly without timezone conversion
-    const startTimeStr = `${bookingData.date}T${bookingData.time}:00`;
+    // Parse date and time - build ISO string with timezone offset for UK
+    // April is BST (UTC+1), but calculate offset dynamically to be safe
+    const testDate = new Date(bookingData.date);
+    const tzOffset = new Date(bookingData.date).toLocaleString('en-GB', { timeZone: 'Europe/London' });
+    const jan = new Date(bookingData.date.split('-')[0], 0, 1);
+    const july = new Date(bookingData.date.split('-')[0], 6, 1);
+    const winterOffset = jan.getTimezoneOffset();
+    const summerOffset = july.getTimezoneOffset();
+    const isDST = testDate.getTimezoneOffset() < Math.max(winterOffset, summerOffset);
+    const offset = isDST ? '+01:00' : '+00:00'; // BST is +01:00, GMT is +00:00
+
+    const startTimeStr = `${bookingData.date}T${bookingData.time}:00${offset}`;
 
     // For end time, add 1 hour
     const [hours, minutes] = bookingData.time.split(':').map(Number);
     const endHours = String((hours + 1) % 24).padStart(2, '0');
-    const endTimeStr = `${bookingData.date}T${endHours}:${bookingData.time.split(':')[1]}:00`;
+    const endTimeStr = `${bookingData.date}T${endHours}:${bookingData.time.split(':')[1]}:00${offset}`;
 
     console.log('📅 createCalendarEvent called with:', JSON.stringify({
       date: bookingData.date,
       time: bookingData.time,
       startTimeStr,
-      endTimeStr
+      endTimeStr,
+      isDST,
+      offset
     }));
 
     const event = {
@@ -124,8 +136,17 @@ export const createCallEvent = async (callData) => {
     tomorrow.setDate(tomorrow.getDate() + 1);
 
     const tomorrowStr = `${String(tomorrow.getFullYear())}-${String(tomorrow.getMonth() + 1).padStart(2, '0')}-${String(tomorrow.getDate()).padStart(2, '0')}`;
-    const callStartStr = `${tomorrowStr}T14:00:00`;
-    const callEndStr = `${tomorrowStr}T14:30:00`;
+
+    // Calculate UK timezone offset (BST +01:00 or GMT +00:00)
+    const jan = new Date(tomorrow.getFullYear(), 0, 1);
+    const july = new Date(tomorrow.getFullYear(), 6, 1);
+    const winterOffset = jan.getTimezoneOffset();
+    const summerOffset = july.getTimezoneOffset();
+    const isDST = tomorrow.getTimezoneOffset() < Math.max(winterOffset, summerOffset);
+    const offset = isDST ? '+01:00' : '+00:00';
+
+    const callStartStr = `${tomorrowStr}T14:00:00${offset}`;
+    const callEndStr = `${tomorrowStr}T14:30:00${offset}`;
 
     const event = {
       summary: `Call Request: ${callData.name}`,
