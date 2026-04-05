@@ -150,8 +150,16 @@ const WifiOptimisation = () => {
               transition={{ duration: 0.4, delay: 0.4 }}
               className="text-center mb-6 sm:mb-8"
             >
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Fix My WiFi Performance</h2>
-              <p className="text-sm sm:text-base text-gray-300">Find out what's causing poor coverage and slow speeds — and how to fix it.</p>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Fix My WiFi Performance</h2>
+              <p className="text-sm sm:text-base text-gray-300 mb-6">Find out what's causing poor coverage and slow speeds — and how to fix it.</p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => document.getElementById('optimisation-form').scrollIntoView({ behavior: 'smooth' })}
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
+              >
+                Get Started
+              </motion.button>
             </motion.div>
             {submitStatus === 'success' && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-green-500/10 border border-green-500/50 rounded-lg flex items-start gap-3 sm:gap-4">

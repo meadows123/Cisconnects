@@ -326,9 +326,16 @@ const NetworkTroubleshootingV2 = () => {
               transition={{ duration: 0.4, delay: 0.5 }}
               className="text-center mb-6 sm:mb-8"
             >
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Fix My Network Issue</h2>
-              <p className="text-sm sm:text-base text-gray-300 mb-1">Tell us what's happening — we'll take it from there.</p>
-              <p className="text-xs sm:text-sm text-gray-500">Takes less than 60 seconds to describe your issue.</p>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Fix My Network Issue</h2>
+              <p className="text-sm sm:text-base text-gray-300 mb-6">Tell us what's happening — we'll take it from there.</p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => document.getElementById('troubleshoot-v2-form').scrollIntoView({ behavior: 'smooth' })}
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
+              >
+                Fix My Network Issue
+              </motion.button>
             </motion.div>
 
             {/* Form */}
