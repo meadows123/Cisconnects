@@ -227,6 +227,35 @@ const CafeWifiV2 = () => {
               </motion.button>
             </motion.div>
 
+            {/* Guarantee */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.35 }}
+              className="mb-8 sm:mb-10"
+            >
+              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 text-center">
+                <div className="flex justify-center mb-3">
+                  <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
+                    <Shield className="w-7 h-7 text-green-400" />
+                  </div>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
+                <p className="text-base sm:text-lg text-green-300 font-semibold">"If your connectivity isn't noticeably better after we leave, you don't pay."</p>
+              </div>
+            </motion.div>
+
+            {/* Differentiation & Friction Remover */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              className="text-center mb-6 sm:mb-8"
+            >
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">We don't install generic WiFi.<br />We design networks specifically for busy cafés under real-world pressure.</p>
+              <p className="text-xs sm:text-sm text-gray-400">Takes less than 60 seconds to get started.</p>
+            </motion.div>
+
             {/* Status Messages */}
             {submitStatus === 'success' && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-green-500/10 border border-green-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
@@ -323,25 +352,6 @@ const CafeWifiV2 = () => {
                 <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={nextTestimonial} aria-label="Next testimonial" className="flex-shrink-0 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center bg-blue-600/20 border border-blue-500/30 rounded-lg hover:bg-blue-600/40 active:bg-blue-600/60 transition text-white">
                   <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.button>
-              </div>
-            </motion.div>
-
-            {/* Guarantee */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="mb-8 sm:mb-12"
-            >
-              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 mb-6 text-center">
-                <div className="flex justify-center mb-3">
-                  <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
-                    <Shield className="w-7 h-7 text-green-400" />
-                  </div>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
-                <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If your connectivity isn't noticeably better after we leave, you don't pay."</p>
-                <p className="text-sm text-gray-400">We only take on jobs we're confident we can solve. No improvement means no charge — simple as that.</p>
               </div>
             </motion.div>
 
