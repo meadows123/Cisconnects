@@ -77,17 +77,15 @@ ${bookingData.comments ? `Comments: ${bookingData.comments}` : ''}
       `.trim(),
       start: {
         dateTime: startTimeStr,
-        timeZone: 'Europe/London',
       },
       end: {
         dateTime: endTimeStr,
-        timeZone: 'Europe/London',
       },
       reminders: {
         useDefault: false,
         overrides: [
-          { method: 'email', minutes: 0 },    // Email at time of event
-          { method: 'notification', minutes: 15 }  // Desktop notification 15 min before
+          { method: 'email', minutes: 0 },
+          { method: 'notification', minutes: 15 }
         ]
       },
     };
@@ -139,17 +137,15 @@ Call Request Date: ${new Date(callData.createdAt).toLocaleString()}
       `.trim(),
       start: {
         dateTime: callStartStr,
-        timeZone: 'Europe/London',
       },
       end: {
         dateTime: callEndStr,
-        timeZone: 'Europe/London',
       },
       reminders: {
         useDefault: false,
         overrides: [
-          { method: 'email', minutes: 0 },    // Email at time of event
-          { method: 'notification', minutes: 15 }  // Desktop notification 15 min before
+          { method: 'email', minutes: 0 },
+          { method: 'notification', minutes: 15 }
         ]
       },
     };
