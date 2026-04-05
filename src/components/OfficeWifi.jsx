@@ -125,7 +125,20 @@ const OfficeWifi = () => {
               <p className="text-sm sm:text-base text-red-400 font-semibold">And every minute it's down costs you.</p>
             </motion.div>
 
-            {/* Positioning */}
+            {/* Shift */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.125 }}
+              className="bg-gradient-to-r from-orange-900/30 to-slate-900/30 border border-orange-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
+            >
+              <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
+                Most office networks aren't designed for how modern teams actually work.
+              </p>
+              <p className="text-sm sm:text-base text-orange-300">
+                Cloud apps, video calls, and multiple devices all demand more than basic setups can handle.
+              </p>
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -140,15 +153,18 @@ const OfficeWifi = () => {
               </p>
             </motion.div>
 
-            {/* What We Fix */}
+            {/* Solution */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
               className="mb-5 sm:mb-6"
             >
+              <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-4">
+                We design office networks that support how your team actually works — so systems run smoothly, calls stay stable, and your team can work without delays.
+              </p>
               <p className="text-sm sm:text-base text-gray-300 mb-4">
-                We eliminate the risk. Here's what you get:
+                Here's what you get:
               </p>
               <div className="flex flex-col gap-3">
                 {[
@@ -302,11 +318,30 @@ const OfficeWifi = () => {
               </div>
             </motion.div>
 
+            {/* Pre-form CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.5 }}
+              className="text-center mb-6 sm:mb-8"
+            >
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Get Your Office Network Assessed</h2>
+              <p className="text-sm sm:text-base text-gray-300 mb-6">Find out what's slowing your team down — and how to fix it.</p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })}
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
+              >
+                Get Your Office Network Assessed
+              </motion.button>
+            </motion.div>
+
             {/* Guarantee */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
+              transition={{ duration: 0.4, delay: 0.55 }}
               className="mb-8 sm:mb-12"
             >
               <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 mb-6 text-center">
@@ -316,21 +351,8 @@ const OfficeWifi = () => {
                   </div>
                 </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
-                <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If your office WiFi isn't measurably better after we leave, you don't pay."</p>
-                <p className="text-sm text-gray-400">We survey properly, we fix properly. If you don't see a clear improvement, we won't charge you a penny.</p>
+                <p className="text-base sm:text-lg text-green-300 font-semibold">"If your office WiFi isn't measurably better after we leave, you don't pay."</p>
               </div>
-            </motion.div>
-
-            {/* Pre-form CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
-              className="text-center mb-6 sm:mb-8"
-            >
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Fix My Office WiFi</h2>
-              <p className="text-sm sm:text-base text-gray-300 mb-1">Tell us what's happening — we'll take it from there.</p>
-              <p className="text-xs sm:text-sm text-gray-500">Takes less than 60 seconds to describe your issue.</p>
             </motion.div>
 
             {/* Form */}

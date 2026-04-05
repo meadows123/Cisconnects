@@ -126,6 +126,25 @@ const NetworkTroubleshooting = () => {
               ))}
             </motion.div>
 
+            {/* Guarantee */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="mb-8 sm:mb-12"
+            >
+              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 mb-6 text-center">
+                <div className="flex justify-center mb-3">
+                  <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
+                    <Shield className="w-7 h-7 text-green-400" />
+                  </div>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
+                <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If we can't identify the root cause, you don't pay."</p>
+                <p className="text-sm text-gray-400">We only take on jobs we're confident we can resolve. No root cause found means no charge — no questions asked.</p>
+              </div>
+            </motion.div>
+
             {/* Feature Boxes */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
