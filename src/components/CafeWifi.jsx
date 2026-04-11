@@ -181,6 +181,19 @@ const CafeWifi = () => {
               </div>
             </motion.div>
 
+            {/* Chat Reviews */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="mb-8 sm:mb-12"
+            >
+              <div className="flex flex-row items-start gap-3 overflow-x-auto pb-2 sm:overflow-visible sm:justify-center">
+                <img src="/RoshanReview.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
+                <img src="/2.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
+              </div>
+            </motion.div>
+
             {/* Status Messages */}
             {submitStatus === 'success' && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-green-500/10 border border-green-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
@@ -280,32 +293,13 @@ const CafeWifi = () => {
               </div>
             </motion.div>
 
-            {/* Guarantee */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="mb-8 sm:mb-12"
-            >
-              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 mb-6 text-center">
-                <div className="flex justify-center mb-3">
-                  <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
-                    <Shield className="w-7 h-7 text-green-400" />
-                  </div>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
-                <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If your connectivity isn't noticeably better after we leave, you don't pay."</p>
-                <p className="text-sm text-gray-400">We only take on jobs we're confident we can solve. No improvement means no charge — simple as that.</p>
-              </div>
-            </motion.div>
-
             {/* Form */}
             <motion.form
               id="cafe-form"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               onSubmit={handleSubmit}
-              className="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6"
+              className="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6 mb-8 sm:mb-12"
             >
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Your First Name <span className="text-red-500">*</span></label>
@@ -333,6 +327,25 @@ const CafeWifi = () => {
                 )}
               </motion.button>
             </motion.form>
+
+            {/* Guarantee */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="mb-8 sm:mb-12"
+            >
+              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 mb-6 text-center">
+                <div className="flex justify-center mb-3">
+                  <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
+                    <Shield className="w-7 h-7 text-green-400" />
+                  </div>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
+                <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If your connectivity isn't noticeably better after we leave, you don't pay."</p>
+                <p className="text-sm text-gray-400">We only take on jobs we're confident we can solve. No improvement means no charge — simple as that.</p>
+              </div>
+            </motion.div>
 
             {/* Pricing */}
             <motion.div

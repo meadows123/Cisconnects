@@ -108,165 +108,17 @@ const CafeWifiV2 = () => {
               </motion.button>
             </motion.div>
 
-            {/* Pain */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="bg-gradient-to-r from-red-900/30 to-slate-900/30 border border-red-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
-            >
-              <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
-                A customer sits down with a laptop.<br />
-                Orders a coffee.<br />
-                <br />
-                Plans to stay for an hour or two.<br />
-                <br />
-                The WiFi is slow… then drops.<br />
-                <br />
-                <span className="text-red-400">They leave after 20 minutes instead.</span>
-              </p>
-            </motion.div>
-
-            {/* Shift */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 }}
-              className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
-            >
-              <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
-                A customer finds your café as a place to work.<br />
-                <br />
-                But the connection is unreliable.<br />
-                <br />
-                <span className="text-blue-400">Next time, they choose somewhere else.</span><br />
-                And the time after that.<br />
-                And they never come back.
-              </p>
-            </motion.div>
-
-            {/* Scenario 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.18 }}
-              className="bg-gradient-to-r from-yellow-900/30 to-slate-900/30 border border-yellow-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
-            >
-              <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
-                Your café looks busy.<br />
-                <br />
-                But customers aren't staying long.<br />
-                <br />
-                <span className="text-yellow-400">Fewer repeat orders. Less time per table. Lower spend.</span><br />
-                And you don't realise your WiFi is the reason.
-              </p>
-            </motion.div>
-
             {/* Chat Reviews */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               className="mb-5 sm:mb-6"
             >
               <div className="flex flex-row items-start gap-3 overflow-x-auto pb-2 sm:overflow-visible sm:justify-center">
                 <img src="/RoshanReview.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
                 <img src="/2.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
               </div>
-            </motion.div>
-
-            {/* Solution */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="mb-5 sm:mb-6"
-            >
-              <p className="text-sm sm:text-base text-gray-300 mb-4">
-                We design café WiFi specifically for customer experience — so people can stay longer, keep working, and keep ordering.
-              </p>
-              <div className="flex flex-col gap-3">
-                {[
-                  'Guest WiFi customers can work for hours without drops',
-                  'Customers comfortable working = more coffee, more food',
-                  'Become the café people choose to work from',
-                  'Reliable payments and POS for peak hours',
-                  'Repeat business from the work-from-café crowd',
-                ].map((item, i) => (
-                  <div key={i} className="border-l-4 border-green-500 pl-4 sm:pl-5 py-2">
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <p className="text-sm sm:text-base text-white font-semibold">{item}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Scenario */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.25 }}
-              className="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12"
-            >
-              <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-2">
-                🎯 What Actually Happens With Reliable WiFi
-              </p>
-              <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
-                Customer sits down with a laptop.<br />
-                <span className="text-green-400">Connection is perfect. Minutes turn into hours.</span><br />
-                They order another coffee. A snack. Maybe lunch.<br />
-                <span className="text-green-400">They come back tomorrow. And the day after that.</span>
-              </p>
-            </motion.div>
-
-            {/* Pre-form CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="text-center mb-8 sm:mb-10"
-            >
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">See How WiFi is Affecting Your Revenue</h2>
-              <p className="text-sm sm:text-base text-gray-300 mb-5">Most café owners don't realise how much their WiFi affects how long customers stay — and how much they spend.</p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => document.getElementById('cafe-v2-form').scrollIntoView({ behavior: 'smooth' })}
-                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-blue-500 min-h-[44px]"
-              >
-                Improve Your Café WiFi Experience
-              </motion.button>
-            </motion.div>
-
-            {/* Guarantee */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.35 }}
-              className="mb-8 sm:mb-10"
-            >
-              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 text-center">
-                <div className="flex justify-center mb-3">
-                  <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
-                    <Shield className="w-7 h-7 text-green-400" />
-                  </div>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
-                <p className="text-base sm:text-lg text-green-300 font-semibold">"If your connectivity isn't noticeably better after we leave, you don't pay."</p>
-              </div>
-            </motion.div>
-
-            {/* Differentiation & Friction Remover */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-              className="text-center mb-6 sm:mb-8"
-            >
-              <p className="text-sm sm:text-base text-white font-semibold mb-3">We don't install generic WiFi.<br />We design networks specifically for busy cafés under real-world pressure.</p>
-              <p className="text-xs sm:text-sm text-gray-400">Takes less than 60 seconds to get started.</p>
             </motion.div>
 
             {/* Status Messages */}
@@ -297,6 +149,170 @@ const CafeWifiV2 = () => {
                 </div>
               </motion.div>
             )}
+
+            {/* Form */}
+            <motion.form
+              id="cafe-v2-form"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              onSubmit={handleSubmit}
+              className="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6 mb-8 sm:mb-10"
+            >
+              <div>
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Your First Name <span className="text-red-500">*</span></label>
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your First Name" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+              </div>
+              <div>
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Email Address <span className="text-red-500">*</span></label>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter Your Email Address" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+              </div>
+              <div>
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Phone Number <span className="text-red-500">*</span></label>
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 disabled:opacity-50 text-slate-900 font-bold text-sm sm:text-base rounded-lg flex items-center justify-center gap-2 transition shadow-lg min-h-12 sm:min-h-14"
+              >
+                {isSubmitting ? (
+                  <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
+                ) : (
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Get a Fixed-Price Network Plan for Your Café</span></>
+                )}
+              </motion.button>
+            </motion.form>
+
+            {/* Guarantee */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="mb-8 sm:mb-10"
+            >
+              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 text-center">
+                <div className="flex justify-center mb-3">
+                  <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
+                    <Shield className="w-7 h-7 text-green-400" />
+                  </div>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
+                <p className="text-base sm:text-lg text-green-300 font-semibold">"If your connectivity isn't noticeably better after we leave, you don't pay."</p>
+              </div>
+            </motion.div>
+
+            {/* Pain */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="bg-gradient-to-r from-red-900/30 to-slate-900/30 border border-red-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
+            >
+              <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
+                A customer sits down with a laptop.<br />
+                Orders a coffee.<br />
+                <br />
+                Plans to stay for an hour or two.<br />
+                <br />
+                The WiFi is slow… then drops.<br />
+                <br />
+                <span className="text-red-400">They leave after 20 minutes instead.</span>
+              </p>
+            </motion.div>
+
+            {/* Shift */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.25 }}
+              className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
+            >
+              <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
+                A customer finds your café as a place to work.<br />
+                <br />
+                But the connection is unreliable.<br />
+                <br />
+                <span className="text-blue-400">Next time, they choose somewhere else.</span><br />
+                And the time after that.<br />
+                And they never come back.
+              </p>
+            </motion.div>
+
+            {/* Scenario 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.28 }}
+              className="bg-gradient-to-r from-yellow-900/30 to-slate-900/30 border border-yellow-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
+            >
+              <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
+                Your café looks busy.<br />
+                <br />
+                But customers aren't staying long.<br />
+                <br />
+                <span className="text-yellow-400">Fewer repeat orders. Less time per table. Lower spend.</span><br />
+                And you don't realise your WiFi is the reason.
+              </p>
+            </motion.div>
+
+            {/* Solution */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="mb-5 sm:mb-6"
+            >
+              <p className="text-sm sm:text-base text-gray-300 mb-4">
+                We design café WiFi specifically for customer experience — so people can stay longer, keep working, and keep ordering.
+              </p>
+              <div className="flex flex-col gap-3">
+                {[
+                  'Guest WiFi customers can work for hours without drops',
+                  'Customers comfortable working = more coffee, more food',
+                  'Become the café people choose to work from',
+                  'Reliable payments and POS for peak hours',
+                  'Repeat business from the work-from-café crowd',
+                ].map((item, i) => (
+                  <div key={i} className="border-l-4 border-green-500 pl-4 sm:pl-5 py-2">
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm sm:text-base text-white font-semibold">{item}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Scenario green */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.35 }}
+              className="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12"
+            >
+              <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-2">
+                🎯 What Actually Happens With Reliable WiFi
+              </p>
+              <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
+                Customer sits down with a laptop.<br />
+                <span className="text-green-400">Connection is perfect. Minutes turn into hours.</span><br />
+                They order another coffee. A snack. Maybe lunch.<br />
+                <span className="text-green-400">They come back tomorrow. And the day after that.</span>
+              </p>
+            </motion.div>
+
+            {/* Differentiation & Friction Remover */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              className="text-center mb-6 sm:mb-8"
+            >
+              <p className="text-sm sm:text-base text-white font-semibold mb-3">We don't install generic WiFi.<br />We design networks specifically for busy cafés under real-world pressure.</p>
+              <p className="text-xs sm:text-sm text-gray-400">Takes less than 60 seconds to get started.</p>
+            </motion.div>
 
             {/* Testimonials */}
             <motion.div
@@ -367,41 +383,6 @@ const CafeWifiV2 = () => {
                 </motion.button>
               </div>
             </motion.div>
-
-            {/* Form */}
-            <motion.form
-              id="cafe-v2-form"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              onSubmit={handleSubmit}
-              className="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6"
-            >
-              <div>
-                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Your First Name <span className="text-red-500">*</span></label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your First Name" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
-              </div>
-              <div>
-                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Email Address <span className="text-red-500">*</span></label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter Your Email Address" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
-              </div>
-              <div>
-                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Phone Number <span className="text-red-500">*</span></label>
-                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
-              </div>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 disabled:opacity-50 text-slate-900 font-bold text-sm sm:text-base rounded-lg flex items-center justify-center gap-2 transition shadow-lg min-h-12 sm:min-h-14"
-              >
-                {isSubmitting ? (
-                  <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
-                ) : (
-                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Get a Fixed-Price Network Plan for Your Café</span></>
-                )}
-              </motion.button>
-            </motion.form>
 
             {/* Pricing */}
             <motion.div
