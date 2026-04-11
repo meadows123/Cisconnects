@@ -96,6 +96,19 @@ const WifiOptimisation = () => {
               </motion.button>
             </motion.div>
 
+            {/* Chat Reviews */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.08 }}
+              className="mb-8 sm:mb-12"
+            >
+              <div className="flex flex-row items-start gap-3 overflow-x-auto pb-2 sm:overflow-visible sm:justify-center">
+                <img src="/2.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
+                <img src="/JessReview.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
+              </div>
+            </motion.div>
+
             {/* Scenarios */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}

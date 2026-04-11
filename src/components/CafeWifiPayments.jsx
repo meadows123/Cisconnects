@@ -219,10 +219,10 @@ const CafeWifiPayments = () => {
               transition={{ duration: 0.4, delay: 0.2 }}
               className="mb-8 sm:mb-12"
             >
-              <div className="flex flex-row items-start justify-center gap-3">
-                <img src="/JessReview.png" alt="Customer review" className="w-1/3 rounded-xl border border-slate-700" />
-                <img src="/1.png" alt="Customer review" className="w-1/3 rounded-xl border border-slate-700" />
-                <img src="/2.png" alt="Customer review" className="w-1/3 rounded-xl border border-slate-700" />
+              <div className="flex flex-row items-start gap-3 overflow-x-auto pb-2 sm:overflow-visible sm:justify-center">
+                <img src="/JessReview.png" alt="Customer review" className="w-56 flex-shrink-0 sm:flex-shrink sm:w-1/3 rounded-xl border border-slate-700" />
+                <img src="/1.png" alt="Customer review" className="w-56 flex-shrink-0 sm:flex-shrink sm:w-1/3 rounded-xl border border-slate-700" />
+                <img src="/2.png" alt="Customer review" className="w-56 flex-shrink-0 sm:flex-shrink sm:w-1/3 rounded-xl border border-slate-700" />
               </div>
             </motion.div>
 

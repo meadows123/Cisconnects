@@ -90,7 +90,7 @@ const CafeWifiV2 = () => {
               transition={{ duration: 0.3 }}
               className="text-center mb-8 sm:mb-12"
             >
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
+              <h1 className="text-3xl xs:text-4xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
                 The Longer Customers Stay,{' '}
                 <span className="border-b-2 border-blue-500">The More They Spend</span>
               </h1>
@@ -160,6 +160,19 @@ const CafeWifiV2 = () => {
                 <span className="text-yellow-400">Fewer repeat orders. Less time per table. Lower spend.</span><br />
                 And you don't realise your WiFi is the reason.
               </p>
+            </motion.div>
+
+            {/* Chat Reviews */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="mb-5 sm:mb-6"
+            >
+              <div className="flex flex-row items-start gap-3 overflow-x-auto pb-2 sm:overflow-visible sm:justify-center">
+                <img src="/RoshanReview.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
+                <img src="/2.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
+              </div>
             </motion.div>
 
             {/* Solution */}
@@ -284,19 +297,6 @@ const CafeWifiV2 = () => {
                 </div>
               </motion.div>
             )}
-
-            {/* Chat Reviews */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="mb-8 sm:mb-12"
-            >
-              <div className="flex flex-row items-start justify-center gap-3">
-                <img src="/RoshanReview.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
-                <img src="/2.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
-              </div>
-            </motion.div>
 
             {/* Testimonials */}
             <motion.div
