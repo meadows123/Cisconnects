@@ -96,11 +96,62 @@ const WifiOptimisation = () => {
               </motion.button>
             </motion.div>
 
-            {/* Guarantee */}
+            {/* Scenarios */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.08 }}
+              className="space-y-4 sm:space-y-5 mb-8 sm:mb-12"
+            >
+              <div className="bg-gradient-to-r from-red-900/30 to-slate-900/30 border border-red-500/40 rounded-lg p-5 sm:p-6">
+                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
+                  You've upgraded your internet.
+                  <br />
+                  But in certain areas, it's still slow.
+                  <br />
+                  <span className="text-red-400">Dead zones. Weak signal. Frustration.</span>
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-orange-900/30 to-slate-900/30 border border-orange-500/40 rounded-lg p-5 sm:p-6">
+                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
+                  It works fine in one room…
+                  <br />
+                  but drops in another.
+                  <br />
+                  <span className="text-orange-400">Inconsistent performance across your space.</span>
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-yellow-900/30 to-slate-900/30 border border-yellow-500/40 rounded-lg p-5 sm:p-6">
+                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
+                  Everything is technically "connected"…
+                  <br />
+                  but it's slow.
+                  <br />
+                  <span className="text-yellow-400">Your network isn't performing properly.</span>
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Root Cause */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12 text-center"
+            >
+              <p className="text-base sm:text-lg font-bold text-white mb-3">
+                Most WiFi problems aren't caused by your internet connection.
+              </p>
+              <p className="text-sm sm:text-base text-blue-300 font-semibold">
+                They're caused by poor design, bad coverage, and interference.
+              </p>
+            </motion.div>
+
+            {/* Guarantee */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.12 }}
               className="mb-8 sm:mb-12"
             >
               <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 text-center">
@@ -191,57 +242,6 @@ const WifiOptimisation = () => {
                 )}
               </motion.button>
             </motion.form>
-
-            {/* Scenarios */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="space-y-4 sm:space-y-5 mb-8 sm:mb-12"
-            >
-              <div className="bg-gradient-to-r from-red-900/30 to-slate-900/30 border border-red-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
-                  You've upgraded your internet.
-                  <br />
-                  But in certain areas, it's still slow.
-                  <br />
-                  <span className="text-red-400">Dead zones. Weak signal. Frustration.</span>
-                </p>
-              </div>
-              <div className="bg-gradient-to-r from-orange-900/30 to-slate-900/30 border border-orange-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
-                  It works fine in one room…
-                  <br />
-                  but drops in another.
-                  <br />
-                  <span className="text-orange-400">Inconsistent performance across your space.</span>
-                </p>
-              </div>
-              <div className="bg-gradient-to-r from-yellow-900/30 to-slate-900/30 border border-yellow-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
-                  Everything is technically "connected"…
-                  <br />
-                  but it's slow.
-                  <br />
-                  <span className="text-yellow-400">Your network isn't performing properly.</span>
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Root Cause */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 }}
-              className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12 text-center"
-            >
-              <p className="text-base sm:text-lg font-bold text-white mb-3">
-                Most WiFi problems aren't caused by your internet connection.
-              </p>
-              <p className="text-sm sm:text-base text-blue-300 font-semibold">
-                They're caused by poor design, bad coverage, and interference.
-              </p>
-            </motion.div>
 
             {/* Solution */}
             <motion.div
