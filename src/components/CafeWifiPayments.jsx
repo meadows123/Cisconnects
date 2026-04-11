@@ -12,11 +12,11 @@ const CafeWifiPayments = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   const testimonials = [
-    { name: 'Lisa M.', initials: 'LM', role: 'Café Owner', result: 'Card machine failures dropped to zero after install', review: '"Our card machine was failing 3–4 times a day during the morning rush. Conxiea sorted the whole network and we haven\'t had a single payment failure since."' },
-    { name: 'James K.', initials: 'JK', role: 'Coffee Shop Manager', result: 'Customer dwell time increased noticeably', review: '"People were leaving early because the WiFi was useless. Since Conxiea upgraded it, customers stay longer, order more, and we\'ve actually had people mention it in Google reviews."' },
-    { name: 'Priya S.', initials: 'PS', role: 'Café & Coworking Owner', result: 'Reliable WiFi turned walk-ins into regulars', review: '"We market ourselves as a work-friendly space. The WiFi was letting us down constantly. Conxiea fixed it properly — not a single complaint since."' },
-    { name: 'Tom B.', initials: 'TB', role: 'Independent Café Owner', result: 'POS and payments stable through peak hours', review: '"Peak hours were a nightmare — slow POS, failed card payments, frustrated staff. Conxiea redesigned the network completely. Now it just works, every day."' },
-    { name: 'Rachel A.', initials: 'RA', role: 'Restaurant & Café Owner', result: 'Full coverage across both floors, payments never drop', review: '"Upstairs had almost no signal and card readers kept timing out. Conxiea surveyed the space and installed it properly. Both floors have full coverage now and payments are solid."' },
+    { name: 'Lisa M.', initials: 'LM', role: 'Business Owner', result: 'Card machine failures dropped to zero after install', review: '"Our card machine was failing 3–4 times a day during the morning rush. Conxiea sorted the whole network and we haven\'t had a single payment failure since."' },
+    { name: 'James K.', initials: 'JK', role: 'Shop Manager', result: 'Customer dwell time increased noticeably', review: '"People were leaving early because the WiFi was useless. Since Conxiea upgraded it, customers stay longer, order more, and we\'ve actually had people mention it in Google reviews."' },
+    { name: 'Priya S.', initials: 'PS', role: 'Coworking Space Owner', result: 'Reliable WiFi turned walk-ins into regulars', review: '"We market ourselves as a work-friendly space. The WiFi was letting us down constantly. Conxiea fixed it properly — not a single complaint since."' },
+    { name: 'Tom B.', initials: 'TB', role: 'Independent Business Owner', result: 'POS and payments stable through peak hours', review: '"Peak hours were a nightmare — slow POS, failed card payments, frustrated staff. Conxiea redesigned the network completely. Now it just works, every day."' },
+    { name: 'Rachel A.', initials: 'RA', role: 'Restaurant Owner', result: 'Full coverage across both floors, payments never drop', review: '"Upstairs had almost no signal and card readers kept timing out. Conxiea surveyed the space and installed it properly. Both floors have full coverage now and payments are solid."' },
   ];
 
   const nextTestimonial = () => setCurrentTestimonialIndex((prev) => (prev + 1) % testimonials.length);
@@ -45,8 +45,8 @@ const CafeWifiPayments = () => {
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
-        message: 'Enquiry from Café WiFi & Payments landing page',
-        service_interest: 'Café WiFi & Payment Reliability',
+        message: 'Enquiry from WiFi & Payment Issues landing page',
+        service_interest: 'WiFi & Payment Reliability',
         to_name: 'Conxiea Team',
         reply_to: formData.email,
       });
@@ -66,7 +66,7 @@ const CafeWifiPayments = () => {
     {
       lines: [
         'A customer sits down with a laptop.',
-        'Orders a coffee.',
+        'Orders a drink.',
         'Plans to stay for an hour or two.',
         'The WiFi is slow… then drops.',
         'They leave after 20 minutes instead.',
@@ -74,7 +74,7 @@ const CafeWifiPayments = () => {
     },
     {
       lines: [
-        'A customer finds your café as a place to work.',
+        'A customer finds your venue as a place to work.',
         'But the connection is unreliable.',
         'Next time, they choose somewhere else.',
         'And the time after that.',
@@ -83,7 +83,7 @@ const CafeWifiPayments = () => {
     },
     {
       lines: [
-        'Your café looks busy.',
+        'Your venue looks busy.',
         'But customers aren\'t staying long.',
         'Fewer repeat orders. Less time per table. Lower spend.',
         'And you don\'t realise your WiFi is the reason.',
@@ -94,8 +94,8 @@ const CafeWifiPayments = () => {
   return (
     <>
       <SEO
-        title="Café WiFi & Payment Reliability | Fix Card Machine Failures | Conxiea"
-        description="Every card machine failure costs you a sale. Conxiea installs reliable café WiFi that keeps payments running, customers staying longer, and your business earning more."
+        title="WiFi & Payment Issues | Fix Card Machine Failures | Conxiea"
+        description="Every card machine failure costs you a sale. Conxiea fixes unreliable WiFi that keeps payments running, customers staying longer, and your business earning more."
         url="/wifi-payment-issues"
       />
       <div className="min-h-screen bg-slate-950 flex flex-col">
@@ -111,7 +111,7 @@ const CafeWifiPayments = () => {
             >
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
                 Every Time Your Card Machine Fails,{' '}
-                <span className="border-b-2 border-yellow-400">You Lose a Sale.</span>
+                <span className="border-b-2 border-blue-500">You Lose a Sale.</span>
               </h1>
               <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">
                 Slow or unreliable payments aren't just frustrating — they're costing your business real money every day.
@@ -122,7 +122,7 @@ const CafeWifiPayments = () => {
                 onClick={scrollToForm}
                 className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
               >
-                Fix My Café WiFi
+                Fix My WiFi & Payments
               </motion.button>
             </motion.div>
 
@@ -182,46 +182,6 @@ const CafeWifiPayments = () => {
               </div>
             </motion.div>
 
-            {/* Feature Boxes */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 }}
-              className="space-y-4 sm:space-y-5 mb-12 sm:mb-16"
-            >
-              <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-sm sm:text-base text-red-400 mb-3">A card machine failure during your morning rush means frustrated customers, lost sales, and a queue that doesn't come back.</p>
-                <p className="text-sm sm:text-base text-white font-semibold mb-3">We install dedicated, reliable connectivity that keeps your payment terminals online — even during peak hours.</p>
-                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Card reader times out 3–4 times a day. Your provider says the network is fine. We check the actual infrastructure — access point load, channel congestion, VLAN separation — and fix the real cause.</p>
-                <div className="flex justify-center">
-                  <button onClick={scrollToForm} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Fix My Card Machine Issues</button>
-                </div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-sm sm:text-base text-red-400 mb-3">Customers who can't get online won't stay — and they won't come back. Every dropped connection is a repeat customer you didn't earn.</p>
-                <p className="text-sm sm:text-base text-white font-semibold mb-3">We design guest WiFi that's fast, stable, and separated from your business systems — so customers stay longer and spend more.</p>
-                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Customers connect, get a slow signal, and switch to mobile data instead. We survey your space, place access points correctly, and deliver consistent coverage to every seat in the building.</p>
-                <div className="flex justify-center">
-                  <button onClick={scrollToForm} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Improve My Guest WiFi</button>
-                </div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-sm sm:text-base text-red-400 mb-3">Your POS system, card readers, CCTV, and guest WiFi all share the same network — and they're fighting each other for bandwidth.</p>
-                <p className="text-sm sm:text-base text-white font-semibold mb-3">We separate your business-critical systems from guest traffic so payments always get priority — no matter how busy it gets.</p>
-                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Saturday afternoon, the café is full, everyone's on the WiFi — and the POS starts slowing down. We implement proper network segmentation so your payment systems are never competing with customer devices.</p>
-                <div className="flex justify-center">
-                  <button onClick={scrollToForm} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Separate My Networks</button>
-                </div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-sm sm:text-base text-red-400 mb-3">Dead zones at the back of the café, upstairs, or in the outdoor seating area mean some customers are always getting a second-class experience.</p>
-                <p className="text-sm sm:text-base text-white font-semibold mb-3">We cover every corner — with a proper site survey and the right number of access points in the right places.</p>
-                <p className="text-xs sm:text-sm text-gray-300 mb-4">Scenario: Upstairs tables have almost no signal. Customers near the window are fine, but the back of the café is a dead zone. We map the full space and install access points that eliminate gaps completely.</p>
-                <div className="flex justify-center">
-                  <button onClick={scrollToForm} className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]">Eliminate My Dead Zones</button>
-                </div>
-              </div>
-            </motion.div>
 
             {/* Status Messages */}
             {submitStatus === 'success' && (
@@ -252,6 +212,47 @@ const CafeWifiPayments = () => {
               </motion.div>
             )}
 
+            {/* What Actually Happens */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="mb-8 sm:mb-12"
+            >
+              <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-xl p-5 sm:p-7">
+                <p className="text-xs sm:text-sm font-semibold text-blue-400 mb-5">🎯 WHAT ACTUALLY HAPPENS WITH RELIABLE WIFI</p>
+                <div className="border-l-4 border-blue-500 pl-5 sm:pl-6 py-3 bg-slate-900/40 rounded-r-lg mb-6">
+                  <p className="text-white font-semibold text-sm sm:text-base">A customer sits down with a laptop.</p>
+                  <p className="text-gray-300 text-sm sm:text-base">Connection is perfect. Minutes turn into hours.</p>
+                  <p className="text-gray-300 text-sm sm:text-base">They order another drink. A snack. Maybe a meal.</p>
+                  <p className="text-gray-300 text-sm sm:text-base">They come back tomorrow. And the day after that.</p>
+                  <p className="text-blue-300 font-semibold text-sm sm:text-base mt-3">Reliable WiFi doesn't just keep customers connected — it keeps them spending.</p>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-3">See How WiFi is Affecting Your Revenue</h3>
+                <p className="text-sm sm:text-base text-gray-300 mb-5">Most small business owners don't realise how much their WiFi affects how long customers stay — how many payments fail — and how much revenue walks out the door every single day.</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+                  {[
+                    { stat: 'Longer stays', detail: 'Customers with reliable WiFi stay significantly longer per visit' },
+                    { stat: 'More spending', detail: 'Longer dwell time directly increases average transaction value' },
+                    { stat: 'Fewer failures', detail: 'Proper network setup eliminates card machine timeouts at peak hours' },
+                  ].map((item, i) => (
+                    <div key={i} className="bg-slate-800/60 border border-blue-500/30 rounded-lg p-4 text-center">
+                      <p className="text-white font-bold text-sm sm:text-base mb-1">{item.stat}</p>
+                      <p className="text-gray-400 text-xs">{item.detail}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex justify-center">
+                  <button
+                    onClick={scrollToForm}
+                    className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]"
+                  >
+                    Find Out What It's Costing You
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+
             {/* Testimonials */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -266,7 +267,7 @@ const CafeWifiPayments = () => {
                   { number: 'Same Day', label: 'Response Time' },
                   { number: '100%', label: 'Transparent Pricing — Quoted Before We Start' },
                 ].map((stat, i) => (
-                  <div key={i} className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-3 sm:p-4 text-center">
+                  <div key={i} className="bg-slate-800/60 border border-blue-500/50 rounded-lg p-3 sm:p-4 text-center">
                     <p className="text-xl sm:text-2xl font-bold text-white">{stat.number}</p>
                     <p className="text-xs sm:text-sm text-gray-300 mt-1">{stat.label}</p>
                   </div>
@@ -274,7 +275,7 @@ const CafeWifiPayments = () => {
               </div>
               <div className="flex items-center justify-center gap-3 mb-5 sm:mb-7">
                 <div className="h-px flex-1 bg-slate-700" />
-                <h2 className="text-center text-lg sm:text-xl font-bold text-white whitespace-nowrap">What café owners say</h2>
+                <h2 className="text-center text-lg sm:text-xl font-bold text-white whitespace-nowrap">What business owners say</h2>
                 <div className="h-px flex-1 bg-slate-700" />
               </div>
               <div className="flex items-center justify-center gap-2 mb-5 bg-slate-800/40 border border-slate-700/50 rounded-lg py-3 px-4">
@@ -322,24 +323,6 @@ const CafeWifiPayments = () => {
               </div>
             </motion.div>
 
-            {/* Guarantee repeat */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="mb-8 sm:mb-12"
-            >
-              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 text-center">
-                <div className="flex justify-center mb-3">
-                  <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
-                    <Shield className="w-7 h-7 text-green-400" />
-                  </div>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
-                <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If your connectivity isn't measurably better after we leave, you don't pay."</p>
-                <p className="text-sm text-gray-400">We only take on installs we're confident will deliver. No improvement means no invoice — no questions asked.</p>
-              </div>
-            </motion.div>
 
             {/* Form */}
             <motion.form
@@ -350,7 +333,7 @@ const CafeWifiPayments = () => {
               className="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6"
             >
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-1">Get a Free Assessment</h2>
-              <p className="text-sm text-gray-400 mb-2">Tell us about your café and we'll call you back the same day.</p>
+              <p className="text-sm text-gray-400 mb-2">Tell us about your business and we'll call you back the same day.</p>
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Your First Name <span className="text-red-500">*</span></label>
                 <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your First Name" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 transition touch-manipulation" required />
@@ -373,7 +356,7 @@ const CafeWifiPayments = () => {
                 {isSubmitting ? (
                   <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
                 ) : (
-                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Fix My Café WiFi</span></>
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Fix My WiFi & Payments</span></>
                 )}
               </motion.button>
             </motion.form>
@@ -389,11 +372,11 @@ const CafeWifiPayments = () => {
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <span className="text-blue-400 font-bold text-sm flex-shrink-0 mt-0.5">1.</span>
-                  <p className="text-sm sm:text-base text-white"><span className="font-semibold">You send your enquiry</span> — tell us about your café and the problems you're experiencing.</p>
+                  <p className="text-sm sm:text-base text-white"><span className="font-semibold">You send your enquiry</span> — tell us about your business and the payment or WiFi problems you're experiencing.</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-blue-400 font-bold text-sm flex-shrink-0 mt-0.5">2.</span>
-                  <p className="text-sm sm:text-base text-white"><span className="font-semibold">We call you back the same day</span> — a real engineer who understands hospitality environments, not a call centre.</p>
+                  <p className="text-sm sm:text-base text-white"><span className="font-semibold">We call you back the same day</span> — a real engineer, not a call centre.</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-blue-400 font-bold text-sm flex-shrink-0 mt-0.5">3.</span>
