@@ -147,11 +147,24 @@ const WifiOptimisation = () => {
               </p>
             </motion.div>
 
-            {/* Guarantee */}
+            {/* Solution */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.12 }}
+              className="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12 text-center"
+            >
+              <p className="text-base sm:text-lg font-bold text-white">
+                We redesign and optimise your WiFi so your connection performs properly across your entire space{' '}
+                <span className="text-green-400">— not just near the router.</span>
+              </p>
+            </motion.div>
+
+            {/* Guarantee */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.14 }}
               className="mb-8 sm:mb-12"
             >
               <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 text-center">
@@ -163,19 +176,6 @@ const WifiOptimisation = () => {
                 <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
                 <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If your WiFi coverage doesn't improve after our visit, you don't pay a penny."</p>
                 <p className="text-sm text-gray-400">We assess, we optimise, we verify. If there's no measurable improvement, there's no invoice.</p>
-              </div>
-            </motion.div>
-
-            {/* Chat Reviews */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="mb-8 sm:mb-12"
-            >
-              <div className="flex flex-row items-start gap-3">
-                <img src="/2.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
-                <img src="/JessReview.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
               </div>
             </motion.div>
 
@@ -243,17 +243,17 @@ const WifiOptimisation = () => {
               </motion.button>
             </motion.form>
 
-            {/* Solution */}
+            {/* Chat Reviews */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12 text-center"
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="mb-8 sm:mb-12"
             >
-              <p className="text-base sm:text-lg font-bold text-white">
-                We redesign and optimise your WiFi so your connection performs properly across your entire space{' '}
-                <span className="text-green-400">— not just near the router.</span>
-              </p>
+              <div className="flex flex-row items-start gap-3">
+                <img src="/2.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
+                <img src="/JessReview.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
+              </div>
             </motion.div>
 
             {/* Testimonials */}
