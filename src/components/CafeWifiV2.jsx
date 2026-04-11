@@ -285,6 +285,19 @@ const CafeWifiV2 = () => {
               </motion.div>
             )}
 
+            {/* Chat Reviews */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="mb-8 sm:mb-12"
+            >
+              <div className="flex flex-row items-start justify-center gap-3">
+                <img src="/RoshanReview.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
+                <img src="/2.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
+              </div>
+            </motion.div>
+
             {/* Testimonials */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
