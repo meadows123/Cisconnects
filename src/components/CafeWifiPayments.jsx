@@ -212,6 +212,20 @@ const CafeWifiPayments = () => {
               </motion.div>
             )}
 
+            {/* Chat Reviews */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="mb-8 sm:mb-12"
+            >
+              <div className="flex flex-col items-center gap-4">
+                <img src="/JessReview.png" alt="Customer review" className="w-2/3 sm:w-1/2 rounded-xl border border-slate-700" />
+                <img src="/1.png" alt="Customer review" className="w-2/3 sm:w-1/2 rounded-xl border border-slate-700" />
+                <img src="/2.png" alt="Customer review" className="w-2/3 sm:w-1/2 rounded-xl border border-slate-700" />
+              </div>
+            </motion.div>
+
             {/* What Actually Happens */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
