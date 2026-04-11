@@ -219,37 +219,25 @@ const CafeWifiPayments = () => {
               transition={{ duration: 0.4, delay: 0.2 }}
               className="mb-8 sm:mb-12"
             >
-              <div className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-xl p-5 sm:p-7">
-                <p className="text-xs sm:text-sm font-semibold text-blue-400 mb-5">🎯 WHAT ACTUALLY HAPPENS WITH RELIABLE WIFI</p>
-                <div className="border-l-4 border-blue-500 pl-5 sm:pl-6 py-3 bg-slate-900/40 rounded-r-lg mb-6">
-                  <p className="text-white font-semibold text-sm sm:text-base">A customer sits down with a laptop.</p>
-                  <p className="text-gray-300 text-sm sm:text-base">Connection is perfect. Minutes turn into hours.</p>
-                  <p className="text-gray-300 text-sm sm:text-base">They order another drink. A snack. Maybe a meal.</p>
-                  <p className="text-gray-300 text-sm sm:text-base">They come back tomorrow. And the day after that.</p>
-                  <p className="text-blue-300 font-semibold text-sm sm:text-base mt-3">Reliable WiFi doesn't just keep customers connected — it keeps them spending.</p>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-3">See How WiFi is Affecting Your Revenue</h3>
+              {/* Story box */}
+              <div className="border border-slate-700 rounded-xl p-5 sm:p-6 mb-6">
+                <p className="text-sm font-semibold text-white mb-4">🎯 What Actually Happens With Reliable WiFi</p>
+                <p className="text-sm sm:text-base font-bold text-white">A customer sits down with a laptop.</p>
+                <p className="text-sm sm:text-base font-semibold text-green-400">Connection is perfect. Minutes turn into hours.</p>
+                <p className="text-sm sm:text-base font-bold text-white mt-2">They order another drink. A snack. Maybe a meal.</p>
+                <p className="text-sm sm:text-base font-semibold text-green-400">They come back tomorrow. And the day after that.</p>
+              </div>
+
+              {/* Heading + para + button */}
+              <div className="text-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">See How WiFi is Affecting Your Revenue</h3>
                 <p className="text-sm sm:text-base text-gray-300 mb-5">Most small business owners don't realise how much their WiFi affects how long customers stay — how many payments fail — and how much revenue walks out the door every single day.</p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
-                  {[
-                    { stat: 'Longer stays', detail: 'Customers with reliable WiFi stay significantly longer per visit' },
-                    { stat: 'More spending', detail: 'Longer dwell time directly increases average transaction value' },
-                    { stat: 'Fewer failures', detail: 'Proper network setup eliminates card machine timeouts at peak hours' },
-                  ].map((item, i) => (
-                    <div key={i} className="bg-slate-800/60 border border-blue-500/30 rounded-lg p-4 text-center">
-                      <p className="text-white font-bold text-sm sm:text-base mb-1">{item.stat}</p>
-                      <p className="text-gray-400 text-xs">{item.detail}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex justify-center">
-                  <button
-                    onClick={scrollToForm}
-                    className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-6 sm:px-8 py-3 rounded transition cursor-pointer min-h-[44px]"
-                  >
-                    Find Out What It's Costing You
-                  </button>
-                </div>
+                <button
+                  onClick={scrollToForm}
+                  className="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-sm sm:text-base px-6 py-3.5 rounded-lg transition cursor-pointer min-h-[44px]"
+                >
+                  Improve Your WiFi &amp; Payment Experience
+                </button>
               </div>
             </motion.div>
 
