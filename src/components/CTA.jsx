@@ -8,7 +8,7 @@ import { useBooking } from '@/context/BookingContext';
 const CTA = () => {
   const { openBooking } = useBooking();
   return (
-    <section className="relative py-32 px-4 bg-gradient-to-b from-slate-900 to-slate-950 overflow-hidden">
+    <section className="relative py-16 md:py-32 px-4 bg-gradient-to-b from-slate-900 to-slate-950 overflow-hidden">
       {/* Animated Background Elements */}
       <motion.div
         className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
@@ -94,7 +94,7 @@ const CTA = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="pt-12 flex flex-wrap justify-center gap-12 text-center"
+            className="pt-8 md:pt-12 flex flex-wrap justify-center gap-6 md:gap-12 text-center"
           >
             <div>
               <p className="text-4xl font-bold text-gradient">10,000+</p>

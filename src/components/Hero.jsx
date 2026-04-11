@@ -84,7 +84,7 @@ const Hero = () => {
               Operational complexity doesn't just strain your engineers. It increases exposure at the leadership level.
             </p>
 
-            <div className="flex flex-wrap gap-12 justify-center lg:justify-start pt-6">
+            <div className="flex flex-wrap gap-4 sm:gap-12 justify-center lg:justify-start pt-6">
               <Button
                   size="lg"
                   onClick={openBooking}
@@ -108,7 +108,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="pt-8 flex flex-col lg:flex-row gap-12"
+              className="pt-8 flex flex-col lg:flex-row gap-6 lg:gap-12"
             >
               <div>
                 <p className="text-2xl md:text-3xl font-bold text-gradient">30–50%</p>

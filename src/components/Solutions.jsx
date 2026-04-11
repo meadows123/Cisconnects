@@ -233,7 +233,7 @@ const Solutions = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.3 }}
-            className="grid lg:grid-cols-2 gap-16 items-center"
+            className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
           >
             {/* Left — text */}
             <div className="space-y-7">

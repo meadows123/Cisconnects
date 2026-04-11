@@ -52,7 +52,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="relative py-32 px-4 bg-gradient-to-b from-slate-950 to-slate-900">
+    <section className="relative py-16 md:py-32 px-4 bg-gradient-to-b from-slate-950 to-slate-900">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ const Features = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20 text-center"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-10 md:mb-20 text-center"
         >
           {stats.map((stat, index) => (
             <div key={index} className="bg-slate-900/30 p-6 rounded-xl border border-slate-800">
@@ -84,7 +84,7 @@ const Features = () => {
           ))}
         </motion.div>
 
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 md:mb-20">
           <Button
               size="lg"
               onClick={openBooking}
