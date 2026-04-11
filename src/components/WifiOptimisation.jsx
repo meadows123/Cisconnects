@@ -96,16 +96,35 @@ const WifiOptimisation = () => {
               </motion.button>
             </motion.div>
 
-            {/* Chat Reviews */}
+            {/* Guarantee */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.08 }}
               className="mb-8 sm:mb-12"
             >
-              <div className="flex flex-row items-start gap-3 overflow-x-auto pb-2 sm:overflow-visible sm:justify-center">
-                <img src="/2.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
-                <img src="/JessReview.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
+              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 text-center">
+                <div className="flex justify-center mb-3">
+                  <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
+                    <Shield className="w-7 h-7 text-green-400" />
+                  </div>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
+                <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If your WiFi coverage doesn't improve after our visit, you don't pay a penny."</p>
+                <p className="text-sm text-gray-400">We assess, we optimise, we verify. If there's no measurable improvement, there's no invoice.</p>
+              </div>
+            </motion.div>
+
+            {/* Chat Reviews */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="mb-8 sm:mb-12"
+            >
+              <div className="flex flex-row items-start gap-3">
+                <img src="/2.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
+                <img src="/JessReview.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
               </div>
             </motion.div>
 
@@ -172,25 +191,6 @@ const WifiOptimisation = () => {
                 )}
               </motion.button>
             </motion.form>
-
-            {/* Guarantee */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="mb-8 sm:mb-12"
-            >
-              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 text-center">
-                <div className="flex justify-center mb-3">
-                  <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
-                    <Shield className="w-7 h-7 text-green-400" />
-                  </div>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
-                <p className="text-base sm:text-lg text-green-300 font-semibold mb-3">"If your WiFi coverage doesn't improve after our visit, you don't pay a penny."</p>
-                <p className="text-sm text-gray-400">We assess, we optimise, we verify. If there's no measurable improvement, there's no invoice.</p>
-              </div>
-            </motion.div>
 
             {/* Scenarios */}
             <motion.div

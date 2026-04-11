@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, ChevronLeft, ChevronRight, Check, Shield } from 'lucide-react';
@@ -115,9 +115,9 @@ const CafeWifiV2 = () => {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="mb-5 sm:mb-6"
             >
-              <div className="flex flex-row items-start gap-3 overflow-x-auto pb-2 sm:overflow-visible sm:justify-center">
-                <img src="/RoshanReview.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
-                <img src="/2.png" alt="Customer review" className="w-64 flex-shrink-0 sm:flex-shrink sm:w-1/2 rounded-xl border border-slate-700" />
+              <div className="flex flex-row items-start gap-3">
+                <img src="/RoshanReview.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
+                <img src="/2.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
               </div>
             </motion.div>
 
