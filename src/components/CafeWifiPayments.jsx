@@ -124,6 +124,18 @@ const CafeWifiPayments = () => {
               >
                 Fix My WiFi & Payments
               </motion.button>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.15 }}
+                className="mt-6"
+              >
+                <img
+                  src="/Payment Issues.png"
+                  alt="WiFi and payment issues"
+                  className="w-full rounded-xl"
+                />
+              </motion.div>
             </motion.div>
 
             {/* Speed Stat */}
@@ -163,17 +175,19 @@ const CafeWifiPayments = () => {
               ))}
             </motion.div>
 
-            {/* Chat Reviews */}
+            {/* What Actually Happens */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
               className="mb-8 sm:mb-12"
             >
-              <div className="flex flex-row items-start gap-3 overflow-x-auto pb-2 sm:overflow-visible sm:justify-center">
-                <img src="/JessReview.png" alt="Customer review" className="w-56 flex-shrink-0 sm:flex-shrink sm:w-1/3 rounded-xl border border-slate-700" />
-                <img src="/1.png" alt="Customer review" className="w-56 flex-shrink-0 sm:flex-shrink sm:w-1/3 rounded-xl border border-slate-700" />
-                <img src="/2.png" alt="Customer review" className="w-56 flex-shrink-0 sm:flex-shrink sm:w-1/3 rounded-xl border border-slate-700" />
+              <div className="border border-slate-700 rounded-xl p-5 sm:p-6">
+                <p className="text-sm font-semibold text-white mb-4">🎯 What Actually Happens With Reliable WiFi</p>
+                <p className="text-sm sm:text-base font-bold text-white">A customer sits down with a laptop.</p>
+                <p className="text-sm sm:text-base font-semibold text-green-400">Connection is perfect. Minutes turn into hours.</p>
+                <p className="text-sm sm:text-base font-bold text-white mt-2">They order another drink. A snack. Maybe a meal.</p>
+                <p className="text-sm sm:text-base font-semibold text-green-400">They come back tomorrow. And the day after that.</p>
               </div>
             </motion.div>
 
@@ -181,7 +195,7 @@ const CafeWifiPayments = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
               className="mb-8 sm:mb-12"
             >
               <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 text-center">
@@ -196,86 +210,84 @@ const CafeWifiPayments = () => {
               </div>
             </motion.div>
 
-            {/* What Actually Happens */}
+            {/* Status Messages */}
+            {submitStatus === 'success' && (
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-green-500/10 border border-green-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
+                <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-base sm:text-lg font-semibold text-green-400 mb-1 sm:mb-2">Enquiry Received!</h3>
+                  <p className="text-sm sm:text-base text-green-300">Thank you! Our team will be in touch the same day.</p>
+                </div>
+              </motion.div>
+            )}
+            {submitStatus === 'error' && (
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-red-500/10 border border-red-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
+                <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-red-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-base sm:text-lg font-semibold text-red-400 mb-1 sm:mb-2">Submission Failed</h3>
+                  <p className="text-sm sm:text-base text-red-300">An error occurred. Please try again.</p>
+                </div>
+              </motion.div>
+            )}
+            {submitStatus === 'error_validation' && (
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-yellow-500/10 border border-yellow-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
+                <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-base sm:text-lg font-semibold text-yellow-400 mb-1 sm:mb-2">Missing Information</h3>
+                  <p className="text-sm sm:text-base text-yellow-300">Please fill in all fields to continue.</p>
+                </div>
+              </motion.div>
+            )}
+
+            {/* Form */}
+            <motion.form
+              id="cafe-wifi-form"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              onSubmit={handleSubmit}
+              className="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6 mb-8 sm:mb-12"
+            >
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-1">Get a Free Assessment</h2>
+              <p className="text-sm text-gray-400 mb-2">Tell us about your business and we'll call you back the same day.</p>
+              <div>
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Your First Name <span className="text-red-500">*</span></label>
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your First Name" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 transition touch-manipulation" required />
+              </div>
+              <div>
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Email Address <span className="text-red-500">*</span></label>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter Your Email Address" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 transition touch-manipulation" required />
+              </div>
+              <div>
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Phone Number <span className="text-red-500">*</span></label>
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 transition touch-manipulation" required />
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 disabled:opacity-50 text-slate-900 font-bold text-sm sm:text-base rounded-lg flex items-center justify-center gap-2 transition shadow-lg min-h-12 sm:min-h-14"
+              >
+                {isSubmitting ? (
+                  <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
+                ) : (
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Fix My WiFi & Payments</span></>
+                )}
+              </motion.button>
+            </motion.form>
+
+            {/* Chat Reviews */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
               className="mb-8 sm:mb-12"
             >
-              <div className="border border-slate-700 rounded-xl p-5 sm:p-6 mb-6">
-                <p className="text-sm font-semibold text-white mb-4">🎯 What Actually Happens With Reliable WiFi</p>
-                <p className="text-sm sm:text-base font-bold text-white">A customer sits down with a laptop.</p>
-                <p className="text-sm sm:text-base font-semibold text-green-400">Connection is perfect. Minutes turn into hours.</p>
-                <p className="text-sm sm:text-base font-bold text-white mt-2">They order another drink. A snack. Maybe a meal.</p>
-                <p className="text-sm sm:text-base font-semibold text-green-400">They come back tomorrow. And the day after that.</p>
+              <div className="flex flex-row items-start gap-3 overflow-x-auto pb-2 sm:overflow-visible sm:justify-center">
+                <img src="/JessReview.png" alt="Customer review" className="w-56 flex-shrink-0 sm:flex-shrink sm:w-1/3 rounded-xl border border-slate-700" />
+                <img src="/1.png" alt="Customer review" className="w-56 flex-shrink-0 sm:flex-shrink sm:w-1/3 rounded-xl border border-slate-700" />
+                <img src="/2.png" alt="Customer review" className="w-56 flex-shrink-0 sm:flex-shrink sm:w-1/3 rounded-xl border border-slate-700" />
               </div>
-
-              {/* Status Messages */}
-              {submitStatus === 'success' && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-green-500/10 border border-green-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
-                  <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="text-base sm:text-lg font-semibold text-green-400 mb-1 sm:mb-2">Enquiry Received!</h3>
-                    <p className="text-sm sm:text-base text-green-300">Thank you! Our team will be in touch the same day.</p>
-                  </div>
-                </motion.div>
-              )}
-              {submitStatus === 'error' && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-red-500/10 border border-red-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
-                  <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-red-500 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="text-base sm:text-lg font-semibold text-red-400 mb-1 sm:mb-2">Submission Failed</h3>
-                    <p className="text-sm sm:text-base text-red-300">An error occurred. Please try again.</p>
-                  </div>
-                </motion.div>
-              )}
-              {submitStatus === 'error_validation' && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-yellow-500/10 border border-yellow-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
-                  <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="text-base sm:text-lg font-semibold text-yellow-400 mb-1 sm:mb-2">Missing Information</h3>
-                    <p className="text-sm sm:text-base text-yellow-300">Please fill in all fields to continue.</p>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Form */}
-              <motion.form
-                id="cafe-wifi-form"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                onSubmit={handleSubmit}
-                className="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6"
-              >
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-1">Get a Free Assessment</h2>
-                <p className="text-sm text-gray-400 mb-2">Tell us about your business and we'll call you back the same day.</p>
-                <div>
-                  <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Your First Name <span className="text-red-500">*</span></label>
-                  <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your First Name" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 transition touch-manipulation" required />
-                </div>
-                <div>
-                  <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Email Address <span className="text-red-500">*</span></label>
-                  <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter Your Email Address" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 transition touch-manipulation" required />
-                </div>
-                <div>
-                  <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Phone Number <span className="text-red-500">*</span></label>
-                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 transition touch-manipulation" required />
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 disabled:opacity-50 text-slate-900 font-bold text-sm sm:text-base rounded-lg flex items-center justify-center gap-2 transition shadow-lg min-h-12 sm:min-h-14"
-                >
-                  {isSubmitting ? (
-                    <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
-                  ) : (
-                    <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Fix My WiFi & Payments</span></>
-                  )}
-                </motion.button>
-              </motion.form>
             </motion.div>
 
             {/* Testimonials */}
