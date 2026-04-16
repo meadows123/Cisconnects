@@ -78,13 +78,13 @@ const WifiOptimisation = () => {
               transition={{ duration: 0.3 }}
               className="text-center mb-8 sm:mb-12"
             >
-              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
-                Your Internet Isn't the Problem{' '}
-                <span className="border-b-2 border-blue-500">— Your WiFi Is</span>
+              <h1 className="text-4xl xs:text-5xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
+                Fast Internet, Slow WiFi?{' '}
+                <span className="border-b-2 border-blue-500">We Fix That.</span>
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
-                You're paying for fast internet, but{' '}
-                <span className="border-b-2 border-blue-500 text-white">poor coverage, interference, and bad design stop it performing where it matters.</span>
+                If your internet speed is fast but some areas are still slow, the problem is usually{' '}
+                <span className="border-b-2 border-blue-500 text-white">coverage, placement, or interference — and we fix it.</span>
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
