@@ -145,10 +145,10 @@ const WifiOptimisation = () => {
                 </p>
               </div>
               <div className="bg-slate-900/60 px-5 sm:px-7 py-4 sm:py-5">
-                <p className="text-xs sm:text-sm font-bold text-green-400 uppercase tracking-wide mb-1">The Solution</p>
+                <p className="text-xs sm:text-sm font-bold text-blue-400 uppercase tracking-wide mb-1">The Solution</p>
                 <p className="text-base sm:text-lg text-white font-semibold leading-relaxed">
                   We redesign and optimise your WiFi so your connection performs properly across your entire space{' '}
-                  <span className="text-green-400">— not just near the router.</span>
+                  <span className="text-blue-400">— not just near the router.</span>
                 </p>
               </div>
             </motion.div>
