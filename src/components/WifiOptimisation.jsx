@@ -103,7 +103,7 @@ const WifiOptimisation = () => {
                 <img
                   src="/BeforeAfter Wifi Cafe.png"
                   alt="Before and after WiFi coverage improvement"
-                  className="w-full rounded-xl border border-slate-700"
+                  className="w-full rounded-xl"
                 />
               </motion.div>
             </motion.div>
