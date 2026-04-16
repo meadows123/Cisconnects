@@ -94,7 +94,7 @@ const ElectricianWebsiteServices = () => {
               transition={{ duration: 0.3 }}
               className="text-center mb-8 sm:mb-12"
             >
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
                 Your Competitors Are Getting Electrical Jobs Online.{' '}
                 <span className="border-b-2 border-blue-500">You're Not.</span>
               </h1>

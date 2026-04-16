@@ -78,7 +78,7 @@ const WifiOptimisation = () => {
               transition={{ duration: 0.3 }}
               className="text-center mb-8 sm:mb-12"
             >
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
                 Your Internet Isn't the Problem{' '}
                 <span className="border-b-2 border-blue-500">— Your WiFi Is</span>
               </h1>
@@ -94,6 +94,18 @@ const WifiOptimisation = () => {
               >
                 Fix My WiFi Performance
               </motion.button>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.15 }}
+                className="mt-6"
+              >
+                <img
+                  src="/BeforeAfter Wifi Cafe.png"
+                  alt="Before and after WiFi coverage improvement"
+                  className="w-full rounded-xl border border-slate-700"
+                />
+              </motion.div>
             </motion.div>
 
             {/* Scenarios */}
@@ -101,63 +113,44 @@ const WifiOptimisation = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.08 }}
-              className="space-y-4 sm:space-y-5 mb-8 sm:mb-12"
+              className="mb-6 sm:mb-8"
             >
-              <div className="bg-gradient-to-r from-red-900/30 to-slate-900/30 border border-red-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
-                  You've upgraded your internet.
-                  <br />
-                  But in certain areas, it's still slow.
-                  <br />
-                  <span className="text-red-400">Dead zones. Weak signal. Frustration.</span>
+              <div className="bg-red-950/40 border border-red-500/50 rounded-xl p-5 sm:p-7 space-y-3">
+                <p className="text-base sm:text-lg text-red-300 font-semibold leading-relaxed">
+                  You've upgraded your internet. But some rooms are still slow.
                 </p>
-              </div>
-              <div className="bg-gradient-to-r from-orange-900/30 to-slate-900/30 border border-orange-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
-                  It works fine in one room…
-                  <br />
-                  but drops in another.
-                  <br />
-                  <span className="text-orange-400">Inconsistent performance across your space.</span>
+                <p className="text-base sm:text-lg text-red-400 font-bold">
+                  Dead zones. Weak signal. Frustration.
                 </p>
-              </div>
-              <div className="bg-gradient-to-r from-yellow-900/30 to-slate-900/30 border border-yellow-500/40 rounded-lg p-5 sm:p-6">
-                <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
-                  Everything is technically "connected"…
-                  <br />
-                  but it's slow.
-                  <br />
-                  <span className="text-yellow-400">Your network isn't performing properly.</span>
+                <p className="text-base sm:text-lg text-red-300 font-semibold leading-relaxed">
+                  It works fine near the router… but drops off elsewhere.
+                </p>
+                <p className="text-base sm:text-lg text-red-300 font-semibold leading-relaxed">
+                  Everything is connected — but it still feels slow.
                 </p>
               </div>
             </motion.div>
 
-            {/* Root Cause */}
+            {/* Problem + Solution */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12 text-center"
+              className="mb-8 sm:mb-12 rounded-xl overflow-hidden border border-slate-700"
             >
-              <p className="text-base sm:text-lg font-bold text-white mb-3">
-                Most WiFi problems aren't caused by your internet connection.
-              </p>
-              <p className="text-sm sm:text-base text-blue-300 font-semibold">
-                They're caused by poor design, bad coverage, and interference.
-              </p>
-            </motion.div>
-
-            {/* Solution */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.12 }}
-              className="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12 text-center"
-            >
-              <p className="text-base sm:text-lg font-bold text-white">
-                We redesign and optimise your WiFi so your connection performs properly across your entire space{' '}
-                <span className="text-green-400">— not just near the router.</span>
-              </p>
+              <div className="bg-slate-800/60 px-5 sm:px-7 py-4 sm:py-5 border-b border-slate-700">
+                <p className="text-xs sm:text-sm font-bold text-red-400 uppercase tracking-wide mb-1">The Problem</p>
+                <p className="text-base sm:text-lg text-white font-semibold leading-relaxed">
+                  That usually means the WiFi setup, not the internet, is the real problem.
+                </p>
+              </div>
+              <div className="bg-slate-900/60 px-5 sm:px-7 py-4 sm:py-5">
+                <p className="text-xs sm:text-sm font-bold text-green-400 uppercase tracking-wide mb-1">The Solution</p>
+                <p className="text-base sm:text-lg text-white font-semibold leading-relaxed">
+                  We redesign and optimise your WiFi so your connection performs properly across your entire space{' '}
+                  <span className="text-green-400">— not just near the router.</span>
+                </p>
+              </div>
             </motion.div>
 
             {/* Guarantee */}
