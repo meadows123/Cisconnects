@@ -67,7 +67,7 @@ const WifiOptimisation = () => {
         description="Fast broadband but terrible WiFi? Conxiea optimises your WiFi coverage — better signal, faster speeds, and no more dead zones. Tell us your problem and we'll get back to you the same day."
         url="/wifi-optimisation"
       />
-      <div className="min-h-screen bg-slate-950 flex flex-col overflow-x-hidden">
+      <div className="min-h-screen bg-slate-950 flex flex-col">
         <main className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="w-full max-w-2xl">
 
@@ -98,12 +98,12 @@ const WifiOptimisation = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.15 }}
-                className="mt-4 w-screen relative left-1/2 -translate-x-1/2 sm:w-full sm:static sm:left-auto sm:translate-x-0"
+                className="mt-4 -mx-3 sm:mx-0"
               >
                 <img
                   src="/Wifi-Optimise.png"
                   alt="WiFi optimisation service"
-                  className="w-full sm:rounded-xl"
+                  className="w-full sm:rounded-xl h-[260px] sm:h-auto object-cover object-center"
                 />
               </motion.div>
             </motion.div>
