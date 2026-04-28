@@ -101,8 +101,8 @@ const WifiOptimisation = () => {
                 className="mt-6"
               >
                 <img
-                  src="/BeforeAfter Wifi Cafe.png"
-                  alt="Before and after WiFi coverage improvement"
+                  src="/Wifi-Optimise-Photo.png"
+                  alt="WiFi optimisation service"
                   className="w-full rounded-xl"
                 />
               </motion.div>
