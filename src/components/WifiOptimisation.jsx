@@ -103,7 +103,7 @@ const WifiOptimisation = () => {
                 <img
                   src="/Wifi-Optimise.png"
                   alt="WiFi optimisation service"
-                  className="w-full sm:rounded-xl h-[260px] sm:h-auto object-cover object-center"
+                  className="w-full sm:rounded-xl h-[320px] sm:h-auto object-cover object-center"
                 />
               </motion.div>
             </motion.div>
