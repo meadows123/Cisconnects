@@ -76,7 +76,7 @@ const WifiOptimisation = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="text-center mb-8 sm:mb-12"
+              className="text-center"
             >
               <h1 className="text-4xl xs:text-5xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
                 Fast Internet, Slow WiFi?{' '}
