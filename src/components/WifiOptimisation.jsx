@@ -98,12 +98,12 @@ const WifiOptimisation = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.15 }}
-                className="mt-4"
+                className="mt-4 -mx-3 sm:mx-0"
               >
                 <img
                   src="/Wifi-Optimise.png"
                   alt="WiFi optimisation service"
-                  className="w-full rounded-xl"
+                  className="w-full sm:rounded-xl"
                 />
               </motion.div>
             </motion.div>
