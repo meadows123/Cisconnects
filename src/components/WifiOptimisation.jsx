@@ -82,7 +82,7 @@ const WifiOptimisation = () => {
                 Fast Internet, Slow WiFi?{' '}
                 <span className="border-b-2 border-blue-500">We Fix That.</span>
               </h1>
-              <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
+              <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 sm:mb-6">
                 If your internet speed is fast but some areas are still slow, the problem is usually{' '}
                 <span className="border-b-2 border-blue-500 text-white">coverage, placement, or interference — and we fix it.</span>
               </p>
@@ -98,10 +98,10 @@ const WifiOptimisation = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.15 }}
-                className="mt-6"
+                className="mt-4"
               >
                 <img
-                  src="/Wifi-Optimise-Photo.png"
+                  src="/Wifi-Optimise.png"
                   alt="WiFi optimisation service"
                   className="w-full rounded-xl"
                 />
