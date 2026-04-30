@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, ChevronLeft, ChevronRight, Check, Shield } from 'lucide-react';
 import SEO from './SEO';
-import emailjs from '@emailjs/browser';
 
 const WifiOptimisation = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
@@ -36,20 +35,17 @@ const WifiOptimisation = () => {
     }
     setIsSubmitting(true);
     try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      if (!serviceId || !publicKey || !templateId) throw new Error('EmailJS config missing');
-      emailjs.init(publicKey);
-      await emailjs.send(serviceId, templateId, {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        message: 'Enquiry from WiFi Optimisation landing page',
-        service_interest: 'WiFi Optimisation',
-        to_name: 'Conxiea Team',
-        reply_to: formData.email,
+      const response = await fetch('/api/calls', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          source: 'wifi-optimisation',
+        }),
       });
+      if (!response.ok) throw new Error(`Server error: ${response.status}`);
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '' });
     } catch (err) {
