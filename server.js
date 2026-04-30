@@ -290,7 +290,7 @@ app.get('/api/calls', (req, res) => {
 // POST new call request
 app.post('/api/calls', async (req, res) => {
   try {
-    const { name, email, phone, timestamp } = req.body;
+    const { name, email, phone, timestamp, source } = req.body;
 
     // Validate required fields
     if (!name || !email || !phone) {
@@ -302,6 +302,7 @@ app.post('/api/calls', async (req, res) => {
       name,
       email,
       phone,
+      source: source || 'website',
       status: 'pending',
       createdAt: timestamp || new Date().toISOString()
     };
@@ -317,6 +318,40 @@ app.post('/api/calls', async (req, res) => {
     syncCallToGHL(call).catch(err =>
       console.error('GHL call sync error (non-blocking):', err.message)
     );
+
+    // Send email notification via EmailJS REST API (non-blocking)
+    const ejsServiceId = process.env.VITE_EMAILJS_SERVICE_ID;
+    const ejsTemplateId = process.env.VITE_EMAILJS_TEMPLATE_ID;
+    const ejsPublicKey = process.env.VITE_EMAILJS_PUBLIC_KEY;
+    const ejsPrivateKey = process.env.EMAILJS_PRIVATE_KEY;
+    if (ejsServiceId && ejsTemplateId && ejsPublicKey && ejsPrivateKey) {
+      fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: ejsServiceId,
+          template_id: ejsTemplateId,
+          user_id: ejsPublicKey,
+          accessToken: ejsPrivateKey,
+          template_params: {
+            from_name: call.name,
+            from_email: call.email,
+            phone: call.phone,
+            message: `New enquiry from ${call.source} page`,
+            service_interest: call.source,
+            to_name: 'Conxiea Team',
+            reply_to: call.email,
+          },
+        }),
+      })
+        .then(async (r) => {
+          if (!r.ok) console.error(`EmailJS notification failed (${r.status}):`, await r.text());
+          else console.log('📧 EmailJS notification sent for:', call.name);
+        })
+        .catch((err) => console.error('EmailJS notification error:', err.message));
+    } else {
+      console.warn('⚠️ EmailJS not fully configured — skipping email notification');
+    }
 
     res.status(201).json(call);
   } catch (error) {
