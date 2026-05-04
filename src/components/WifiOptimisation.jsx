@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, ChevronLeft, ChevronRight, Check, Shield } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import SEO from './SEO';
 
 const WifiOptimisation = () => {
@@ -35,7 +36,23 @@ const WifiOptimisation = () => {
     }
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/calls', {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      if (!serviceId || !publicKey || !templateId) throw new Error('EmailJS config missing');
+      emailjs.init(publicKey);
+      await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        message: 'New WiFi optimisation enquiry',
+        service_interest: 'WiFi Optimisation',
+        to_name: 'Conxiea Team',
+        reply_to: formData.email,
+      });
+
+      // Save lead to server (non-blocking on failure)
+      fetch('/api/calls', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -44,8 +61,8 @@ const WifiOptimisation = () => {
           phone: formData.phone,
           source: 'wifi-optimisation',
         }),
-      });
-      if (!response.ok) throw new Error(`Server error: ${response.status}`);
+      }).catch(err => console.error('Lead save error:', err));
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '' });
     } catch (err) {
