@@ -38,7 +38,7 @@ const WifiOptimisation = () => {
     try {
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_1;
       if (!serviceId || !publicKey || !templateId) throw new Error('EmailJS config missing');
       emailjs.init(publicKey);
       await emailjs.send(serviceId, templateId, {
