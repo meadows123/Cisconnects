@@ -40,7 +40,6 @@ const WifiOptimisation = lazy(() => import('@/components/WifiOptimisation'));
 const ElectricianWebsiteServices = lazy(() => import('@/components/ElectricianWebsiteServices'));
 const TradesWebsiteServices = lazy(() => import('@/components/TradesWebsiteServices'));
 const CafeWifiPayments = lazy(() => import('@/components/CafeWifiPayments'));
-const TestPage = lazy(() => import('@/components/TestPage'));
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -76,7 +75,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/website-for-electricians" element={<ElectricianWebsiteServices />} />
       <Route path="/website-for-trades" element={<TradesWebsiteServices />} />
       <Route path="/wifi-payment-issues" element={<CafeWifiPayments />} />
-      <Route path="/test-page" element={<TestPage />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
