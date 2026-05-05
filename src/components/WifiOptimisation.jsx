@@ -95,8 +95,8 @@ const WifiOptimisation = () => {
                 <span className="border-b-2 border-blue-500">We Fix That.</span>
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 sm:mb-6">
-                If your internet speed is fast but some areas are still slow, the problem is usually{' '}
-                <span className="border-b-2 border-blue-500 text-white">coverage, placement, or interference — and we fix it.</span>
+                Most WiFi problems come down to three things.{' '}
+                <span className="border-b-2 border-blue-500 text-white">We've fixed them 1,000+ times.</span>
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
