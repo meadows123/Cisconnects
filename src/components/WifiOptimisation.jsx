@@ -37,7 +37,7 @@ const WifiOptimisation = () => {
     setIsSubmitting(true);
     try {
       const serviceId = 'service_gdbt262';
-      const publicKey = 'gx-xmABy5ZLZCXAbk';
+      const publicKey = 'SMrLGbwIaaYgnRi2o';
       const templateId = 'template_q298neg';
       emailjs.init(publicKey);
       await emailjs.send(serviceId, templateId, {
