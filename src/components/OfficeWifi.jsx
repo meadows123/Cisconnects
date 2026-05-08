@@ -79,7 +79,7 @@ const OfficeWifi = () => {
         description="Dropped Teams calls, dead zones, slow meeting room internet? Conxiea fixes slow office WiFi and eliminates dead zones permanently. Network engineers — not a helpdesk."
         url="/office-connectivity"
       />
-      <div className="min-h-screen bg-slate-950 flex flex-col">
+      <div className="min-h-screen bg-[#0D0D2B] flex flex-col">
         <main className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="w-full max-w-2xl">
 
@@ -102,12 +102,12 @@ const OfficeWifi = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })}
-                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-amber-500 min-h-[44px]"
               >
                 Find out how
               </motion.button>
               <div className="mt-3">
-                <span className="block text-green-400 font-semibold text-base sm:text-lg">Free Network Survey, no obligations</span>
+                <span className="block text-amber-400 font-semibold text-base sm:text-lg">Free Network Survey, no obligations</span>
               </div>
             </motion.div>
 
@@ -323,7 +323,7 @@ const OfficeWifi = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })}
-                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-amber-500 min-h-[44px]"
               >
                 Get Your Office Network Assessed
               </motion.button>
@@ -353,7 +353,7 @@ const OfficeWifi = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               onSubmit={handleSubmit}
-              className="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6"
+              className="bg-[#0A0A24] border border-indigo-900/60 rounded-xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6"
             >
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Your First Name <span className="text-red-500">*</span></label>
@@ -376,7 +376,7 @@ const OfficeWifi = () => {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 disabled:opacity-50 text-slate-900 font-bold text-sm sm:text-base rounded-lg flex items-center justify-center gap-2 transition shadow-lg min-h-12 sm:min-h-14"
+                className="w-full px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 disabled:opacity-50 text-slate-900 font-bold text-sm sm:text-base rounded-lg flex items-center justify-center gap-2 transition shadow-lg min-h-12 sm:min-h-14"
               >
                 {isSubmitting ? (
                   <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
