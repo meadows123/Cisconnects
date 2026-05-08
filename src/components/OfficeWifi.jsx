@@ -104,8 +104,11 @@ const OfficeWifi = () => {
                 onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })}
                 className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
               >
-                Fix My Office WiFi
+                Find out how
               </motion.button>
+              <div className="mt-3">
+                <span className="block text-green-400 font-semibold text-base sm:text-lg">Free Network Survey, no obligations</span>
+              </div>
             </motion.div>
 
             {/* Pain */}
@@ -378,7 +381,7 @@ const OfficeWifi = () => {
                 {isSubmitting ? (
                   <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
                 ) : (
-                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Fix My Office WiFi</span></>
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Find out how</span></>
                 )}
               </motion.button>
             </motion.form>
