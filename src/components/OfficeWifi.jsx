@@ -79,7 +79,7 @@ const OfficeWifi = () => {
         description="Dropped Teams calls, dead zones, slow meeting room internet? Conxiea fixes slow office WiFi and eliminates dead zones permanently. Network engineers — not a helpdesk."
         url="/office-connectivity"
       />
-      <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-700 via-purple-700 to-pink-500">
+      <div className="min-h-screen bg-slate-950 flex flex-col">
         <main className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="w-full max-w-2xl">
 
@@ -90,7 +90,7 @@ const OfficeWifi = () => {
               transition={{ duration: 0.3 }}
               className="text-center mb-8 sm:mb-12"
             >
-              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight drop-shadow-lg">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
                 Your Team Isn't Slow{' '}
                 <span className="border-b-2 border-blue-500">— Your Network Is</span>
               </h1>
@@ -102,12 +102,12 @@ const OfficeWifi = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })}
-                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 hover:from-pink-500 hover:to-blue-600 text-white font-extrabold text-base sm:text-lg rounded-full shadow-2xl border-0 min-h-[44px] transition-all duration-200 drop-shadow-lg"
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
               >
                 Find out how
               </motion.button>
               <div className="mt-3">
-                <span className="block text-white font-bold text-base sm:text-lg bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 px-4 py-2 rounded-full shadow-lg inline-block">Free Network Survey, no obligations</span>
+                <span className="block text-green-400 font-semibold text-base sm:text-lg">Free Network Survey, no obligations</span>
               </div>
             </motion.div>
 
@@ -126,12 +126,12 @@ const OfficeWifi = () => {
                 Cloud systems unavailable. Data access frozen.
               </p>
               <p className="text-sm sm:text-base text-red-400 font-semibold">And every minute it's down costs you.</p>
+            </motion.div>
+
+            {/* Shift */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="bg-white/90 border-4 border-pink-400 rounded-2xl p-5 sm:p-6 mb-5 sm:mb-6 shadow-xl"
-            >
               transition={{ duration: 0.4, delay: 0.125 }}
               className="bg-gradient-to-r from-orange-900/30 to-slate-900/30 border border-orange-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
@@ -141,12 +141,12 @@ const OfficeWifi = () => {
               <p className="text-sm sm:text-base text-orange-300">
                 Cloud apps, video calls, and multiple devices all demand more than basic setups can handle.
               </p>
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.125 }}
-              className="bg-white/90 border-4 border-purple-400 rounded-2xl p-5 sm:p-6 mb-5 sm:mb-6 shadow-xl"
-            >
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-3">
                 Most businesses ignore their network until it breaks. By then, it's too late.
@@ -154,12 +154,12 @@ const OfficeWifi = () => {
               <p className="text-white font-semibold">
                 We build networks that don't fail — so you never have to find out what network downtime actually costs.
               </p>
+            </motion.div>
+
+            {/* Solution */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 }}
-              className="bg-white/90 border-4 border-blue-400 rounded-2xl p-5 sm:p-6 mb-5 sm:mb-6 shadow-xl"
-            >
               transition={{ duration: 0.4, delay: 0.2 }}
               className="mb-5 sm:mb-6"
             >
@@ -321,76 +321,80 @@ const OfficeWifi = () => {
               <p className="text-sm sm:text-base text-gray-300 mb-6">Find out what's slowing your team down — and how to fix it.</p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
-                  className="bg-white/90 border-4 border-pink-400 rounded-2xl p-5 sm:p-6 mb-5 sm:mb-6 shadow-xl"
-                >
-                  <p className="text-sm sm:text-base text-gray-700 mb-3">One network failure costs you money. Real money.</p>
-                  <p className="text-base sm:text-lg font-bold text-gray-900 leading-relaxed mb-3">
-                    Payments locked. Customers waiting at checkout.<br />
-                    Staff can't access files. Work stops.<br />
-                    VoIP down. Your phone lines are dead.<br />
-                    Cloud systems unavailable. Data access frozen.
-                  </p>
-                  <p className="text-sm sm:text-base text-pink-500 font-semibold">And every minute it's down costs you.</p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.125 }}
-                  className="bg-white/90 border-4 border-purple-400 rounded-2xl p-5 sm:p-6 mb-5 sm:mb-6 shadow-xl"
-                >
-                  <p className="text-base sm:text-lg font-bold text-gray-900 leading-relaxed mb-3">
-                    Most office networks aren't designed for how modern teams actually work.
-                  </p>
-                  <p className="text-sm sm:text-base text-purple-500">
-                    Cloud apps, video calls, and multiple devices all demand more than basic setups can handle.
-                  </p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.15 }}
-                  className="bg-white/90 border-4 border-blue-400 rounded-2xl p-5 sm:p-6 mb-5 sm:mb-6 shadow-xl"
-                >
-                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-3">
-                    Most businesses ignore their network until it breaks. By then, it's too late.
-                  </p>
-                  <p className="text-blue-700 font-semibold">
-                    We build networks that don't fail — so you never have to find out what network downtime actually costs.
-                  </p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                  className="mb-5 sm:mb-6 bg-white/90 border-4 border-blue-300 rounded-2xl p-5 sm:p-6 shadow-xl"
-                >
-                  <p className="text-base sm:text-lg font-bold text-gray-900 leading-relaxed mb-4">
-                    We design office networks that support how your team actually works — so systems run smoothly, calls stay stable, and your team can work without delays.
-                  </p>
-                  <p className="text-sm sm:text-base text-gray-700 mb-4">
-                    Here's what you get:
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    {[
-                      'Payment systems that process 24/7 without interruption',
-                      'Business-critical cloud apps stay connected, always',
-                      'VoIP and video conferencing that never drops in the middle of deals',
-                      'Growth-ready infrastructure so network scaling isn\'t a crisis',
-                      'Redundancy built-in so one component failure doesn\'t take everything down',
-                    ].map((item, i) => (
-                      <div key={i} className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
-                        <div className="flex items-start gap-2">
-                          <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                          <p className="text-sm sm:text-base text-gray-900 font-semibold">{item}</p>
-                        </div>
-                      </div>
-                    ))}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })}
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
+              >
+                Get Your Office Network Assessed
+              </motion.button>
+            </motion.div>
+
+            {/* Guarantee */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.55 }}
+              className="mb-8 sm:mb-12"
+            >
+              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 mb-6 text-center">
+                <div className="flex justify-center mb-3">
+                  <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
+                    <Shield className="w-7 h-7 text-green-400" />
                   </div>
-                </motion.div>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
+                <p className="text-base sm:text-lg text-green-300 font-semibold">"If your office WiFi isn't measurably better after we leave, you don't pay."</p>
+              </div>
+            </motion.div>
+
+            {/* Form */}
+            <motion.form
+              id="office-form"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              onSubmit={handleSubmit}
+              className="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6"
+            >
+              <div>
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Your First Name <span className="text-red-500">*</span></label>
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your First Name" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+              </div>
+              <div>
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Email Address <span className="text-red-500">*</span></label>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter Your Email Address" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+              </div>
+              <div>
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Phone Number <span className="text-red-500">*</span></label>
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
+              </div>
+              <div>
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Describe Your Issue <span className="text-red-500">*</span></label>
+                <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Tell us what's happening — e.g. dead zones, dropped Teams calls, slow speeds in certain areas..." rows={4} className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation resize-none" required />
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 disabled:opacity-50 text-slate-900 font-bold text-sm sm:text-base rounded-lg flex items-center justify-center gap-2 transition shadow-lg min-h-12 sm:min-h-14"
+              >
+                {isSubmitting ? (
+                  <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
+                ) : (
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Find out how</span></>
+                )}
+              </motion.button>
+            </motion.form>
+
+            {/* Footer */}
+            <div className="text-center mt-10 sm:mt-12 text-gray-400 text-xs sm:text-sm">
+              <p className="mb-3 sm:mb-4 text-xs sm:text-sm">© 2026 Conxiea. All rights reserved.</p>
+              <div className="flex justify-center gap-3 sm:gap-6 flex-wrap">
+                <Link to="/privacy-policy" className="hover:text-blue-400 transition text-xs sm:text-sm">Privacy Policy</Link>
+                <Link to="/terms-of-service" className="hover:text-blue-400 transition text-xs sm:text-sm">Terms of Service</Link>
+                <Link to="/" className="hover:text-blue-400 transition text-xs sm:text-sm">Home</Link>
+              </div>
+            </div>
 
           </div>
         </main>
