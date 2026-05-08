@@ -79,7 +79,7 @@ const WifiOptimisation = () => {
         description="Fast broadband but terrible WiFi? Conxiea optimises your WiFi coverage — better signal, faster speeds, and no more dead zones. Tell us your problem and we'll get back to you the same day."
         url="/wifi-optimisation"
       />
-      <div className="min-h-screen bg-[#0D0D2B] flex flex-col">
+      <div className="min-h-screen bg-[#0f0f3d] flex flex-col">
         <main className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="w-full max-w-2xl">
 

@@ -79,7 +79,7 @@ const OfficeWifi = () => {
         description="Dropped Teams calls, dead zones, slow meeting room internet? Conxiea fixes slow office WiFi and eliminates dead zones permanently. Network engineers — not a helpdesk."
         url="/office-connectivity"
       />
-      <div className="min-h-screen bg-[#0D0D2B] flex flex-col">
+      <div className="min-h-screen bg-[#0f0f3d] flex flex-col">
         <main className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="w-full max-w-2xl">
 
