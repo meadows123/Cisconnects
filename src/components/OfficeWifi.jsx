@@ -79,7 +79,7 @@ const OfficeWifi = () => {
         description="Dropped Teams calls, dead zones, slow meeting room internet? Conxiea fixes slow office WiFi and eliminates dead zones permanently. Network engineers — not a helpdesk."
         url="/office-connectivity"
       />
-      <div className="min-h-screen bg-slate-950 flex flex-col">
+      <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-700 via-purple-700 to-pink-500">
         <main className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="w-full max-w-2xl">
 
@@ -90,7 +90,7 @@ const OfficeWifi = () => {
               transition={{ duration: 0.3 }}
               className="text-center mb-8 sm:mb-12"
             >
-              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight drop-shadow-lg">
                 Your Team Isn't Slow{' '}
                 <span className="border-b-2 border-blue-500">— Your Network Is</span>
               </h1>
@@ -102,12 +102,12 @@ const OfficeWifi = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('office-form').scrollIntoView({ behavior: 'smooth' })}
-                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-yellow-500 min-h-[44px]"
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 hover:from-pink-500 hover:to-blue-600 text-white font-extrabold text-base sm:text-lg rounded-full shadow-2xl border-0 min-h-[44px] transition-all duration-200 drop-shadow-lg"
               >
                 Find out how
               </motion.button>
               <div className="mt-3">
-                <span className="block text-green-400 font-semibold text-base sm:text-lg">Free Network Survey, no obligations</span>
+                <span className="block text-white font-bold text-base sm:text-lg bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 px-4 py-2 rounded-full shadow-lg inline-block">Free Network Survey, no obligations</span>
               </div>
             </motion.div>
 
@@ -126,12 +126,12 @@ const OfficeWifi = () => {
                 Cloud systems unavailable. Data access frozen.
               </p>
               <p className="text-sm sm:text-base text-red-400 font-semibold">And every minute it's down costs you.</p>
-            </motion.div>
-
-            {/* Shift */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="bg-white/90 border-4 border-pink-400 rounded-2xl p-5 sm:p-6 mb-5 sm:mb-6 shadow-xl"
+            >
               transition={{ duration: 0.4, delay: 0.125 }}
               className="bg-gradient-to-r from-orange-900/30 to-slate-900/30 border border-orange-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
@@ -141,12 +141,12 @@ const OfficeWifi = () => {
               <p className="text-sm sm:text-base text-orange-300">
                 Cloud apps, video calls, and multiple devices all demand more than basic setups can handle.
               </p>
-            </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 }}
-              className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
+              transition={{ duration: 0.4, delay: 0.125 }}
+              className="bg-white/90 border-4 border-purple-400 rounded-2xl p-5 sm:p-6 mb-5 sm:mb-6 shadow-xl"
+            >
             >
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-3">
                 Most businesses ignore their network until it breaks. By then, it's too late.
@@ -154,12 +154,12 @@ const OfficeWifi = () => {
               <p className="text-white font-semibold">
                 We build networks that don't fail — so you never have to find out what network downtime actually costs.
               </p>
-            </motion.div>
-
-            {/* Solution */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="bg-white/90 border-4 border-blue-400 rounded-2xl p-5 sm:p-6 mb-5 sm:mb-6 shadow-xl"
+            >
               transition={{ duration: 0.4, delay: 0.2 }}
               className="mb-5 sm:mb-6"
             >
