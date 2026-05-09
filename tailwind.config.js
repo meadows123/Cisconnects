@@ -20,6 +20,13 @@ module.exports = {
 				'xs': '480px',
 			},
 			colors: {
+				// Dark navy palette — replaces default slate dark tones site-wide
+				slate: {
+					700: '#1e1e70',
+					800: '#161655',
+					900: '#0f0f3d',
+					950: '#0b0b2e',
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
