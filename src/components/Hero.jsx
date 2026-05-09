@@ -24,8 +24,39 @@ const Hero = () => {
     { Icon: Sparkles, delay: 0.6, x: 120, y: 60 },
   ];
 
+  const stripes = [
+    { top: '-60px', left: '-40px',  width: 90,  height: 340, rotate: 35,  gradient: 'linear-gradient(180deg, #f59e0b, #fbbf24)' },
+    { top: '10%',   left: '-60px',  width: 70,  height: 260, rotate: 35,  gradient: 'linear-gradient(180deg, #7c3aed, #a855f7)' },
+    { top: '-80px', right: '-30px', width: 90,  height: 320, rotate: -35, gradient: 'linear-gradient(180deg, #7c3aed, #a855f7)' },
+    { top: '5%',    right: '-50px', width: 60,  height: 220, rotate: -35, gradient: 'linear-gradient(180deg, #f59e0b, #fbbf24)' },
+    { bottom: '-60px', left: '5%',  width: 80,  height: 280, rotate: 35,  gradient: 'linear-gradient(180deg, #f59e0b, #d97706)' },
+    { bottom: '-40px', right: '8%', width: 70,  height: 240, rotate: -35, gradient: 'linear-gradient(180deg, #6d28d9, #7c3aed)' },
+    { bottom: '10%',   right: '-40px', width: 55, height: 200, rotate: -35, gradient: 'linear-gradient(180deg, #f59e0b, #fbbf24)' },
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20 pt-40">
+      {/* Decorative diagonal stripes - hidden on mobile */}
+      {!isMobile && stripes.map((s, i) => (
+        <div
+          key={i}
+          className="absolute pointer-events-none"
+          style={{
+            top: s.top,
+            left: s.left,
+            right: s.right,
+            bottom: s.bottom,
+            width: s.width,
+            height: s.height,
+            borderRadius: '40px',
+            background: s.gradient,
+            transform: `rotate(${s.rotate}deg)`,
+            opacity: 0.55,
+            zIndex: 1,
+          }}
+        />
+      ))}
+
       {/* Animated Background - Disabled on Mobile */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-950 to-purple-950">
         {!isMobile && (
@@ -55,7 +86,7 @@ const Hero = () => {
         </motion.div>
       ))}
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto" style={{ zIndex: 10 }}>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
           <motion.div
