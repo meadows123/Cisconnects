@@ -25,13 +25,13 @@ const Hero = () => {
   ];
 
   const stripes = [
-    { top: '-60px', left: '-40px',  width: 90,  height: 340, rotate: 35,  gradient: 'linear-gradient(180deg, #f59e0b, #fbbf24)' },
-    { top: '10%',   left: '-60px',  width: 70,  height: 260, rotate: 35,  gradient: 'linear-gradient(180deg, #7c3aed, #a855f7)' },
-    { top: '-80px', right: '-30px', width: 90,  height: 320, rotate: -35, gradient: 'linear-gradient(180deg, #7c3aed, #a855f7)' },
-    { top: '5%',    right: '-50px', width: 60,  height: 220, rotate: -35, gradient: 'linear-gradient(180deg, #f59e0b, #fbbf24)' },
-    { bottom: '-60px', left: '5%',  width: 80,  height: 280, rotate: 35,  gradient: 'linear-gradient(180deg, #f59e0b, #d97706)' },
-    { bottom: '-40px', right: '8%', width: 70,  height: 240, rotate: -35, gradient: 'linear-gradient(180deg, #6d28d9, #7c3aed)' },
-    { bottom: '10%',   right: '-40px', width: 55, height: 200, rotate: -35, gradient: 'linear-gradient(180deg, #f59e0b, #fbbf24)' },
+    { top: '-60px',    left: '-40px',    width: 90,  height: 340, rotate: 35,  gradient: 'linear-gradient(180deg, #38bdf8, #7dd3fc)' },
+    { top: '10%',      left: '-60px',    width: 70,  height: 260, rotate: 35,  gradient: 'linear-gradient(180deg, #fbbf24, #f59e0b)' },
+    { top: '-80px',    right: '-30px',   width: 90,  height: 320, rotate: -35, gradient: 'linear-gradient(180deg, #fbbf24, #fde68a)' },
+    { top: '5%',       right: '-50px',   width: 60,  height: 220, rotate: -35, gradient: 'linear-gradient(180deg, #38bdf8, #0ea5e9)' },
+    { bottom: '-60px', left: '5%',       width: 80,  height: 280, rotate: 35,  gradient: 'linear-gradient(180deg, #f59e0b, #fbbf24)' },
+    { bottom: '-40px', right: '8%',      width: 70,  height: 240, rotate: -35, gradient: 'linear-gradient(180deg, #7dd3fc, #38bdf8)' },
+    { bottom: '10%',   right: '-40px',   width: 55,  height: 200, rotate: -35, gradient: 'linear-gradient(180deg, #fbbf24, #f59e0b)' },
   ];
 
   return (
@@ -48,13 +48,23 @@ const Hero = () => {
             bottom: s.bottom,
             width: s.width,
             height: s.height,
-            borderRadius: '40px',
+            borderRadius: '44px',
             background: s.gradient,
             transform: `rotate(${s.rotate}deg)`,
-            opacity: 0.55,
+            opacity: 0.65,
             zIndex: 1,
+            overflow: 'hidden',
           }}
-        />
+        >
+          {/* White dot grid overlay */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.55) 1.5px, transparent 1.5px)',
+            backgroundSize: '10px 10px',
+            backgroundPosition: '4px 4px',
+          }} />
+        </div>
       ))}
 
       {/* Animated Background - Disabled on Mobile */}
