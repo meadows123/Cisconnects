@@ -61,7 +61,7 @@ export default function Navigation() {
               />
             </motion.div>
             <motion.div
-              className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-yellow-400"
+              className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"
               initial={{ width: 0 }}
               whileHover={{ width: '100%' }}
               transition={{ duration: 0.3 }}
@@ -232,7 +232,7 @@ export default function Navigation() {
 
         {/* Animated border at bottom */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-blue-500 via-purple-500 to-yellow-400"
+          className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent"
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ 
             scaleX: scrolled ? 1 : 0,
