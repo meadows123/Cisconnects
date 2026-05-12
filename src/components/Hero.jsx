@@ -24,48 +24,8 @@ const Hero = () => {
     { Icon: Sparkles, delay: 0.6, x: 120, y: 60 },
   ];
 
-  const stripes = [
-    { top: '-60px',    left: '-40px',    width: 90,  height: 340, rotate: 35,  gradient: 'linear-gradient(180deg, #38bdf8, #7dd3fc)' },
-    { top: '10%',      left: '-60px',    width: 70,  height: 260, rotate: 35,  gradient: 'linear-gradient(180deg, #fbbf24, #f59e0b)' },
-    { top: '-80px',    right: '-30px',   width: 90,  height: 320, rotate: -35, gradient: 'linear-gradient(180deg, #fbbf24, #fde68a)' },
-    { top: '5%',       right: '-50px',   width: 60,  height: 220, rotate: -35, gradient: 'linear-gradient(180deg, #38bdf8, #0ea5e9)' },
-    { bottom: '-60px', left: '5%',       width: 80,  height: 280, rotate: 35,  gradient: 'linear-gradient(180deg, #f59e0b, #fbbf24)' },
-    { bottom: '-40px', right: '8%',      width: 70,  height: 240, rotate: -35, gradient: 'linear-gradient(180deg, #7dd3fc, #38bdf8)' },
-    { bottom: '10%',   right: '-40px',   width: 55,  height: 200, rotate: -35, gradient: 'linear-gradient(180deg, #fbbf24, #f59e0b)' },
-  ];
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20 pt-40">
-      {/* Decorative diagonal stripes - hidden on mobile */}
-      {!isMobile && stripes.map((s, i) => (
-        <div
-          key={i}
-          className="absolute pointer-events-none"
-          style={{
-            top: s.top,
-            left: s.left,
-            right: s.right,
-            bottom: s.bottom,
-            width: s.width,
-            height: s.height,
-            borderRadius: '44px',
-            background: s.gradient,
-            transform: `rotate(${s.rotate}deg)`,
-            opacity: 0.65,
-            zIndex: 1,
-            overflow: 'hidden',
-          }}
-        >
-          {/* White dot grid overlay */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.55) 1.5px, transparent 1.5px)',
-            backgroundSize: '10px 10px',
-            backgroundPosition: '4px 4px',
-          }} />
-        </div>
-      ))}
 
       {/* Animated Background - Disabled on Mobile */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-950 to-purple-950">
@@ -96,7 +56,7 @@ const Hero = () => {
         </motion.div>
       ))}
 
-      <div className="relative z-10 max-w-7xl mx-auto" style={{ zIndex: 10 }}>
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
           <motion.div
