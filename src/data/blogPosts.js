@@ -2068,7 +2068,7 @@ Every installation includes network segmentation as standard — your card payme
 
 We don't just install and disappear. Our managed WiFi service means you have a technical team monitoring your connection and available when something needs attention. No more restarting the router and hoping for the best.
 
-If your café WiFi keeps dropping and you're ready to fix it properly, [see our café connectivity service](/reliable-cafe-connectivity) to find out what a professionally installed and managed system looks like for your venue.
+If your café WiFi keeps dropping and you're ready to fix it properly, [see our café connectivity service](/hospitality-wifi-installation) to find out what a professionally installed and managed system looks like for your venue.
 
 > Poor WiFi in a café is almost always a business WiFi installation problem, not a broadband problem. The right hardware, correctly installed and properly configured, makes the issue disappear entirely.
 
@@ -2080,7 +2080,7 @@ Broadband speed and WiFi reliability are separate things. The most common cause 
 
 **How much does business WiFi installation cost for a café?**
 
-The cost depends on the size of the venue and the number of access points required. A small café with straightforward layout typically requires 1–2 commercial access points plus a business-grade router. A larger venue with multiple rooms or an outdoor area may need 3–5 access points. [Get in touch for a site assessment and quote](/reliable-cafe-connectivity) — we'll survey the space and give you an accurate figure.
+The cost depends on the size of the venue and the number of access points required. A small café with straightforward layout typically requires 1–2 commercial access points plus a business-grade router. A larger venue with multiple rooms or an outdoor area may need 3–5 access points. [Get in touch for a site assessment and quote](/hospitality-wifi-installation) — we'll survey the space and give you an accurate figure.
 
 **Do I need to separate my customer WiFi from my business network?**
 

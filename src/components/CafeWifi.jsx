@@ -77,7 +77,7 @@ const CafeWifi = () => {
       <SEO
         title="Reliable Café Connectivity | Conxiea"
         description="Nothing breaks a busy café faster than bad internet. We install reliable café connectivity so payments go through, POS stays online, and everything works when it matters most."
-        url="/reliable-cafe-connectivity"
+        url="/hospitality-wifi-installation"
       />
       <div className="min-h-screen bg-slate-950 flex flex-col">
         <main className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
