@@ -9,7 +9,7 @@ const ConsultationSuccess = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col">
+    <div className="min-h-screen bg-[#0f0f3d] flex flex-col">
       {/* No Navigation - Funnel locked */}
       
       <div className="flex-1 flex items-center justify-center px-3 sm:px-4 py-12 sm:py-20">

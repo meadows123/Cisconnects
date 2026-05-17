@@ -19,7 +19,7 @@ const PrivacyPolicy = () => {
         description="Conxiea Privacy Policy - Learn how we collect, use, and protect your personal information. GDPR compliant privacy practices for AI network automation and digital services."
         url="/privacy-policy"
       />
-      <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <div className="min-h-screen bg-[#0f0f3d]">
         <Navigation />
         
         <div className="pt-40 pb-20 px-4">

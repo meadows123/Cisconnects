@@ -86,7 +86,7 @@ const ConsultationCalendar = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-[#0f0f3d]">
       <Navigation />
       <div className="pt-12 pb-8 px-3 sm:px-6 lg:px-8 md:pt-24 md:pb-16">
         <div className="max-w-7xl mx-auto">

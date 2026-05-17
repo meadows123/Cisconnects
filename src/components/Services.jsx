@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { 
   BrainCircuit, 
   Network, 
@@ -122,7 +123,8 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-[#0f0f3d] relative">
+      <AnimatedHeroBackground />
       <SEO
         title="Our Services | Conxiea - AI Network Automation & IT Solutions"
         description="Comprehensive IT services including AI-driven network automation, network migrations, Active Directory cloud migrations, web design, AI chatbots, and advanced troubleshooting. Over 20 years of expertise in network infrastructure."

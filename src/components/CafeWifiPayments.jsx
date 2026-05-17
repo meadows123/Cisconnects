@@ -98,7 +98,7 @@ const CafeWifiPayments = () => {
         description="Every card machine failure costs you a sale. Conxiea fixes unreliable WiFi that keeps payments running, customers staying longer, and your business earning more."
         url="/wifi-payment-issues"
       />
-      <div className="min-h-screen bg-slate-950 flex flex-col">
+      <div className="min-h-screen bg-[#0f0f3d] flex flex-col">
         <main className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="w-full max-w-2xl">
 

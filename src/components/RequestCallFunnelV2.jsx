@@ -128,7 +128,7 @@ const RequestCallFunnelV2 = () => {
         description="Every second counts. Answer emergency calls in 60 seconds or lose jobs to competitors. Get your 24/7 AI emergency booking assistant."
         url="/24-7-emergency-operator-v2"
       />
-      <div className="min-h-screen bg-slate-950 flex flex-col">
+      <div className="min-h-screen bg-[#0f0f3d] flex flex-col">
         {/* No Navigation - Funnel locked */}
         <div className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="w-full max-w-2xl">

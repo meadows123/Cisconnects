@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { ArrowLeft } from 'lucide-react';
 import { getAllBlogPosts } from '../data/blogLoader';
 import Navigation from './Navigation';
@@ -10,7 +11,8 @@ export default function BlogList() {
   const blogPosts = getAllBlogPosts();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-[#0f0f3d] relative">
+      <AnimatedHeroBackground />
       <SEO
         title="Blog & Insights | Conxiea - Network Automation & AI Articles"
         description="Expert perspectives on network automation, AI, firewall migrations, and the future of IT infrastructure. Stay ahead with insights from industry-leading network automation experts."

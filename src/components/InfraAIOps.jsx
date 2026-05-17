@@ -11,6 +11,7 @@ import FAQ from './FAQ';
 import SEO from './SEO';
 import StructuredData from './StructuredData';
 import { Toaster } from './ui/toaster';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 
 const InfraAIOps = () => {
   const faqs = [
@@ -83,7 +84,8 @@ const InfraAIOps = () => {
         type="FAQPage"
         data={{ faqs }}
       />
-      <div className="min-h-screen bg-slate-950 overflow-hidden">
+      <div className="min-h-screen bg-[#0f0f3d] overflow-hidden relative">
+        <AnimatedHeroBackground />
         <Navigation />
         <Hero />
         <Features />

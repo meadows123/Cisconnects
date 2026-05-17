@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getBlogPostBySlug } from '../data/blogLoader';
 import Navigation from './Navigation';
@@ -63,7 +64,8 @@ export default function BlogPost() {
   }
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-[#0f0f3d] relative">
+      <AnimatedHeroBackground />
       <SEO
         title={`${post.title} | Conxiea Blog`}
         description={post.excerpt || `Read about ${post.title} on the Conxiea blog. Expert insights on network automation, AI, and IT infrastructure.`}

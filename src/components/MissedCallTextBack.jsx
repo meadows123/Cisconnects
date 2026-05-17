@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { 
   Phone, 
   MessageSquare, 
@@ -148,7 +149,8 @@ const MissedCallTextBack = () => {
         description="Turn every missed call into a text message conversation. Never lose business to a missed call again with our automated missed-call text-back service. 24/7 lead capture and appointment booking automation."
         url="/missedcalltextback"
       />
-      <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <div className="min-h-screen bg-[#0f0f3d] relative">
+      <AnimatedHeroBackground />
         <Navigation />
         
         <div className="pt-40 pb-20 px-4">

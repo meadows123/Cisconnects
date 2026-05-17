@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { 
   Globe, 
   CheckCircle, 
@@ -204,7 +205,8 @@ const WebsiteServices = () => {
         description={`Professional website design services with flexible monthly plans. All plans include domain registration, hosting, and support. Responsive design, SEO optimization, and e-commerce solutions.`}
         url="/websites"
       />
-      <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <div className="min-h-screen bg-[#0f0f3d] relative">
+      <AnimatedHeroBackground />
         <Navigation />
         
         <div className="pt-40 pb-20 px-4">

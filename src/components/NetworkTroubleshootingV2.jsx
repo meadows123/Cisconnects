@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { Send, CheckCircle, AlertCircle, ChevronLeft, ChevronRight, Check, Shield } from 'lucide-react';
 import SEO from './SEO';
 import emailjs from '@emailjs/browser';
@@ -79,7 +80,8 @@ const NetworkTroubleshootingV2 = () => {
         description="Intermittent dropouts, slow performance, random failures — when your internal team or IT support can't find the cause, we step in and solve it. Most issues diagnosed within 24–48 hours."
         url="/network-troubleshooting-v2"
       />
-      <div className="min-h-screen bg-slate-950 flex flex-col">
+      <div className="min-h-screen bg-[#0f0f3d] flex flex-col relative">
+        <AnimatedHeroBackground />
         <main className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="w-full max-w-2xl">
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { 
   Brain,
   Award,
@@ -88,7 +89,8 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-[#0f0f3d] relative">
+      <AnimatedHeroBackground />
       <SEO
         title="About Us | Conxiea - AI Network Automation Experts"
         description="Learn about Conxiea - over 20 years of experience in AI network automation, infrastructure solutions, and digital transformation. Expert team delivering cutting-edge technology solutions for businesses worldwide."

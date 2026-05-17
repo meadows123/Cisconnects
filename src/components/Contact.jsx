@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { Mail, Phone, MapPin, Calendar, Send, CheckCircle, AlertCircle, Video, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
@@ -86,7 +87,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-[#0f0f3d] relative">
+      <AnimatedHeroBackground />
       <SEO
         title="Contact Us | Conxiea - Get in Touch with Network Automation Experts"
         description="Schedule a demo or consultation with our network automation experts. Contact Conxiea for AI infrastructure solutions, website design services, and digital transformation. We're here to help transform your business."

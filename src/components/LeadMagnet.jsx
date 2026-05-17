@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { Mail, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import SEO from './SEO';
@@ -95,7 +96,8 @@ const LeadMagnet = () => {
         description="Get your free guide on how AI can revolutionize your network infrastructure."
         url="/lead-magnet"
       />
-      <div className="min-h-screen bg-slate-950">
+      <div className="min-h-screen bg-[#0f0f3d] relative">
+      <AnimatedHeroBackground />
         <div className="px-3 xs:px-4 sm:px-6 lg:px-8 py-6 xs:py-8 sm:py-12 md:py-16">
           <div className="max-w-3xl mx-auto">
             {/* Headline */}

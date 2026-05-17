@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { Send, CheckCircle, AlertCircle, BookOpen, ArrowRight } from 'lucide-react';
 import SEO from './SEO';
 import emailjs from '@emailjs/browser';
@@ -189,7 +190,8 @@ const ConsultationFunnel = () => {
         description="Book a consultation call with our experts. Learn how AI-powered network automation can transform your infrastructure."
         url="/book-consultation"
       />
-      <div className="min-h-screen bg-slate-950">
+      <div className="min-h-screen bg-[#0f0f3d] relative">
+      <AnimatedHeroBackground />
         {/* No Navigation - Funnel locked */}
 
         <div className="pt-12 pb-8 px-3 sm:px-6 lg:px-8 md:pt-24 md:pb-16">

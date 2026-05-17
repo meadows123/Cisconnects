@@ -9,7 +9,7 @@ const RequestCallSuccess = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col">
+    <div className="min-h-screen bg-[#0f0f3d] flex flex-col">
       {/* No Navigation - Funnel locked */}
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 py-8 sm:py-16">
         <motion.div

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { Send, CheckCircle, AlertCircle, ChevronLeft, ChevronRight, Check, Shield } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import SEO from './SEO';
@@ -79,7 +80,8 @@ const WifiOptimisation = () => {
         description="Fast broadband but terrible WiFi? Conxiea optimises your WiFi coverage — better signal, faster speeds, and no more dead zones. Tell us your problem and we'll get back to you the same day."
         url="/wifi-optimisation"
       />
-      <div className="min-h-screen bg-[#0f0f3d] flex flex-col">
+      <div className="min-h-screen bg-[#0f0f3d] flex flex-col relative">
+        <AnimatedHeroBackground />
         <main className="flex-1 flex items-center justify-center px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="w-full max-w-2xl">
 
@@ -95,11 +97,10 @@ const WifiOptimisation = () => {
                 <span className="border-b-2 border-blue-500">We Fix That.</span>
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 sm:mb-6">
-                Most WiFi problems come down to three things.{' '}
-                <span className="border-b-2 border-blue-500 text-white">We've fixed them 50+ times.</span>
+                Most Business WiFi Fails For The Same 3 Reasons.{' '}
+                <span className="border-b-2 border-blue-500 text-white">We Fix All Of Them.</span>
               </p>
-              <p className="text-sm sm:text-base text-blue-400 font-medium mb-5 sm:mb-6">Serving Bristol, Somerset & the South West Area</p>
-              <motion.button
+<motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('optimisation-form').scrollIntoView({ behavior: 'smooth' })}
@@ -248,7 +249,7 @@ const WifiOptimisation = () => {
                 )}
               </motion.button>
             </motion.form>
-            <p className="text-center text-sm text-gray-400 mt-3">No obligation — it's just a quick call to assess the issues you're having.</p>
+            <p className="text-center text-sm text-gray-400 mt-3 mb-6">No obligation — it's just a quick call to assess the issues you're having.</p>
 
             {/* Chat Reviews */}
             <motion.div
@@ -272,7 +273,7 @@ const WifiOptimisation = () => {
             >
               <div className="grid grid-cols-2 gap-3 mb-6">
                 {[
-                  { number: '50+', label: 'Hospitality Businesses & Homes' },
+                  { number: '100+', label: 'Hospitality Businesses & Homes' },
                   { number: '4.9★', label: 'Google Rating' },
                   { number: '100%', label: 'Coverage Guaranteed' },
                   { number: '100%', label: 'Transparent Pricing — Quoted Before We Start' },

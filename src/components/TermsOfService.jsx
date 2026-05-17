@@ -19,7 +19,7 @@ const TermsOfService = () => {
         description="Conxiea Terms of Service - Read our terms and conditions for using our services. Legal terms for AI network automation, website design, and digital solutions."
         url="/terms-of-service"
       />
-      <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <div className="min-h-screen bg-[#0f0f3d]">
         <Navigation />
         
         <div className="pt-40 pb-20 px-4">

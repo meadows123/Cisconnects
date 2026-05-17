@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { Mail, Phone } from 'lucide-react';
 import Navigation from './Navigation';
 import Footer from './Footer';
@@ -19,7 +20,8 @@ const BookDemo = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-[#0f0f3d] relative">
+      <AnimatedHeroBackground />
       <SEO
         title="Book a Demo | Conxiea - Schedule Your AI Network Automation Demo"
         description="Schedule a personalized demo of our AI network automation platform. See how Conxiea can transform your IT operations and reduce costs by up to 60%."
