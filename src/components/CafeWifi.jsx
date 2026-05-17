@@ -37,31 +37,31 @@ const CafeWifi = () => {
     }
     setIsSubmitting(true);
     try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      if (!serviceId || !publicKey || !templateId) throw new Error('EmailJS config missing');
+      const serviceId = 'service_gdbt262';
+      const publicKey = 'SMrLGbwIaaYgnRi2o';
+      const templateId = 'template_q298neg';
       emailjs.init(publicKey);
       await emailjs.send(serviceId, templateId, {
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
-        message: 'Enquiry from Reliable Café Connectivity landing page',
-        service_interest: 'Reliable Café Connectivity',
+        message: 'New hospitality WiFi installation enquiry',
+        service_interest: 'Hospitality WiFi Installation',
         to_name: 'Conxiea Team',
         reply_to: formData.email,
       });
 
-      // Save to leads database
-      await fetch('/api/leads', {
+      // Save lead to server (non-blocking on failure)
+      fetch('/api/calls', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          source: 'cafe-wifi'
-        })
-      });
+          phone: formData.phone,
+          source: 'hospitality-wifi-installation',
+        }),
+      }).catch(err => console.error('Lead save error:', err));
 
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '' });
