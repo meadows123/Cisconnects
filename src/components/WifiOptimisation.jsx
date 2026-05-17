@@ -96,8 +96,9 @@ const WifiOptimisation = () => {
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 sm:mb-6">
                 Most WiFi problems come down to three things.{' '}
-                <span className="border-b-2 border-blue-500 text-white">We've fixed them 1,000+ times.</span>
+                <span className="border-b-2 border-blue-500 text-white">We've fixed them 50+ times.</span>
               </p>
+              <p className="text-sm sm:text-base text-blue-400 font-medium mb-5 sm:mb-6">Serving Bristol, Somerset & the South West Area</p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -243,10 +244,11 @@ const WifiOptimisation = () => {
                 {isSubmitting ? (
                   <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
                 ) : (
-                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Fix My WiFi Performance</span></>
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Free Network Assessment</span></>
                 )}
               </motion.button>
             </motion.form>
+            <p className="text-center text-sm text-gray-400 mt-3">No obligation — it's just a quick call to assess the issues you're having.</p>
 
             {/* Chat Reviews */}
             <motion.div
@@ -270,7 +272,7 @@ const WifiOptimisation = () => {
             >
               <div className="grid grid-cols-2 gap-3 mb-6">
                 {[
-                  { number: '50+', label: 'Homes & Offices Optimised' },
+                  { number: '50+', label: 'Hospitality Businesses & Homes' },
                   { number: '4.9★', label: 'Google Rating' },
                   { number: '100%', label: 'Coverage Guaranteed' },
                   { number: '100%', label: 'Transparent Pricing — Quoted Before We Start' },

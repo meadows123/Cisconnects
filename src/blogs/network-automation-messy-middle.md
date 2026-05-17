@@ -35,7 +35,7 @@ This post is about that middle stage — what it actually looks like, why it exi
 
 ---
 
-![Network engineering team working through a complex automation project on multiple screens](https://images.unsplash.com/photo-1519389950473-47c0e7f7c2b9?w=1200&h=628&fit=crop)
+![Network engineer surrounded by tangled, messy cables in a cluttered server room](https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&h=628&fit=crop)
 
 ---
 
