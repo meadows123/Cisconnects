@@ -267,7 +267,7 @@ const CafeWifi = () => {
                 {isSubmitting ? (
                   <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
                 ) : (
-                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Get Free Survey</span></>
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Get Your Free Survey</span></>
                 )}
               </motion.button>
             </motion.form>
