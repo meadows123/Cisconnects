@@ -118,6 +118,7 @@ const ContactModal = () => {
       if (!response.ok) throw new Error('Failed to save lead');
 
       setSubmitStatus('success');
+      window.gtag?.('event', 'conversion_event_submit_lead_form', {});
       setFormData({ name: '', email: '', phone: '' });
       setTimeout(() => {
         setSubmitStatus(null);

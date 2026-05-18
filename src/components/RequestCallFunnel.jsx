@@ -106,7 +106,8 @@ const RequestCallFunnel = () => {
 
       // Show success
       setSubmitStatus('success');
-      
+      window.gtag?.('event', 'conversion_event_submit_lead_form', {});
+
       // Redirect after 2 seconds
       setTimeout(() => {
         navigate('/request-call-success');

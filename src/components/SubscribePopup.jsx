@@ -42,6 +42,7 @@ const SubscribePopup = () => {
 
       if (!res.ok) throw new Error('Failed');
       setStatus('success');
+      window.gtag?.('event', 'conversion_event_submit_lead_form', {});
       localStorage.setItem(STORAGE_KEY, 'subscribed');
       setTimeout(() => setIsOpen(false), 2500);
     } catch {

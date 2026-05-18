@@ -79,6 +79,7 @@ const LeadMagnet = () => {
       }
 
       setSubmitStatus('success');
+      window.gtag?.('event', 'conversion_event_submit_lead_form', {});
       setTimeout(() => navigate('/lead-magnet-success'), 2000);
     } catch (error) {
       console.error('Error:', error);

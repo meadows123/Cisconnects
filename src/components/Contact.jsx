@@ -63,6 +63,7 @@ const Contact = () => {
       const result = await emailjs.send(serviceId, templateId, templateParams);
       
       setSubmitStatus('success');
+      window.gtag?.('event', 'conversion_event_submit_lead_form', {});
       setFormData({
         name: '',
         email: '',

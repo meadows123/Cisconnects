@@ -154,7 +154,8 @@ const ConsultationFunnel = () => {
       }
 
       setSubmitStatus('success');
-      
+      window.gtag?.('event', 'conversion_event_submit_lead_form', {});
+
       // Navigate to success page after 2 seconds
       setTimeout(() => {
         navigate('/consultation-success');
