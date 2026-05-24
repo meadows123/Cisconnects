@@ -58,3 +58,39 @@ export function getAllBlogPosts() {
 export function getBlogPostBySlug(slug) {
   return combined.find((b) => b.slug === slug);
 }
+
+// Convert a category name to a URL-safe slug
+export function getCategorySlug(category) {
+  const primary = (category || '').split(',')[0].trim();
+  return primary.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+}
+
+// Convert a category slug back to a display name
+export function getCategoryDisplayName(slug) {
+  const map = {
+    'network-automation': 'Network Automation',
+    'network-management': 'Network Management',
+    'wifi-solutions': 'WiFi Solutions',
+    'ai-development': 'AI Development',
+  };
+  return map[slug] || slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+// Return all posts whose primary category matches the given slug
+export function getPostsByCategory(categorySlug) {
+  return combined.filter((post) => getCategorySlug(post.category) === categorySlug);
+}
+
+// Return all unique primary categories with slug, display name, and post count
+export function getAllCategories() {
+  const seen = new Map();
+  combined.forEach((post) => {
+    const slug = getCategorySlug(post.category);
+    if (!slug) return;
+    if (!seen.has(slug)) {
+      seen.set(slug, { slug, name: getCategoryDisplayName(slug), count: 0 });
+    }
+    seen.get(slug).count += 1;
+  });
+  return Array.from(seen.values()).sort((a, b) => b.count - a.count);
+}

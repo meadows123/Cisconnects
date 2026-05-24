@@ -14,6 +14,7 @@ const App = lazy(() => import('@/App'));
 // Route-level code splitting: each page only loads when navigated to
 const BlogList = lazy(() => import('@/components/BlogList'));
 const BlogPost = lazy(() => import('@/components/BlogPost'));
+const BlogCategory = lazy(() => import('@/components/BlogCategory'));
 const Contact = lazy(() => import('@/components/Contact'));
 const Services = lazy(() => import('@/components/Services'));
 const About = lazy(() => import('@/components/About'));
@@ -76,6 +77,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/website-for-trades" element={<TradesWebsiteServices />} />
       <Route path="/wifi-payment-issues" element={<CafeWifiPayments />} />
       <Route path="/blog" element={<BlogList />} />
+      <Route path="/blog/category/:categorySlug" element={<BlogCategory />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
-import { getBlogPostBySlug } from '../data/blogLoader';
+import { getBlogPostBySlug, getCategorySlug, getCategoryDisplayName } from '../data/blogLoader';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import SEO from './SEO';
@@ -62,7 +62,36 @@ export default function BlogPost() {
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
-  
+
+  const catSlug = getCategorySlug(post.category);
+  const catName = getCategoryDisplayName(catSlug);
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        '@id': `https://www.conxiea.com/blog/${post.slug}`,
+        headline: post.title,
+        description: post.excerpt,
+        author: { '@type': 'Organization', name: post.author },
+        publisher: { '@type': 'Organization', name: 'Conxiea', url: 'https://www.conxiea.com' },
+        datePublished: post.isoDate || post.date,
+        url: `https://www.conxiea.com/blog/${post.slug}`,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `https://www.conxiea.com/blog/${post.slug}` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.conxiea.com/' },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.conxiea.com/blog' },
+          { '@type': 'ListItem', position: 3, name: catName, item: `https://www.conxiea.com/blog/category/${catSlug}` },
+          { '@type': 'ListItem', position: 4, name: post.title, item: `https://www.conxiea.com/blog/${post.slug}` },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-[#0f0f3d] relative">
       <AnimatedHeroBackground />
@@ -74,40 +103,32 @@ export default function BlogPost() {
         keywords={post.keywords}
         author={post.author}
         publishedTime={post.isoDate}
-        structuredData={{
-          '@context': 'https://schema.org',
-          '@type': 'Article',
-          headline: post.title,
-          description: post.excerpt,
-          author: {
-            '@type': 'Person',
-            name: post.author,
-          },
-          publisher: {
-            '@type': 'Organization',
-            name: 'Conxiea',
-            url: 'https://www.conxiea.com',
-          },
-          datePublished: post.isoDate || post.date,
-          url: `https://www.conxiea.com/blog/${post.slug}`,
-          mainEntityOfPage: {
-            '@type': 'WebPage',
-            '@id': `https://www.conxiea.com/blog/${post.slug}`,
-          },
-        }}
+        structuredData={structuredData}
       />
       <Navigation />
-      
-      {/* Back to Blog Link */}
+
+      {/* Breadcrumb + Back */}
       <div className="max-w-4xl mx-auto px-4 pt-40 pb-8">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
+          className="flex flex-col gap-3"
         >
+          {/* Breadcrumb trail */}
+          <nav className="flex items-center gap-2 text-sm text-slate-400" aria-label="Breadcrumb">
+            <Link to="/" className="hover:text-blue-300 transition-colors">Home</Link>
+            <span>/</span>
+            <Link to="/blog" className="hover:text-blue-300 transition-colors">Blog</Link>
+            <span>/</span>
+            <Link to={`/blog/category/${catSlug}`} className="hover:text-blue-300 transition-colors">{catName}</Link>
+            <span>/</span>
+            <span className="text-slate-500 truncate max-w-[200px]">{post.title}</span>
+          </nav>
+
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-blue-300 hover:bg-slate-800 hover:border-blue-500/30 transition-all group"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-blue-300 hover:bg-slate-800 hover:border-blue-500/30 transition-all group w-fit"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span className="font-medium">Back to Blog</span>
@@ -125,9 +146,12 @@ export default function BlogPost() {
         >
           {/* Category Badge */}
           <div className="flex items-center gap-3 mb-6">
-            <span className="inline-block px-4 py-1.5 bg-blue-500/20 text-blue-300 text-sm font-semibold rounded-full border border-blue-500/30">
-              {post.category.split(',')[0].trim()}
-            </span>
+            <Link
+              to={`/blog/category/${catSlug}`}
+              className="inline-block px-4 py-1.5 bg-blue-500/20 text-blue-300 text-sm font-semibold rounded-full border border-blue-500/30 hover:bg-blue-500/30 transition-colors"
+            >
+              {catName}
+            </Link>
             <span className="text-slate-400 text-sm">{post.readTime}</span>
             {post.comments > 0 && (
               <span className="text-slate-400 text-sm flex items-center gap-1">

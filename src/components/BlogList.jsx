@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { ArrowLeft } from 'lucide-react';
-import { getAllBlogPosts } from '../data/blogLoader';
+import { getAllBlogPosts, getAllCategories, getCategorySlug } from '../data/blogLoader';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import SEO from './SEO';
 
 export default function BlogList() {
   const blogPosts = getAllBlogPosts();
+  const categories = getAllCategories();
 
   return (
     <div className="min-h-screen bg-[#0f0f3d] relative">
@@ -43,7 +44,7 @@ export default function BlogList() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               <span className="text-gradient">Blog & Insights</span>
@@ -51,6 +52,25 @@ export default function BlogList() {
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
               Expert perspectives on network automation, AI, and the future of IT infrastructure
             </p>
+          </motion.div>
+
+          {/* Category Hub Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="flex flex-wrap justify-center gap-3 mb-14"
+          >
+            {categories.map((cat) => (
+              <Link
+                key={cat.slug}
+                to={`/blog/category/${cat.slug}`}
+                className="px-5 py-2 rounded-full font-medium bg-slate-800/60 border border-white/10 text-slate-300 hover:border-blue-500/50 hover:text-blue-300 hover:bg-slate-800 transition-all text-sm"
+              >
+                {cat.name}
+                <span className="ml-2 text-xs text-slate-500">({cat.count})</span>
+              </Link>
+            ))}
           </motion.div>
 
           {/* Blog Grid */}
@@ -75,9 +95,13 @@ export default function BlogList() {
                   {/* Category Badge */}
                   <div className="p-6 pb-4 flex flex-col flex-1">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-semibold rounded-full border border-blue-500/30">
+                      <Link
+                        to={`/blog/category/${getCategorySlug(post.category)}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-semibold rounded-full border border-blue-500/30 hover:bg-blue-500/30 transition-colors"
+                      >
                         {post.category.split(',')[0].trim()}
-                      </span>
+                      </Link>
                       <span className="text-sm text-slate-400">{post.readTime}</span>
                     </div>
 
