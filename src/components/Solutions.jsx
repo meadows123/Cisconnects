@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, ArrowRight, Play, Server, MessageSquare, ShieldCheck, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useBooking } from '@/context/BookingContext';
 import DonutChartInteractive from './DonutChartInteractive';
+
+const VIDEO_SRC = '/Animated Video - Homepage.mp4';
 
 const tabs = [
   {
@@ -19,6 +21,7 @@ const tabs = [
       'Audit trail built-in',
       'Works with your existing ITSM',
     ],
+    video: VIDEO_SRC,
   },
   {
     id: 'chat',
@@ -33,6 +36,7 @@ const tabs = [
       'Auto-escalate to ticket',
       'No training required',
     ],
+    video: VIDEO_SRC,
   },
   {
     id: 'troubleshooting',
@@ -47,6 +51,7 @@ const tabs = [
       'Auto-remediation playbooks',
       'Alert fatigue eliminated',
     ],
+    video: VIDEO_SRC,
   },
   {
     id: 'config',
@@ -61,72 +66,67 @@ const tabs = [
       'Compliance validation',
       'One-click bulk deploy',
     ],
+    video: VIDEO_SRC,
   },
 ];
 
-const VideoPlaceholder = ({ label }) => (
-  <div
-    style={{
-      background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)',
-      aspectRatio: '16/10',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '20px',
-      position: 'relative',
-      overflow: 'hidden',
-    }}
-  >
-    {/* Subtle grid overlay */}
-    <div style={{
-      position: 'absolute', inset: 0,
-      backgroundImage: 'linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px)',
-      backgroundSize: '40px 40px',
-    }} />
+const VideoPlayer = ({ src }) => {
+  const videoRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
 
-    {/* Fake UI bars at top */}
-    <div style={{ position: 'absolute', top: 20, left: 20, right: 20, display: 'flex', gap: 8 }}>
-      {[70, 120, 90, 140].map((w, i) => (
-        <div key={i} style={{ height: 6, width: w, borderRadius: 4, background: 'rgba(99,102,241,0.25)' }} />
-      ))}
-    </div>
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (playing) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setPlaying(!playing);
+  };
 
-    {/* Fake chart lines */}
-    <svg style={{ position: 'absolute', bottom: 40, left: 20, right: 20, opacity: 0.15 }} height="60" viewBox="0 0 400 60" preserveAspectRatio="none">
-      <polyline points="0,50 60,30 120,40 180,10 240,25 300,15 360,30 400,20" fill="none" stroke="#6366f1" strokeWidth="2" />
-      <polyline points="0,55 60,45 120,50 180,30 240,40 300,35 360,45 400,38" fill="none" stroke="#3b82f6" strokeWidth="2" />
-    </svg>
-
-    {/* Play button */}
-    <motion.div
-      animate={{ scale: [1, 1.08, 1] }}
-      transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+  return (
+    <div
+      onClick={togglePlay}
       style={{
-        width: 72,
-        height: 72,
-        borderRadius: '50%',
-        background: 'linear-gradient(135deg, #3b82f6, #7c3aed)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        boxShadow: '0 0 40px rgba(99,102,241,0.5)',
+        aspectRatio: '16/10',
         position: 'relative',
-        zIndex: 1,
+        background: '#0f172a',
         cursor: 'pointer',
+        overflow: 'hidden',
       }}
     >
-      <Play fill="white" color="white" size={28} style={{ marginLeft: 4 }} />
-    </motion.div>
-
-    <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-      <p style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 600, fontSize: 15, margin: 0 }}>{label}</p>
-      <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, margin: '4px 0 0' }}>Demo video coming soon</p>
+      <video
+        ref={videoRef}
+        src={src}
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+        playsInline
+        onEnded={() => setPlaying(false)}
+      />
+      {!playing && (
+        <div style={{
+          position: 'absolute', inset: 0,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          background: 'rgba(0,0,0,0.35)',
+        }}>
+          <motion.div
+            animate={{ scale: [1, 1.08, 1] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+            style={{
+              width: 72, height: 72, borderRadius: '50%',
+              background: 'linear-gradient(135deg, #3b82f6, #7c3aed)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 0 40px rgba(99,102,241,0.5)',
+            }}
+          >
+            <Play fill="white" color="white" size={28} style={{ marginLeft: 4 }} />
+          </motion.div>
+        </div>
+      )}
     </div>
-  </div>
-);
+  );
+};
 
-const TiltedVideo = ({ label, isMobile }) => (
+const TiltedVideo = ({ src, isMobile }) => (
   <div className="relative w-full" style={{ perspective: '900px', perspectiveOrigin: '50% 50%' }}>
 
     {/* Dot grid — anchored bottom-right, same transform as card */}
@@ -180,7 +180,7 @@ const TiltedVideo = ({ label, isMobile }) => (
         <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#22c55eaa' }} />
         <span style={{ marginLeft: 8, fontSize: 11, color: 'rgba(255,255,255,0.3)', fontFamily: 'monospace' }}>conxiea.com</span>
       </div>
-      <VideoPlaceholder label={label} />
+      <VideoPlayer src={src} />
     </motion.div>
   </div>
 );
@@ -261,8 +261,8 @@ const Solutions = () => {
               </Button>
             </div>
 
-            {/* Right — static video placeholder (always first tab's label) */}
-            <TiltedVideo label={tabs[0].label} isMobile={isMobile} />
+            {/* Right — video for active tab */}
+            <TiltedVideo src={current.video} isMobile={isMobile} />
           </motion.div>
         </AnimatePresence>
 
