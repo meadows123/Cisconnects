@@ -127,62 +127,21 @@ const VideoPlayer = ({ src }) => {
 };
 
 const TiltedVideo = ({ src, isMobile }) => (
-  <div className="relative w-full" style={{ perspective: '900px', perspectiveOrigin: '50% 50%' }}>
-
-    {/* Dot grid — anchored bottom-right, same transform as card */}
-    {!isMobile && (
-      <motion.div
-        className="absolute pointer-events-none"
-        style={{
-          top: '38%',
-          left: '28%',
-          right: '-55px',
-          bottom: '-55px',
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.55) 2px, transparent 2px)',
-          backgroundSize: '22px 22px',
-          transformOrigin: 'left center',
-          zIndex: 0,
-        }}
-        animate={{ rotateY: -22, rotateX: 4, rotateZ: -1 }}
-      />
-    )}
-
-    {/* Card with browser chrome + video placeholder */}
-    <motion.div
-      initial={{ opacity: 0, y: 30, rotateY: isMobile ? 0 : -22, rotateX: isMobile ? 0 : 4, rotateZ: isMobile ? 0 : -1 }}
-      animate={{
-        opacity: 1,
-        y: isMobile ? 0 : [0, -10, 0],
-        rotateY: isMobile ? 0 : -22,
-        rotateX: isMobile ? 0 : 4,
-        rotateZ: isMobile ? 0 : -1,
-      }}
-      transition={{
-        opacity: { duration: 0.6 },
-        y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.8 },
-        rotateY: { duration: 0 },
-        rotateX: { duration: 0 },
-        rotateZ: { duration: 0 },
-      }}
-      style={{
-        transformOrigin: 'left center',
-        borderRadius: '12px',
-        overflow: 'hidden',
-        position: 'relative',
-        zIndex: 1,
-        boxShadow: '0 60px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08)',
-      }}
-    >
-      {/* Browser chrome */}
-      <div style={{ background: '#0f172a', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '7px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-        <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ef4444aa' }} />
-        <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#eab308aa' }} />
-        <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#22c55eaa' }} />
-        <span style={{ marginLeft: 8, fontSize: 11, color: 'rgba(255,255,255,0.3)', fontFamily: 'monospace' }}>conxiea.com</span>
-      </div>
-      <VideoPlayer src={src} />
-    </motion.div>
-  </div>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: isMobile ? 0 : [0, -10, 0] }}
+    transition={{
+      opacity: { duration: 0.6 },
+      y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.8 },
+    }}
+    className="relative w-full rounded-2xl overflow-hidden"
+    style={{
+      border: '1px solid rgba(99, 102, 241, 0.4)',
+      boxShadow: '0 0 40px rgba(99, 102, 241, 0.25), 0 30px 80px rgba(0,0,0,0.6)',
+    }}
+  >
+    <VideoPlayer src={src} />
+  </motion.div>
 );
 
 const Solutions = () => {
@@ -226,17 +185,17 @@ const Solutions = () => {
         </div>
 
         {/* Tab content */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.3 }}
-            className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
-          >
-            {/* Left — text */}
-            <div className="space-y-7">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* Left — text animates on tab change */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-7"
+            >
               <h3 className="text-3xl md:text-4xl font-bold text-white leading-snug">
                 {current.headline}
               </h3>
@@ -259,12 +218,12 @@ const Solutions = () => {
                 See It In Action
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-            </div>
+            </motion.div>
+          </AnimatePresence>
 
-            {/* Right — video for active tab */}
-            <TiltedVideo src={current.video} isMobile={isMobile} />
-          </motion.div>
-        </AnimatePresence>
+          {/* Right — video stays mounted so playback continues across tab switches */}
+          <TiltedVideo src={current.video} isMobile={isMobile} />
+        </div>
 
       </div>
     </section>
