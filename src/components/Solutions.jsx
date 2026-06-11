@@ -129,12 +129,12 @@ const VideoPlayer = ({ src }) => {
 const TiltedVideo = ({ src, isMobile }) => (
   <div className="relative w-full" style={{ perspective: '900px', perspectiveOrigin: '50% 50%' }}>
     <motion.div
-      initial={{ opacity: 0, y: 20, rotateY: isMobile ? 0 : -22, rotateX: isMobile ? 0 : 4, rotateZ: isMobile ? 0 : -1 }}
+      initial={{ opacity: 0, y: 20, rotateY: isMobile ? 0 : -10, rotateX: isMobile ? 0 : 3, rotateZ: isMobile ? 0 : -1 }}
       animate={{
         opacity: 1,
         y: isMobile ? 0 : [0, -10, 0],
-        rotateY: isMobile ? 0 : -22,
-        rotateX: isMobile ? 0 : 4,
+        rotateY: isMobile ? 0 : -10,
+        rotateX: isMobile ? 0 : 3,
         rotateZ: isMobile ? 0 : -1,
       }}
       transition={{
@@ -202,7 +202,7 @@ const Solutions = () => {
         </div>
 
         {/* Tab content */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12 items-center">
           {/* Left — text animates on tab change */}
           <AnimatePresence mode="wait">
             <motion.div
