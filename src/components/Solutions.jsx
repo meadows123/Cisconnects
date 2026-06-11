@@ -127,21 +127,38 @@ const VideoPlayer = ({ src }) => {
 };
 
 const TiltedVideo = ({ src, isMobile }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: isMobile ? 0 : [0, -10, 0] }}
-    transition={{
-      opacity: { duration: 0.6 },
-      y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.8 },
-    }}
-    className="relative w-full rounded-2xl overflow-hidden"
-    style={{
-      border: '1px solid rgba(99, 102, 241, 0.4)',
-      boxShadow: '0 0 40px rgba(99, 102, 241, 0.25), 0 30px 80px rgba(0,0,0,0.6)',
-    }}
-  >
-    <VideoPlayer src={src} />
-  </motion.div>
+  <div className="relative w-full" style={{ perspective: '900px', perspectiveOrigin: '50% 50%' }}>
+    <motion.div
+      initial={{ opacity: 0, y: 20, rotateY: isMobile ? 0 : -22, rotateX: isMobile ? 0 : 4, rotateZ: isMobile ? 0 : -1 }}
+      animate={{
+        opacity: 1,
+        y: isMobile ? 0 : [0, -10, 0],
+        rotateY: isMobile ? 0 : -22,
+        rotateX: isMobile ? 0 : 4,
+        rotateZ: isMobile ? 0 : -1,
+      }}
+      transition={{
+        opacity: { duration: 0.6 },
+        y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.8 },
+        rotateY: { duration: 0 },
+        rotateX: { duration: 0 },
+        rotateZ: { duration: 0 },
+      }}
+      className="relative w-full overflow-hidden"
+      style={{
+        transformOrigin: 'left center',
+        boxShadow: '0 60px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08), 0 0 60px rgba(99,102,241,0.2)',
+      }}
+    >
+      {/* Browser chrome bar */}
+      <div style={{ background: '#0f172a', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '7px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+        <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ef4444aa' }} />
+        <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#eab308aa' }} />
+        <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#22c55eaa' }} />
+      </div>
+      <VideoPlayer src={src} />
+    </motion.div>
+  </div>
 );
 
 const Solutions = () => {
