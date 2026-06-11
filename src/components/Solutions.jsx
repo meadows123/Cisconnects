@@ -127,7 +127,7 @@ const VideoPlayer = ({ src }) => {
 };
 
 const TiltedVideo = ({ src, isMobile }) => (
-  <div className="relative w-full" style={{ perspective: '900px', perspectiveOrigin: '50% 50%' }}>
+  <div className="relative w-full" style={{ perspective: '1200px', perspectiveOrigin: '50% 50%', willChange: 'transform' }}>
     <motion.div
       initial={{ opacity: 0, y: 20, rotateY: isMobile ? 0 : -10, rotateX: isMobile ? 0 : 3, rotateZ: isMobile ? 0 : -1 }}
       animate={{
@@ -148,6 +148,10 @@ const TiltedVideo = ({ src, isMobile }) => (
       style={{
         transformOrigin: 'left center',
         boxShadow: '0 60px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08), 0 0 60px rgba(99,102,241,0.2)',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden',
+        transform: 'translateZ(0)',
+        willChange: 'transform',
       }}
     >
       {/* Browser chrome bar */}
