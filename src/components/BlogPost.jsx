@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
 import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getBlogPostBySlug, getCategorySlug, getCategoryDisplayName } from '../data/blogLoader';
@@ -185,12 +186,61 @@ export default function BlogPost() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="prose prose-lg prose-invert max-w-none bg-slate-800/30 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+          className="bg-slate-800/30 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12"
         >
-          <div
-            className="article-content"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          <ReactMarkdown
+            components={{
+              h1: ({ children }) => <h1 className="text-3xl md:text-4xl font-bold text-white mt-10 mb-5 leading-tight">{children}</h1>,
+              h2: ({ children }) => <h2 className="text-2xl md:text-3xl font-bold text-white mt-10 mb-4 leading-snug border-b border-white/10 pb-3">{children}</h2>,
+              h3: ({ children }) => <h3 className="text-xl md:text-2xl font-semibold text-blue-300 mt-8 mb-3">{children}</h3>,
+              h4: ({ children }) => <h4 className="text-lg font-semibold text-slate-200 mt-6 mb-2">{children}</h4>,
+              p: ({ children }) => <p className="text-slate-300 text-lg leading-relaxed mb-5">{children}</p>,
+              a: ({ href, children }) => (
+                href?.startsWith('/')
+                  ? <Link to={href} className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors">{children}</Link>
+                  : <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors">{children}</a>
+              ),
+              img: ({ src, alt }) => (
+                <span className="block my-8">
+                  <img src={src} alt={alt} className="w-full rounded-xl shadow-2xl shadow-black/50 object-cover" loading="lazy" />
+                  {alt && <span className="block text-center text-sm text-slate-500 mt-3 italic">{alt}</span>}
+                </span>
+              ),
+              ul: ({ children }) => <ul className="space-y-3 mb-5 ml-2">{children}</ul>,
+              ol: ({ children }) => <ol className="space-y-3 mb-5 ml-5 list-decimal">{children}</ol>,
+              li: ({ ordered, children }) => ordered
+                ? <li className="text-slate-300 text-lg pl-1">{children}</li>
+                : (
+                <li className="flex items-start gap-3 text-slate-300 text-lg">
+                  <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
+                  <span>{children}</span>
+                </li>
+              ),
+              strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
+              em: ({ children }) => <em className="italic text-slate-300">{children}</em>,
+              blockquote: ({ children }) => (
+                <blockquote className="border-l-4 border-blue-500 pl-5 my-6 text-slate-400 italic bg-slate-900/40 py-3 pr-4 rounded-r-lg">
+                  {children}
+                </blockquote>
+              ),
+              hr: () => <hr className="border-white/10 my-8" />,
+              code: ({ inline, children }) => inline
+                ? <code className="bg-slate-900/70 text-blue-300 px-1.5 py-0.5 rounded text-sm font-mono">{children}</code>
+                : <pre className="bg-slate-900/70 text-slate-300 p-4 rounded-lg overflow-x-auto my-6 text-sm font-mono"><code>{children}</code></pre>,
+              table: ({ children }) => (
+                <div className="overflow-x-auto my-8">
+                  <table className="w-full text-left border-collapse">{children}</table>
+                </div>
+              ),
+              thead: ({ children }) => <thead className="bg-slate-700/50">{children}</thead>,
+              tbody: ({ children }) => <tbody className="divide-y divide-white/10">{children}</tbody>,
+              tr: ({ children }) => <tr className="border-b border-white/10">{children}</tr>,
+              th: ({ children }) => <th className="px-4 py-3 text-sm font-semibold text-blue-300 uppercase tracking-wide">{children}</th>,
+              td: ({ children }) => <td className="px-4 py-3 text-slate-300 text-sm">{children}</td>,
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
         </motion.div>
 
         {/* External Resources Section */}
