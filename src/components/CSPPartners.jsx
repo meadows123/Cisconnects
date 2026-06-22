@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  Handshake,
+  HeartHandshake,
   Cloud,
   Network,
   TrendingUp,
@@ -62,7 +62,7 @@ const CSPPartners = () => {
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <motion.div {...fadeUp}>
               <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-8">
-                <Handshake className="w-10 h-10 text-white" />
+                <HeartHandshake className="w-10 h-10 text-white" />
               </div>
               <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-4 py-2 mb-6">
                 <Cloud className="w-4 h-4 text-blue-400" />
