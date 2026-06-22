@@ -41,6 +41,7 @@ const WifiOptimisation = lazy(() => import('@/components/WifiOptimisation'));
 const ElectricianWebsiteServices = lazy(() => import('@/components/ElectricianWebsiteServices'));
 const TradesWebsiteServices = lazy(() => import('@/components/TradesWebsiteServices'));
 const CafeWifiPayments = lazy(() => import('@/components/CafeWifiPayments'));
+const CSPPartners = lazy(() => import('@/components/CSPPartners'));
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -79,6 +80,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/category/:categorySlug" element={<BlogCategory />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
+      <Route path="/csp-partners" element={<CSPPartners />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
     </Routes>
