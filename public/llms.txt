@@ -10,6 +10,7 @@
 - [Book Your Consultation | AI Network Automation | Conxiea](/consultationfunnel): Book a consultation call with our experts. Learn how AI-powered network automation can transform your infrastructure.
 - [Café WiFi That Keeps Customers Working Longer | Conxiea](/cafewifiv2): The longer customers can work in your café, the more they spend. Reliable WiFi isn
 - [Contact Us | Conxiea - Get in Touch with Network Automation Experts](/contact): Schedule a demo or consultation with our network automation experts. Contact Conxiea for AI infrastructure solutions, website design services, and digital transformation. We
+- [CSP Partner Programme | Sell InfraOps on Azure Marketplace | Conxiea](/csppartners): Partner with Conxiea to resell InfraOps — our AI network automation platform — through the Azure Marketplace. Earn 30% margin on every deal. Contact admin@conxiea.com to get started.
 - [Free Guide: AI Network Automation | Download Now](/leadmagnet): Get your free guide on how AI can revolutionize your network infrastructure.
 - [Network Issues No One Can Fix? We Will | Conxiea](/networktroubleshootingv2): Intermittent dropouts, slow performance, random failures — when your internal team or IT support can
 - [Network Troubleshooting | Network Problems Solved Fast | Conxiea](/networktroubleshooting): Network broken for weeks and nobody can fix it? Conxiea resolves your network issues fast — by a certified network engineer, not a helpdesk. Tell us your problem and we
