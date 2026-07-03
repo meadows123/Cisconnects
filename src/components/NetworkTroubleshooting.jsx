@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { Send, CheckCircle, AlertCircle, ChevronLeft, ChevronRight, Check, Shield } from 'lucide-react';
@@ -7,6 +7,7 @@ import SEO from './SEO';
 import emailjs from '@emailjs/browser';
 
 const NetworkTroubleshooting = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -51,8 +52,7 @@ const NetworkTroubleshooting = () => {
         to_name: 'Conxiea Team',
         reply_to: formData.email,
       });
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '' });
+      navigate('/thank-you');
     } catch (err) {
       console.error(err);
       setSubmitStatus('error');
@@ -190,15 +190,6 @@ const NetworkTroubleshooting = () => {
             </motion.div>
 
             {/* Status Messages */}
-            {submitStatus === 'success' && (
-              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-green-500/10 border border-green-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
-                <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-green-400 mb-1 sm:mb-2">Booking Request Received!</h3>
-                  <p className="text-sm sm:text-base text-green-300">Thank you! Our team will be in touch shortly.</p>
-                </div>
-              </motion.div>
-            )}
             {submitStatus === 'error' && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8 p-4 sm:p-6 bg-red-500/10 border border-red-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
                 <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-red-500 flex-shrink-0 mt-0.5" />
