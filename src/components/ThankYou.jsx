@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const ThankYou = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = 'Thank You | Conxiea';
   }, []);
 
   return (
