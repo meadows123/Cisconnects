@@ -202,9 +202,9 @@ const CafeWifi = () => {
               transition={{ duration: 0.4, delay: 0.2 }}
               className="mb-8 sm:mb-12"
             >
-              <div className="flex flex-row items-start gap-3">
-                <img src="/RoshanReview.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
-                <img src="/2.png" alt="Customer review" className="w-1/2 rounded-xl border border-slate-700" />
+              <div className="flex flex-col sm:flex-row items-start gap-3">
+                <img src="/RoshanReview.png" alt="Customer review" className="w-full sm:w-1/2 rounded-xl border border-slate-700" />
+                <img src="/2.png" alt="Customer review" className="w-full sm:w-1/2 rounded-xl border border-slate-700" />
               </div>
             </motion.div>
 
