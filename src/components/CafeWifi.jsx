@@ -92,9 +92,9 @@ const CafeWifi = () => {
               transition={{ duration: 0.3 }}
               className="text-center mb-8 sm:mb-12"
             >
-              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)]">
                 Most Venues Don't Realise Their{' '}
-                <span className="border-b-2 border-blue-500">WiFi Is Costing Them Customers</span>
+                <span className="border-b-2 border-blue-500 text-white">WiFi Is Costing Them Customers</span>
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
                 Slow, unreliable connections affect how long customers stay,{' '}
