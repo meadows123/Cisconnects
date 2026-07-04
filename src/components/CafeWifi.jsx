@@ -117,7 +117,7 @@ const CafeWifi = () => {
                 <img
                   src="/Wifi-Install-Pic.png"
                   alt="WiFi installation service"
-                  className="w-full sm:rounded-xl h-[320px] sm:h-auto object-cover object-center"
+                  className="w-full h-auto sm:rounded-xl"
                 />
               </motion.div>
             </motion.div>
