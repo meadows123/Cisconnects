@@ -15,6 +15,8 @@ A successful firewall migration demands understanding the technology and its dif
 
 This guide provides a step-by-step approach to planning and executing a successful migration with minimal disruption and maximum confidence.
 
+![Network security team reviewing firewall rules during a migration project](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&auto=format&fit=crop)
+
 ## Key Takeaways
 
 - Understand the importance of planning in firewall migration.
@@ -398,6 +400,8 @@ The potential economic impact of AI is vast and transformative, with far-reachin
 
 As AI continues to advance and integrate into various industries, its economic benefits are likely to grow substantially. The figure of $15.7 trillion is more than the current combined output of China and India, highlighting AI's significant role in shaping the global economy.
 
+![AI systems reshaping global economic activity and decision-making by 2030](https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=600&fit=crop)
+
 ## Key Takeaways
 
 - The global economy is expected to see a significant boost from AI by 2030.
@@ -679,6 +683,8 @@ Managing networks from different vendors like Cisco, Juniper, and Palo Alto was 
 MCP and LangChain have come together to create a single platform. This platform makes network automation as easy as talking to an AI. It changes how teams work with their infrastructure, moving away from complex commands.
 
 Network admins can now set up firewalls, routers, and switches just by talking to the AI. This means no more endless coding. It's a big step forward in making network management easier and more efficient.
+
+![AI agent architecture connecting MCP and LangChain to multi-vendor network automation](https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&auto=format&fit=crop)
 
 ## Key Takeaways
 
@@ -1001,6 +1007,8 @@ In today's fast-paced digital landscape, the demand for seamless network operati
 Recent examples, like John Capobianco's AI Agent, show AI's growing role in network automation. PyATS and ChatGPT together unlock AI's full power for network management. Ollama models for data security ensure your sensitive information stays protected.
 
 AI's impact on network automation is huge. Using Ollama's secure models is key to keeping data safe. As more use PyATS and ChatGPT, keeping networks secure is crucial.
+
+![Network engineer combining PyATS automation with conversational AI models](https://images.unsplash.com/photo-1519389950473-47c0e7f7c2b9?w=1200&h=600&fit=crop)
 
 ## Key Takeaways
 
@@ -1952,6 +1960,8 @@ Broadband speed is rarely the issue. The issue is what happens between the broad
 
 This guide explains why café WiFi drops, what the real causes are, and what proper business WiFi installation looks like when it's done correctly.
 
+![Router and network equipment behind a cafe counter causing WiFi drop-outs](https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&fit=crop)
+
 ## Why Café WiFi Is a Harder Problem Than Home WiFi
 
 Most cafés start with a home broadband router sitting on a shelf behind the counter. It works on day one. Within a few weeks, customers are complaining. The owner restarts the router, it improves briefly, then the problem returns.
@@ -2258,6 +2268,8 @@ Consumer-grade routers aren't designed for high-density environments. They strug
 
 A properly configured café network separates your traffic, keeps your payments isolated and secure, and gives you the stability to run your business without worrying about your connection.
 
+![Engineer configuring a business-grade WiFi network for a busy cafe](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop)
+
 ## Common Connectivity Problems in Cafés
 
 ### Slow WiFi in Busy Cafés
@@ -2343,6 +2355,8 @@ Struggling with your café's connectivity? [Get in touch](/contact) for a free n
 Network teams are under more pressure than ever. More devices, more complexity, more security requirements — and the same number of engineers to manage it all. Network automation software exists to close that gap.
 
 In this guide, we'll cover what network automation software actually does, why it matters in 2026, the different types available, and how to choose the right solution for your business. Whether you're running a small office network or managing enterprise-scale infrastructure, automation is no longer optional.
+
+![Engineer using network automation software to manage infrastructure at scale](https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop)
 
 ## What Is Network Automation Software?
 
@@ -2532,6 +2546,8 @@ Despite investing in automation platforms, many IT teams are still spending hour
 The right IT automation tools can dramatically reduce this burden — but only when they're matched to the right use case, integrated properly, and backed by an operational framework that actually scales.
 
 This guide covers the seven tools that consistently deliver results, where each one fits, where each one falls short, and why the future of IT automation is moving toward AI-driven agent operations.
+
+![Dashboard showing reduced operational workload from IT automation tools](https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop)
 
 ---
 
@@ -3451,6 +3467,201 @@ The [IT automation tools](/blog/it-automation-tools-reduce-operational-workloads
 ### Ready to Reduce Your IT Operational Workload?
 
 [Book a free consultation](/book-demo) to identify your highest-value automation opportunities, or [explore InfraAIOps](/infraaiops) to see how AI-driven operations automation reduces workload in practice.
+    `
+  },
+  {
+    id: 19,
+    slug: "it-operations-automation-framework-2026",
+    title: "The IT Operations Automation Framework: A Step-by-Step Guide for 2026",
+    metaTitle: "The IT Operations Automation Framework: A Step-by-Step Guide | Conxiea",
+    metaDescription: "Stop firefighting and start scaling. This step-by-step IT operations automation framework helps IT teams eliminate manual work, reduce errors, and build infrastructure that runs itself.",
+    author: "Zak",
+    date: "4th July 2026",
+    isoDate: "2026-07-04",
+    category: "AI Network Automation",
+    excerpt: "Most IT teams don't have an automation problem — they have a prioritisation problem. Here's the five-stage framework high-performing infrastructure teams use to move from manual operations to intelligent, self-managing infrastructure.",
+    keywords: "IT operations automation framework, IT operations automation guide 2026, automation maturity model, IT operations automation stages, IT automation governance, AI IT operations",
+    readTime: "10 min read",
+    content: `
+Most IT teams don't have an automation problem. They have a prioritisation problem.
+
+They know automation is the answer. They've seen the case studies. They understand the benefits. But when it comes to actually building a framework that works — one that scales, that governance teams will approve, and that doesn't break production — they get stuck.
+
+This guide gives you the IT operations automation framework used by high-performing infrastructure teams in 2026: a structured, step-by-step approach to moving from manual operations to intelligent, self-managing infrastructure.
+
+Whether you're automating your first workflow or trying to scale automation across a 50-person IT department, this framework gives you the structure to do it right.
+
+![IT operations team planning an automation framework around a shared dashboard](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop)
+
+---
+
+## What Is an IT Operations Automation Framework?
+
+An IT operations automation framework is a structured methodology for identifying, prioritising, implementing, and scaling automation across your IT environment.
+
+It's not a tool. It's not a platform. It's the decision-making architecture that sits above your tooling — the system that tells you what to automate, in what order, and how to govern it as it grows.
+
+Without a framework, automation becomes ad hoc. Individual engineers build scripts that nobody else understands. Processes get automated in isolation without connecting to broader workflows. And when something breaks, there's no audit trail, no rollback plan, and no clear owner.
+
+A proper framework solves all of this.
+
+---
+
+## The 5-Stage IT Operations Automation Framework
+
+### Stage 1: Assess Your Current State
+
+Before automating anything, you need to know where you stand.
+
+Map every IT operations process your team handles. This includes incident management, user provisioning, patch management, configuration changes, monitoring, and compliance checks. For each process, capture:
+
+- How frequently it runs
+- How long it takes manually
+- How many engineers are involved
+- How often it results in errors
+- Whether it follows a consistent, repeatable pattern
+
+This assessment gives you a baseline — and more importantly, it reveals your highest-value automation candidates. Processes that are high-frequency, time-consuming, error-prone, and rule-based are where automation delivers the most immediate return.
+
+**Key output:** A prioritised list of automation candidates ranked by value and effort.
+
+### Stage 2: Define Your Automation Goals
+
+Automation without clear goals is just technology for technology's sake.
+
+Before writing a single script or configuring a single workflow, define what success looks like in measurable terms. Examples include:
+
+- Reduce mean time to resolution (MTTR) for incidents by 40%
+- Automate 80% of user provisioning requests within 6 months
+- Eliminate manual patch management across all endpoints by Q3
+- Reduce configuration errors to zero on network devices
+
+Tie these goals to business outcomes — reduced downtime, lower operational costs, faster onboarding, improved security posture. This framing is essential when presenting automation initiatives to leadership and securing budget. [McKinsey's research on the future of automation](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-future-of-work-after-covid-19) makes a similar point: automation initiatives that succeed long-term are the ones tied explicitly to business outcomes, not just technical convenience.
+
+**Key output:** A set of measurable automation objectives aligned to business goals.
+
+### Stage 3: Start With High-Value, Low-Risk Processes
+
+This is where most automation programmes go wrong. Teams either start too small (automating trivial tasks that don't move the needle) or too big (attempting to automate complex, high-risk processes before they have the foundations in place).
+
+The right starting point is high-frequency, well-defined, low-risk processes. These are tasks that:
+
+- Follow the same steps every time
+- Have clear pass/fail conditions
+- Don't require human judgement to execute
+- Can be easily tested and rolled back if something goes wrong
+
+Common examples include password resets, software deployments to non-production environments, routine system health checks, and ticket routing.
+
+Starting here builds momentum, demonstrates value quickly, and gives your team the experience to tackle more complex automation later.
+
+**Key output:** Your first three to five automated workflows, live and validated.
+
+![Automated workflow dashboard showing low-risk IT processes moving from manual to automated](https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&fit=crop)
+
+### Stage 4: Build Governance and Oversight
+
+As automation scales, governance becomes critical. Without it, you end up with a sprawling estate of scripts and workflows that nobody fully understands — the exact problem automation was supposed to solve.
+
+A solid governance model includes:
+
+**Audit logging** — every automated action should be logged with a timestamp, trigger, outcome, and responsible owner. This supports security investigations, compliance audits, and debugging.
+
+**Approval workflows** — sensitive operations (production changes, access grants, firewall rule modifications) should route through appropriate stakeholders before executing. Automation should be fast, but not reckless.
+
+**Role-based access control** — not every engineer should be able to trigger every automation. Define who can initiate, modify, and approve automated workflows.
+
+**Documentation standards** — every automation should have a runbook: what it does, when it runs, what it depends on, and how to roll it back.
+
+This isn't bureaucracy — it's what separates sustainable automation from technical debt.
+
+**Key output:** A governance framework covering logging, approvals, access control, and documentation.
+
+### Stage 5: Scale, Monitor, and Optimise
+
+Once your foundation is solid, the focus shifts to scaling automation across more processes and measuring its impact.
+
+Track the metrics that matter:
+
+- Time saved — hours per week recovered from manual tasks
+- Error rate — reduction in incidents caused by human error
+- MTTR — how much faster incidents are resolved with automation
+- Automation coverage — percentage of eligible processes that are now automated
+
+Use these metrics to identify the next wave of automation candidates and build the business case for continued investment.
+
+At this stage, many organisations begin introducing AI-driven automation — moving beyond rule-based workflows to systems that can detect anomalies, predict failures, and take corrective action without human intervention. This is where IT operations begins to genuinely manage itself. [Gartner's analysis of strategic technology trends](https://www.gartner.com/en/articles/gartner-top-10-strategic-technology-trends-for-2024) identifies this shift — from scripted automation to AI-driven, self-managing systems — as one of the defining infrastructure trends of the decade.
+
+**Key output:** A continuous improvement loop with clear KPIs, regular reviews, and an expanding automation roadmap.
+
+---
+
+## The IT Operations Automation Maturity Model
+
+Understanding where you sit on the maturity curve helps you set realistic expectations and plan the right next steps.
+
+**Level 1 — Manual:** Everything is done by hand. No standardisation, no scripts, no automation tools in place.
+
+**Level 2 — Scripted:** Individual engineers have written scripts for common tasks, but there's no centralisation or governance. Knowledge lives with individuals.
+
+**Level 3 — Standardised:** The team has agreed on common tools and approaches. Basic workflows are automated and documented. A framework exists, even if it's informal.
+
+**Level 4 — Proactive:** Automation covers most routine operations. Monitoring is automated and connected to response workflows. The team is starting to use data to anticipate problems before they occur.
+
+**Level 5 — Autonomous:** The infrastructure largely manages itself. AI-driven systems detect, diagnose, and resolve issues without human intervention. Engineers focus on strategy and innovation rather than operational firefighting.
+
+Most mid-market IT teams sit at Level 2 or 3. The framework above is designed to move you from wherever you are today toward Level 4 and beyond.
+
+---
+
+## Common Mistakes to Avoid
+
+**Automating broken processes.** Automation amplifies what already exists. If a process is inefficient or poorly designed, automating it just makes it fail faster. Fix the process first, then automate it.
+
+**Neglecting change management.** Automation changes how people work. Engineers who spent years handling tasks manually can feel threatened or sidelined. Involve your team early, communicate the benefits clearly, and focus on how automation frees them for higher-value work.
+
+**Skipping documentation.** Every automation that isn't documented is a future incident waiting to happen. Make documentation a non-negotiable part of every workflow you build.
+
+**Moving too fast.** The pressure to show results can lead teams to automate too quickly, without proper testing or governance. A single automation failure that causes a production outage can set an entire programme back by months.
+
+---
+
+## How Conxiea Fits In
+
+Conxiea is built for IT and network operations teams who are ready to move beyond manual processes and into intelligent, AI-driven infrastructure management.
+
+Our platform combines network automation, real-time monitoring, and AI-powered fault detection into a single operational layer — giving your team the framework and the tooling to reach automation maturity faster, without the complexity of stitching together multiple point solutions.
+
+[Book a free demo to see how Conxiea can accelerate your automation journey →](/book-demo)
+
+---
+
+## Summary
+
+A successful IT operations automation framework follows five stages:
+
+- Assess your current processes and identify high-value automation candidates
+- Define clear, measurable goals tied to business outcomes
+- Start with high-frequency, low-risk processes to build momentum
+- Build governance and oversight to keep automation sustainable as it scales
+- Monitor, measure, and continuously expand your automation coverage
+
+The teams that get this right don't just save time — they build infrastructure that's more reliable, more secure, and more capable of scaling with the business.
+
+---
+
+## Further Reading
+
+- [IT Operations Automation: The Complete Guide for 2026](/blog/it-operations-automation-guide-2026)
+- [AI IT Automation: How AI Agents Are Replacing Manual IT Operations](/blog/ai-it-automation-guide-2026)
+- [7 IT Automation Tools That Actually Reduce Operational Workloads](/blog/it-automation-tools-reduce-operational-workloads)
+- [Infrastructure Automation Tools: What Actually Works in 2026](/blog/infrastructure-automation-tools-2026)
+
+---
+
+### Looking to Accelerate Your IT Operations Automation?
+
+[Explore Conxiea's platform →](/infraaiops) or read our complete [IT Operations Automation Guide for 2026](/blog/it-operations-automation-guide-2026).
     `
   }
 ];
