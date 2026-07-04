@@ -97,8 +97,8 @@ export default function BlogPost() {
     <div className="min-h-screen bg-[#0f0f3d] relative">
       <AnimatedHeroBackground />
       <SEO
-        title={`${post.title} | Conxiea Blog`}
-        description={post.excerpt || `Read about ${post.title} on the Conxiea blog. Expert insights on network automation, AI, and IT infrastructure.`}
+        title={post.metaTitle || `${post.title} | Conxiea Blog`}
+        description={post.metaDescription || post.excerpt || `Read about ${post.title} on the Conxiea blog. Expert insights on network automation, AI, and IT infrastructure.`}
         url={`/blog/${post.slug}`}
         type="article"
         keywords={post.keywords}

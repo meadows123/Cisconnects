@@ -2901,6 +2901,8 @@ Teams that implement AI IT automation typically don't shrink. They stop growing 
     id: 16,
     slug: "it-operations-automation-guide-2026",
     title: "IT Operations Automation: The Complete Guide for 2026",
+    metaTitle: "IT Operations Automation: The Complete Framework Guide for 2026 | Conxiea",
+    metaDescription: "Cut manual IT workload and reduce operational errors with our complete IT operations automation guide for 2026. Step-by-step frameworks, best practices, and real-world examples for IT teams ready to scale.",
     author: "Zak",
     date: "11th June 2026",
     category: "AI Network Automation",
