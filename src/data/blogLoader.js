@@ -21,6 +21,13 @@ function parseDate(str) {
 // Each module exports: { attributes (frontmatter), html, toc }
 const blogFiles = import.meta.glob('../blogs/*.md', { eager: true });
 
+// The page already renders post.title as its own <h1>; markdown files
+// commonly repeat the title as a leading "# ..." line, which would
+// otherwise show up duplicated inside the article body.
+function stripLeadingH1(markdown) {
+  return markdown.replace(/^# .+\n?/m, '');
+}
+
 const markdownBlogs = Object.entries(blogFiles)
   .filter(([, mod]) => mod && (mod.attributes || mod.markdown))
   .map(([path, mod]) => {
@@ -29,7 +36,7 @@ const markdownBlogs = Object.entries(blogFiles)
     return {
       ...fm,
       slug,
-      content: mod.markdown || '',
+      content: stripLeadingH1(mod.markdown || ''),
       category: fm.category || '',
       author: fm.author || '',
       date: formatDate(fm.date),
