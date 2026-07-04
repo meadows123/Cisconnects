@@ -22,14 +22,14 @@ function parseDate(str) {
 const blogFiles = import.meta.glob('../blogs/*.md', { eager: true });
 
 const markdownBlogs = Object.entries(blogFiles)
-  .filter(([, mod]) => mod && (mod.attributes || mod.html))
+  .filter(([, mod]) => mod && (mod.attributes || mod.markdown))
   .map(([path, mod]) => {
     const slug = path.split('/').pop().replace('.md', '');
     const fm = mod.attributes || {};
     return {
       ...fm,
       slug,
-      content: mod.html || '',
+      content: mod.markdown || '',
       category: fm.category || '',
       author: fm.author || '',
       date: formatDate(fm.date),

@@ -192,7 +192,7 @@ export default function BlogPost() {
             components={{
               h1: ({ children }) => <h1 className="text-3xl md:text-4xl font-bold text-white mt-10 mb-5 leading-tight">{children}</h1>,
               h2: ({ children }) => <h2 className="text-2xl md:text-3xl font-bold text-white mt-10 mb-4 leading-snug border-b border-white/10 pb-3">{children}</h2>,
-              h3: ({ children }) => <h3 className="text-xl md:text-2xl font-semibold text-blue-300 mt-8 mb-3">{children}</h3>,
+              h3: ({ children }) => <h3 className="text-xl md:text-2xl font-semibold text-white mt-8 mb-3">{children}</h3>,
               h4: ({ children }) => <h4 className="text-lg font-semibold text-slate-200 mt-6 mb-2">{children}</h4>,
               p: ({ children }) => <p className="text-slate-300 text-lg leading-relaxed mb-5">{children}</p>,
               a: ({ href, children }) => (

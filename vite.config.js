@@ -205,7 +205,7 @@ export default defineConfig(async () => {
 	customLogger: logger,
 	plugins: [
 		react(),
-		markdown({ mode: ['html', 'toc', 'react'] }),
+		markdown({ mode: ['html', 'toc', 'react', 'markdown'] }),
 		addTransformIndexHtml
 	],
 	server: {
