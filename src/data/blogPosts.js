@@ -4180,10 +4180,1309 @@ Conxiea works with mid-market businesses and MSPs across the UK to design, deplo
 
 ## Related Reading
 
-- [Business WiFi Installation: The Complete Guide for UK Businesses (2026)](/blog/business-wifi-installation)
-- [How to Plan a Business WiFi Installation: A Step-by-Step Guide](/blog/how-to-plan-business-wifi-installation)
-- [Why Business WiFi Isn't Plug and Play](/blog/why-business-wifi-isnt-plug-and-play)
+- [How to Choose the Right WiFi Setup for a Multi-Site Business](/blog/multi-site-business-wifi-setup)
+- [Managed WiFi vs Self-Managed: Which Is Right for Your Business?](/blog/managed-wifi-vs-self-managed)
+- [Common Business WiFi Problems and How to Fix Them](/blog/common-business-wifi-problems)
+- [How Much Does Business WiFi Installation Cost in the UK?](/blog/business-wifi-installation-cost-uk)
 - [Business WiFi Installation Best Practices](/blog/business-wifi-best-practices)
+    `
+  },
+  {
+    id: 23,
+    slug: "multi-site-business-wifi-setup",
+    title: "How to Choose the Right WiFi Setup for a Multi-Site Business",
+    metaTitle: "How to Choose the Right WiFi Setup for a Multi-Site Business | Conxiea",
+    metaDescription: "Managing WiFi across multiple locations is a different challenge entirely. Here's how to choose the right setup, avoid the common mistakes, and keep every site running reliably.",
+    author: "Zak",
+    date: "4th July 2026",
+    isoDate: "2026-07-04",
+    category: "WiFi Solutions",
+    excerpt: "Multi-site WiFi is a different challenge to a single-site deployment — the decisions you make about architecture, management, and standardisation compound across every location. Here's how to get it right.",
+    keywords: "multi-site business WiFi, multi-site WiFi setup, WiFi for multiple locations, centralised WiFi management, SD-WAN multi-site, business WiFi checklist",
+    readTime: "13 min read",
+    content: `
+A single-site WiFi project is relatively straightforward. You assess the building, plan the access point layout, deploy the hardware, and you're done.
+
+Multi-site WiFi is a different challenge entirely.
+
+When your business spans multiple offices, retail locations, warehouses, or client sites, the decisions you make about architecture, management, and standardisation have consequences that compound across every location. Get it right and you have a consistent, centrally managed estate that scales cleanly. Get it wrong and you end up with a patchwork of different hardware, different configurations, and different problems at every site — managed by a team that has to treat each location as a unique project.
+
+This guide walks through how to choose the right WiFi setup for a multi-site business, the questions you need to answer before you deploy anything, and the mistakes that cost UK businesses the most time and money.
+
+![IT administrator managing WiFi infrastructure across multiple business locations from a central dashboard](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop)
+
+---
+
+## Start With a Clear Picture of Your Requirements
+
+Before evaluating any hardware or management platform, you need to understand what you're actually building for. Multi-site WiFi requirements vary significantly depending on the nature of the business — and the right solution for a 10-location retail chain looks very different from the right solution for a professional services firm with three regional offices.
+
+Work through these questions for each site type in your estate:
+
+**User density** — how many staff, guests, and devices will be connected simultaneously at peak? A rough guide is 5 to 10 Mbps per standard user and 20 to 50 Mbps for users running video collaboration or heavy cloud workloads.
+
+**Physical environment** — open-plan offices, warehouses with metal racking, buildings with thick concrete walls, and multi-floor layouts all create different RF propagation challenges. What works in one environment will not work in another.
+
+**Network segmentation requirements** — do you need to separate staff, guest, IoT, and payment system traffic? Most business environments do, and the architecture needs to support it from day one.
+
+**Compliance obligations** — GDPR, PCI-DSS, Cyber Essentials, and sector-specific regulations all have network implications. Guest WiFi in particular has specific GDPR requirements around data capture, consent, and privacy notices.
+
+**Growth trajectory** — how many sites do you expect to have in two to three years? The right solution for your current estate needs to scale without requiring a complete redesign.
+
+---
+
+## The Architecture Decision: Centralised vs Distributed Management
+
+This is the most important decision in any multi-site WiFi project, and it is one that many businesses get wrong by defaulting to whatever is cheapest or most familiar.
+
+### Centralised Cloud Management
+
+The right choice for the vast majority of multi-site businesses. A centralised cloud management platform — platforms like [Cisco Meraki](https://meraki.cisco.com/), Aruba Central, [Ubiquiti UniFi](https://ui.com/), or Juniper Mist — allows a single IT administrator to manage every access point across every location from one dashboard.
+
+Configuration changes, firmware updates, security policy modifications, and SSID management all happen centrally and propagate to every site simultaneously. When a problem occurs at a remote location, an administrator can diagnose it remotely rather than dispatching an engineer.
+
+For a business with 5 or more sites, the operational saving from centralised management typically justifies the cost difference over distributed or standalone equipment within the first year.
+
+### Distributed or Standalone Equipment
+
+Each site managed independently, often with different hardware, different configurations, and different management interfaces. This approach is common among businesses that grew organically — adding sites one at a time, often with whoever was available making the technology decisions.
+
+The result is an estate that is expensive to manage, difficult to standardise, and impossible to monitor holistically. Every change needs to be made individually at each site. Every incident needs local investigation. Security policies are applied inconsistently.
+
+If your multi-site estate currently looks like this, consolidation onto a single managed platform should be a priority.
+
+![Network switching and access point hardware standardised across multiple business sites](https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop)
+
+---
+
+## Standardisation: The Foundation of Scalable Multi-Site WiFi
+
+The businesses that manage multi-site WiFi most effectively are those that treat standardisation as a non-negotiable principle from the outset.
+
+Standardisation means:
+
+**One hardware vendor** — or a tightly defined set of approved hardware. Mixing vendors across sites creates management complexity, inconsistent performance characteristics, and support complications. Pick a platform and standardise on it.
+
+**Template-based deployment** — every new site should be deployed from a pre-defined configuration template that encodes your security policies, VLAN architecture, SSID structure, and management settings. This eliminates configuration errors, speeds up deployment, and ensures consistency.
+
+**Consistent naming conventions** — SSID names, VLAN IDs, and device naming should follow a standard format across every site. This makes management, troubleshooting, and reporting significantly easier.
+
+**Documented reference architecture** — a written technical blueprint covering AP placement principles, switching and backhaul requirements, routing, and security configuration that all deployments follow. When you add a new site, the blueprint tells you exactly what to deploy and how.
+
+Organisations that skip standardisation in the early stages of multi-site expansion consistently pay for it later in higher operational costs and more frequent incidents.
+
+---
+
+## Connectivity and Backhaul
+
+Each site's WiFi performance is ultimately constrained by its internet connection. Getting the wireless hardware right while neglecting the underlying connectivity is one of the most common multi-site WiFi mistakes.
+
+For most UK business sites in 2026, the minimum recommended connectivity is:
+
+- Small offices (under 20 staff): FTTP business broadband at 100 to 300 Mbps
+- Medium offices (20 to 100 staff): FTTP at 300 Mbps to 1 Gbps, or a leased line for mission-critical environments
+- Large sites or high-density environments: Leased line with guaranteed symmetric speeds and an SLA
+
+For multi-site businesses, SD-WAN (Software-Defined Wide Area Network) is increasingly worth considering. SD-WAN allows you to intelligently route traffic across multiple internet connections at each site, providing resilience through automatic failover and optimising performance for cloud applications. For businesses with 10 or more sites and significant cloud workload, SD-WAN typically delivers measurable operational benefits.
+
+---
+
+## Security Across Multiple Sites
+
+Multi-site environments multiply the security surface area. Every site is a potential entry point, and inconsistent security configuration across locations is one of the most common sources of vulnerability in multi-site networks.
+
+The baseline security architecture for multi-site business WiFi should include:
+
+**VLAN segmentation at every site** — staff, guest, IoT, and critical system traffic on separate network segments, consistently applied across all locations. A guest device at your Edinburgh office should have the same restricted access as a guest device at your Bristol office.
+
+**WPA3-Enterprise authentication** — individual user credentials rather than shared passwords, with centralised management of access rights. When a member of staff leaves, their access is revoked centrally and immediately applies across every site.
+
+**Guest WiFi with GDPR-compliant captive portal** — any business offering guest WiFi in the UK needs to meet GDPR requirements around data capture, consent, and privacy notices. A managed captive portal solution handles this automatically, but it needs to be in place at every location.
+
+**Consistent firmware management** — centralised management platforms make it straightforward to push firmware updates to all access points simultaneously. Unpatched access points are a security liability; centralised management eliminates the risk of individual sites falling behind on updates.
+
+---
+
+## What to Look for in Multi-Site WiFi Hardware
+
+When evaluating hardware for a multi-site deployment, the key criteria are:
+
+**Cloud management capability** — the platform should support centralised management of all sites from a single interface, with role-based access control so different administrators can be given appropriate levels of access.
+
+**WiFi 6 or WiFi 7 standard** — WiFi 6 is the minimum for new deployments in 2026. It delivers significantly better performance in high-density environments through OFDMA and MU-MIMO, and supports the device densities that modern offices generate. WiFi 7 is worth considering for high-density or high-throughput environments.
+
+**802.11k/v/r roaming support** — essential for environments where users move between access points, particularly in larger or multi-floor sites.
+
+**PoE compatibility** — Power over Ethernet is the standard installation method for ceiling-mounted business access points. Ensure your switching infrastructure supports PoE and has sufficient budget per port for your access points.
+
+**Scalability** — the platform should handle your current estate and your projected estate with the same management interface and the same operational model.
+
+**UK support availability** — when something goes wrong at a remote site, you need support that understands your environment and can respond within your operational hours.
+
+---
+
+## Common Multi-Site WiFi Mistakes
+
+**Deploying different hardware at each site.** Usually happens when sites are added one at a time and whoever is responsible makes independent purchasing decisions. The result is an estate that cannot be managed consistently and where troubleshooting requires familiarity with multiple platforms.
+
+**Under-specifying internet connectivity.** The wireless infrastructure can be excellent but the experience will be poor if the underlying internet connection cannot support the traffic demand. Always size connectivity to your actual workload, not just the number of users.
+
+**Skipping the site survey.** Building materials, layout, interference sources, and existing infrastructure vary between sites. A configuration that works perfectly in one location may deliver poor coverage in another. A proper RF site survey before each deployment prevents expensive remediation work after go-live.
+
+**Treating guest WiFi as an afterthought.** Guest network provision has GDPR implications in the UK. Deploying guest WiFi without a compliant data capture and privacy notice framework exposes the business to regulatory risk.
+
+**Not budgeting for PoE switching.** Business access points require PoE. Many businesses buy the access points and then discover they also need to replace their switching infrastructure, which significantly increases project cost. Include switching in the initial budget.
+
+---
+
+## The Multi-Site WiFi Checklist
+
+Before deploying WiFi at any new site, work through this checklist:
+
+- RF site survey completed and AP placement plan documented
+- Internet connectivity sized to workload requirements
+- Hardware selected from approved vendor list
+- Configuration deployed from standard template
+- VLAN architecture matches company standard
+- Guest WiFi GDPR compliance confirmed
+- Firmware update process confirmed in central management platform
+- Monitoring and alerting configured
+- Support SLA in place
+
+---
+
+## Summary
+
+Multi-site WiFi done well is not significantly more complex than single-site WiFi — it just requires more deliberate decisions about standardisation, architecture, and management from the outset.
+
+The businesses that manage multi-site WiFi most effectively treat it as a managed programme rather than a series of individual projects. One hardware platform. One management console. One reference architecture. One set of security standards applied consistently everywhere.
+
+That approach scales. The alternative — organic, inconsistent, site-by-site decision-making — does not.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea works with multi-site businesses and MSPs across the UK to design, deploy, and manage business WiFi infrastructure at scale. From standardised reference architecture to centralised monitoring and ongoing management, we handle the complexity so your team doesn't have to.
+
+[Get in touch to discuss your multi-site WiFi requirements →](/contact)
+
+---
+
+## Related Reading
+
+- [WiFi 7 for Multi-Site Businesses: What You Need to Know Before You Deploy](/blog/wifi-7-multi-site-business)
+- [Managed WiFi vs Self-Managed: Which Is Right for Your Business?](/blog/managed-wifi-vs-self-managed)
+- [Business WiFi vs Consumer WiFi: Why the Difference Matters for Your Company](/blog/business-wifi-vs-consumer-wifi)
+- [Common Business WiFi Problems and How to Fix Them](/blog/common-business-wifi-problems)
+    `
+  },
+  {
+    id: 24,
+    slug: "managed-wifi-vs-self-managed",
+    title: "Managed WiFi vs Self-Managed: Which Is Right for Your Business?",
+    metaTitle: "Managed WiFi vs Self-Managed: Which Is Right for Your Business? | Conxiea",
+    metaDescription: "Managed WiFi or self-managed? It's one of the most important infrastructure decisions a UK business can make. Here's an honest breakdown of both options to help you choose.",
+    author: "Zak",
+    date: "4th July 2026",
+    isoDate: "2026-07-04",
+    category: "WiFi Solutions",
+    excerpt: "The choice between managed and self-managed WiFi used to be a simple budget conversation. It isn't anymore. Here's an honest breakdown of both options across cost, operational burden, security, and scalability.",
+    keywords: "managed WiFi vs self-managed, managed WiFi UK, self-managed WiFi, WiFi as a Service, business WiFi total cost of ownership",
+    readTime: "13 min read",
+    content: `
+A few years ago, the choice between managed WiFi and self-managed WiFi was primarily a budget conversation. Managed services cost more; self-managed cost less. Simple.
+
+That framing no longer reflects reality.
+
+Business WiFi in 2026 carries point-of-sale terminals, VoIP systems, building management infrastructure, IoT sensors, guest networks, and staff collaboration tools — all simultaneously, all on the same wireless estate. When it fails, operations stop. The cost equation has shifted from "how much does WiFi cost?" to "what does it cost when WiFi doesn't work?"
+
+This guide gives you an honest comparison of managed WiFi and self-managed WiFi across the dimensions that actually matter for UK businesses — not just upfront cost, but total cost of ownership, operational burden, security, compliance, and scalability.
+
+![IT professional comparing managed and self-managed WiFi options on a laptop](https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&fit=crop)
+
+---
+
+## What Is Managed WiFi?
+
+Managed WiFi is a service model in which a third-party provider takes end-to-end responsibility for your wireless network. This includes the initial site survey and network design, hardware supply and installation, ongoing monitoring, security management, firmware updates, and support when things go wrong.
+
+You are buying a result — reliable, secure wireless connectivity backed by a service level agreement — rather than purchasing hardware and managing it yourself.
+
+In its most mature form, sometimes called WiFi as a Service or Connectivity as a Service, managed WiFi eliminates the upfront capital expenditure entirely. The provider finances the hardware and recovers the cost through a monthly subscription, converting a capital purchase into a predictable operational expense.
+
+---
+
+## What Is Self-Managed WiFi?
+
+Self-managed WiFi — sometimes called in-house or DIY WiFi — is the traditional model. Your organisation purchases the hardware, employs or contracts an IT resource to design and deploy the network, and takes responsibility for every aspect of the ongoing lifecycle: monitoring, troubleshooting, firmware updates, security management, and hardware replacement.
+
+Modern self-managed WiFi typically uses a cloud management platform — products like [Ubiquiti UniFi](https://ui.com/), [Cisco Meraki](https://meraki.cisco.com/), or Aruba Central — which significantly reduces the operational burden compared to older on-premise controller models. A well-deployed cloud-managed self-managed network can be highly effective for organisations with the right internal capability.
+
+---
+
+## The Real Cost Comparison
+
+This is where most comparisons between managed and self-managed WiFi go wrong. They compare the visible costs — hardware purchase price versus monthly service fee — without accounting for the full picture.
+
+Self-managed total cost of ownership includes:
+
+- Hardware purchase (access points, switches, cabling)
+- Software licensing (cloud management platforms typically charge per device per year)
+- Installation — either internal IT time or external contractor fees
+- Ongoing IT staff time for monitoring, troubleshooting, firmware management, and incident response
+- Hardware replacement when devices fail out of warranty
+- Technology refresh every 5 to 7 years
+- The cost of downtime when incidents occur and internal resolution takes time
+
+Managed WiFi total cost of ownership includes:
+
+- Monthly service fee (typically all-inclusive: hardware, installation, monitoring, support, updates, and refresh)
+- Nothing else — the provider absorbs hardware failure, firmware management, and refresh costs
+
+For a small single-site business with strong internal IT capability, self-managed is often the more cost-effective model. For multi-site businesses, organisations without dedicated internal networking expertise, and environments where downtime has direct revenue impact, managed WiFi typically delivers a lower total cost over a 5 to 7 year horizon once all costs are properly accounted for.
+
+![Business owner reviewing WiFi service costs and total cost of ownership](https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop)
+
+---
+
+## Operational Burden: Where the Real Difference Lies
+
+The financial comparison matters, but the operational comparison is often more decisive.
+
+Self-managed WiFi operational demands:
+
+- Someone on your team needs to understand wireless networking — AP placement, channel planning, VLAN configuration, security policy management
+- Firmware updates need to be scheduled, tested, and applied across all access points
+- Monitoring needs to be active enough to catch problems before they cause visible disruption
+- When a remote site has a problem, diagnosis and resolution requires either remote access or a site visit
+- As the network grows — more sites, more devices, more complexity — the operational burden scales with it
+
+For an IT team with the right skills and capacity, these demands are manageable. For an IT generalist already managing a broad portfolio of infrastructure responsibilities, wireless network management can quickly become a significant time sink.
+
+Managed WiFi operational demands on your team:
+
+- Define your requirements and SLAs at contract stage
+- Liaise with the provider on site access for installation and maintenance
+- Escalate issues to the provider support desk when they arise
+
+The provider handles monitoring, incident detection, resolution, firmware management, hardware replacement, and proactive optimisation. Your team gets visibility through a management portal but is not responsible for the operational outcomes.
+
+---
+
+## Security and Compliance
+
+Security is one of the strongest arguments for managed WiFi in the UK market, particularly for businesses operating in regulated sectors or handling sensitive customer data.
+
+Self-managed security responsibilities:
+
+- Configuring and maintaining WPA3-Enterprise authentication
+- Managing VLAN segmentation to isolate staff, guest, IoT, and critical system traffic
+- Applying firmware updates promptly to address security vulnerabilities
+- Maintaining GDPR-compliant guest WiFi data capture and retention
+- Under the Investigatory Powers Act 2016, businesses providing internet access are required to retain connection logs for 12 months — a compliance obligation that self-managed environments must address explicitly
+
+Managed WiFi security provision:
+
+- The provider assumes legal responsibility as the internet service provider for the network
+- GDPR compliance, including connection log retention and captive portal management, is handled contractually
+- Security patches and firmware updates are applied proactively by the provider
+- WPA3 encryption, VLAN segmentation, and intrusion detection are standard in professional managed deployments
+- Many providers offer continuous security monitoring as part of the service
+
+For businesses in legal, financial, healthcare, or hospitality sectors — or any organisation handling payment card data — the compliance burden of self-managed WiFi can be significant. A managed provider that assumes legal responsibility for the network removes that burden entirely.
+
+---
+
+## Scalability
+
+### Self-Managed at Scale
+
+Adding new sites to a self-managed estate requires procurement, installation, configuration, and integration with the existing management platform for each location. With a standardised deployment approach and the right internal capability, this is manageable. Without it, each new site becomes a project.
+
+### Managed WiFi at Scale
+
+New sites are added to the provider's managed estate. Site surveys, hardware procurement, installation, and configuration are handled by the provider. Your team's involvement is primarily logistics — providing site access and signing off on the deployment. This model scales cleanly to dozens or hundreds of sites without proportionally increasing your internal operational burden.
+
+For rapidly growing businesses, franchises, or organisations with large property portfolios, managed WiFi's scalability advantage is significant.
+
+---
+
+## When Self-Managed Makes Sense
+
+Self-managed WiFi is the right choice when:
+
+- You have internal IT staff with strong wireless networking skills and sufficient capacity to manage the estate properly
+- Your estate is relatively small and geographically concentrated
+- You need granular control over every aspect of network configuration and policy
+- Your budget model favours capital expenditure over operational expenditure
+- You have time and resource to manage hardware procurement, replacement, and technology refresh cycles
+
+---
+
+## When Managed WiFi Makes Sense
+
+Managed WiFi is the right choice when:
+
+- WiFi is mission-critical to your operations and downtime has direct revenue or operational impact
+- You have multiple sites, particularly geographically dispersed locations
+- Your internal IT team doesn't have dedicated wireless networking expertise, or that expertise is already stretched across other priorities
+- You operate in a regulated sector with specific compliance obligations around network security and data retention
+- You want predictable monthly costs without capital expenditure surprises
+- You need 24/7 monitoring and support without building that capability internally
+
+As a practical guide: any business with more than three sites, or any single-site business where the network underpins customer-facing operations or regulated data handling, should seriously evaluate managed WiFi before defaulting to self-managed.
+
+---
+
+## Questions to Ask a Managed WiFi Provider
+
+If you are evaluating managed WiFi providers, ask these questions before signing a contract:
+
+**What is included in the SLA?** Availability guarantees, coverage commitments, response times, and resolution times should all be specified contractually — not just described in marketing materials.
+
+**Who owns the hardware?** Some providers tie you to proprietary hardware that only works with their management platform. If you want to switch provider in year five, you replace every access point. Insist on clarity about hardware ownership and portability.
+
+**Who owns the data?** The analytics your network generates — device counts, usage patterns, dwell times — are valuable. Your contract should specify that you own that data, not the provider.
+
+**What happens at end of contract?** Understand the exit process before you sign. What happens to the hardware? What notice period is required? Can you take over management of the network yourself?
+
+**What does UK support look like?** Response times, support hours, and whether you get access to engineers who know your specific network or a generic helpdesk are all worth clarifying upfront.
+
+---
+
+## Summary
+
+Neither managed WiFi nor self-managed WiFi is universally the right answer. The right choice depends on your internal capability, your operational requirements, your compliance obligations, and the scale and complexity of your estate.
+
+The honest framing is this: self-managed WiFi done well requires genuine wireless networking expertise and sufficient IT capacity to manage it properly. Managed WiFi transfers that requirement — and the associated risk — to a specialist provider, in exchange for a monthly fee.
+
+For most UK businesses with more than a handful of sites, or any business where network reliability has direct operational consequences, managed WiFi delivers better outcomes at a lower total cost than self-managed once the full picture is accounted for.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea works with mid-market businesses and MSPs across the UK on both managed and self-managed WiFi deployments. Whether you want to retain control of your network with the right tooling and support, or outsource it entirely to a specialist, we can help you find the right model for your business.
+
+[Get in touch to discuss your WiFi requirements →](/contact)
+
+---
+
+## Related Reading
+
+- [Common Business WiFi Problems and How to Fix Them](/blog/common-business-wifi-problems)
+- [Business WiFi vs Consumer WiFi: Why the Difference Matters for Your Company](/blog/business-wifi-vs-consumer-wifi)
+- [How to Choose the Right WiFi Setup for a Multi-Site Business](/blog/multi-site-business-wifi-setup)
+- [How Much Does Business WiFi Installation Cost in the UK?](/blog/business-wifi-installation-cost-uk)
+    `
+  },
+  {
+    id: 25,
+    slug: "common-business-wifi-problems",
+    title: "Common Business WiFi Problems and How to Fix Them",
+    metaTitle: "Common Business WiFi Problems and How to Fix Them | Conxiea",
+    metaDescription: "Slow speeds, dead zones, dropped calls, security gaps — business WiFi problems cost UK companies time and money every day. Here's how to diagnose and fix the most common ones.",
+    author: "Zak",
+    date: "4th July 2026",
+    isoDate: "2026-07-04",
+    category: "WiFi Solutions",
+    excerpt: "WiFi problems rarely announce themselves clearly — they show up as daily frustrations everyone learns to work around. Here are the seven most common business WiFi problems UK companies experience, why they happen, and how to fix them.",
+    keywords: "common business WiFi problems, business WiFi troubleshooting, WiFi dead zones office, business WiFi security issues, fix business WiFi problems",
+    readTime: "14 min read",
+    content: `
+WiFi problems in a business environment rarely announce themselves clearly. They show up as minor daily frustrations — a video call that keeps buffering, a payment terminal that takes three attempts to connect, a meeting room where nobody can get a signal — that everyone learns to work around rather than fix.
+
+But those daily frustrations have a real cost. UK productivity studies consistently show that employees lose between 15 and 20 minutes per day to connectivity issues. Across a team of 20, that is over 1,200 hours of lost productivity every year — from a problem that is almost always fixable.
+
+This guide covers the most common business WiFi problems UK companies experience, why they happen, and what to do about them.
+
+![Engineer diagnosing business WiFi coverage and performance problems](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop)
+
+---
+
+## Problem 1: Dead Zones and Patchy Coverage
+
+**What it looks like:** Signal strength drops to zero in specific areas of the building. The meeting room on the third floor. The warehouse floor. The far end of the open-plan office. Staff learn to avoid these areas for anything that requires a reliable connection.
+
+**Why it happens:** Dead zones are almost always a design problem rather than a hardware problem. WiFi signals degrade through physical obstructions — thick walls, concrete floors, metal shelving, glass partitions, lift shafts, and heavy electrical equipment all attenuate or block wireless signals. Victorian and Edwardian buildings common across UK commercial estates are particularly challenging due to solid brick and stone construction.
+
+The other common cause is relying on a single router or access point to cover more space than it was designed for. Even a high-quality business access point has coverage limits, and placing one device in a corner and expecting it to cover an entire floor plan reliably is an optimistic approach that rarely works in practice.
+
+**How to fix it:** The right solution is almost never turning up the transmit power on your existing access point. A stronger signal broadcast from a poorly positioned device just broadcasts interference further. The fix is deploying additional access points in the right locations, positioned to cover the actual areas where staff work.
+
+A professional RF site survey — where an engineer maps signal strength, interference, and building construction before recommending AP placement — is the most reliable way to resolve persistent coverage problems. For multi-floor or complex buildings, this is not optional; it is the only way to get placement right without expensive trial and error.
+
+---
+
+## Problem 2: Slow Speeds Despite Fast Broadband
+
+**What it looks like:** Your internet service provider tells you your broadband connection is delivering full speed. Speed tests at the router confirm it. But across the office, applications are slow, file uploads take forever, and video calls buffer constantly.
+
+**Why it happens:** The bottleneck is almost never the broadband connection itself. The most common causes of slow WiFi in a business environment where the internet connection is adequate are:
+
+**Channel congestion** — WiFi channels are shared radio frequencies. In a busy building with multiple businesses, every nearby network is broadcasting on the same channels. When too many devices compete for the same frequency space, throughput drops for everyone. This is particularly common on the 2.4 GHz band, which has only three non-overlapping channels and is used by everything from WiFi to Bluetooth to microwave ovens.
+
+**Device density** — consumer-grade and older business access points can only communicate with one device at a time, taking turns between connected devices. As device count climbs, every device waits longer for its turn. Modern WiFi 6 and WiFi 7 access points use OFDMA technology to serve multiple devices simultaneously, which is why upgrading hardware can dramatically improve performance even when your broadband speed hasn't changed.
+
+**Outdated hardware** — access points more than five to seven years old are likely running older WiFi standards that simply cannot deliver modern performance levels. WiFi 4 (802.11n) access points, still found in many UK business environments, lack the multi-user capabilities that make modern WiFi fast under load.
+
+**How to fix it:** Switch your access points to the 5 GHz band where possible — it has more channels, less congestion from neighbouring networks, and supports higher throughput. Enable automatic channel selection on your management platform so access points choose the least congested channel dynamically rather than staying locked to a fixed channel.
+
+If your hardware is more than five years old, upgrade to WiFi 6 as a minimum. The performance improvement in high-density environments is substantial and the hardware cost is straightforward to justify against productivity gains.
+
+![Network dashboard showing WiFi channel congestion and device density across access points](https://images.unsplash.com/photo-1519389950473-47c0e7f7c2b9?w=1200&h=600&fit=crop)
+
+---
+
+## Problem 3: Dropped Connections When Moving Around
+
+**What it looks like:** Staff on video calls who move between rooms or floors experience call drops or reconnection delays. Mobile workers find their devices constantly losing and reacquiring a connection as they move through the building.
+
+**Why it happens:** This is a roaming problem. When a device moves from one access point's coverage area to another, it needs to hand off its connection from one AP to the next. How cleanly this happens depends on whether your access points support and are configured for the right roaming protocols.
+
+Consumer WiFi equipment — including many consumer mesh systems — handles roaming inconsistently. Devices tend to stay associated with their original access point longer than they should, maintaining a weak connection to a distant AP rather than switching to the closer one. When they eventually do switch, the reconnection process causes a noticeable interruption.
+
+**How to fix it:** Business-grade access points support IEEE standards 802.11k, 802.11v, and 802.11r — protocols specifically designed to enable fast, seamless roaming. 802.11k allows devices to discover neighbouring access points before they need to switch. 802.11v allows the network to suggest roaming decisions to devices. 802.11r allows the authentication handshake to complete before the device moves, eliminating the reconnection delay entirely.
+
+If you are running consumer or older business access points that do not support these standards, roaming will always be problematic regardless of how many access points you add. Upgrading to hardware that properly implements 802.11k/v/r is the only reliable fix.
+
+---
+
+## Problem 4: WiFi Works Fine Until Peak Hours
+
+**What it looks like:** The network is reliable first thing in the morning and works well for most of the day. But between 10am and 12pm, and again between 2pm and 4pm when the whole team is active and on calls, performance degrades noticeably.
+
+**Why it happens:** This is a capacity problem. The network was designed around average load, not peak load. During quiet periods it performs well. During peak periods, the number of simultaneous connections and the volume of traffic — video calls, cloud application traffic, file syncing, guest devices — exceeds what the network was designed to handle.
+
+**How to fix it:** The short-term fix is Quality of Service (QoS) configuration — prioritising business-critical traffic like VoIP and video conferencing over lower-priority traffic like software updates and file syncing. This ensures that when bandwidth is constrained, the most important applications get the bandwidth they need first.
+
+The longer-term fix is right-sizing the network for peak load rather than average load. This typically means adding access points in high-density areas like open-plan floors and meeting rooms, and ensuring the underlying internet connection is sized for simultaneous heavy usage rather than theoretical maximum throughput.
+
+---
+
+## Problem 5: Guest Devices Affecting Performance or Security
+
+**What it looks like:** When visitors connect to your WiFi, the network slows down for everyone. Or worse, you discover that guest devices can see internal file shares, printers, or other resources they should not be able to access.
+
+**Why it happens:** This is an architecture problem. When guest and staff traffic share the same network — same SSID, same subnet, no segmentation — guest devices compete for the same bandwidth as staff devices and can potentially access internal resources.
+
+This is surprisingly common in UK businesses that have grown from small beginnings. The original network was set up for a small team, guest access was added without proper segmentation, and the architecture was never revisited as the business grew.
+
+**How to fix it:** Proper network segmentation is the answer. A business WiFi setup should have at minimum:
+
+- A staff network with full access to internal resources, protected by strong authentication
+- A guest network isolated from all internal systems, with bandwidth limits to prevent a single guest from consuming the connection
+
+VLANs (Virtual Local Area Networks) achieve this segmentation at the network layer, ensuring that even though staff and guests may be connecting to access points in the same building, their traffic is kept completely separate.
+
+Note that under UK GDPR, any business offering guest WiFi also has obligations around data capture, consent, and log retention. A compliant captive portal solution — requiring guests to accept terms before connecting — handles these obligations and is strongly recommended for any business providing guest access.
+
+---
+
+## Problem 6: Frequent Disconnections and Unstable Connections
+
+**What it looks like:** Devices drop their WiFi connection repeatedly throughout the day and need to reconnect. Not in specific locations, but seemingly at random, across the building.
+
+**Why it happens:** Random disconnections that are not location-specific are typically caused by one of three things:
+
+**Interference** — other wireless devices operating on the same frequency. Cordless phones, Bluetooth devices, baby monitors, and even microwave ovens can interfere with WiFi signals. In a shared building, interference from neighbouring businesses' networks is also common.
+
+**Firmware issues** — access points running outdated firmware can develop stability problems. Manufacturers release firmware updates to address bugs and improve stability; access points that have not been updated in months or years are more likely to exhibit erratic behaviour.
+
+**Hardware failure** — access points, like all hardware, can develop faults. A failing access point may continue to broadcast a signal but handle connections unreliably, causing intermittent disconnections for devices associated with it.
+
+**How to fix it:** Start by updating firmware across all access points. This resolves a surprising number of stability issues. If you are using a cloud management platform, this can be done centrally across your entire estate in minutes.
+
+If firmware updates do not resolve the problem, use your network management platform to identify whether disconnections correlate with specific access points. An AP that consistently shows high reassociation rates is worth investigating further — it may need to be replaced.
+
+For interference, switching devices to the 5 GHz band and enabling automatic channel selection reduces the impact of external interference sources.
+
+![IT administrator reviewing firmware updates and access point health across a business network](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&auto=format&fit=crop)
+
+---
+
+## Problem 7: Security Vulnerabilities and Unauthorised Access
+
+**What it looks like:** Devices appear on your network that you do not recognise. Or you receive a notification from your security tools about unusual network activity. Or — most concerning — you discover during a [Cyber Essentials](https://www.ncsc.gov.uk/cyberessentials/overview) assessment that your network security configuration does not meet the required standard.
+
+**Why it happens:** Business WiFi security vulnerabilities typically fall into one of three categories:
+
+**Weak authentication** — using a shared WiFi password rather than individual credentials means that when one person's device is compromised, or when an ex-employee's device retains the password, your network is exposed. Shared passwords also cannot be selectively revoked.
+
+**Outdated security protocols** — WPA2 has known vulnerabilities that WPA3 addresses. Networks still running WPA2-Personal with a shared password are significantly more vulnerable than those running WPA3-Enterprise with individual credentials.
+
+**No network segmentation** — a flat network where all devices share the same subnet means that a compromised device — an IoT sensor, a guest device, a staff laptop — can potentially communicate with any other device on the network.
+
+**How to fix it:** Move to WPA3-Enterprise with 802.1X authentication, which provides individual credentials for each user and eliminates the shared password vulnerability. This requires a RADIUS server for authentication — most cloud management platforms include this or integrate with one.
+
+Segment your network using VLANs to isolate device categories from each other. IoT devices in particular should always be on their own isolated segment — they are statistically the most common entry point for network breaches.
+
+Review your network regularly using your management platform's device inventory. Any device you do not recognise should be investigated.
+
+---
+
+## When to Call in a Professional
+
+Most of the problems above can be resolved with the right knowledge and the right hardware. But there are situations where a professional assessment is the most efficient path to resolution:
+
+- Dead zones and coverage problems in complex buildings where AP placement is not straightforward
+- Persistent performance problems that do not respond to the obvious fixes
+- Security assessments as part of Cyber Essentials, PCI-DSS, or other compliance requirements
+- Multi-site deployments where consistency and standardisation matter
+- Any situation where the network underpins business-critical operations and downtime has direct revenue impact
+
+A professional RF site survey and network assessment will typically identify the root cause of persistent WiFi problems faster and more reliably than iterative trial and error — and costs significantly less than the cumulative productivity loss from an underperforming network.
+
+---
+
+## Summary
+
+Most business WiFi problems fall into a small number of categories: coverage gaps from poor AP placement, capacity problems from under-specified hardware, roaming failures from consumer-grade equipment, security gaps from inadequate segmentation, and stability issues from outdated firmware.
+
+None of these are mysterious or unfixable. They are the predictable results of networks that were not designed properly in the first place, or that have not kept pace with the demands placed on them as the business has grown.
+
+The businesses that experience the fewest WiFi problems are those that treat their wireless network as business-critical infrastructure — designed properly, maintained proactively, and upgraded before it becomes a bottleneck rather than after.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea works with UK businesses and MSPs to design, deploy, and manage business WiFi infrastructure that works reliably. From diagnosing persistent performance problems to deploying properly segmented, monitored networks across multiple sites, we handle the complexity so your team can focus on the work that matters.
+
+[Get in touch to discuss your business WiFi requirements →](/contact)
+
+---
+
+## Related Reading
+
+- [How Much Does Business WiFi Installation Cost in the UK?](/blog/business-wifi-installation-cost-uk)
+- [Business WiFi vs Consumer WiFi: Why the Difference Matters for Your Company](/blog/business-wifi-vs-consumer-wifi)
+- [How to Choose the Right WiFi Setup for a Multi-Site Business](/blog/multi-site-business-wifi-setup)
+- [Managed WiFi vs Self-Managed: Which Is Right for Your Business?](/blog/managed-wifi-vs-self-managed)
+    `
+  },
+  {
+    id: 26,
+    slug: "business-wifi-installation-cost-uk",
+    title: "How Much Does Business WiFi Installation Cost in the UK?",
+    metaTitle: "How Much Does Business WiFi Installation Cost in the UK? | Conxiea",
+    metaDescription: "Business WiFi installation costs in the UK vary widely depending on size, hardware, and approach. Here's a clear, honest breakdown of what you should expect to pay in 2026.",
+    author: "Zak",
+    date: "4th July 2026",
+    isoDate: "2026-07-04",
+    category: "WiFi Solutions",
+    excerpt: "Business WiFi installation costs range from around £1,100 for a small office to well over £13,000 for a large or complex environment. Here's an honest, itemised breakdown of what drives the cost and what to expect from a quote in 2026.",
+    keywords: "business WiFi installation cost UK, WiFi installation pricing, business WiFi cost per access point, managed WiFi cost UK, office WiFi installation cost",
+    readTime: "14 min read",
+    content: `
+Business WiFi installation costs are one of the most searched — and most poorly answered — questions in UK IT procurement.
+
+Most of the information available either gives vague ranges without context, focuses only on hardware costs while ignoring installation and ongoing management, or is written by vendors with a product to sell.
+
+This guide gives you an honest, transparent breakdown of what business WiFi installation actually costs in the UK in 2026 — including hardware, cabling, installation labour, software licensing, and ongoing management — so you can budget accurately and evaluate quotes with confidence.
+
+![Engineer costing out a business WiFi installation project with access point hardware](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop)
+
+---
+
+## Why There Is No Single Answer
+
+Before getting into numbers, it is worth being direct about why business WiFi installation costs vary so widely: the range of requirements is enormous.
+
+A small professional services office with 15 staff in a modern open-plan space needs two or three access points, straightforward cabling, and a basic cloud management setup. A multi-floor warehouse with 80 staff, dense device requirements, complex RF propagation challenges, and strict security segmentation needs fifteen or more access points, significant cabling infrastructure, and a more sophisticated management and monitoring solution.
+
+The hardware, installation time, and complexity are completely different. Any guide that gives you a single number without understanding your environment is not giving you useful information.
+
+What this guide does instead is break down each cost component so you can build a realistic estimate for your specific situation.
+
+---
+
+## The Five Cost Components of Business WiFi Installation
+
+### 1. RF Site Survey
+
+**Typical cost: £500 to £2,000**
+
+A professional RF site survey is the starting point for any properly designed business WiFi deployment. An engineer assesses your physical environment — building layout, construction materials, interference sources, existing cabling infrastructure, device density requirements — and produces a design that specifies where access points should be placed, what hardware is appropriate, and what cabling infrastructure is needed.
+
+Skipping the site survey is one of the most common reasons business WiFi deployments fail to deliver the expected performance. Dead zones, coverage gaps, and capacity problems that require expensive remediation after installation are almost always the result of deploying hardware without a proper design.
+
+The cost of a site survey pays for itself by ensuring the hardware you purchase is the right hardware, placed in the right locations. It is not an optional extra — it is the foundation of a reliable deployment.
+
+Some professional installation companies include a free site survey as part of a full project quotation. If a company is unwilling to survey your premises before quoting, that is a red flag.
+
+### 2. Access Point Hardware
+
+**Typical cost per access point: £100 to £1,000+**
+
+Access point hardware costs vary significantly depending on the platform and performance tier you choose:
+
+**Budget tier — TP-Link Omada:** £100 to £200 per AP. Strong performance for SMB environments, no annual licensing fees, good cloud management platform. A sensible choice for smaller deployments where cost is a primary consideration.
+
+**Mid-tier — [Ubiquiti UniFi](https://ui.com/):** £150 to £400 per AP. Excellent performance and feature set, strong community and support ecosystem, no per-device licensing fees. The most popular choice for UK SMB deployments and MSPs due to its value-to-performance ratio.
+
+**Premium tier — [Cisco Meraki](https://meraki.cisco.com/) / Aruba:** £400 to £1,000+ per AP. Enterprise-grade performance, advanced management and analytics features, and extensive vendor support. Meraki in particular requires annual cloud licensing at approximately £150 per AP per year — a significant ongoing cost that needs to be included in total cost of ownership calculations.
+
+**How many access points do you need?** A rough guide is one access point per 20 to 30 users in a standard office environment, or one per 30 square metres in open-plan spaces. High-density environments — conference rooms, warehouses, retail spaces with heavy device loads — may need more. Complex buildings with multiple floors, thick walls, or significant RF interference will also require more APs than a simple floor area calculation suggests.
+
+As a practical guide:
+
+- Small office, 10 to 20 staff: 2 to 4 access points
+- Medium office, 20 to 50 staff: 4 to 8 access points
+- Large office or multi-floor, 50 to 150 staff: 8 to 20 access points
+- Warehouse or complex environment: site survey required
+
+### 3. Cabling Infrastructure
+
+**Typical cost: £100 to £200 per cable run**
+
+Each access point requires a dedicated Cat6 or Cat6A cable run from the AP location back to your network switch. In a new-build or recently refitted office, this cabling may already be in place. In older buildings — particularly the Victorian and Edwardian properties common across UK commercial estates — cabling routes can be complex and labour-intensive.
+
+Each cable run in a commercial environment typically costs £75 to £200, inclusive of materials, labour, containment trunking, and certified testing. Complex routes through solid walls, multiple floors, or out-of-hours installation requirements will push costs toward the higher end.
+
+If you are also upgrading your switching infrastructure to support Power over Ethernet — which is required to power ceiling-mounted business access points — a PoE switch for a small to medium deployment adds £200 to £1,000 depending on port count and specification.
+
+### 4. Installation Labour
+
+**Typical cost: £500 to £2,000**
+
+Engineer time for mounting access points, running and terminating cabling, configuring the network, and testing the installation typically costs £500 to £2,000 for a small to medium deployment, depending on project scale and complexity.
+
+Most professional installations are completed within one to three days for a single site, with minimal disruption to operations when scheduled appropriately. Out-of-hours installation — for businesses that cannot accommodate disruption during working hours — will add a premium to labour costs.
+
+### 5. Software Licensing and Ongoing Management
+
+**Typical cost: £0 to £150 per AP per year for licensing; £10 to £30 per AP per month for managed services**
+
+This is the cost component most frequently omitted from initial WiFi installation quotes — and the one that can most significantly affect total cost of ownership.
+
+**Cloud management licensing:** Platforms like Ubiquiti UniFi and TP-Link Omada have no per-device licensing fees. Cisco Meraki requires annual licensing at approximately £150 per AP per year — for a 10-AP deployment, that is £1,500 per year in licensing alone, in addition to hardware costs.
+
+**Managed service fees:** If you choose to have your network professionally monitored and managed after installation — rather than managing it in-house — expect to pay £10 to £30 per access point per month. This typically covers 24/7 monitoring, proactive fault detection, firmware management, configuration changes, and helpdesk support.
+
+For a 10-AP deployment on a managed service at £20 per AP per month, that is £200 per month or £2,400 per year in ongoing management costs. This needs to be weighed against the cost of internal IT resource to manage the network, and the cost of downtime if problems are not caught and resolved promptly.
+
+![Cost breakdown of a business WiFi installation project including hardware, cabling, and labour](https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop)
+
+---
+
+## Total Cost Estimates by Business Size
+
+Bringing all five components together, here are realistic total cost estimates for business WiFi installation in the UK in 2026:
+
+### Small Office (10 to 20 Staff, Single Floor, 2 to 4 APs)
+
+- Site survey: included in project quote
+- Hardware (mid-tier): £400 to £1,200
+- Cabling (2 to 4 runs): £200 to £600
+- Installation labour: £500 to £800
+- **Total project cost: £1,100 to £2,600**
+
+### Medium Office (20 to 50 Staff, Single or Double Floor, 4 to 8 APs)
+
+- Site survey: £500 to £750
+- Hardware (mid-tier): £800 to £2,400
+- Cabling (4 to 8 runs): £400 to £1,200
+- Installation labour: £800 to £1,500
+- **Total project cost: £2,500 to £5,850**
+
+### Large Office or Complex Environment (50 to 150 Staff, 8 to 20 APs)
+
+- Site survey: £750 to £2,000
+- Hardware (mid-tier): £1,600 to £6,000
+- Cabling (8 to 20 runs): £800 to £3,000
+- Installation labour: £1,200 to £2,500
+- **Total project cost: £4,350 to £13,500**
+
+These ranges reflect mid-tier hardware (Ubiquiti UniFi) without premium licensing costs. Projects using Cisco Meraki or Aruba hardware will be at the higher end of the hardware range, with additional annual licensing costs on top.
+
+---
+
+## The Managed WiFi Alternative: CapEx vs OpEx
+
+For businesses that prefer not to make a significant upfront capital investment, managed WiFi as a service offers an alternative model that converts the entire cost — hardware, installation, monitoring, management, and refresh — into a predictable monthly subscription.
+
+Managed WiFi pricing in the UK typically runs on a per-site or per-access-point basis. For SMB deployments, expect all-inclusive monthly costs in the range of £150 to £500 per month for a small site, scaling with the number of access points and the SLA level required.
+
+Over a 5 to 7 year horizon — which is the typical hardware lifecycle for business WiFi equipment — managed WiFi often delivers a lower total cost than outright purchase once all hardware, licensing, management, and refresh costs are properly accounted for. The additional benefit is that hardware refresh is handled by the provider, so you are always running current-generation equipment without a capital expenditure decision.
+
+---
+
+## What Affects Your Quote Most
+
+When you receive quotes from WiFi installation companies, these are the factors that will most significantly affect the price:
+
+**Building construction** — solid brick, concrete, or stone buildings require more access points to achieve the same coverage as modern open-plan spaces, and cabling routes are more complex and labour-intensive.
+
+**Number of access points** — the single biggest driver of hardware and cabling cost. A well-designed network with the right number of appropriately placed APs performs better and costs less to maintain than an over-provisioned one.
+
+**Hardware platform** — the gap between budget and premium hardware is significant. For most UK SMB deployments, mid-tier hardware delivers the best value-to-performance ratio.
+
+**Licensing model** — platforms with no annual licensing fees (UniFi, Omada) have a substantially lower total cost of ownership than platforms with per-device annual fees (Meraki) over a 5 to 7 year lifecycle.
+
+**Out-of-hours installation** — if your business cannot accommodate installation during working hours, expect a premium of 25 to 50% on labour costs.
+
+---
+
+## Red Flags in WiFi Installation Quotes
+
+When evaluating quotes from installation companies, watch out for:
+
+**No site survey** — any company quoting without surveying your premises is guessing at AP count and placement. The result is often an under-specified installation that requires expensive remediation.
+
+**Hardware-only quotes** — a quote that lists access point costs without cabling, installation, and configuration is not a complete project cost. Make sure you are comparing like for like.
+
+**No mention of licensing costs** — if a quote specifies Cisco Meraki hardware without including annual licensing costs, the ongoing expense will be a surprise. Always ask for the total cost of ownership over 3 to 5 years, not just the installation cost.
+
+**No post-installation survey** — a professional installation should include a post-installation RF survey confirming that signal strength, throughput, and roaming behaviour meet specification before handover. If this is not included, you have no guarantee the installation performs as designed.
+
+---
+
+## Summary
+
+Business WiFi installation costs in the UK vary from around £1,100 for a small single-site office to well over £13,000 for a large or complex environment — before ongoing management costs.
+
+The most important factors are the number of access points required (driven by building size, construction, and user density), hardware platform choice, and whether you include professional ongoing management or handle the network in-house.
+
+The cheapest installation is not always the best value. A properly designed, professionally installed network that performs reliably for 5 to 7 years with minimal IT overhead costs significantly less over its lifetime than a poorly designed one that requires frequent remediation and generates IT support overhead.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea works with UK businesses and MSPs to design and deploy business WiFi infrastructure that performs reliably and scales with your business. We provide transparent, fully itemised quotes covering every cost component — no hidden extras, no surprises.
+
+[Get in touch for a free consultation and no-obligation quote →](/contact)
+
+---
+
+## Related Reading
+
+- [Business WiFi vs Consumer WiFi: Why the Difference Matters for Your Company](/blog/business-wifi-vs-consumer-wifi)
+- [How to Choose the Right WiFi Setup for a Multi-Site Business](/blog/multi-site-business-wifi-setup)
+- [Managed WiFi vs Self-Managed: Which Is Right for Your Business?](/blog/managed-wifi-vs-self-managed)
+- [Common Business WiFi Problems and How to Fix Them](/blog/common-business-wifi-problems)
+    `
+  },
+  {
+    id: 27,
+    slug: "wifi-7-for-business-uk",
+    title: "WiFi 7 for Business: Everything UK Companies Need to Know",
+    metaTitle: "WiFi 7 for Business: Everything UK Companies Need to Know | Conxiea",
+    metaDescription: "WiFi 7 is the biggest leap in wireless standards in years. Here's what it actually delivers for UK businesses, what infrastructure it requires, and whether you should upgrade yet.",
+    author: "Zak",
+    date: "4th July 2026",
+    isoDate: "2026-07-04",
+    category: "WiFi Solutions",
+    excerpt: "WiFi 7 promises faster speeds, lower latency, and far greater capacity than WiFi 6. Here's a complete, honest guide to what it actually is, what it requires, and whether UK businesses should upgrade now or wait.",
+    keywords: "WiFi 7 for business UK, WiFi 7 business network, WiFi 7 explained, 802.11be business, WiFi 7 UK companies",
+    readTime: "14 min read",
+    content: `
+WiFi 7 is the most significant jump in wireless networking standards in years — and unlike some previous generational upgrades, the improvements are not marginal. For businesses running high-density offices, latency-sensitive applications, or infrastructure that has outgrown WiFi 5 or early WiFi 6 hardware, WiFi 7 addresses real, practical problems.
+
+But "the latest standard" is not automatically "the right upgrade for your business right now." WiFi 7 requires infrastructure most UK businesses don't currently have, the UK's regulatory position on the spectrum it depends on is still evolving, and the access point hardware carries a real cost premium.
+
+This guide covers what WiFi 7 actually is, what's genuinely new, what it requires from your network, and how to think about whether — and when — your business should upgrade.
+
+![Modern office with WiFi 7 access point mounted on the ceiling](https://images.unsplash.com/photo-1519389950473-47c0e7f7c2b9?w=1200&h=600&fit=crop)
+
+---
+
+## What Is WiFi 7?
+
+WiFi 7 is the marketing name for IEEE 802.11be, the latest generation of the WiFi standard, ratified following WiFi 6 (802.11ax) and WiFi 6E. Like every generational WiFi upgrade, it brings faster theoretical speeds — but the more important story for business networks is what it does for capacity, latency, and reliability in busy, device-dense environments.
+
+According to the [Wi-Fi Alliance](https://www.wi-fi.org/), WiFi 7 is designed around four core technical advances: Multi-Link Operation, wider 320 MHz channels, higher-order 4K-QAM modulation, and Multi-Resource Unit (Multi-RU) puncturing. Together, these deliver substantially higher throughput and — just as importantly for business use — far more consistent performance when many devices are connected simultaneously.
+
+---
+
+## What's Actually New in WiFi 7
+
+### Multi-Link Operation (MLO)
+
+This is the single most important change in WiFi 7 for business networks. MLO allows a device and an access point to establish and use multiple frequency bands — for example 5 GHz and 6 GHz — simultaneously, under one connection, rather than picking a single band and sticking with it.
+
+In practice, this means more consistent performance during band congestion, meaningfully lower latency for real-time applications like voice and video calls, and better aggregate throughput in high-density environments where dozens of devices are competing for airtime. For offices running heavy video conferencing loads, MLO is the feature that delivers the most noticeable day-to-day improvement.
+
+### 320 MHz Channels
+
+WiFi 7 doubles the maximum channel width available in the 6 GHz band from 160 MHz (the WiFi 6E maximum) to 320 MHz. Wider channels carry more data simultaneously — comparable to widening a motorway from four lanes to eight. This is where a large share of WiFi 7's headline speed improvements come from.
+
+### 4K-QAM and Multi-RU
+
+Higher-order 4096-QAM modulation packs more data into each transmission when signal conditions are strong, and Multi-Resource Unit puncturing lets an access point work around interference on part of a channel rather than avoiding the whole channel. Combined with MLO and wider channels, the [Wi-Fi Alliance](https://www.wi-fi.org/) and hardware vendors report WiFi 7 delivering up to roughly 4.8 times the throughput of WiFi 6 and around 13 times that of WiFi 5 under ideal conditions — though real-world business environments rarely see theoretical maximums.
+
+---
+
+## The UK Regulatory Picture: 6 GHz Spectrum
+
+WiFi 7's biggest performance gains depend on the 6 GHz band, and the UK's regulatory position here is genuinely still moving.
+
+Ofcom has already authorised low-power indoor WiFi use across the lower 6 GHz band (5925–6425 MHz), and higher-power outdoor use under Automated Frequency Coordination (AFC) control. More recently, Ofcom has proposed rules for the upper 6 GHz band (6425–7125 MHz) that would give WiFi priority access to the lower 160 MHz slice of that band, while mobile network operators get priority on the remainder — with WiFi permitted early access to the upper portion under AFC control in defined areas.
+
+This matters practically: a WiFi 7 network deployed today will get real benefit from the spectrum already available, but the full extent of 6 GHz capacity businesses can rely on long-term is still being finalised through ongoing Ofcom consultation. Any UK business planning a WiFi 7 deployment should treat 6 GHz availability as an evolving picture rather than a fixed guarantee, and should choose hardware and a provider that can adapt as the regulatory position firms up.
+
+---
+
+## What WiFi 7 Requires From Your Infrastructure
+
+This is the part vendor marketing tends to skip, and it's the difference between a WiFi 7 deployment that delivers on its promise and one that doesn't.
+
+**Multi-gigabit switching.** A WiFi 7 access point operating across MLO-enabled bands can generate more traffic than a standard 1 Gbps switch port can carry. Realising WiFi 7's throughput benefits typically requires 2.5 Gbps or higher uplink ports on your switching infrastructure — not just at the core, but at the access points themselves.
+
+**PoE++ power delivery.** Most flagship WiFi 7 access points draw considerably more power than previous generations — commonly in the 29 to 40 watt range at full load — which requires 802.3bt PoE++ capable switching. Older PoE or PoE+ switches will not power a full-capability WiFi 7 access point correctly.
+
+**Cat6A cabling.** To reliably support multi-gigabit speeds to each access point, Cat6A cabling is the practical minimum for new WiFi 7 deployments. Older Cat5e or basic Cat6 runs may bottleneck the connection before the wireless side ever becomes the limiting factor.
+
+Skipping these infrastructure upgrades and simply swapping in WiFi 7 access points on existing switching is one of the most common ways businesses end up disappointed with a WiFi 7 deployment — the access point is capable of far more than the wired network behind it can deliver.
+
+![Network switch with multi-gigabit ports required for WiFi 7 access point deployment](https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop)
+
+---
+
+## Who Actually Benefits From WiFi 7 Right Now
+
+WiFi 7 is not equally valuable to every business. It delivers genuine, measurable benefit for:
+
+- High-density environments — open-plan offices, conference centres, and venues with large numbers of simultaneously connected devices
+- Latency-sensitive workloads — real-time video conferencing, VoIP at scale, and any application where consistent low latency matters more than peak throughput
+- Businesses already hitting the limits of WiFi 6 — if your current network struggles at peak hours despite reasonable hardware, WiFi 7's capacity improvements directly address that
+- Organisations planning infrastructure refresh anyway — if switching and cabling upgrades are already on the roadmap, adding WiFi 7 access points to that refresh costs relatively little extra
+
+It delivers much less immediate value for smaller, lower-density environments running well on current WiFi 6 hardware, where the practical bottleneck is rarely the wireless standard itself.
+
+---
+
+## Should Your Business Upgrade Now?
+
+The honest answer is: it depends on where you are in your hardware lifecycle, not on how new WiFi 7 is.
+
+If your current WiFi 6 network is performing well and your hardware still has years of useful life left, there is no urgent case for early WiFi 7 adoption — the infrastructure investment required (switching, PoE++, cabling) is significant, and the UK's 6 GHz regulatory picture is still settling.
+
+If you are already planning a network refresh, replacing end-of-life access points, or building out a new site, specifying WiFi 7-capable hardware now is a reasonable way to future-proof the investment — provided the underlying switching and cabling are specified to match, not left as an afterthought.
+
+---
+
+## Summary
+
+WiFi 7 is a genuine, substantial upgrade over WiFi 6 — Multi-Link Operation, 320 MHz channels, and Multi-RU deliver real improvements in throughput, latency, and consistency for busy business networks. But the access points are only one part of the picture. Multi-gigabit switching, PoE++ power, Cat6A cabling, and an evolving UK spectrum picture all need to be factored into any WiFi 7 decision.
+
+For businesses hitting genuine capacity or latency limits today, or planning infrastructure refresh regardless, WiFi 7 is worth specifying now. For everyone else, there is no penalty in waiting until your current hardware reaches end of life.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea helps UK businesses assess whether WiFi 7 makes sense for their environment, and designs deployments — from access points through to the switching and cabling behind them — that actually deliver the performance WiFi 7 promises. Whether you need a straightforward [WiFi optimisation](/wifi-optimisation) or a full infrastructure refresh, we can help you plan it properly.
+
+[Get in touch to discuss your WiFi 7 upgrade →](/contact)
+
+---
+
+## Related Reading
+
+- [WiFi 7 vs WiFi 6: Is It Worth Upgrading Your Business Network?](/blog/wifi-7-vs-wifi-6-business-upgrade)
+- [WiFi 7 Business Access Points: The Best Options for UK Businesses in 2026](/blog/wifi-7-business-access-points-uk-2026)
+- [When Should Your Business Upgrade to WiFi 7?](/blog/when-to-upgrade-to-wifi-7)
+- [WiFi 7 for Multi-Site Businesses: What You Need to Know Before You Deploy](/blog/wifi-7-multi-site-business)
+- [How to Choose the Right WiFi Setup for a Multi-Site Business](/blog/multi-site-business-wifi-setup)
+    `
+  },
+  {
+    id: 28,
+    slug: "wifi-7-vs-wifi-6-business-upgrade",
+    title: "WiFi 7 vs WiFi 6: Is It Worth Upgrading Your Business Network?",
+    metaTitle: "WiFi 7 vs WiFi 6: Is It Worth Upgrading Your Business Network? | Conxiea",
+    metaDescription: "WiFi 7 delivers real improvements over WiFi 6 — but is the upgrade worth it for your business yet? Here's an honest, practical comparison to help you decide.",
+    author: "Zak",
+    date: "4th July 2026",
+    isoDate: "2026-07-04",
+    category: "WiFi Solutions",
+    excerpt: "WiFi 7 is faster, lower-latency, and higher-capacity than WiFi 6 — but the upgrade isn't automatically worth it for every business. Here's a practical, feature-by-feature comparison to help you decide.",
+    keywords: "WiFi 7 vs WiFi 6 business, WiFi 7 upgrade, WiFi 6 vs WiFi 7 comparison, business WiFi upgrade decision",
+    readTime: "12 min read",
+    content: `
+If your business network is running on WiFi 6, you are not behind. WiFi 6 (802.11ax) remains a genuinely capable standard, and plenty of well-designed WiFi 6 networks handle demanding business environments without issue.
+
+So the question most IT managers are actually asking isn't "should we have WiFi 7" — it's "is upgrading from WiFi 6 to WiFi 7 worth the cost and disruption right now, for our specific environment?"
+
+This guide compares the two standards feature by feature, and gives you a practical framework for deciding whether the upgrade makes sense for your business today.
+
+![IT manager comparing WiFi 6 and WiFi 7 network performance on a laptop](https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&fit=crop)
+
+---
+
+## WiFi 6 vs WiFi 7: The Core Differences
+
+### Speed and Throughput
+
+WiFi 6 already delivered a substantial jump over WiFi 5 through OFDMA and MU-MIMO. WiFi 7 goes further again: wider 320 MHz channels (double WiFi 6E's 160 MHz maximum), 4096-QAM modulation, and Multi-RU puncturing combine to deliver — under ideal conditions — roughly 4.8 times the throughput of WiFi 6, according to figures reported by the [Wi-Fi Alliance](https://www.wi-fi.org/) and hardware vendors.
+
+In practice, most business environments will not see anything close to theoretical maximum speeds. What matters more for day-to-day operations is the next difference.
+
+### Latency and Consistency Under Load
+
+This is where WiFi 7 makes the most practical difference for business networks. WiFi 7's headline feature, Multi-Link Operation (MLO), allows a device to use multiple frequency bands simultaneously under a single connection. WiFi 6 does not have an equivalent capability — a WiFi 6 device is committed to one band at a time.
+
+The practical effect: in a busy office with heavy video conferencing and cloud application use, WiFi 7 networks maintain more consistent performance and lower latency as device count and traffic increase. WiFi 6 networks under the same load are more prone to the periodic slowdowns and call quality issues that come from band congestion.
+
+### Device Capacity
+
+Both standards use OFDMA to serve multiple devices simultaneously rather than taking turns, but WiFi 7's wider channels and Multi-RU puncturing extend that capacity further. For environments with genuinely high device density — 60 or more simultaneous connections — WiFi 7 handles the load more gracefully.
+
+For a standard office with a moderate device count, well-configured WiFi 6 access points are often still entirely adequate.
+
+### Security
+
+Both standards support WPA3, which remains the current gold standard for wireless security regardless of which generation of hardware you deploy. Upgrading to WiFi 7 does not, by itself, improve your network's security posture — that comes from correct configuration (WPA3-Enterprise, VLAN segmentation, 802.1X authentication) rather than the underlying WiFi standard.
+
+---
+
+## What the Upgrade Actually Costs
+
+This is the part that determines whether upgrading makes sense, and it goes well beyond the access points themselves.
+
+WiFi 7 access points typically carry a real price premium over equivalent WiFi 6 hardware. But the more significant cost is often the supporting infrastructure: WiFi 7 access points commonly require multi-gigabit switch ports and 802.3bt PoE++ power delivery — drawing 29 to 40 watts at full load — which older switching infrastructure frequently cannot provide. Cat6A cabling is the practical minimum to avoid the wired network becoming the bottleneck.
+
+If your current switching and cabling already meet these specifications, the incremental cost of upgrading is largely the access points themselves. If they don't, the true cost of a WiFi 7 upgrade includes a switching and cabling refresh — a significantly larger project than simply swapping access points.
+
+![Comparing WiFi 6 and WiFi 7 access point hardware specifications side by side](https://images.unsplash.com/photo-1519389950473-47c0e7f7c2b9?w=1200&h=600&fit=crop)
+
+---
+
+## When WiFi 6 Is Still the Right Choice
+
+- Your current WiFi 6 network performs well and has years of useful hardware life remaining
+- Your device density and application demands are moderate rather than extreme
+- You don't have a switching or cabling refresh already planned
+- Budget is better allocated elsewhere in the business right now
+
+There is no operational penalty in continuing to run a well-configured WiFi 6 network. It remains a fully capable, modern standard.
+
+## When WiFi 7 Is Worth Considering
+
+- You are already planning a broader infrastructure refresh, including switching and cabling
+- Your current network struggles noticeably at peak hours despite reasonable hardware and configuration
+- You run latency-sensitive applications at scale — high call volumes, real-time collaboration tools, or dense video conferencing use
+- Your environment has genuinely high device density that WiFi 6 is visibly struggling to handle
+
+---
+
+## Summary
+
+WiFi 7 is a real, substantial improvement over WiFi 6 — particularly in latency and consistency under heavy load, thanks to Multi-Link Operation. But the upgrade only delivers that value if the supporting infrastructure — switching, PoE++, and cabling — is upgraded alongside the access points, and for many businesses, a well-configured WiFi 6 network remains entirely adequate for the foreseeable future.
+
+The right question is not "which standard is newer," but "does our specific environment have a problem that WiFi 7 actually solves." If it does, the upgrade is worth planning properly. If it doesn't, there's no rush.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea assesses your current network's real-world performance and helps you decide honestly whether a WiFi 7 upgrade — or a properly optimised WiFi 6 network — is the right investment for your business. No pressure to upgrade before you need to.
+
+[Get in touch for an honest assessment of your options →](/contact)
+
+---
+
+## Related Reading
+
+- [WiFi 7 for Business: Everything UK Companies Need to Know](/blog/wifi-7-for-business-uk)
+- [WiFi 7 Business Access Points: The Best Options for UK Businesses in 2026](/blog/wifi-7-business-access-points-uk-2026)
+- [When Should Your Business Upgrade to WiFi 7?](/blog/when-to-upgrade-to-wifi-7)
+- [WiFi 7 for Multi-Site Businesses: What You Need to Know Before You Deploy](/blog/wifi-7-multi-site-business)
+    `
+  },
+  {
+    id: 29,
+    slug: "wifi-7-business-access-points-uk-2026",
+    title: "WiFi 7 Business Access Points: The Best Options for UK Businesses in 2026",
+    metaTitle: "WiFi 7 Business Access Points: The Best Options for UK Businesses in 2026 | Conxiea",
+    metaDescription: "Comparing WiFi 7 business access points from Ubiquiti, Cisco Meraki, and other leading vendors. Here's what's available in 2026, what it costs, and how to choose the right one.",
+    author: "Zak",
+    date: "4th July 2026",
+    isoDate: "2026-07-04",
+    category: "WiFi Solutions",
+    excerpt: "WiFi 7 business access points now span budget to enterprise tiers, from sub-£300 hardware to premium Cisco Meraki deployments. Here's what's actually available for UK businesses in 2026 and how to choose between them.",
+    keywords: "WiFi 7 business access points UK, best WiFi 7 access point, WiFi 7 hardware business, Ubiquiti WiFi 7, Cisco Meraki WiFi 7",
+    readTime: "12 min read",
+    content: `
+WiFi 7 access point hardware has matured quickly. What started as a small number of premium enterprise products now spans a full range of options — from sub-£300 access points suitable for small offices to enterprise-grade hardware with the management and support ecosystem large organisations need.
+
+This guide breaks down what's actually available for UK businesses in 2026, across budget, mid-tier, and premium options, and what to weigh up beyond the price tag on the box.
+
+![Business WiFi 7 access point mounted on a ceiling in a modern office](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop)
+
+---
+
+## What to Look for in a WiFi 7 Access Point
+
+Before comparing specific products, the criteria that actually matter for a business deployment:
+
+- **Multi-gigabit uplink** — a 10GbE (or at minimum 2.5GbE) port, so the wired connection doesn't bottleneck the wireless performance the access point is capable of
+- **802.3bt PoE++ support** — most capable WiFi 7 access points draw 29 to 40 watts at full load, which requires PoE++ switching to power correctly
+- **Cloud or centralised management** — for anything beyond a single access point, centralised management across your estate is essential
+- **MLO support across bands** — confirm the access point actually implements Multi-Link Operation across 5 GHz and 6 GHz, not just headline WiFi 7 branding
+- **UK support and availability** — hardware availability and support response times vary between vendors in the UK market
+
+---
+
+## Budget Tier: Ubiquiti UniFi
+
+Ubiquiti's UniFi range remains the standout value option in WiFi 7 hardware. The UniFi U7 Pro XGS is widely regarded as one of the strongest WiFi 7 access points for small and mid-sized businesses, priced at around £250 — a fraction of enterprise-tier alternatives — while including a 10 Gigabit Ethernet uplink, which avoids the throughput bottleneck that lower-specification 2.5GbE models can introduce under heavy load.
+
+UniFi's appeal for UK SMBs is the combination of genuinely capable hardware, no per-device annual licensing fees, and a management platform ([Ubiquiti UniFi](https://ui.com/)) that's accessible without a large IT team. For businesses with 20 or fewer access points, this is usually the strongest starting point.
+
+---
+
+## Mid-Tier: TP-Link Omada
+
+TP-Link's Omada range has historically been the budget-friendly, no-licensing-fee alternative to UniFi, and is extending that positioning into WiFi 7 hardware. Omada access points typically sit close to UniFi on price while offering a slightly different management interface and hardware ecosystem — worth evaluating side by side if you're already invested in Omada switching or existing infrastructure.
+
+---
+
+## Premium Tier: Cisco Meraki and Aruba
+
+For businesses that need enterprise-grade support, advanced analytics, or already run Cisco or HPE Aruba infrastructure, [Cisco Meraki](https://meraki.cisco.com/) and Aruba offer premium WiFi 7 access points at a significantly higher price point — commonly £1,500 to £2,500 or more per access point.
+
+Cisco's Catalyst CW9178I is a notable option in this tier: it supports both Cisco's traditional on-premises management and cloud-based Meraki management on the same hardware, which gives larger organisations flexibility to start with simpler cloud management and migrate to on-premises control as requirements evolve. The trade-off is cost — premium tier hardware carries a substantial price premium over UniFi or Omada, and Meraki in particular requires ongoing annual per-device licensing on top of the hardware cost.
+
+For multi-site businesses or organisations with existing Cisco or Aruba investment, the integration and support ecosystem can justify the premium. For most UK SMBs, it is more capability than the environment requires.
+
+![Comparing budget and enterprise-tier WiFi 7 access point hardware options](https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop)
+
+---
+
+## The Real Budget Range
+
+Across the market, WiFi 7 business access point pricing spans roughly £250 at the budget end to £2,000 or more per unit at the premium enterprise tier — a wide enough range that hardware selection should be driven by your actual environment and management requirements, not just the lowest or highest sticker price.
+
+Remember that the access point cost is only part of the picture: PoE++ switching, multi-gigabit uplinks, and Cat6A cabling all need to be budgeted alongside the hardware itself, and can meaningfully exceed the cost of the access points on a larger deployment.
+
+---
+
+## How to Choose
+
+- **Small office, single site, budget-conscious:** Ubiquiti UniFi or TP-Link Omada deliver strong performance without licensing overhead
+- **Multi-site business needing centralised management at scale:** Evaluate UniFi's site management capability against Meraki or Aruba's enterprise tooling based on your team's capacity to manage each platform
+- **Existing Cisco or Aruba infrastructure:** Staying within your existing vendor ecosystem usually reduces integration complexity and support overhead, even at a cost premium
+- **Uncertain which tier fits:** A professional site survey and requirements assessment will identify genuine need versus over-specification before you commit budget
+
+---
+
+## Summary
+
+WiFi 7 access point hardware now covers a genuine range of price and capability tiers. Ubiquiti UniFi and TP-Link Omada deliver strong value for most UK SMB deployments; Cisco Meraki and Aruba justify their premium for organisations that need enterprise-grade management, support, and existing ecosystem integration. The right choice depends on your environment, your existing infrastructure, and your team's capacity to manage the platform — not on which option has the most impressive spec sheet.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea helps UK businesses select and deploy the right WiFi 7 hardware for their environment — including the switching and cabling behind it — rather than defaulting to whatever a vendor is pushing hardest. [Explore our WiFi optimisation service](/wifi-optimisation) or get in touch to discuss your requirements.
+
+[Get in touch to discuss the right WiFi 7 hardware for your business →](/contact)
+
+---
+
+## Related Reading
+
+- [WiFi 7 for Business: Everything UK Companies Need to Know](/blog/wifi-7-for-business-uk)
+- [WiFi 7 vs WiFi 6: Is It Worth Upgrading Your Business Network?](/blog/wifi-7-vs-wifi-6-business-upgrade)
+- [When Should Your Business Upgrade to WiFi 7?](/blog/when-to-upgrade-to-wifi-7)
+- [WiFi 7 for Multi-Site Businesses: What You Need to Know Before You Deploy](/blog/wifi-7-multi-site-business)
+    `
+  },
+  {
+    id: 30,
+    slug: "when-to-upgrade-to-wifi-7",
+    title: "When Should Your Business Upgrade to WiFi 7?",
+    metaTitle: "When Should Your Business Upgrade to WiFi 7? | Conxiea",
+    metaDescription: "Not sure whether to upgrade to WiFi 7 now or wait? Here's a practical decision framework for IT managers weighing the investment, timing, and real business need.",
+    author: "Zak",
+    date: "4th July 2026",
+    isoDate: "2026-07-04",
+    category: "WiFi Solutions",
+    excerpt: "WiFi 7 is a genuine upgrade — but timing matters. Here's a practical decision framework for IT managers weighing whether to upgrade now, wait for the next hardware refresh, or hold until the UK spectrum picture settles further.",
+    keywords: "when to upgrade to WiFi 7, WiFi 7 upgrade timing, business WiFi refresh, WiFi 7 investment decision",
+    readTime: "11 min read",
+    content: `
+For most IT managers, the WiFi 7 question isn't "is it better than what we have" — it obviously is, on paper. The real question is timing: upgrade now, wait for the next scheduled hardware refresh, or hold off until the UK's regulatory and hardware landscape settles further.
+
+This guide gives you a practical framework for making that call, rather than a generic "yes, upgrade" or "no, wait" answer that doesn't account for your specific situation.
+
+![IT manager planning a network hardware refresh timeline](https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop)
+
+---
+
+## Start With Your Current Network's Actual Performance
+
+Before considering WiFi 7 at all, get an honest answer to one question: is your current network actually failing to meet business needs, or is it just not the newest standard available?
+
+These are different problems. A WiFi 6 network that's well-designed, properly configured, and running on reasonably current hardware may have no performance problem at all — in which case, upgrading delivers marginal benefit at real cost. A network that's genuinely struggling at peak hours, with recurring complaints about dropped calls, dead zones, or slow performance despite good broadband, has an actual problem that's worth solving — and WiFi 7 may or may not be the most cost-effective way to solve it.
+
+A professional network assessment, rather than assumption, is the right starting point. Sometimes the fix is better AP placement or firmware updates on existing WiFi 6 hardware, not new hardware at all.
+
+---
+
+## The Five Questions That Actually Determine Timing
+
+### 1. Where Are You in Your Hardware Lifecycle?
+
+Business access points typically deliver 5 to 7 years of useful service. If your current hardware is 1 to 2 years into that lifecycle, there is no financial case for early replacement — you would be writing off a substantial remaining useful life. If your hardware is approaching or past that window already, a refresh is coming regardless, and specifying WiFi 7 as part of that refresh costs relatively little extra over specifying more WiFi 6 hardware.
+
+### 2. Is Your Switching and Cabling Already WiFi 7-Ready?
+
+WiFi 7 access points need multi-gigabit switch ports, PoE++ power delivery, and ideally Cat6A cabling to deliver their real performance benefit. If your current infrastructure already meets this specification — perhaps from a recent refresh — the incremental cost of WiFi 7 access points is manageable. If it doesn't, the true cost of "upgrading to WiFi 7" is a significantly larger infrastructure project, and that changes the calculation substantially.
+
+### 3. Do You Have a Genuine Capacity or Latency Problem?
+
+WiFi 7's most valuable real-world benefit — Multi-Link Operation delivering more consistent performance under heavy load — matters most in high-density, latency-sensitive environments. If your business runs large volumes of video conferencing, real-time collaboration tools, or has consistently high device density, WiFi 7 addresses a genuine operational problem. If your environment is moderate in both respects, WiFi 6 likely has headroom you haven't hit yet.
+
+### 4. How Settled Is the UK Spectrum Picture for Your Situation?
+
+Ofcom has already opened meaningful 6 GHz spectrum for WiFi use, and the regulatory direction is clearly favourable — but the upper 6 GHz band rules are still being finalised through ongoing consultation. For most businesses this is not a reason to delay entirely, since usable spectrum is already available, but it's worth factoring into hardware and provider selection so your deployment can adapt as the picture firms up further.
+
+### 5. Is a Broader Infrastructure Project Already Planned?
+
+If switching, cabling, or a wider office refresh is already on your roadmap for other reasons, folding WiFi 7 access points into that project is close to free from a planning and disruption perspective — you're doing the work once rather than twice. If no such project is planned, introducing one purely to enable WiFi 7 needs to be justified on its own merits.
+
+---
+
+## A Practical Decision Framework
+
+**Upgrade now if:** your hardware is at or near end of life, you have a genuine capacity or latency problem today, and/or a broader infrastructure refresh is already planned.
+
+**Wait if:** your current network performs well, your hardware has significant remaining useful life, and no infrastructure refresh is otherwise planned. Revisit the decision at your next natural refresh point.
+
+**Investigate before deciding either way if:** you're experiencing performance problems but haven't had a professional assessment — the fix may not require new hardware at all, regardless of generation.
+
+---
+
+## Summary
+
+WiFi 7 is a genuine advance, but "when should we upgrade" is a business timing question, not a technology question. The right answer depends on where you are in your hardware lifecycle, whether your supporting infrastructure is ready, whether you have a real performance problem to solve, and whether a broader refresh is already on the horizon. For most businesses, the right time to move to WiFi 7 is at the next natural hardware refresh point — not as an emergency mid-cycle replacement.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea provides honest, assessment-led advice on WiFi 7 timing — including a proper diagnosis of whether your current network's issues are a hardware generation problem or something else entirely. [Book a free consultation](/book-demo) to get a clear answer for your specific environment.
+
+[Get in touch to discuss the right timing for your business →](/contact)
+
+---
+
+## Related Reading
+
+- [WiFi 7 for Business: Everything UK Companies Need to Know](/blog/wifi-7-for-business-uk)
+- [WiFi 7 vs WiFi 6: Is It Worth Upgrading Your Business Network?](/blog/wifi-7-vs-wifi-6-business-upgrade)
+- [WiFi 7 Business Access Points: The Best Options for UK Businesses in 2026](/blog/wifi-7-business-access-points-uk-2026)
+- [WiFi 7 for Multi-Site Businesses: What You Need to Know Before You Deploy](/blog/wifi-7-multi-site-business)
+    `
+  },
+  {
+    id: 31,
+    slug: "wifi-7-multi-site-business",
+    title: "WiFi 7 for Multi-Site Businesses: What You Need to Know Before You Deploy",
+    metaTitle: "WiFi 7 for Multi-Site Businesses: What You Need to Know Before You Deploy | Conxiea",
+    metaDescription: "Rolling out WiFi 7 across multiple sites raises different questions to a single-site upgrade. Here's what multi-site businesses need to plan for before deploying.",
+    author: "Zak",
+    date: "4th July 2026",
+    isoDate: "2026-07-04",
+    category: "WiFi Solutions",
+    excerpt: "WiFi 7 across a multi-site estate isn't just a bigger version of a single-site upgrade — standardisation, infrastructure consistency, and rollout sequencing all matter more at scale. Here's what to plan for before you deploy.",
+    keywords: "WiFi 7 multi site business, WiFi 7 multiple locations, multi-site WiFi 7 rollout, WiFi 7 deployment planning",
+    readTime: "12 min read",
+    content: `
+Deploying WiFi 7 at a single site is primarily a hardware and infrastructure decision. Deploying it across a multi-site estate is a programme — and the mistakes that are minor at one location compound significantly across ten or fifty.
+
+If your business is evaluating WiFi 7 across multiple offices, retail locations, or client sites, the questions you need to answer go well beyond "which access point should we buy." This guide covers what multi-site businesses specifically need to plan for.
+
+![Business owner planning a WiFi 7 rollout across multiple company locations](https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop)
+
+---
+
+## Why Multi-Site WiFi 7 Is a Different Problem
+
+The core principles covered in our [guide to choosing the right WiFi setup for a multi-site business](/blog/multi-site-business-wifi-setup) apply just as much to a WiFi 7 rollout as to any other network deployment — arguably more so, because WiFi 7's infrastructure requirements raise the cost of getting standardisation wrong.
+
+A single site with inconsistent hardware or a rushed deployment is an annoyance. Ten or fifty sites with inconsistent WiFi 7 implementations — some with proper multi-gigabit switching, some without; some with Cat6A cabling, some running on older runs that bottleneck the connection — becomes a support and performance nightmare that's expensive to unpick after the fact.
+
+---
+
+## Infrastructure Consistency Across Sites
+
+WiFi 7's real performance benefit depends on multi-gigabit switching, 802.3bt PoE++ power, and ideally Cat6A cabling at every site. In a multi-site estate, this is the single biggest planning challenge, because site infrastructure is rarely uniform — older locations may have infrastructure from a previous refresh cycle, while newer sites may already meet WiFi 7's requirements.
+
+Before committing to a WiFi 7 rollout across your estate, audit every site's current switching, PoE capability, and cabling against WiFi 7's requirements. Sites that don't meet the baseline need that infrastructure work costed into the rollout — treating it as an afterthought at individual sites is how multi-site projects blow their budget and timeline.
+
+---
+
+## Should You Roll Out to Every Site at Once?
+
+Almost never. A phased rollout — starting with one or two representative sites — lets you validate hardware choice, configuration templates, and the real infrastructure gap at each site type before committing budget across the whole estate.
+
+A sensible phased approach:
+
+- **Phase 1:** Deploy to one site of each distinct type in your estate (e.g. one retail location, one office, one warehouse) to validate the design and surface infrastructure gaps
+- **Phase 2:** Refine the deployment template based on what Phase 1 revealed, then roll out to sites that already meet the infrastructure baseline
+- **Phase 3:** Address sites requiring additional switching, cabling, or PoE upgrades as a scheduled infrastructure project, rather than an ad hoc site-by-site scramble
+
+This sequencing avoids the common failure mode of a rushed, simultaneous rollout that discovers infrastructure gaps at site five out of twenty, after budget and timeline commitments are already locked in.
+
+![Standardised network hardware deployed consistently across multiple business sites](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop)
+
+---
+
+## Centralised Management Matters More With WiFi 7
+
+Multi-site WiFi already benefits significantly from centralised cloud management — the ability to push configuration, monitor performance, and manage firmware across every site from one console. With WiFi 7, this becomes more important still, because MLO configuration, band planning, and channel assignment are more complex than previous generations, and getting them wrong at scale across dozens of sites without central visibility is difficult to diagnose and fix.
+
+Choose a platform — whether [Ubiquiti UniFi](https://ui.com/), [Cisco Meraki](https://meraki.cisco.com/), or another enterprise-grade option — that gives you genuine visibility into WiFi 7-specific metrics across every site, not just basic connectivity status.
+
+---
+
+## The UK Spectrum Consideration for Multi-Site Estates
+
+Ofcom's 6 GHz rules apply uniformly across the UK, but a multi-site business should be aware that outdoor and higher-power WiFi use in parts of the 6 GHz band requires devices to operate under Automated Frequency Coordination (AFC) control. For businesses with sites in varied environments — dense urban locations versus more rural sites — this is worth factoring into hardware and deployment planning with your provider, since the practical spectrum availability isn't necessarily identical at every location.
+
+---
+
+## Budgeting for a Multi-Site WiFi 7 Rollout
+
+Beyond per-access-point hardware costs, a realistic multi-site WiFi 7 budget needs to account for:
+
+- Infrastructure audit and gap analysis across every site
+- Switching and PoE++ upgrades at sites that don't already meet the baseline
+- Cabling remediation where existing runs won't support multi-gigabit speeds
+- A phased rollout timeline rather than a single simultaneous deployment
+- Centralised management platform licensing, if not already in place
+
+Businesses that budget only for access point hardware and are surprised by the infrastructure gap at site six are a recurring pattern in multi-site rollouts — proper planning avoids it.
+
+---
+
+## Summary
+
+WiFi 7 across a multi-site estate is a programme, not a bulk hardware order. Infrastructure consistency, a phased rollout sequence, and centralised management matter more here than in any single-site deployment, and the cost of getting standardisation wrong compounds across every location. The businesses that get this right treat it the same way they'd treat any other multi-site infrastructure programme — with a proper audit, a template, and a sequenced rollout — rather than as a series of independent site projects.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea works with multi-site businesses and MSPs across the UK to plan and deploy WiFi 7 rollouts properly — from infrastructure audit through phased deployment to centralised ongoing management. [See how we approach multi-site WiFi setup](/wifi-optimisation) or get in touch to discuss your estate.
+
+[Get in touch to discuss your multi-site WiFi 7 rollout →](/contact)
+
+---
+
+## Related Reading
+
+- [WiFi 7 for Business: Everything UK Companies Need to Know](/blog/wifi-7-for-business-uk)
+- [WiFi 7 vs WiFi 6: Is It Worth Upgrading Your Business Network?](/blog/wifi-7-vs-wifi-6-business-upgrade)
+- [WiFi 7 Business Access Points: The Best Options for UK Businesses in 2026](/blog/wifi-7-business-access-points-uk-2026)
+- [When Should Your Business Upgrade to WiFi 7?](/blog/when-to-upgrade-to-wifi-7)
+- [How to Choose the Right WiFi Setup for a Multi-Site Business](/blog/multi-site-business-wifi-setup)
     `
   }
 ];

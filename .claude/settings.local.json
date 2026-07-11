@@ -4,7 +4,11 @@
       "Bash(git pull *)",
       "Bash(npm run *)",
       "Bash(node -e \"const l = require\\('./node_modules/lucide-react/dist/cjs/lucide-react.js'\\); const keys = Object.keys\\(l\\); console.log\\(keys.filter\\(k => /hand|partner|shake|deal|collab/i.test\\(k\\)\\).join\\('\\\\n'\\)\\)\")",
-      "Bash(npx playwright *)"
+      "Bash(npx playwright *)",
+      "WebSearch",
+      "Bash(grep -n \"multi-site-business-wifi-setup\\\\\",\\\\s*$\\\\|slug: \\\\\"multi-site-business-wifi-setup\\\\\"\" src/data/blogPosts.js)",
+      "Bash(awk 'NR==4192,NR==4400' src/data/blogPosts.js)",
+      "Bash(npx vite *)"
     ]
   }
 }

@@ -76,22 +76,22 @@ export default function BlogCategory() {
     '@graph': [
       {
         '@type': 'CollectionPage',
-        '@id': `https://conxiea.com/blog/category/${categorySlug}`,
+        '@id': `https://www.conxiea.com/blog/category/${categorySlug}`,
         name: meta.seoTitle,
         description: meta.description,
-        url: `https://conxiea.com/blog/category/${categorySlug}`,
+        url: `https://www.conxiea.com/blog/category/${categorySlug}`,
         breadcrumb: {
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://conxiea.com/' },
-            { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://conxiea.com/blog' },
-            { '@type': 'ListItem', position: 3, name: meta.headline, item: `https://conxiea.com/blog/category/${categorySlug}` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.conxiea.com/' },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.conxiea.com/blog' },
+            { '@type': 'ListItem', position: 3, name: meta.headline, item: `https://www.conxiea.com/blog/category/${categorySlug}` },
           ],
         },
         hasPart: posts.map((post) => ({
           '@type': 'Article',
           name: post.title,
-          url: `https://conxiea.com/blog/${post.slug}`,
+          url: `https://www.conxiea.com/blog/${post.slug}`,
           description: post.excerpt,
           datePublished: post.isoDate || post.date,
           author: { '@type': 'Organization', name: 'Conxiea' },

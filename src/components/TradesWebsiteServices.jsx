@@ -75,7 +75,7 @@ const TradesWebsiteServices = () => {
           "provider": {
             "@type": "Organization",
             "name": "Conxiea",
-            "url": "https://conxiea.com"
+            "url": "https://www.conxiea.com"
           },
           "areaServed": {
             "@type": "Country",
