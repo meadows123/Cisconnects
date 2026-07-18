@@ -92,6 +92,6 @@ If you’re tired of seeing network automation projects stall, it’s time for a
 ---
 
 -*Internal Links:*
-- [Network Automation Tools (Pillar Blog)](/blogs/network-automation-tools)
+- [Network Automation Tools (Pillar Blog)](/blog/network-automation-tools)
 - [ROI of Network Automation](/blog/roi-of-network-automation)
 - [InfraOps Services](/infraaiops)

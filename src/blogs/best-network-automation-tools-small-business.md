@@ -88,4 +88,4 @@ You don’t need to be an enterprise to benefit from automation. Start with one 
 
 **Need help choosing or implementing a tool? [Contact us](mailto:admin@conxiea.com) for a free consultation.**
 
-[← Back to Network Automation Pillar Blog](/blogs)
+[← Back to Network Automation Pillar Blog](/blog/network-automation-tools)
