@@ -4372,9 +4372,9 @@ Conxiea works with multi-site businesses and MSPs across the UK to design, deplo
 
 ## Related Reading
 
+- [SD-WAN for Multi-Site Businesses: The Complete UK Guide](/blog/sd-wan-for-multi-site-businesses)
 - [WiFi 7 for Multi-Site Businesses: What You Need to Know Before You Deploy](/blog/wifi-7-multi-site-business)
 - [Managed WiFi vs Self-Managed: Which Is Right for Your Business?](/blog/managed-wifi-vs-self-managed)
-- [Business WiFi vs Consumer WiFi: Why the Difference Matters for Your Company](/blog/business-wifi-vs-consumer-wifi)
 - [Common Business WiFi Problems and How to Fix Them](/blog/common-business-wifi-problems)
     `
   },
@@ -6193,6 +6193,611 @@ Conxiea is built to help MSPs move up the endpoints per engineer curve. Our AI-d
 - [How MSPs Can Scale Network Management Without Adding Headcount](/blog/how-msps-scale-network-management-without-headcount)
 - [MSP Network Automation: How to Deliver More With Less](/blog/msp-network-automation-deliver-more-with-less)
 - [Why MSPs Are Moving to AI-Driven Network Operations](/blog/why-msps-moving-ai-driven-network-operations)
+    `
+  },
+  {
+    id: 36,
+    slug: "sd-wan-for-multi-site-businesses",
+    title: "SD-WAN for Multi-Site Businesses: The Complete UK Guide",
+    metaTitle: "SD-WAN for Multi-Site Businesses: The Complete UK Guide | Conxiea",
+    metaDescription: "SD-WAN has become the default choice for connecting multi-site UK businesses. Here's what it is, how it works, what it costs, and whether it's right for your estate.",
+    author: "Zak",
+    date: "17th July 2026",
+    isoDate: "2026-07-17",
+    category: "WiFi Solutions",
+    excerpt: "SD-WAN has moved from an enterprise niche to the default way multi-site businesses connect their locations. Here's a complete guide to what it is, how it works, what it costs, and whether it's the right fit for your business.",
+    keywords: "SD-WAN for multi-site businesses, SD-WAN UK, what is SD-WAN, SD-WAN guide 2026, business WAN connectivity",
+    readTime: "14 min read",
+    content: `
+If your business operates from more than one location, the way those locations connect to each other and to the internet has a direct impact on cost, reliability, and how well applications actually perform for the people using them.
+
+For years, the default answer was MPLS — dedicated, carrier-managed circuits connecting each site back to a central hub. It worked, but it was expensive, slow to provision, and inflexible in a world where most business traffic now goes to the cloud rather than a central data centre.
+
+SD-WAN (Software-Defined Wide Area Network) has become the default alternative — and increasingly the default choice — for multi-site UK businesses. This guide covers what it actually is, how it works, what it costs, and how to think about whether it's the right fit for your business.
+
+![Network cables representing the wide area network connections between business sites](https://images.unsplash.com/photo-1683322499436-f4383dd59f5a?w=1200&h=600&fit=crop)
+
+---
+
+## What Is SD-WAN?
+
+SD-WAN is a software-defined approach to managing wide area network connectivity across multiple business locations. Instead of relying on a single type of dedicated circuit at each site, SD-WAN creates an intelligent overlay across whatever underlying connections are available — broadband, fibre, 4G/5G, or MPLS — and uses centralised software to control how traffic moves across them.
+
+The "software-defined" part is what makes it fundamentally different from traditional WAN architecture. Rather than each site's router being configured individually, an SD-WAN platform manages routing policy, security, and traffic prioritisation centrally, and pushes configuration out to every site automatically. Adding a new location, changing a routing policy, or responding to a link failure happens from a central console rather than requiring an engineer to touch equipment at every affected site.
+
+---
+
+## How SD-WAN Actually Works
+
+At each site, an SD-WAN edge device (physical appliance or virtual instance) connects to one or more underlying internet connections. The SD-WAN platform continuously monitors the quality of each connection — latency, packet loss, jitter — and makes real-time decisions about which path specific traffic should take.
+
+This is where the practical benefit becomes clear. A video call can be automatically routed over the connection with the lowest latency, while a large file backup is routed over a different link so it doesn't compete for the same bandwidth. If a connection degrades or fails entirely, traffic fails over to another available link automatically, typically within seconds and without users noticing.
+
+This capability — application-aware routing with automatic failover across multiple underlying connections — is the core of what SD-WAN delivers that traditional single-circuit WAN architecture cannot.
+
+---
+
+## Why Businesses Are Moving Away from Traditional WAN
+
+Three forces are driving the shift from MPLS-based WAN to SD-WAN for UK multi-site businesses.
+
+**Cost.** MPLS circuits are priced on dedicated bandwidth and carrier management, and they are expensive relative to the broadband and fibre connections most businesses now have available. SD-WAN allows businesses to use lower-cost broadband and fibre connections — often in combination for resilience — while achieving comparable or better reliability through intelligent path selection.
+
+**Cloud-first traffic patterns.** Traditional WAN architecture assumes traffic flows through a central hub — historically a head office data centre. Today, most business traffic goes to cloud applications: Microsoft 365, Salesforce, cloud-hosted line-of-business systems. Backhauling that traffic through a central hub before it reaches the internet adds latency for no benefit. SD-WAN allows traffic to break out directly to the internet from each site, which is both faster and cheaper.
+
+**Deployment speed.** Provisioning a new MPLS circuit can take weeks to months. Standing up a new site on SD-WAN, once the platform is in place, typically takes days — the edge device is shipped pre-configured, connects to whatever broadband is available at the new site, and picks up its policy automatically from the central controller.
+
+![Abstract visualization of a wide area network spanning multiple connected locations](https://images.unsplash.com/photo-1684610529682-553625a1ffed?w=1200&h=600&fit=crop)
+
+---
+
+## What SD-WAN Delivers in Practice
+
+**Centralised management.** Every site's configuration, security policy, and routing rules are managed from one console. Changes are pushed to every location simultaneously rather than requiring per-site engineering work.
+
+**Application-aware routing.** The platform identifies application traffic — video conferencing, VoIP, cloud applications, bulk data transfer — and routes it according to policy, prioritising latency-sensitive traffic over connections best suited to it.
+
+**Automatic failover.** When a connection degrades or fails, traffic moves to an alternative path automatically, typically fast enough that users experience no interruption to calls or active sessions.
+
+**Integrated security.** Most modern SD-WAN platforms include built-in security capabilities — firewall, intrusion prevention, encrypted tunnels between sites — reducing the need for separate security appliances at every location. This is increasingly delivered as SASE (Secure Access Service Edge), which combines SD-WAN with cloud-delivered security in a single service.
+
+**Zero-touch provisioning.** New sites can be brought online by connecting the edge device to power and an internet connection — configuration is pulled automatically from the central controller, without an engineer needing to be on site.
+
+---
+
+## What SD-WAN Costs
+
+SD-WAN pricing in the UK typically runs from around £95 to £400+ per site per month, depending on bandwidth requirements, the number of underlying connections, and the security features included. The overlay/platform component alone is often in the £30 to £100 per site per month range, on top of whatever underlying broadband or fibre connectivity you're already paying for.
+
+The total cost comparison against MPLS is usually favourable — MPLS circuits with comparable resilience frequently cost several times more per site per month than an SD-WAN deployment using dual broadband connections. For a detailed breakdown of the cost components and how to budget for a UK deployment, see our [complete SD-WAN cost guide](/blog/sd-wan-cost-uk-business-pricing-guide).
+
+---
+
+## The Main SD-WAN Platforms
+
+The SD-WAN market has consolidated around a handful of established vendors, each with a slightly different positioning:
+
+**[Cisco Meraki](https://meraki.cisco.com/)** — cloud-managed, straightforward to deploy and administer, well suited to small-to-medium multi-site estates that prioritise simplicity over deep configurability.
+
+**Cisco Catalyst SD-WAN** — Cisco's more sophisticated platform, aimed at larger, more complex networks requiring granular routing policy and segmentation.
+
+**Arista VeloCloud** (formerly VMware VeloCloud) — known for detailed diagnostics and strong ongoing support, often preferred by teams that want deep visibility into link performance and troubleshooting data.
+
+**[Fortinet Secure SD-WAN](https://www.fortinet.com/products/sd-wan)** — positions security as the primary differentiator, with SD-WAN and next-generation firewall capability built on the same platform.
+
+**[Cato Networks](https://www.catonetworks.com/)** — a fully cloud-native SASE platform combining SD-WAN with converged security, particularly suited to globally distributed businesses needing consistent policy everywhere.
+
+For guidance on evaluating these platforms against your specific requirements, see our [guide to choosing an SD-WAN provider](/blog/how-to-choose-sd-wan-provider).
+
+---
+
+## Is SD-WAN Right for Your Business?
+
+SD-WAN delivers the most value for businesses that meet one or more of the following criteria:
+
+- More than two or three business locations that need to communicate with each other and with cloud applications
+- Reliance on cloud applications (Microsoft 365, cloud ERP/CRM, VoIP) where consistent performance matters
+- Current MPLS costs that feel disproportionate to the bandwidth and flexibility delivered
+- Plans to open new locations where fast, simple deployment matters
+- A desire to consolidate networking and security management under a single platform rather than managing each separately
+
+For a single-site business, or one with very simple connectivity needs between a small number of locations, the cost and complexity of SD-WAN may not be justified — a well-configured business WiFi and firewall setup may be entirely sufficient. Our guide to [choosing the right WiFi setup for a multi-site business](/blog/multi-site-business-wifi-setup) covers the broader connectivity picture beyond WAN architecture specifically.
+
+---
+
+## Summary
+
+SD-WAN has moved from an enterprise-only technology to the practical default for multi-site UK businesses connecting locations to each other and to the cloud. It delivers lower cost than traditional MPLS, faster deployment of new sites, application-aware routing that improves performance for the applications that matter most, and centralised management that removes the need for per-site manual configuration.
+
+The right platform and configuration depend on your specific estate — number of sites, application mix, security requirements, and existing infrastructure. Getting the assessment right before choosing a platform is what determines whether an SD-WAN deployment delivers on its promise.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea works with multi-site UK businesses to assess, design, and deploy SD-WAN infrastructure that fits their actual connectivity needs — not a one-size-fits-all package. From initial assessment through to deployment and ongoing management, we handle the complexity so your team doesn't have to.
+
+[Get in touch to discuss SD-WAN for your business →](/contact)
+
+---
+
+## Related Reading
+
+- [SD-WAN vs Traditional WAN: What's the Difference and Does It Matter?](/blog/sd-wan-vs-traditional-wan)
+- [How Much Does SD-WAN Cost? A UK Business Pricing Guide](/blog/sd-wan-cost-uk-business-pricing-guide)
+- [How to Choose an SD-WAN Provider: What to Look For](/blog/how-to-choose-sd-wan-provider)
+- [SD-WAN for Retail and Multi-Branch Businesses](/blog/sd-wan-for-retail-multi-branch-businesses)
+- [How to Choose the Right WiFi Setup for a Multi-Site Business](/blog/multi-site-business-wifi-setup)
+    `
+  },
+  {
+    id: 37,
+    slug: "sd-wan-vs-traditional-wan",
+    title: "SD-WAN vs Traditional WAN: What's the Difference and Does It Matter?",
+    metaTitle: "SD-WAN vs Traditional WAN: What's the Difference and Does It Matter? | Conxiea",
+    metaDescription: "SD-WAN and traditional MPLS-based WAN solve the same problem in fundamentally different ways. Here's exactly what separates them, and what it means for your business.",
+    author: "Zak",
+    date: "17th July 2026",
+    isoDate: "2026-07-17",
+    category: "WiFi Solutions",
+    excerpt: "SD-WAN and traditional MPLS-based WAN both connect your business locations — but the way they do it, and what that means for cost, speed, and performance, are completely different. Here's the difference, feature by feature.",
+    keywords: "SD-WAN vs traditional WAN, SD-WAN vs MPLS, traditional WAN explained, WAN architecture comparison",
+    readTime: "11 min read",
+    content: `
+SD-WAN and traditional WAN both solve the same basic problem: connecting business locations to each other and to the internet. But they solve it in fundamentally different ways — and the difference has real consequences for cost, deployment speed, performance, and flexibility.
+
+This guide compares the two approaches directly, so you can understand exactly what changes when a business moves from traditional WAN to SD-WAN.
+
+![Blue LAN cable plugged into a traditional network router](https://images.unsplash.com/photo-1531668383211-64743e924c66?w=1200&h=600&fit=crop)
+
+---
+
+## What Traditional WAN Looks Like
+
+Traditional WAN architecture, most commonly built on MPLS (Multiprotocol Label Switching), connects business sites through dedicated circuits provisioned and managed by a carrier. Each site has a router configured individually, typically by an engineer either on-site or working with the carrier, and traffic between sites travels across these dedicated, carrier-managed paths.
+
+This architecture was built for a world where most business traffic flowed to a central data centre — a head office hosting the applications and file servers that every branch office needed to reach. MPLS was designed to deliver that traffic reliably and securely across dedicated circuits.
+
+The trade-offs of this model are structural. Dedicated circuits are expensive relative to broadband. Provisioning a new circuit takes weeks to months, because it requires physical carrier infrastructure work. And every configuration change — adding a site, adjusting routing policy, responding to changing bandwidth needs — typically requires manual engineering work, often per site.
+
+---
+
+## What SD-WAN Looks Like
+
+SD-WAN takes a software-defined approach. Rather than relying on a single type of dedicated circuit, it creates an intelligent overlay across whatever underlying connections are available at each site — broadband, fibre, 4G/5G, or MPLS if you choose to keep it — and uses centralised software to control how traffic is routed across them.
+
+Configuration, security policy, and routing rules are managed from a central console and pushed automatically to every site. Adding a new location means shipping a pre-configured edge device that connects to available internet and pulls its configuration automatically — no carrier circuit provisioning required.
+
+---
+
+## Feature-by-Feature Comparison
+
+### Cost
+
+Traditional WAN circuits are priced on dedicated bandwidth and carrier management overhead, making them significantly more expensive per megabit than broadband or fibre connections. SD-WAN uses lower-cost underlying connections — often combining two for resilience — while achieving comparable or better reliability through intelligent path selection and automatic failover.
+
+### Deployment Speed
+
+A new MPLS circuit typically takes weeks to months to provision, involving carrier scheduling and physical infrastructure work. A new SD-WAN site can typically be brought online in days once the central platform is in place — the edge device connects to available broadband and pulls its configuration automatically.
+
+### Traffic Routing
+
+Traditional WAN routes traffic through static, pre-configured paths, typically backhauling everything through a central hub regardless of destination. SD-WAN makes dynamic, application-aware routing decisions in real time — sending latency-sensitive traffic over the best-performing path and allowing traffic destined for cloud applications to break out directly to the internet rather than routing through a central hub unnecessarily.
+
+### Resilience and Failover
+
+Traditional WAN resilience typically requires a second dedicated circuit as backup — doubling the cost for redundancy. SD-WAN achieves resilience by combining multiple lower-cost connections (for example, two broadband circuits, or broadband plus 4G/5G backup), with automatic failover between them when one degrades or fails.
+
+![Close-up of networking equipment and cables representing SD-WAN edge hardware](https://images.unsplash.com/photo-1691435828932-911a7801adfb?w=1200&h=600&fit=crop)
+
+### Management
+
+Traditional WAN requires per-site configuration, typically by an engineer with access to each site's router. Changing a policy across ten sites means ten separate configuration changes. SD-WAN centralises management — a policy change made once in the central console is pushed to every site automatically.
+
+### Security
+
+Traditional WAN typically relies on separate firewall appliances at each site, managed independently. Most modern SD-WAN platforms include integrated security — firewall, intrusion prevention, encrypted site-to-site tunnels — managed as part of the same platform, and increasingly delivered as part of a broader SASE (Secure Access Service Edge) architecture.
+
+### Scalability
+
+Adding sites to a traditional WAN estate means repeating the circuit provisioning and configuration process for every new location — a linear cost and time commitment. SD-WAN scales far more efficiently: the central platform and policy framework already exist, so adding a site is primarily a logistics exercise rather than an engineering project.
+
+---
+
+## Where Traditional WAN Still Makes Sense
+
+SD-WAN is the right default for most multi-site businesses in 2026, but traditional MPLS still has a role in specific circumstances: environments with extremely latency-sensitive, mission-critical traffic where a carrier-guaranteed dedicated circuit provides assurance that even a well-configured SD-WAN overlay on broadband cannot fully replicate, or situations where regulatory or contractual requirements specifically mandate dedicated circuit architecture.
+
+For the large majority of multi-site UK businesses — even those currently running MPLS — the cost, flexibility, and performance case for moving to SD-WAN is strong. Many businesses run a hybrid approach during transition, keeping MPLS at a small number of critical sites while moving the rest of the estate to SD-WAN.
+
+---
+
+## Summary
+
+Traditional WAN and SD-WAN both connect your business locations, but the architecture underneath is fundamentally different. Traditional WAN is built on dedicated, carrier-managed circuits with static routing and per-site manual configuration. SD-WAN is a software-defined overlay across flexible underlying connections, with centralised management, dynamic application-aware routing, and automatic failover.
+
+For most multi-site businesses, that difference translates directly into lower cost, faster deployment, and better performance for the cloud applications that now carry the majority of business traffic.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea helps UK businesses assess whether SD-WAN is the right fit for their current WAN architecture, and designs migrations that move from MPLS to SD-WAN without disrupting day-to-day operations.
+
+[Get in touch to discuss your WAN architecture →](/contact)
+
+---
+
+## Related Reading
+
+- [SD-WAN for Multi-Site Businesses: The Complete UK Guide](/blog/sd-wan-for-multi-site-businesses)
+- [How Much Does SD-WAN Cost? A UK Business Pricing Guide](/blog/sd-wan-cost-uk-business-pricing-guide)
+- [How to Choose an SD-WAN Provider: What to Look For](/blog/how-to-choose-sd-wan-provider)
+- [SD-WAN for Retail and Multi-Branch Businesses](/blog/sd-wan-for-retail-multi-branch-businesses)
+    `
+  },
+  {
+    id: 38,
+    slug: "sd-wan-cost-uk-business-pricing-guide",
+    title: "How Much Does SD-WAN Cost? A UK Business Pricing Guide",
+    metaTitle: "How Much Does SD-WAN Cost? A UK Business Pricing Guide | Conxiea",
+    metaDescription: "SD-WAN pricing varies widely depending on bandwidth, sites, and features. Here's a clear, honest breakdown of what UK businesses should expect to pay in 2026.",
+    author: "Zak",
+    date: "17th July 2026",
+    isoDate: "2026-07-17",
+    category: "WiFi Solutions",
+    excerpt: "SD-WAN pricing in the UK typically runs from around £95 to £400+ per site per month — but the number that matters is the total cost against what you're paying for MPLS today. Here's a clear breakdown of what drives the price.",
+    keywords: "how much does SD-WAN cost UK, SD-WAN pricing, SD-WAN cost per site, SD-WAN vs MPLS cost",
+    readTime: "12 min read",
+    content: `
+How much does SD-WAN cost is one of the first questions any multi-site business asks once they start evaluating it — and it's a harder question to answer with a single number than most pricing pages suggest.
+
+SD-WAN pricing depends on how many sites you're connecting, what bandwidth each site needs, which underlying connections you use, and how much built-in security and management you want included. This guide breaks down each cost component so you can build a realistic estimate for your business.
+
+![Calculator used for working out business connectivity costs](https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?w=1200&h=600&fit=crop)
+
+---
+
+## The Three Cost Components of SD-WAN
+
+### 1. Underlying Connectivity
+
+**Typical cost: £25 to £500+ per site per month**
+
+SD-WAN runs on top of an underlying internet connection — broadband, fibre (FTTP), or in some cases a leased line. This is the same connectivity cost you would pay regardless of whether you run SD-WAN or traditional WAN on top of it.
+
+- Business broadband: from around £25 to £100 per month, depending on speed and provider
+- FTTP (fibre to the premises): typically £50 to £200 per month for business-grade service
+- Dedicated leased line (guaranteed symmetric bandwidth): £300 to £500+ per month, scaling with bandwidth
+
+Most SD-WAN deployments use two underlying connections per site for resilience — commonly a primary fibre or broadband connection paired with a secondary broadband or 4G/5G backup. This roughly doubles the connectivity cost per site but is still typically far cheaper than a single MPLS circuit with comparable resilience.
+
+### 2. SD-WAN Platform / Overlay Licensing
+
+**Typical cost: £30 to £100 per site per month**
+
+This is the cost of the SD-WAN software itself — the central management platform, the edge device licensing, and the intelligent routing and failover capability. Pricing varies by vendor and by the level of functionality included (basic routing versus advanced application-aware policies, analytics, and reporting).
+
+Some platforms bundle security into this licensing tier; others charge separately for firewall, intrusion prevention, and SASE capabilities as an add-on.
+
+### 3. Security and Management Add-Ons
+
+**Typical cost: £0 to £150+ per site per month**
+
+If you want integrated security — next-generation firewall, intrusion prevention, encrypted site-to-site tunnels, or full SASE capability — this is typically priced as an additional layer on top of the base SD-WAN platform, though several vendors now bundle it as standard.
+
+Managed service fees — where a provider handles ongoing monitoring, configuration changes, and support rather than your internal team managing the platform — typically add £20 to £75 per site per month, depending on the level of service.
+
+---
+
+## Total Cost by Business Size
+
+Bringing the components together, here are realistic monthly cost ranges for UK businesses in 2026:
+
+### Small Multi-Site Business (3 to 5 sites)
+
+- Connectivity (dual connections per site): £150 to £600/month across the estate
+- SD-WAN platform licensing: £90 to £500/month across the estate
+- **Total estimated range: £250 to £1,200/month**
+
+### Medium Multi-Site Business (10 to 20 sites)
+
+- Connectivity: £500 to £2,000/month across the estate
+- SD-WAN platform licensing: £300 to £2,000/month across the estate
+- Managed service (optional): £200 to £1,500/month
+- **Total estimated range: £1,000 to £5,500/month**
+
+### Large Multi-Site Business (30+ sites)
+
+- Costs typically scale close to linearly per site, though larger deployments often achieve better per-site pricing through volume discounts from both connectivity providers and SD-WAN vendors
+- **Typical per-site cost at scale: £150 to £350/month all-in**
+
+These ranges reflect standard business connectivity and mid-tier SD-WAN platform licensing. High-bandwidth sites, extensive security add-ons, or premium managed services will push costs toward the higher end.
+
+---
+
+## SD-WAN vs MPLS: The Cost Comparison That Matters
+
+The headline SD-WAN cost only tells half the story. The number that actually matters is the comparison against what you're currently paying for MPLS, if that's your existing architecture.
+
+MPLS circuits are priced on dedicated, guaranteed bandwidth with carrier management included, and are typically several times more expensive per megabit than the broadband or fibre connections that underpin SD-WAN. A business currently running MPLS across ten sites for resilience-grade dedicated circuits is frequently paying substantially more per month than an equivalent SD-WAN deployment using dual broadband connections with comparable failover — while also facing weeks-to-months provisioning timelines for any change.
+
+This is the calculation that drives most SD-WAN business cases: not "is SD-WAN cheap" in isolation, but "is SD-WAN cheaper than what we're already paying, with equal or better resilience."
+
+![Networking equipment representing SD-WAN edge hardware costs](https://images.unsplash.com/photo-1531668383211-64743e924c66?w=1200&h=600&fit=crop)
+
+---
+
+## What Affects Your Quote Most
+
+**Number of sites.** The primary driver of total cost — but per-site pricing typically improves with scale, so a 20-site deployment rarely costs proportionally more than a 10-site one on a per-location basis.
+
+**Bandwidth requirements.** Sites with heavy video conferencing, large file transfer needs, or high device density require more bandwidth, and cost scales accordingly.
+
+**Resilience requirements.** Single-connection sites cost less but carry more risk. Dual-connection sites cost more but deliver the automatic failover that is one of SD-WAN's core benefits.
+
+**Security bundling.** Platforms with integrated SASE-level security cost more per site than basic connectivity-only SD-WAN, but reduce or eliminate the need for separate security appliances and licensing.
+
+**Managed vs self-managed.** Handling configuration and monitoring internally costs less in direct fees but requires internal expertise and time. A managed service costs more but removes that operational burden.
+
+---
+
+## Building the Business Case
+
+For most UK multi-site businesses currently on MPLS, the SD-WAN business case is straightforward: compare your current MPLS spend (circuits plus any managed service fees) against a realistic SD-WAN quote covering equivalent sites, bandwidth, and resilience.
+
+For businesses without existing MPLS — for example, those currently connecting sites with unmanaged, disconnected broadband — the comparison is less about direct cost replacement and more about the value of centralised management, application-aware routing, and integrated security that ad hoc connectivity doesn't provide.
+
+In both cases, request quotes that separate out connectivity, platform licensing, and any managed service fees clearly — a quote that bundles everything into a single number makes it difficult to compare providers or to understand what you're actually paying for.
+
+---
+
+## Summary
+
+SD-WAN pricing in the UK typically runs from around £250 per month for a small multi-site business to several thousand pounds per month for a larger estate — driven primarily by the number of sites, bandwidth requirements, and how much security and management is bundled in.
+
+For businesses currently on MPLS, the comparison usually favours SD-WAN significantly on cost, without sacrificing resilience. For businesses without a mature WAN architecture today, the value case rests as much on centralised management and application performance as on the headline price.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea provides transparent, fully itemised SD-WAN quotes for UK multi-site businesses — covering connectivity, platform licensing, and management, with no hidden extras.
+
+[Get in touch for a free consultation and no-obligation SD-WAN quote →](/contact)
+
+---
+
+## Related Reading
+
+- [SD-WAN for Multi-Site Businesses: The Complete UK Guide](/blog/sd-wan-for-multi-site-businesses)
+- [SD-WAN vs Traditional WAN: What's the Difference and Does It Matter?](/blog/sd-wan-vs-traditional-wan)
+- [How to Choose an SD-WAN Provider: What to Look For](/blog/how-to-choose-sd-wan-provider)
+- [SD-WAN for Retail and Multi-Branch Businesses](/blog/sd-wan-for-retail-multi-branch-businesses)
+    `
+  },
+  {
+    id: 39,
+    slug: "how-to-choose-sd-wan-provider",
+    title: "How to Choose an SD-WAN Provider: What to Look For",
+    metaTitle: "How to Choose an SD-WAN Provider: What to Look For | Conxiea",
+    metaDescription: "Choosing the wrong SD-WAN provider is an expensive, disruptive mistake to fix later. Here's exactly what to evaluate before you sign a contract.",
+    author: "Zak",
+    date: "17th July 2026",
+    isoDate: "2026-07-17",
+    category: "WiFi Solutions",
+    excerpt: "The SD-WAN market has consolidated around a handful of strong platforms, which makes the decision harder, not easier — the differences are in the details. Here's exactly what to evaluate before choosing a provider.",
+    keywords: "how to choose an SD-WAN provider, SD-WAN provider comparison, best SD-WAN provider UK, SD-WAN vendor evaluation",
+    readTime: "12 min read",
+    content: `
+The SD-WAN market has matured to the point where most of the established platforms deliver the core capability reliably — application-aware routing, automatic failover, centralised management. That makes choosing between them harder, not easier. The differences that matter are in the details: how the platform fits your existing infrastructure, how it's supported, and what it costs once you look past the headline price.
+
+This guide covers exactly what to evaluate before signing a contract with an SD-WAN provider.
+
+![Business team in a meeting evaluating options around a table](https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1200&h=600&fit=crop)
+
+---
+
+## Start With Your Actual Requirements, Not the Feature List
+
+Every SD-WAN vendor's marketing page reads similarly — centralised management, application-aware routing, integrated security, zero-touch provisioning. Before you can meaningfully compare providers, you need a clear picture of what you actually need.
+
+Work through these questions first:
+
+- How many sites do you need to connect now, and how many in the next two to three years?
+- What is your current WAN architecture — MPLS, unmanaged broadband, or a mix?
+- What applications matter most — cloud productivity suites, VoIP, video conferencing, industry-specific line-of-business systems?
+- Do you need integrated security (firewall, intrusion prevention, SASE) or do you already have that covered separately?
+- Do you have internal IT capability to manage the platform, or do you need a fully managed service?
+- What existing vendor relationships or infrastructure investments should the new platform integrate with?
+
+A provider conversation that starts with your requirements, rather than their feature list, surfaces the real differences that matter for your specific environment.
+
+---
+
+## The Evaluation Criteria That Matter
+
+### Platform Architecture and Fit
+
+Some platforms are built for simplicity and ease of administration — a strong fit for smaller multi-site estates without dedicated network engineering staff. Others are built for granular control and complex segmentation — better suited to larger, more sophisticated networks. Evaluate honestly which category your business falls into; choosing a platform more complex than you need adds cost and administrative overhead without corresponding benefit.
+
+### Security Integration
+
+Decide upfront whether you want SD-WAN and security managed as a single integrated platform (increasingly delivered as SASE) or whether you prefer to keep security separate, managed by a specialist security vendor or your existing firewall infrastructure. Both are valid approaches — the wrong answer is not deciding, and ending up with gaps or duplication between disconnected systems.
+
+### Underlying Connectivity Flexibility
+
+Confirm the platform works with the connectivity you actually have or plan to use at each site — broadband, fibre, 4G/5G, or existing MPLS if you're running a hybrid transition. Some platforms are more flexible than others about mixing connection types within the same deployment.
+
+### Management Model
+
+Decide whether you want to manage the platform with your internal team, or whether you want a managed service where the provider handles configuration, monitoring, and changes on your behalf. This decision affects both cost and the level of SD-WAN expertise you need to build or retain internally.
+
+![Networking equipment representing the technical infrastructure behind an SD-WAN deployment](https://images.unsplash.com/photo-1683322499436-f4383dd59f5a?w=1200&h=600&fit=crop)
+
+### Support and SLA
+
+Ask specifically about support hours, response times, and whether support is delivered by engineers familiar with your specific deployment or a generic helpdesk. For a UK business, confirm support is available within your operational hours, not just during US business hours if the vendor is US-headquartered.
+
+### Total Cost of Ownership
+
+Request a quote that separates connectivity, platform licensing, security add-ons, and managed service fees clearly. A bundled single number makes it difficult to compare providers on a like-for-like basis, and makes it harder to spot where costs might change as you scale.
+
+---
+
+## Questions to Ask Every Provider
+
+**What is included in the base licence, and what is an add-on?** Security, analytics, and advanced routing policies are sometimes bundled, sometimes priced separately. Get clarity before comparing headline prices.
+
+**What happens if we want to change provider later?** Understand hardware ownership and portability. Some platforms tie you to proprietary edge devices that only work with their management system — switching later means replacing hardware at every site.
+
+**How is a new site brought online?** Ask for the actual step-by-step process and realistic timeline, not the marketing claim. Zero-touch provisioning varies in how genuinely hands-off it is between vendors.
+
+**What visibility do we get into performance and incidents?** Request a demo of the actual reporting dashboard, not just a description of it. The quality of visibility varies significantly between platforms.
+
+**Who do we call when something goes wrong at 2am?** Confirm the actual support model, not just the SLA document — response time commitments and lived experience of support quality can differ substantially.
+
+---
+
+## Red Flags When Evaluating Providers
+
+**Reluctance to provide a detailed, itemised quote.** If a provider won't break down connectivity, licensing, and services separately, they may be obscuring costs that will surface later.
+
+**No clear answer on hardware ownership.** If it's unclear whether you own the edge devices or the provider does, clarify before signing — this affects your ability to switch providers in future without a full hardware refresh.
+
+**Generic proposals that ignore your stated requirements.** A provider that sends the same proposal regardless of what you told them about your environment is not going to deliver a tailored deployment.
+
+**No reference customers in a similar situation.** A provider with genuine experience in your sector or at your scale should be able to point to comparable deployments.
+
+---
+
+## Summary
+
+Choosing an SD-WAN provider is not primarily about finding the platform with the longest feature list — most established platforms deliver the core capability reliably. It is about finding the platform, pricing model, and support relationship that fits your specific business: your site count, your application mix, your security posture, and your internal capacity to manage it.
+
+Getting this decision right upfront avoids the cost and disruption of migrating to a different platform later. Take the time to evaluate properly before signing.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea helps UK multi-site businesses evaluate SD-WAN providers against their actual requirements — not a generic checklist — and manages deployment and ongoing operations for businesses that want the benefit of SD-WAN without building the expertise internally.
+
+[Get in touch to discuss your SD-WAN requirements →](/contact)
+
+---
+
+## Related Reading
+
+- [SD-WAN for Multi-Site Businesses: The Complete UK Guide](/blog/sd-wan-for-multi-site-businesses)
+- [SD-WAN vs Traditional WAN: What's the Difference and Does It Matter?](/blog/sd-wan-vs-traditional-wan)
+- [How Much Does SD-WAN Cost? A UK Business Pricing Guide](/blog/sd-wan-cost-uk-business-pricing-guide)
+- [SD-WAN for Retail and Multi-Branch Businesses](/blog/sd-wan-for-retail-multi-branch-businesses)
+    `
+  },
+  {
+    id: 40,
+    slug: "sd-wan-for-retail-multi-branch-businesses",
+    title: "SD-WAN for Retail and Multi-Branch Businesses",
+    metaTitle: "SD-WAN for Retail and Multi-Branch Businesses | Conxiea",
+    metaDescription: "Retail and multi-branch businesses have connectivity demands that generic WAN advice doesn't address. Here's how SD-WAN solves the specific challenges of running many locations.",
+    author: "Zak",
+    date: "17th July 2026",
+    isoDate: "2026-07-17",
+    category: "WiFi Solutions",
+    excerpt: "Retail and multi-branch businesses have a specific set of connectivity demands — payment reliability, guest WiFi, consistent policy across dozens of locations — that generic WAN advice doesn't address. Here's how SD-WAN solves them.",
+    keywords: "SD-WAN for retail and multi-branch businesses, SD-WAN retail, multi-branch connectivity, retail network connectivity UK",
+    readTime: "12 min read",
+    content: `
+Retail chains, hospitality groups, and other multi-branch businesses have a connectivity problem that looks similar to any other multi-site business on the surface, but has specific characteristics that generic WAN advice doesn't fully address.
+
+Every location needs to process card payments reliably. Every location needs guest WiFi that doesn't compromise the security of point-of-sale systems. New locations open frequently and need to be online fast. And the person managing connectivity across fifty locations is rarely a dedicated network engineer at every single site — it's usually a small central IT function stretched across the whole estate.
+
+This guide covers how SD-WAN specifically addresses these retail and multi-branch challenges.
+
+![Modern retail store interior with organised product displays](https://images.unsplash.com/photo-1764795850238-7a024db5e3ee?w=1200&h=600&fit=crop)
+
+---
+
+## The Specific Challenges of Retail and Multi-Branch Connectivity
+
+### Payment Reliability Is Non-Negotiable
+
+For a retail or hospitality business, a network outage doesn't just mean an inconvenience — it means an inability to take payments, which translates directly and immediately into lost revenue. A single site's connectivity failing during a busy trading period has a measurable financial cost within minutes, not hours.
+
+This makes automatic failover — the ability to switch to a backup connection within seconds of the primary connection degrading — genuinely business-critical rather than a nice-to-have, in a way that's more acute for retail than for many other business types.
+
+### Guest WiFi and Payment Systems Must Be Properly Separated
+
+Most retail and hospitality locations offer guest WiFi alongside the network handling card payments and stock systems. Without proper segmentation, this creates a genuine security exposure — a compromised guest device on the same network as payment infrastructure is a PCI-DSS compliance problem, not just a theoretical risk.
+
+SD-WAN platforms handle this through VLAN segmentation and policy-based traffic separation, applied consistently across every site from a central console — rather than relying on each location's staff or a local IT contractor to configure it correctly and consistently.
+
+### New Locations Need to Open Fast
+
+Retail and hospitality businesses often open new locations on tight, revenue-driven timelines. A new store opening is rarely delayed for network infrastructure — but network infrastructure that isn't ready on day one is a real operational problem for staff and customers.
+
+SD-WAN's zero-touch provisioning model — shipping a pre-configured edge device that connects to available broadband and pulls its configuration automatically — fits this operational reality far better than traditional WAN, where a new circuit can take weeks to provision.
+
+![Small independent shop storefront representing a single location in a multi-branch estate](https://images.unsplash.com/photo-1674062284636-c7b6b6c7a358?w=1200&h=600&fit=crop)
+
+### Central IT Cannot Be Everywhere
+
+Multi-branch businesses rarely have network engineering expertise on-site at every location. Central IT — sometimes a single person, sometimes a small team — is responsible for connectivity across the entire estate. Any architecture that requires manual, per-site configuration doesn't scale to this operational model.
+
+SD-WAN's centralised management directly addresses this: policy changes, security updates, and configuration adjustments are made once and pushed to every location automatically, rather than requiring engineering time at each site individually.
+
+### Consistency Matters More Than Customisation
+
+Unlike some multi-site businesses where each location has genuinely different requirements, retail and hospitality estates usually want the opposite: every location running the same configuration, the same security policy, the same guest WiFi experience. Consistency reduces support burden and ensures every customer and every payment terminal gets the same reliable experience regardless of which location they're in.
+
+SD-WAN's template-based deployment model supports this directly — a new site is deployed from the same standard configuration as every other site, rather than being configured individually.
+
+---
+
+## What This Looks Like in Practice
+
+A retail or hospitality business running SD-WAN across its estate typically has:
+
+- Dual connections at every site (primary broadband or fibre, with 4G/5G or secondary broadband failover) ensuring payment systems stay online even during a primary connection outage
+- Guest WiFi and payment/POS traffic on separate, policy-enforced network segments at every location, consistently applied
+- New sites brought online in days rather than weeks, using pre-configured edge devices
+- Centralised visibility into the performance and status of every location from a single dashboard, without needing to contact each site individually
+- Consistent security policy — firewall rules, intrusion prevention, encrypted tunnels — applied uniformly across the entire estate
+
+---
+
+## Sizing SD-WAN for a Retail or Multi-Branch Estate
+
+The cost and configuration considerations are similar to any multi-site SD-WAN deployment, but a few retail-specific factors are worth planning for explicitly: bandwidth needs to comfortably support simultaneous card payment processing and guest WiFi at peak trading times, not just average load; failover needs to be fast enough that a connection switch is invisible to a customer mid-transaction; and the deployment template needs to be genuinely standardised so that opening site fifty is as fast and predictable as opening site five.
+
+For a detailed breakdown of what SD-WAN costs at different estate sizes, see our [SD-WAN cost guide](/blog/sd-wan-cost-uk-business-pricing-guide). For the broader considerations around WiFi specifically (as distinct from WAN architecture) across a multi-site retail or hospitality estate, see our guide to [choosing the right WiFi setup for a multi-site business](/blog/multi-site-business-wifi-setup).
+
+---
+
+## Summary
+
+Retail and multi-branch businesses have connectivity requirements that are more acute than most other multi-site businesses — payment reliability directly affects revenue, guest and payment traffic must be properly separated, and new locations need to open on tight timelines without waiting on network infrastructure.
+
+SD-WAN addresses each of these directly: fast automatic failover protects payment continuity, centralised policy management enforces consistent segmentation across every site, and zero-touch provisioning gets new locations online in days rather than weeks — all managed centrally by a small IT function rather than requiring engineering presence at every location.
+
+---
+
+## How Conxiea Can Help
+
+Conxiea works with UK retail, hospitality, and multi-branch businesses to design and deploy SD-WAN infrastructure built around the realities of running many locations — payment reliability, guest WiFi separation, and fast, consistent site rollout.
+
+[Get in touch to discuss SD-WAN for your retail or multi-branch business →](/contact)
+
+---
+
+## Related Reading
+
+- [SD-WAN for Multi-Site Businesses: The Complete UK Guide](/blog/sd-wan-for-multi-site-businesses)
+- [SD-WAN vs Traditional WAN: What's the Difference and Does It Matter?](/blog/sd-wan-vs-traditional-wan)
+- [How Much Does SD-WAN Cost? A UK Business Pricing Guide](/blog/sd-wan-cost-uk-business-pricing-guide)
+- [How to Choose an SD-WAN Provider: What to Look For](/blog/how-to-choose-sd-wan-provider)
+- [How to Choose the Right WiFi Setup for a Multi-Site Business](/blog/multi-site-business-wifi-setup)
     `
   }
 ];
