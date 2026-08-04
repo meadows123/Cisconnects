@@ -48,6 +48,7 @@ const TradesWebsiteServices = () => {
         message: 'Enquiry from Website for Tradespeople landing page',
         service_interest: 'Website for Trades',
         to_name: 'Conxiea Team',
+        to_email: 'admin@conxiea.com',
         reply_to: formData.email,
       });
       setSubmitStatus('success');

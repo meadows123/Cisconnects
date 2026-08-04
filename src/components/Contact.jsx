@@ -51,6 +51,7 @@ const Contact = () => {
         service_interest: formData.service,
         message: formData.message,
         to_name: 'InfraOpsAI Team',
+        to_email: 'admin@conxiea.com',
         reply_to: formData.email,
         // Additional branded content
         company_name: 'InfraOpsAI',

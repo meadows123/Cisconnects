@@ -50,6 +50,7 @@ const WifiOptimisation = () => {
         message: 'New WiFi optimisation enquiry',
         service_interest: 'WiFi Optimisation',
         to_name: 'Conxiea Team',
+        to_email: 'admin@conxiea.com',
         reply_to: formData.email,
       });
 

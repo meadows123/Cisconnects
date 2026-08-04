@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, CheckCircle, Loader2, Clock, Calendar, ChevronLeft } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 import { saveLead } from '@/lib/saveLead';
+import emailjs from '@emailjs/browser';
 
 const getAvailableDates = () => {
   const dates = [];
@@ -103,6 +104,28 @@ const ContactModal = () => {
         date: formatDateISO(selectedDate),
         time: selectedTime
       });
+
+      // Notify admin by email - non-blocking, booking already saved above
+      try {
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        if (serviceId && publicKey && templateId) {
+          emailjs.init(publicKey);
+          await emailjs.send(serviceId, templateId, {
+            from_name: formData.name,
+            from_email: formData.email,
+            phone: formData.phone,
+            message: `New booking request for ${formatDate(selectedDate)} at ${selectedTime}`,
+            service_interest: 'Booking',
+            to_name: 'Conxiea Team',
+            to_email: 'admin@conxiea.com',
+            reply_to: formData.email,
+          });
+        }
+      } catch (emailError) {
+        console.error('Booking notification email error:', emailError);
+      }
 
       setSubmitStatus('success');
       window.gtag?.('event', 'conversion_event_submit_lead_form', {});

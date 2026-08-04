@@ -50,6 +50,7 @@ const CafeWifi = () => {
         message: 'New hospitality WiFi installation enquiry',
         service_interest: 'Hospitality WiFi Installation',
         to_name: 'Conxiea Team',
+        to_email: 'admin@conxiea.com',
         reply_to: formData.email,
       });
 

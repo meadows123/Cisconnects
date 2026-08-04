@@ -51,6 +51,7 @@ const CafeWifiV2 = () => {
         message: 'Enquiry from Reliable Café Connectivity V2 landing page',
         service_interest: 'Reliable Café Connectivity',
         to_name: 'Conxiea Team',
+        to_email: 'admin@conxiea.com',
         reply_to: formData.email,
       });
 

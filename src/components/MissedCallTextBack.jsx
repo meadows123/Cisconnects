@@ -120,6 +120,7 @@ const MissedCallTextBack = () => {
         message: appointmentData.message || 'No additional message',
         service_interest: 'Missed Call Text-Back Appointment',
         to_name: 'Conxiea Team',
+        to_email: 'admin@conxiea.com',
         reply_to: appointmentData.email,
       };
 

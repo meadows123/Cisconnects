@@ -51,6 +51,7 @@ const NetworkTroubleshootingV2 = () => {
         message: formData.description,
         service_interest: 'Network Troubleshooting',
         to_name: 'Conxiea Team',
+        to_email: 'admin@conxiea.com',
         reply_to: formData.email,
       });
 

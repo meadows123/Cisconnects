@@ -51,6 +51,7 @@ const OfficeWifi = () => {
         message: formData.description,
         service_interest: 'Office WiFi Solution',
         to_name: 'Conxiea Team',
+        to_email: 'admin@conxiea.com',
         reply_to: formData.email,
       });
 

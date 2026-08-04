@@ -49,6 +49,7 @@ const CafeWifiPayments = () => {
         message: 'Enquiry from WiFi & Payment Issues landing page',
         service_interest: 'WiFi & Payment Reliability',
         to_name: 'Conxiea Team',
+        to_email: 'admin@conxiea.com',
         reply_to: formData.email,
       });
       navigate('/thank-you');

@@ -48,6 +48,7 @@ const ElectricianWebsiteServices = () => {
         message: 'Enquiry from Website for Electricians landing page',
         service_interest: 'Website for Electricians',
         to_name: 'Conxiea Team',
+        to_email: 'admin@conxiea.com',
         reply_to: formData.email,
       });
       setSubmitStatus('success');

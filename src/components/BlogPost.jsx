@@ -44,6 +44,7 @@ export default function BlogPost() {
         reply_to: commentForm.email,
         message: `Blog comment on "${post.title}"\n\nWebsite: ${commentForm.website || 'N/A'}\n\n${commentForm.comment}`,
         to_name: 'Conxiea',
+        to_email: 'admin@conxiea.com',
         company_name: 'Conxiea',
         website: 'https://www.conxiea.com',
         current_date: new Date().toLocaleDateString(),

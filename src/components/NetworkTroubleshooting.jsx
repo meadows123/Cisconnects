@@ -50,6 +50,7 @@ const NetworkTroubleshooting = () => {
         message: 'Enquiry from Network Troubleshooting landing page',
         service_interest: 'Network Troubleshooting',
         to_name: 'Conxiea Team',
+        to_email: 'admin@conxiea.com',
         reply_to: formData.email,
       });
       navigate('/thank-you');
