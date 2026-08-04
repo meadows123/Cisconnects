@@ -5,6 +5,7 @@ import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { Send, CheckCircle, AlertCircle, ChevronLeft, ChevronRight, Check, Shield } from 'lucide-react';
 import SEO from './SEO';
 import emailjs from '@emailjs/browser';
+import { saveLead } from '@/lib/saveLead';
 
 const CafeWifi = () => {
   const navigate = useNavigate();
@@ -53,15 +54,11 @@ const CafeWifi = () => {
       });
 
       // Save lead to server (non-blocking on failure)
-      fetch('/api/calls', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          source: 'hospitality-wifi-installation',
-        }),
+      saveLead({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        source: 'hospitality-wifi-installation',
       }).catch(err => console.error('Lead save error:', err));
 
       navigate('/thank-you');

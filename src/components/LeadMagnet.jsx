@@ -5,6 +5,7 @@ import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { Mail, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import SEO from './SEO';
+import { saveLead } from '@/lib/saveLead';
 
 const LeadMagnet = () => {
   const navigate = useNavigate();
@@ -42,18 +43,11 @@ const LeadMagnet = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          source: 'lead-magnet',
-          timestamp: new Date().toISOString()
-        })
+      await saveLead({
+        name: formData.name,
+        email: formData.email,
+        source: 'lead-magnet'
       });
-
-      if (!response.ok) throw new Error('Failed to save lead');
 
       try {
         const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;

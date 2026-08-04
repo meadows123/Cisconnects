@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, Mail, Phone as PhoneIcon, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import SEO from './SEO';
+import { saveLead } from '@/lib/saveLead';
 
 const RequestCallFunnelV2 = () => {
   const navigate = useNavigate();
@@ -61,20 +62,12 @@ const RequestCallFunnelV2 = () => {
 
     try {
       // Save to backend
-      const response = await fetch('/api/calls', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          timestamp: new Date().toISOString()
-        })
+      await saveLead({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        source: 'request-call-funnel-v2'
       });
-
-      if (!response.ok) {
-        throw new Error('Failed to save call request');
-      }
 
       // Send email notification
       try {

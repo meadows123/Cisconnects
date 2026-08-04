@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Mail, Sparkles, CheckCircle, ArrowRight } from 'lucide-react';
+import { saveLead } from '@/lib/saveLead';
 
 const STORAGE_KEY = 'subscribe_popup_dismissed';
 
@@ -34,13 +35,8 @@ const SubscribePopup = () => {
     setStatus('submitting');
 
     try {
-      const res = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: email.split('@')[0], email, source: 'subscribe-popup' }),
-      });
+      await saveLead({ name: email.split('@')[0], email, source: 'subscribe-popup' });
 
-      if (!res.ok) throw new Error('Failed');
       setStatus('success');
       window.gtag?.('event', 'conversion_event_submit_lead_form', {});
       localStorage.setItem(STORAGE_KEY, 'subscribed');

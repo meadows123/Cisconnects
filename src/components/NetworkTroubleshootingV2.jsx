@@ -5,6 +5,7 @@ import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { Send, CheckCircle, AlertCircle, ChevronLeft, ChevronRight, Check, Shield } from 'lucide-react';
 import SEO from './SEO';
 import emailjs from '@emailjs/browser';
+import { saveLead } from '@/lib/saveLead';
 
 const NetworkTroubleshootingV2 = () => {
   const navigate = useNavigate();
@@ -54,14 +55,11 @@ const NetworkTroubleshootingV2 = () => {
       });
 
       // Save to leads database
-      await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          source: 'network-troubleshooting'
-        })
+      await saveLead({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        source: 'network-troubleshooting'
       });
 
       navigate('/thank-you');

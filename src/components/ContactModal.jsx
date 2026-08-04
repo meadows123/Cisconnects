@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, CheckCircle, Loader2, Clock, Calendar, ChevronLeft } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
+import { saveLead } from '@/lib/saveLead';
 
 const getAvailableDates = () => {
   const dates = [];
@@ -62,23 +63,15 @@ const ContactModal = () => {
     };
   }, [isOpen]);
 
-  // Fetch available slots when date is selected
+  // Set available slots when a date is selected. Live availability checking
+  // against the calendar isn't wired up (that requires a secret-holding
+  // backend), so this offers the standard business-hours slots for any
+  // selected weekday.
   useEffect(() => {
     if (step === 2 && selectedDate) {
-      setLoadingSlots(true);
-      const dateStr = formatDateISO(selectedDate);
-      fetch(`/api/available-slots?date=${dateStr}`)
-        .then(res => res.json())
-        .then(data => {
-          setAvailableSlots(data.availableSlots || []);
-          setBookedSlots(data.bookedSlots || []);
-          setSelectedTime(null); // Reset time selection
-        })
-        .catch(err => {
-          console.error('Error fetching slots:', err);
-          setAvailableSlots(timeSlots); // Fallback to all slots
-        })
-        .finally(() => setLoadingSlots(false));
+      setAvailableSlots(timeSlots);
+      setBookedSlots([]);
+      setSelectedTime(null);
     }
   }, [step, selectedDate]);
 
@@ -102,20 +95,14 @@ const ContactModal = () => {
 
     try {
       // Save to leads database with date and time
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          source: 'contact-form',
-          date: formatDateISO(selectedDate),
-          time: selectedTime
-        })
+      await saveLead({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        source: 'contact-form',
+        date: formatDateISO(selectedDate),
+        time: selectedTime
       });
-
-      if (!response.ok) throw new Error('Failed to save lead');
 
       setSubmitStatus('success');
       window.gtag?.('event', 'conversion_event_submit_lead_form', {});
