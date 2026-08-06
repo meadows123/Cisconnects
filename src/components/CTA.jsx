@@ -55,7 +55,7 @@ const CTA = () => {
           </motion.div>
 
           <h2 className="text-5xl md:text-7xl font-bold leading-tight">
-            Ready to Cut Costs?
+            Ready to Cut IT Costs in the UK?
             <br />
             <span className="text-gradient glow-effect">Let's Talk.</span>
           </h2>

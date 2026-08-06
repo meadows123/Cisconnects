@@ -8,6 +8,7 @@ import TrustpilotWidget from '@/components/TrustpilotWidget';
 import SEO from '@/components/SEO';
 import StructuredData from '@/components/StructuredData';
 import Hero from '@/components/Hero';
+import HomeIntro from '@/components/HomeIntro';
 import Features from '@/components/Features';
 import Solutions from '@/components/Solutions';
 import EnterpriseValue from '@/components/EnterpriseValue';
@@ -33,8 +34,8 @@ function App() {
   return (
     <>
       <SEO
-        title="AI Network Automation | AIOps Redefined | Network Automation Services UK | Conxiea"
-        description="What is AIOps? How does network automation reduce costs? Expert AI network automation, cloud network automation, firewall migration automation, and network engineering automation services UK. Managed network automation service with AI-driven IT operations."
+        title="AIOps Platform & AI Network Automation Services UK | Conxiea"
+        description="Conxiea's AIOps platform delivers AI network automation and network automation services for UK businesses, cutting downtime and manual IT work."
         url="/"
       />
       <StructuredData
@@ -56,6 +57,7 @@ function App() {
       <div className="min-h-screen bg-slate-950 overflow-hidden">
         <Navigation />
         <Hero />
+        <HomeIntro />
         <Features />
         <Solutions />
         <EnterpriseValue />

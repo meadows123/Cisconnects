@@ -76,9 +76,9 @@ const Hero = () => {
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-gradient glow-effect">InfraOps that monitors</span>
+              <span className="text-gradient glow-effect">AI Network Automation</span>
               <br />
-              <span className="text-white">and fixes itself.</span>
+              <span className="text-white">that monitors and fixes itself.</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 leading-relaxed">

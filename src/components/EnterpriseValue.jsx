@@ -28,7 +28,7 @@ const EnterpriseValue = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            <span className="text-gradient">Move from Reactive to Proactive</span>
+            <span className="text-gradient">Move from Reactive to Proactive with AI Network Automation</span>
           </h2>
 
           <div className="prose prose-invert max-w-none mb-12">

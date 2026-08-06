@@ -149,7 +149,7 @@ const Testimonials = () => {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-gradient">Trusted by Industry Leaders</span>
+            <span className="text-gradient">Trusted by UK Industry Leaders</span>
           </h2>
           
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
