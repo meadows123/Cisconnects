@@ -1,37 +1,60 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { BrainCircuit, Cloud, Wrench } from 'lucide-react';
+
+const points = [
+  {
+    icon: BrainCircuit,
+    title: 'AIOps Platform',
+    description: 'Correlates alerts, finds root cause, fixes it. No manual triage.',
+  },
+  {
+    icon: Cloud,
+    title: 'AI Network Automation',
+    description: 'Self-healing infrastructure that acts, not just alerts.',
+  },
+  {
+    icon: Wrench,
+    title: 'Network Automation Services',
+    description: 'UK-wide firewall, cloud, and config management, handled.',
+  },
+];
 
 const HomeIntro = () => {
   return (
     <section className="relative py-16 md:py-24 px-4 bg-slate-950">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             What Is an <span className="text-gradient">AIOps Platform</span>?
           </h2>
-          <div className="space-y-6 text-slate-300 text-lg leading-relaxed">
-            <p>
-              Running modern IT infrastructure without the right tools means constant firefighting: outages nobody saw coming, tickets piling up, and engineers spending more time patching problems than building anything new. That's the gap Conxiea's AIOps platform was built to close.
-            </p>
-            <p>
-              An AIOps platform brings artificial intelligence into the day-to-day running of your network, applying machine learning to the flood of logs, metrics, and alerts that traditional monitoring tools simply dump on a human to sort through. Instead of an engineer chasing down which of a hundred alerts actually matters, the platform correlates events, surfaces the real root cause, and, where it's safe to do so, resolves the issue automatically. That's the foundation of genuine AI network automation: not just dashboards that tell you something is wrong, but a system that understands your infrastructure well enough to act on it.
-            </p>
-            <p>
-              For UK businesses juggling hybrid cloud, multi-site offices, and lean IT teams, this shift matters more than ever. Our network automation services are designed around that reality, covering everything from firewall migrations and cloud network changes to routine configuration management, so your team spends less time on repetitive manual work and more time on projects that actually move the business forward. Clients typically see a 30-50% reduction in repetitive operational effort and up to 60% lower manual overhead within months of deployment.
-            </p>
-            <p>
-              Whether you're modernising a single data centre or coordinating infrastructure across dozens of UK sites, Conxiea's combination of an intelligent AIOps platform and hands-on network automation services gives your engineers the leverage of a much larger team, without the headcount, the burnout, or the 3am pages.
-            </p>
-            <p>
-              From the first health check to full self-healing rollout, our engineers work as an extension of your team, not a call centre reading from a script. If you're ready to see what proper AI network automation can do for your infrastructure, book a free consultation and we'll show you exactly where the quick wins are.
-            </p>
-          </div>
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            AI that watches your network, catches the real problem, and fixes it before your team sees the ticket.
+          </p>
         </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {points.map((point, index) => (
+            <motion.div
+              key={point.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-slate-900/50 border border-slate-800 rounded-xl p-6"
+            >
+              <point.icon className="w-8 h-8 text-blue-400 mb-4" />
+              <h3 className="text-white font-semibold text-lg mb-2">{point.title}</h3>
+              <p className="text-slate-400">{point.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
