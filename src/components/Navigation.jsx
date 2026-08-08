@@ -224,6 +224,7 @@ export default function Navigation() {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             className="md:hidden p-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-300 hover:bg-blue-500/20 transition-all"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -269,6 +270,7 @@ export default function Navigation() {
                   <motion.button
                     whileTap={{ scale: 0.9 }}
                     onClick={() => setMobileMenuOpen(false)}
+                    aria-label="Close menu"
                     className="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-300"
                   >
                     <X className="w-5 h-5" />
