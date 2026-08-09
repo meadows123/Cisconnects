@@ -5,8 +5,8 @@ date: "2026-04-24"
 isoDate: "2026-04-24T00:00:00Z"
 category: "Network Automation"
 author: "Conxiea"
-excerpt: "Most AI network automation platform implementations fail not because the technology doesn't work — but because teams skip the steps that make it stick. Here's the implementation approach that actually delivers."
-description: "Most AI network automation platform implementations fail not because the technology doesn't work — but because teams skip the steps that make it stick. Here's the implementation approach that actually delivers."
+excerpt: "Most AI network automation platform implementations fail not because the technology doesn't work, but because teams skip the steps that make it stick. Here's the implementation approach that actually delivers."
+description: "Most AI network automation platform implementations fail not because the technology doesn't work, but because teams skip the steps that make it stick. Here's the implementation approach that actually delivers."
 readTime: "9 min read"
 keywords:
   - AI network automation platform
@@ -27,11 +27,11 @@ keywords:
 
 The decision to implement an AI network automation platform is the easy part.
 
-What comes after — integrating it with existing tooling, getting the team to trust it, and making sure it actually changes how operations run rather than just adding another layer to manage — that's where most implementations struggle.
+What comes after, integrating it with existing tooling, getting the team to trust it, and making sure it actually changes how operations run rather than just adding another layer to manage, that's where most implementations struggle.
 
 The failure mode is predictable. An organisation selects a platform, deploys it, and six months later it's running in a corner of the environment while the team still handles most things manually. The technology worked. The implementation didn't.
 
-This guide covers the implementation approach that actually delivers — built around what separates the teams that see transformational results from the ones that end up with an expensive dashboard nobody trusts.
+This guide covers the implementation approach that actually delivers, built around what separates the teams that see transformational results from the ones that end up with an expensive dashboard nobody trusts.
 
 ---
 
@@ -41,7 +41,7 @@ This guide covers the implementation approach that actually delivers — built a
 
 ## Why Most AI Platform Implementations Stall
 
-Before getting into the how, it's worth being direct about why implementations fail — because the problems are consistent enough to be instructive.
+Before getting into the how, it's worth being direct about why implementations fail, because the problems are consistent enough to be instructive.
 
 **Skipping the operational foundation.** AI platforms are powerful, but they amplify whatever operational model exists underneath them. If your change management process is ad hoc, the platform will automate ad hoc changes. If your monitoring generates noise, the platform will respond to noise. Garbage in, garbage out applies here at scale.
 
@@ -61,7 +61,7 @@ The most valuable work in any AI network automation platform implementation happ
 
 ### Define Your Operational Outcomes
 
-Start with a specific, measurable picture of what success looks like. Not "we want to automate more" — that's not a target. Something like:
+Start with a specific, measurable picture of what success looks like. Not "we want to automate more", that's not a target. Something like:
 
 - Reduce mean time to resolution (MTTR) on Tier 1 and Tier 2 incidents by 60% within 90 days
 - Eliminate manual configuration changes for standard change types within 6 months
@@ -73,16 +73,16 @@ These targets do two things. They tell you what to automate first (the workflows
 
 Before automating, understand what you're automating. This means:
 
-- **Device inventory** — a complete, accurate list of every managed device, its vendor, OS version, and current configuration baseline
-- **Network topology** — documented logical and physical architecture, including interdependencies that matter for change risk assessment
-- **Existing tooling** — what monitoring, ITSM, and automation tools are already in place, and what data they produce
-- **Current workflows** — how are changes currently planned, approved, and applied? Where do incidents currently come from, and how long do they take to resolve?
+- **Device inventory**, a complete, accurate list of every managed device, its vendor, OS version, and current configuration baseline
+- **Network topology**, documented logical and physical architecture, including interdependencies that matter for change risk assessment
+- **Existing tooling**, what monitoring, ITSM, and automation tools are already in place, and what data they produce
+- **Current workflows**, how are changes currently planned, approved, and applied? Where do incidents currently come from, and how long do they take to resolve?
 
 This audit is not a formality. Gaps in your inventory or topology documentation will create blind spots in your automation. The platform can only reason about what it can see.
 
 ### Clean Up Your Monitoring
 
-AI platforms work by interpreting signals from your environment. If your monitoring stack is generating excessive noise — alerts firing on non-issues, thresholds set so low they trigger constantly — the platform will inherit that noise.
+AI platforms work by interpreting signals from your environment. If your monitoring stack is generating excessive noise, alerts firing on non-issues, thresholds set so low they trigger constantly, the platform will inherit that noise.
 
 Before deployment, audit your alert policies:
 - Which alerts are genuinely actionable?
@@ -101,15 +101,15 @@ The most successful implementations follow the same pattern: start with a small 
 
 The best starting points share three characteristics:
 
-1. **High frequency** — they happen often enough that automation delivers visible time savings quickly
-2. **Well-defined scope** — the inputs, outputs, and decision logic are clear enough to encode reliably
-3. **Recoverable if something goes wrong** — the blast radius of a failed automation is contained
+1. **High frequency**, they happen often enough that automation delivers visible time savings quickly
+2. **Well-defined scope**, the inputs, outputs, and decision logic are clear enough to encode reliably
+3. **Recoverable if something goes wrong**, the blast radius of a failed automation is contained
 
 Good first use cases for most environments:
 
-- **Automated troubleshooting for common incident types** — when a specific alert fires (interface errors, BGP session down, high CPU), the platform runs a defined diagnostic workflow and surfaces a structured root cause assessment, rather than paging an engineer to investigate manually
-- **Standard change automation** — routine changes (VLAN additions, interface configuration updates, access control changes) that follow a predictable pattern can be templated, validated, and applied automatically once approved
-- **Continuous compliance checking** — continuous monitoring of device configurations against defined baselines, with automatic flagging (or remediation, if you choose) of deviations
+- **Automated troubleshooting for common incident types**, when a specific alert fires (interface errors, BGP session down, high CPU), the platform runs a defined diagnostic workflow and surfaces a structured root cause assessment, rather than paging an engineer to investigate manually
+- **Standard change automation**, routine changes (VLAN additions, interface configuration updates, access control changes) that follow a predictable pattern can be templated, validated, and applied automatically once approved
+- **Continuous compliance checking**, continuous monitoring of device configurations against defined baselines, with automatic flagging (or remediation, if you choose) of deviations
 
 ### Define Autonomous vs. Supervised Actions
 
@@ -125,7 +125,7 @@ A simple framework:
 | Medium-risk changes (new configs, policy updates) | Requires engineer approval |
 | High-risk changes (core infrastructure, security policy) | Requires senior review |
 
-This framework does two things: it controls risk during the early stages of implementation, and it builds trust. Engineers who can see exactly what the automation did — and know it won't exceed its defined boundaries without their approval — adopt it faster.
+This framework does two things: it controls risk during the early stages of implementation, and it builds trust. Engineers who can see exactly what the automation did, and know it won't exceed its defined boundaries without their approval, adopt it faster.
 
 ### Instrument Everything
 
@@ -142,7 +142,7 @@ You need this data to demonstrate value to leadership, to guide where to expand 
 
 ## Phase 3: Integrate With Your Existing Stack
 
-An AI network automation platform doesn't replace your existing tooling — it sits on top of it and connects it. The integrations you build in this phase are what turn a capable platform into a genuine operational transformation.
+An AI network automation platform doesn't replace your existing tooling, it sits on top of it and connects it. The integrations you build in this phase are what turn a capable platform into a genuine operational transformation.
 
 ### Monitoring Integration
 
@@ -157,7 +157,7 @@ At minimum, the platform should ingest:
 
 ### ITSM Integration
 
-Connect the platform to your ITSM system — [ServiceNow](https://www.servicenow.com/), Jira, or equivalent — so that automated actions generate tickets, and tickets can trigger automated workflows.
+Connect the platform to your ITSM system, [ServiceNow](https://www.servicenow.com/), Jira, or equivalent, so that automated actions generate tickets, and tickets can trigger automated workflows.
 
 This is what closes the loop between "alert fires" and "ticket resolved" without manual handoffs. An incident fires. The platform investigates and logs findings to a ticket. If the remediation is within autonomous parameters, it applies the fix and closes the ticket. If it isn't, it updates the ticket with structured findings and recommended actions for the engineer to review.
 
@@ -175,7 +175,7 @@ Once your first use cases are running reliably and trust is established, expand 
 
 ### Add Use Cases Based on Data
 
-Use your instrumentation data to identify the next highest-value automation targets — the incident types that are still consuming the most engineer time, or the change categories that are most prone to errors.
+Use your instrumentation data to identify the next highest-value automation targets, the incident types that are still consuming the most engineer time, or the change categories that are most prone to errors.
 
 Don't add use cases based on what's technically interesting. Add them based on what will most directly move your target outcome metrics.
 
@@ -183,7 +183,7 @@ Don't add use cases based on what's technically interesting. Add them based on w
 
 AI platforms improve as they see more of your environment. The models become more accurate as they accumulate data about your specific device types, traffic patterns, and failure modes.
 
-Build in a regular cadence — monthly is usually right — to review:
+Build in a regular cadence, monthly is usually right, to review:
 
 - Which automated diagnostics are producing accurate root cause assessments?
 - Which automated changes are completing successfully versus requiring rollback?
@@ -191,7 +191,7 @@ Build in a regular cadence — monthly is usually right — to review:
 
 ### Expand Autonomy Gradually
 
-As the team gains confidence in the platform's judgement, you can extend its autonomous operating parameters — moving actions from "requires approval" to "autonomous with audit log" as trust is established.
+As the team gains confidence in the platform's judgement, you can extend its autonomous operating parameters, moving actions from "requires approval" to "autonomous with audit log" as trust is established.
 
 This is a deliberate process, not a one-time decision. It builds the organisational trust that's ultimately what allows the platform to deliver its full operational value.
 
@@ -207,13 +207,13 @@ A well-executed AI network automation platform implementation at the 6-month mar
 - **Measurable reduction in change-related incidents** as pre-change validation catches configuration errors before they reach production
 - **Engineering team spending majority of time on architecture and strategy** rather than incident response and manual changes
 
-These aren't hypothetical benchmarks. They're the outcomes that consistently appear in environments where implementation is done properly — with the operational foundation in place, use cases chosen carefully, and the platform integrated into the actual workflows the team uses.
+These aren't hypothetical benchmarks. They're the outcomes that consistently appear in environments where implementation is done properly, with the operational foundation in place, use cases chosen carefully, and the platform integrated into the actual workflows the team uses.
 
 ---
 
 ## The Honest Assessment
 
-Implementing an AI network automation platform is not a simple project. It requires investment — in planning, in integration, in team adoption, and in the ongoing work of expanding and optimising the automation over time.
+Implementing an AI network automation platform is not a simple project. It requires investment, in planning, in integration, in team adoption, and in the ongoing work of expanding and optimising the automation over time.
 
 But the operational return, done right, is transformational in a way that conventional network automation tools alone can't match.
 
@@ -223,7 +223,7 @@ The teams that see the strongest results are the ones that treat implementation 
 
 **Ready to Plan Your Implementation?**
 
-At [Conxiea](https://conxiea.com/), we work with infrastructure teams through the full implementation lifecycle — from initial assessment and use case prioritisation through to deployment, integration, and ongoing optimisation.
+At [Conxiea](https://conxiea.com/), we work with infrastructure teams through the full implementation lifecycle, from initial assessment and use case prioritisation through to deployment, integration, and ongoing optimisation.
 
 **[→ Book a Free Consultation](https://conxiea.com/contact)**
 
@@ -233,7 +233,7 @@ No generic demos. A direct conversation about your environment, your current ope
 
 ### Related Reading
 
-- [Why Your Team Is Still Firefighting — And How an AI Network Automation Platform Fixes That](/blog/ai-network-automation-platform)
+- [Why Your Team Is Still Firefighting, And How an AI Network Automation Platform Fixes That](/blog/ai-network-automation-platform)
 - [What Is Network Automation? (And Why Getting It Wrong Is Costing Your Team 20+ Hours a Week)](/blog/what-is-network-automation)
 - [You've Got Network Automation Tools. So Why Is Your Team Still Firefighting?](/blog/network-automation-tools-vs-ai-platforms)
 - [The Real ROI of Network Automation](/blog/roi-of-network-automation)
@@ -245,4 +245,4 @@ No generic demos. A direct conversation about your environment, your current ope
 - [ServiceNow IT Operations Management](https://www.servicenow.com/products/it-operations-management.html)
 - [Cisco Network Automation Solutions](https://www.cisco.com/c/en/us/solutions/enterprise-networks/network-automation/index.html)
 - [CISA Network Security Best Practices](https://www.cisa.gov/resources-tools/resources/network-security-best-practices)
-- [IBM — The Business Value of AI in IT Operations](https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/aiops)
+- [IBM, The Business Value of AI in IT Operations](https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/aiops)

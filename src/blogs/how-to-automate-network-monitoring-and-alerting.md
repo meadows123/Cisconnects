@@ -5,8 +5,8 @@ date: "2026-06-13"
 isoDate: "2026-06-13T00:00:00Z"
 category: "Network Automation"
 author: "Conxiea"
-excerpt: "Alert fatigue is one of the defining problems of modern IT operations. Not because teams aren't monitoring enough — but because they're monitoring the wrong things and alerting on everything. This guide covers how to build automated monitoring that surfaces the right information at the right time."
-description: "A practical guide to automating network monitoring and alerting — covering what to monitor, choosing the right stack, building alerts that reduce noise, automating alert response, streaming telemetry, and where AI takes monitoring from reactive to proactive."
+excerpt: "Alert fatigue is one of the defining problems of modern IT operations. Not because teams aren't monitoring enough, but because they're monitoring the wrong things and alerting on everything. This guide covers how to build automated monitoring that surfaces the right information at the right time."
+description: "A practical guide to automating network monitoring and alerting, covering what to monitor, choosing the right stack, building alerts that reduce noise, automating alert response, streaming telemetry, and where AI takes monitoring from reactive to proactive."
 readTime: "10 min read"
 keywords:
   - how to automate network monitoring
@@ -27,9 +27,9 @@ keywords:
 
 Alert fatigue is one of the defining problems of modern IT operations.
 
-Not because teams aren't monitoring enough. Because they're monitoring the wrong things, alerting on everything, and drowning in notifications that require a human to look at them, decide they're not urgent, and dismiss them — hundreds of times a day.
+Not because teams aren't monitoring enough. Because they're monitoring the wrong things, alerting on everything, and drowning in notifications that require a human to look at them, decide they're not urgent, and dismiss them, hundreds of times a day.
 
-Automated network monitoring isn't just about collecting more data. It's about building a system that surfaces the right information to the right person at the right time — and handles everything else without human involvement.
+Automated network monitoring isn't just about collecting more data. It's about building a system that surfaces the right information to the right person at the right time, and handles everything else without human involvement.
 
 This guide covers how to build it.
 
@@ -43,10 +43,10 @@ This guide covers how to build it.
 
 Monitoring and alerting are related but distinct:
 
-- **Monitoring** is the continuous collection of telemetry data from your network — interface statistics, device health, traffic flows, protocol state, and anything else relevant to understanding what your network is doing
+- **Monitoring** is the continuous collection of telemetry data from your network, interface statistics, device health, traffic flows, protocol state, and anything else relevant to understanding what your network is doing
 - **Alerting** is the process of determining when something in that data requires human attention and notifying the right person with enough context to act
 
-Most teams have monitoring. Fewer have alerting that actually works. The gap is almost always in the signal-to-noise ratio — too many alerts that aren't actionable, not enough context with the ones that are.
+Most teams have monitoring. Fewer have alerting that actually works. The gap is almost always in the signal-to-noise ratio, too many alerts that aren't actionable, not enough context with the ones that are.
 
 Automating network monitoring and alerting means fixing both sides: collecting comprehensive telemetry automatically, and building intelligence into the alerting layer so that human attention is directed at things that actually require it.
 
@@ -56,7 +56,7 @@ Automating network monitoring and alerting means fixing both sides: collecting c
 
 ### 1. Device Health
 
-CPU utilisation, memory usage, hardware component status, and power supply state. These are the fundamentals — a device under resource pressure is a device that's about to behave unpredictably.
+CPU utilisation, memory usage, hardware component status, and power supply state. These are the fundamentals, a device under resource pressure is a device that's about to behave unpredictably.
 
 ### 2. Interface Statistics
 
@@ -64,13 +64,13 @@ Traffic utilisation, error rates, input/output discards, and flap events. Interf
 
 ### 3. Protocol State
 
-BGP neighbour adjacencies, OSPF and EIGRP neighbour relationships, spanning tree topology, and VPN tunnel status. Protocol state changes are often the first indication of a network problem — and they happen before user-visible impact.
+BGP neighbour adjacencies, OSPF and EIGRP neighbour relationships, spanning tree topology, and VPN tunnel status. Protocol state changes are often the first indication of a network problem, and they happen before user-visible impact.
 
 ### 4. Application and Flow Data
 
 NetFlow or sFlow data showing traffic patterns, application mix, and top talkers. This layer connects network behaviour to application performance and security events.
 
-Automated monitoring should cover all four layers. Most teams start with device health and interface statistics — the data that's easiest to collect — and add protocol state and flow data as their monitoring maturity increases.
+Automated monitoring should cover all four layers. Most teams start with device health and interface statistics, the data that's easiest to collect, and add protocol state and flow data as their monitoring maturity increases.
 
 ---
 
@@ -87,7 +87,7 @@ The standard open-source monitoring stack for network operations:
 | Log aggregation | Elasticsearch / Loki | Syslog and event collection |
 | Flow analysis | ntopng / Kentik | NetFlow and traffic analysis |
 
-This stack is widely deployed, well-documented, and integrates with most network vendor platforms. Commercial alternatives — Datadog, Dynatrace, SolarWinds — offer more out-of-the-box integration and support at higher cost.
+This stack is widely deployed, well-documented, and integrates with most network vendor platforms. Commercial alternatives, Datadog, Dynatrace, SolarWinds, offer more out-of-the-box integration and support at higher cost.
 
 The tool choice matters less than the discipline of actually collecting comprehensive data and maintaining the monitoring infrastructure. A well-maintained open-source stack outperforms a poorly configured commercial one.
 
@@ -101,11 +101,11 @@ Better alerting follows three principles.
 
 ### Alert on Conditions, Not Thresholds
 
-An alert that fires when CPU hits 80% is marginally useful. An alert that fires when CPU has been above 70% for ten consecutive minutes, and correlates with an increase in interface errors on the uplink, is actionable. The difference is context — building alert conditions that reflect actual operational problems rather than arbitrary metric thresholds.
+An alert that fires when CPU hits 80% is marginally useful. An alert that fires when CPU has been above 70% for ten consecutive minutes, and correlates with an increase in interface errors on the uplink, is actionable. The difference is context, building alert conditions that reflect actual operational problems rather than arbitrary metric thresholds.
 
 ### Alert on Impact, Not Indicators
 
-Users don't care that interface utilisation is high. They care that their application is slow. Where possible, build alerting that connects network indicators to business impact — latency increases, packet loss affecting specific traffic classes, or protocol instability that will cause failover.
+Users don't care that interface utilisation is high. They care that their application is slow. Where possible, build alerting that connects network indicators to business impact, latency increases, packet loss affecting specific traffic classes, or protocol instability that will cause failover.
 
 ### Suppress Noise Aggressively
 
@@ -119,11 +119,11 @@ The goal of automated monitoring isn't just to notify humans faster. It's to han
 
 Not every alert requires human investigation. Many network events have well-understood causes and well-defined responses:
 
-- BGP session drops on a specific peer that always recover within 30 seconds — log it, don't page anyone
-- Interface utilisation spikes that resolve within five minutes — record for trend analysis, no immediate action required
-- Device reachability loss that correlates with a known scheduled maintenance window — suppress the alert entirely
+- BGP session drops on a specific peer that always recover within 30 seconds, log it, don't page anyone
+- Interface utilisation spikes that resolve within five minutes, record for trend analysis, no immediate action required
+- Device reachability loss that correlates with a known scheduled maintenance window, suppress the alert entirely
 
-Automated alert response means building the logic that makes these decisions without human involvement. More sophisticated scenarios — where the alert indicates a real problem requiring investigation — get escalated with full context rather than just a notification.
+Automated alert response means building the logic that makes these decisions without human involvement. More sophisticated scenarios, where the alert indicates a real problem requiring investigation, get escalated with full context rather than just a notification.
 
 This is where the monitoring layer connects to your automation workflows. An alert fires, automated diagnostics run, context is gathered, and the escalation to an engineer includes not just "something is wrong" but "here is what is wrong, here is what we already know about it, and here are the remediation options." Our guide to [building network automation workflows](/blog/how-to-build-network-automation-workflow) covers this integration in detail.
 
@@ -131,19 +131,19 @@ This is where the monitoring layer connects to your automation workflows. An ale
 
 ## Streaming Telemetry vs SNMP Polling
 
-Traditional network monitoring relies on SNMP polling — the monitoring system periodically queries each device for its current state. This approach has fundamental limitations: polling intervals create gaps in data, high-frequency polling adds device load, and SNMP data models don't cover modern network features comprehensively.
+Traditional network monitoring relies on SNMP polling, the monitoring system periodically queries each device for its current state. This approach has fundamental limitations: polling intervals create gaps in data, high-frequency polling adds device load, and SNMP data models don't cover modern network features comprehensively.
 
 Streaming telemetry inverts the model. Devices push data to a collection point continuously, at sub-second intervals, using structured data formats like gNMI and gRPC. The result is higher resolution data, lower device impact, and richer visibility into network state.
 
-Most modern network platforms — Cisco IOS-XE 16.10+, Juniper Junos 18.1+, Arista EOS 4.20+ — support streaming telemetry. For teams running current hardware, migrating from SNMP polling to streaming telemetry is worth the implementation effort.
+Most modern network platforms, Cisco IOS-XE 16.10+, Juniper Junos 18.1+, Arista EOS 4.20+, support streaming telemetry. For teams running current hardware, migrating from SNMP polling to streaming telemetry is worth the implementation effort.
 
-For legacy devices that don't support streaming telemetry, SNMP polling remains the only option. A pragmatic monitoring architecture often uses both — streaming telemetry for modern devices, SNMP for everything else.
+For legacy devices that don't support streaming telemetry, SNMP polling remains the only option. A pragmatic monitoring architecture often uses both, streaming telemetry for modern devices, SNMP for everything else.
 
 ---
 
 ## The AI Layer: From Alerting to Autonomous Response
 
-Rule-based alerting has a ceiling. You can build sophisticated alert conditions, suppress noise effectively, and route alerts intelligently — but you're still operating within the scenarios you've thought to define.
+Rule-based alerting has a ceiling. You can build sophisticated alert conditions, suppress noise effectively, and route alerts intelligently, but you're still operating within the scenarios you've thought to define.
 
 AI-driven monitoring extends this ceiling significantly. MCP-based AI agents can:
 
@@ -154,7 +154,7 @@ AI-driven monitoring extends this ceiling significantly. MCP-based AI agents can
 
 The shift from rule-based alerting to AI-driven monitoring is the shift from reactive to proactive operations. Instead of responding to problems after they cause impact, you're identifying and resolving the conditions that lead to problems before users notice.
 
-[Conxiea's AI InfraOps platform](/infraaiops) provides exactly this capability — autonomous monitoring intelligence that goes beyond what traditional rule-based systems can achieve.
+[Conxiea's AI InfraOps platform](/infraaiops) provides exactly this capability, autonomous monitoring intelligence that goes beyond what traditional rule-based systems can achieve.
 
 ---
 

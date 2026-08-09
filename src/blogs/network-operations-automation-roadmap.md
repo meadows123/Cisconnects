@@ -6,7 +6,7 @@ isoDate: "2026-05-09T00:00:00Z"
 category: "Network Automation"
 author: "Conxiea"
 excerpt: "Most network automation projects start without a roadmap and stall before they deliver meaningful results. This guide covers how to build a structured, phased automation roadmap that delivers operational value at each stage and builds toward enterprise-scale coverage."
-description: "A practical guide to building a network operations automation roadmap for enterprise teams — covering maturity stages, phased delivery milestones, how to measure progress, and how to build the organisational case for continued investment."
+description: "A practical guide to building a network operations automation roadmap for enterprise teams, covering maturity stages, phased delivery milestones, how to measure progress, and how to build the organisational case for continued investment."
 readTime: "9 min read"
 keywords:
   - network operations automation roadmap
@@ -39,7 +39,7 @@ A roadmap changes that dynamic. It defines what success looks like at each phase
 
 ## The Network Operations Automation Maturity Model
 
-Before building a roadmap, it helps to have a clear model of where automation programmes typically sit and what the stages of maturity look like. The model below describes five stages that most enterprise automation programmes move through — not always linearly, and not always at the same pace across different operation categories.
+Before building a roadmap, it helps to have a clear model of where automation programmes typically sit and what the stages of maturity look like. The model below describes five stages that most enterprise automation programmes move through, not always linearly, and not always at the same pace across different operation categories.
 
 ### Stage 0: Manual Operations
 
@@ -49,7 +49,7 @@ This is where most enterprises start, and it's characterised by high engineering
 
 ### Stage 1: Script-Based Automation
 
-Engineers have written scripts — Python, Bash, Ansible playbooks — that automate specific, well-understood tasks. Configuration backup runs on a schedule. Some routine changes have playbooks. Monitoring generates alerts that go to engineers.
+Engineers have written scripts, Python, Bash, Ansible playbooks, that automate specific, well-understood tasks. Configuration backup runs on a schedule. Some routine changes have playbooks. Monitoring generates alerts that go to engineers.
 
 This stage delivers real operational improvement for the tasks it covers, but has structural limits: scripts break when the environment changes, playbook maintenance becomes a burden as the library grows, and there's no intelligence layer that handles anything outside predefined patterns.
 
@@ -57,21 +57,21 @@ Many enterprises have been at this stage for several years, having automated the
 
 ### Stage 2: Orchestrated Automation
 
-A platform layer provides orchestration — workflow management, validation wrapping, approval workflows, audit trail generation. Automations are more robust because they run within a framework that handles pre-validation, post-verification, and rollback, rather than relying on individual script quality. Change management automation is integrated with the ITSM process. Compliance reporting is generated automatically from operational data.
+A platform layer provides orchestration, workflow management, validation wrapping, approval workflows, audit trail generation. Automations are more robust because they run within a framework that handles pre-validation, post-verification, and rollback, rather than relying on individual script quality. Change management automation is integrated with the ITSM process. Compliance reporting is generated automatically from operational data.
 
 This stage delivers significantly higher operational value than Stage 1 because the automation is more reliable, more complete, and more connected to the governance processes the organisation already relies on.
 
 ### Stage 3: Contextually Aware Automation
 
-AI-driven intelligence adds contextual understanding to the orchestration layer. Changes are validated against actual current network state rather than assumed state. Novel incidents can be investigated and resolved rather than escalated. The platform understands topology, service dependencies, and historical operational patterns — and uses that understanding to make better automation decisions.
+AI-driven intelligence adds contextual understanding to the orchestration layer. Changes are validated against actual current network state rather than assumed state. Novel incidents can be investigated and resolved rather than escalated. The platform understands topology, service dependencies, and historical operational patterns, and uses that understanding to make better automation decisions.
 
 This is where automation coverage extends beyond predefined patterns to genuine operational intelligence. The ceiling moves from "we can automate what we've anticipated" to "we can handle what the network needs."
 
 ### Stage 4: Continuous Adaptive Operations
 
-At full maturity, the network automation platform continuously monitors the environment, validates compliance, responds to events, and executes changes — with human involvement focused on governance, policy decisions, and strategic work rather than operational execution. The automation adapts over time as the environment evolves.
+At full maturity, the network automation platform continuously monitors the environment, validates compliance, responds to events, and executes changes, with human involvement focused on governance, policy decisions, and strategic work rather than operational execution. The automation adapts over time as the environment evolves.
 
-Few enterprise networks are at Stage 4 today, and not all need to be. The goal for most organisations is Stage 3 — where AI-driven contextual automation covers the large majority of operational tasks with high reliability, and the engineering team is primarily working on architecture and strategy rather than operational execution.
+Few enterprise networks are at Stage 4 today, and not all need to be. The goal for most organisations is Stage 3, where AI-driven contextual automation covers the large majority of operational tasks with high reliability, and the engineering team is primarily working on architecture and strategy rather than operational execution.
 
 ---
 
@@ -93,7 +93,7 @@ A practical network operations automation roadmap for enterprise environments ty
 
 **Measure of success:** How many hours per month are currently spent on tasks that Phase 1 automation handles? What's the change failure rate for the first automated change category compared to the manual baseline?
 
-**What to prioritise:** Configuration management first, then your highest-volume, lowest-risk change category. Resist the temptation to try to automate everything at once — Phase 1 is about getting the foundation right, not achieving broad coverage. Our [prioritisation framework](/blog/what-network-operations-to-automate-first) covers how to select the right first use cases in detail.
+**What to prioritise:** Configuration management first, then your highest-volume, lowest-risk change category. Resist the temptation to try to automate everything at once, Phase 1 is about getting the foundation right, not achieving broad coverage. Our [prioritisation framework](/blog/what-network-operations-to-automate-first) covers how to select the right first use cases in detail.
 
 ### Phase 2: Expansion (Months 6–15)
 
@@ -109,7 +109,7 @@ A practical network operations automation roadmap for enterprise environments ty
 
 **Measure of success:** What proportion of routine operational tasks are now automated? What is the monthly engineering hours saved? What's the current change failure rate across all automated change categories? Is compliance evidence preparation measurably faster?
 
-**What to prioritise:** Extend to medium-risk change categories with human approval steps before moving to fully autonomous. Build monitoring automation in parallel — the two capabilities are more valuable connected than separate. Don't rush remediation automation; wait until automated investigation has proven its accuracy for a given alert type before moving to autonomous action.
+**What to prioritise:** Extend to medium-risk change categories with human approval steps before moving to fully autonomous. Build monitoring automation in parallel, the two capabilities are more valuable connected than separate. Don't rush remediation automation; wait until automated investigation has proven its accuracy for a given alert type before moving to autonomous action.
 
 ### Phase 3: Intelligence (Months 15–24)
 
@@ -129,9 +129,9 @@ A practical network operations automation roadmap for enterprise environments ty
 
 ## Measuring Progress: The Metrics That Matter
 
-The right metrics for a network operations automation programme tell you whether the automation is delivering operational value — not just whether it's running.
+The right metrics for a network operations automation programme tell you whether the automation is delivering operational value, not just whether it's running.
 
-**Automation coverage percentage.** What proportion of your categorised operational tasks are currently automated? Track this separately for changes, monitoring, and compliance — the coverage percentages will be different and advance at different rates.
+**Automation coverage percentage.** What proportion of your categorised operational tasks are currently automated? Track this separately for changes, monitoring, and compliance, the coverage percentages will be different and advance at different rates.
 
 **Change failure rate.** The gold-standard metric for change automation value. If automated changes are failing at a lower rate than manual changes did, the automation is delivering its primary risk-reduction value. [CISA guidance](https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience) identifies change-related failure rate as a key operational resilience indicator.
 
@@ -139,7 +139,7 @@ The right metrics for a network operations automation programme tell you whether
 
 **Engineering hours on routine operations.** Track the hours spent on tasks that automation handles, and measure whether that time is genuinely being reinvested in higher-value work.
 
-**Compliance evidence preparation time.** For regulated enterprises, this is often one of the most compelling metrics — the reduction in hours spent assembling manual audit evidence is directly quantifiable.
+**Compliance evidence preparation time.** For regulated enterprises, this is often one of the most compelling metrics, the reduction in hours spent assembling manual audit evidence is directly quantifiable.
 
 ---
 
@@ -147,11 +147,11 @@ The right metrics for a network operations automation programme tell you whether
 
 A roadmap that doesn't have organisational commitment behind it is a planning document, not an operational programme. Getting that commitment requires addressing two audiences differently.
 
-**For engineering leadership:** Focus on the operational metrics — change failure rate reduction, engineering hours freed, MTTR improvement. These are the metrics that tell an engineering leader whether their team is more effective, not just busier. Frame the roadmap as capability building, not tooling procurement — the goal is a more capable operations function, not just a new product.
+**For engineering leadership:** Focus on the operational metrics, change failure rate reduction, engineering hours freed, MTTR improvement. These are the metrics that tell an engineering leader whether their team is more effective, not just busier. Frame the roadmap as capability building, not tooling procurement, the goal is a more capable operations function, not just a new product.
 
 **For finance and business leadership:** Focus on risk reduction and compliance cost. Network outages have quantifiable business cost. Compliance evidence preparation has quantifiable staff cost. Reduced change failure rate has quantifiable SLA and revenue protection value. Our [ROI of network automation guide](/blog/roi-network-automation-software-enterprises) covers how to build the financial case with the specific numbers that enterprise leadership typically asks for.
 
-The phased roadmap structure helps organisationally because each phase has a defined deliverable and measurable outcome. You're not asking for multi-year commitment to a programme with uncertain outcomes — you're asking for commitment to Phase 1, with Phase 2 funded by the demonstrated value of Phase 1.
+The phased roadmap structure helps organisationally because each phase has a defined deliverable and measurable outcome. You're not asking for multi-year commitment to a programme with uncertain outcomes, you're asking for commitment to Phase 1, with Phase 2 funded by the demonstrated value of Phase 1.
 
 ---
 
@@ -172,7 +172,7 @@ Our [guide to choosing network automation software](/blog/how-to-choose-network-
 
 ## The Connection to the Complete Automation Picture
 
-A network operations automation roadmap is the planning layer that connects your current operational state to the mature automation capability you're building toward. The tactical implementation within each phase — which operations to automate first, how to build safe change automation, how to implement monitoring automation — is covered in detail across our supporting guides.
+A network operations automation roadmap is the planning layer that connects your current operational state to the mature automation capability you're building toward. The tactical implementation within each phase, which operations to automate first, how to build safe change automation, how to implement monitoring automation, is covered in detail across our supporting guides.
 
 The right starting point is the [complete guide to how to automate network operations](/blog/how-to-automate-network-operations), which provides the full implementation context that the roadmap structure sits within.
 
