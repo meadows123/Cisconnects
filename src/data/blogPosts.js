@@ -2121,6 +2121,14 @@ An upgrade from a very old or failing consumer router will provide some improvem
 **How do I stop customers from using all my bandwidth?**
 
 Business WiFi installations include bandwidth management features that allow you to set a per-device or per-SSID bandwidth cap on the customer network. This prevents a single high-usage customer from degrading the experience for everyone else, and ensures your business systems always have the bandwidth they need.
+
+---
+
+## Related Reading
+
+- [How to Make Restaurant and Pub WiFi Actually Work](/blog/how-to-make-restaurant-pub-wifi-actually-work)
+- [The Hidden WiFi Mistake That's Costing Restaurants and Pubs Thousands](/blog/hidden-wifi-mistake-costing-restaurants-pubs)
+- [Why Your Beer Garden Has No Signal (And How to Fix It)](/blog/pub-beer-garden-wifi-dead-zones)
     `
   }
   ,
@@ -5217,6 +5225,8 @@ Conxiea assesses your current network's real-world performance and helps you dec
 - [WiFi 7 Business Access Points: The Best Options for UK Businesses in 2026](/blog/wifi-7-business-access-points-uk-2026)
 - [When Should Your Business Upgrade to WiFi 7?](/blog/when-to-upgrade-to-wifi-7)
 - [WiFi 7 for Multi-Site Businesses: What You Need to Know Before You Deploy](/blog/wifi-7-multi-site-business)
+- [WiFi 7 vs WiFi 6: Which One Actually Matters for Your Pub or Restaurant?](/blog/wifi-7-vs-wifi-6-hospitality)
+- [WiFi 7 Is Coming to Restaurants and Pubs, Here's What Actually Changes](/blog/wifi-7-restaurants-pubs)
     `
   },
   {
@@ -9174,6 +9184,570 @@ Conxiea's AI-driven InfraOps platform is built around exactly the kind of high-f
 - [Infrastructure Automation Maturity: A Roadmap From Ad-Hoc to Autonomous](/blog/infrastructure-automation-maturity-roadmap)
 - [Infrastructure Automation Tools: What Actually Works in 2026](/blog/infrastructure-automation-tools-2026)
 - [IT Service Management Automation Results: The Real Numbers From 2026](/blog/it-service-management-automation-results-2026)
+    `
+  },
+  {
+    id: 68,
+    slug: "how-to-make-restaurant-pub-wifi-actually-work",
+    title: "How to Make Restaurant and Pub WiFi Actually Work",
+    metaTitle: "How to Make Restaurant and Pub WiFi Actually Work | Conxiea",
+    metaDescription: "Restaurant and pub WiFi has to survive packed dining rooms, beer gardens, and card payments all at once. Here's how to actually get it right in 2026.",
+    author: "Zak",
+    date: "9th August 2026",
+    isoDate: "2026-08-09",
+    category: "WiFi Solutions",
+    excerpt: "Restaurant and pub WiFi isn't just guest internet, it's the network your card machines, kitchen displays, and bookings system all depend on at once. Here's the complete guide to getting it right in 2026.",
+    keywords: "restaurant and pub wifi, hospitality wifi, restaurant wifi setup, pub wifi UK",
+    readTime: "13 min read",
+    content: `
+Domestic WiFi gear is built for a handful of devices in a quiet house. A restaurant or pub, on a busy Friday night, is asking the same kind of hardware to carry card payments, kitchen display screens, a bookings system, staff devices, and forty guests all streaming and scrolling at once, in a room full of metal fryers, mirrors, and brick walls that were never designed with wireless signal in mind. [Restaurant networks routinely carry 50 to 100 simultaneous devices with zero tolerance for downtime](https://thenetworkinstallers.com/blog/hospitality-networking-solutions/), which is exactly the environment consumer routers are least equipped to handle.
+
+This guide covers what actually makes restaurant and pub WiFi work reliably, why it fails so predictably when it's treated as an afterthought, and how to get it right without overspending on capability you don't need.
+
+![Busy restaurant interior with a waitress serving customers at a table by the window](https://images.unsplash.com/photo-1542878232-0cb63077e944?w=1200&h=600&fit=crop)
+
+---
+
+## Why Hospitality WiFi Is Harder Than It Looks
+
+A restaurant or pub isn't just guest internet with a few extra devices. It's several genuinely different networks that all have to work perfectly at the same time, on the same site, without interfering with each other:
+
+**Payment infrastructure** that cannot go down mid-service without directly costing revenue. **Guest WiFi** that customers expect to just work, without a captive portal that eats five minutes of their evening. **Kitchen and back-office systems**, order displays, stock management, bookings, that staff depend on constantly. And increasingly, **outdoor coverage** for beer gardens, terraces, and smoking areas that indoor-focused installs routinely ignore.
+
+Consumer-grade routers, the kind bundled free with a broadband contract, are built to handle a handful of devices in a quiet domestic setting. Put the same hardware in a packed dining room with 50+ concurrent devices and it does exactly what it wasn't designed for: it drops connections, chokes under load, and reboots at the worst possible moment. [Replacing a failed consumer router during Friday dinner service can cost £2,000-5,000 in lost revenue](https://thenetworkinstallers.com/blog/hospitality-networking-solutions/), on top of the staff confusion and customer frustration that comes with it.
+
+![Outdoor restaurant deck with picnic tables under orange and white umbrellas](https://images.unsplash.com/photo-1783411720855-d330139e5e05?w=1200&h=600&fit=crop)
+
+---
+
+## What a Properly Designed Setup Actually Looks Like
+
+**Commercial-grade access points, not consumer routers.** Hospitality environments need hardware rated for continuous, high-density operation, the difference between equipment designed to serve 50+ devices reliably and equipment designed to serve a household of five.
+
+**Network segmentation from day one.** Guest traffic, staff devices, and payment systems need to be on genuinely separate network segments, not just password-protected on the same flat network. This isn't optional politeness, it's a compliance requirement we cover in detail in our [guide to guest and staff WiFi segregation](/blog/guest-staff-wifi-segregation-hospitality).
+
+**Outdoor coverage designed in, not bolted on.** Beer gardens and terraces need weatherproof, purpose-built outdoor access points as part of the original design, not a single indoor router pointed hopefully at a window.
+
+**Enough bandwidth for what the venue actually runs.** [A busy restaurant or pub with 20-50 concurrent guests typically needs a 300-500 Mbps connection](https://compareyourbusinesscosts.co.uk/business-wifi), sized around actual concurrent usage, not a generic package picked without a proper assessment.
+
+**A proper site survey before anything gets installed.** Every hospitality venue has a different mix of building materials, layout, and dead-zone risks. A heatmap survey identifying actual coverage gaps beats guessing every time.
+
+---
+
+## The Cost of Getting It Wrong
+
+Bad WiFi in hospitality doesn't just mean an annoyed customer who can't check their phone. It means failed card payments during peak service, kitchen display systems dropping mid-order, and, increasingly, public reviews that mention it directly. We go deeper on the specific financial impact in [our breakdown of what bad WiFi actually costs restaurants and pubs](/blog/hidden-wifi-mistake-costing-restaurants-pubs).
+
+---
+
+## Where to Start
+
+If you're assessing your current setup, start with three questions: Is your guest network genuinely separated from your payment systems? Does your outdoor seating have dedicated coverage, or is it relying on a signal that happens to reach that far? And when did you last have an actual site survey done, rather than just adding another router when a dead zone gets complained about?
+
+If the honest answer to any of those is "no" or "not sure," that's the starting point, not a full rebuild, but a proper assessment of where the current setup actually falls short.
+
+---
+
+## Where Conxiea Fits
+
+Conxiea designs and installs commercial-grade WiFi specifically for hospitality venues, restaurants, pubs, cafés, and hotels, covering guest access, staff networks, payment segregation, and outdoor areas as one properly planned system rather than a patchwork of routers added over time.
+
+[Book a free site consultation to see what your venue actually needs →](/book-demo)
+
+---
+
+## Related Reading
+
+- [The Hidden WiFi Mistake That's Costing Restaurants and Pubs Thousands](/blog/hidden-wifi-mistake-costing-restaurants-pubs)
+- [Why Your Restaurant's Card Machines Keep Dying at the Worst Possible Moment](/blog/restaurant-card-machines-wifi-failure)
+- [Why Your Beer Garden Has No Signal (And How to Fix It)](/blog/pub-beer-garden-wifi-dead-zones)
+- [WiFi 7 Is Coming to Restaurants and Pubs, Here's What Actually Changes](/blog/wifi-7-restaurants-pubs)
+- [WiFi 7 vs WiFi 6: Which One Actually Matters for Your Pub or Restaurant?](/blog/wifi-7-vs-wifi-6-hospitality)
+- [The WiFi Setup Mistake That Could Get Your Restaurant Fined](/blog/guest-staff-wifi-segregation-hospitality)
+- [How Much Should You Really Pay for Restaurant WiFi in 2026?](/blog/restaurant-pub-wifi-installation-cost-uk)
+- [How to Choose the Right WiFi Setup for a Multi-Site Business](/blog/multi-site-business-wifi-setup)
+    `
+  },
+  {
+    id: 69,
+    slug: "hidden-wifi-mistake-costing-restaurants-pubs",
+    title: "The Hidden WiFi Mistake That's Costing Restaurants and Pubs Thousands",
+    metaTitle: "The WiFi Mistake Costing Restaurants Thousands | Conxiea",
+    metaDescription: "Bad WiFi in restaurants and pubs isn't just annoying, it directly costs revenue. Here's what an hour of POS downtime actually costs, and the mistake behind it.",
+    author: "Zak",
+    date: "9th August 2026",
+    isoDate: "2026-08-09",
+    category: "WiFi Solutions",
+    excerpt: "It's not a slow WiFi problem, it's a revenue problem. Here's what an hour of card machine downtime actually costs a restaurant or pub, and the one setup mistake that causes most of it.",
+    keywords: "bad wifi restaurant cost, restaurant wifi downtime, pub wifi problems cost, restaurant internet outage cost",
+    readTime: "10 min read",
+    content: `
+Most restaurant and pub owners think of WiFi problems as an annoyance, a customer complaint, a slightly awkward moment when the card machine hangs. The actual financial impact is bigger and more direct than that framing suggests, and it traces back to one avoidable mistake more often than any other cause.
+
+![Restaurant bill and receipt on a tray next to a glass of water and coffee cup](https://images.unsplash.com/photo-1573922423609-081d60747c48?w=1200&h=600&fit=crop)
+
+![Man sitting on a couch looking shocked and frustrated while looking at his phone](https://images.unsplash.com/photo-1742575423248-713941c3d554?w=1200&h=600&fit=crop)
+
+---
+
+## What an Hour of Downtime Actually Costs
+
+[An hour of POS or network downtime can cost a mid-sized restaurant between $1,000 and $5,000 in lost revenue](https://vivantcorp.com/internet-outages/), according to U.S. Small Business Administration figures, and that's before counting the knock-on effects. For a restaurant generating £2.5 million in annual sales, [just 1% downtime across the year, roughly 3.6 days, works out to over £12,400 in direct lost sales](https://vivantcorp.com/internet-outages/) alone.
+
+The damage doesn't stop at the till. During an outage, staff can't process orders, prepared food risks going to waste, and with wholesale food costs already squeezed, that waste eats directly into already-thin margins. [Restaurant profit margins typically sit around 3-5%](https://www.verifone.com/resources/restaurant-payment-downtime-cost-and-prevention), narrow enough that a bad Friday night from a dropped network can meaningfully dent a month's profitability.
+
+---
+
+## The Mistake Behind Most of This
+
+The single most common root cause isn't a broadband provider issue or a "bad area for signal." It's consumer-grade equipment being asked to do a commercial job. [Consumer routers in restaurant environments often reboot or drop connections under sustained load](https://thenetworkinstallers.com/blog/hospitality-networking-solutions/), hardware built to serve a handful of household devices, deployed in an environment with 50-100 concurrent connections and zero tolerance for downtime.
+
+It's an understandable mistake. The free router that came with the broadband contract works fine on a quiet Tuesday afternoon. The problem only shows up under real load, Friday dinner service, a big match on the TVs, a fully booked function room, which is exactly when a failure is most expensive and most visible to customers.
+
+---
+
+## Why Reviews Make This Worse
+
+The financial cost compounds through reputation. [79% of diners say reviews directly impact where they choose to eat](https://www.verifone.com/resources/restaurant-payment-downtime-cost-and-prevention), and a card machine failing mid-payment, or a booking system going down during a busy Saturday, is exactly the kind of frustrating experience that ends up in a review. Unlike a single bad meal, a connectivity failure tends to affect multiple tables and multiple customers simultaneously, multiplying the reputational exposure of a single outage.
+
+---
+
+## What Actually Fixes It
+
+**Move off consumer hardware.** This is the single highest-leverage change, commercial access points designed for continuous, high-density operation instead of domestic routers pushed well beyond their intended use.
+
+**Get a proper connection sized to real usage.** A busy dining room needs bandwidth sized around actual concurrent devices, not a generic small-business package chosen without assessing peak load.
+
+**Segment payment systems from everything else.** Card machines on the same flat network as guest WiFi are both a downtime risk and, separately, a compliance problem, covered in more depth in [our guide to network segregation for hospitality](/blog/guest-staff-wifi-segregation-hospitality).
+
+**Plan for redundancy on the connections that matter most.** For venues where downtime is genuinely expensive, a backup connection that fails over automatically is often justified purely by the cost of a single bad night.
+
+---
+
+## Where Conxiea Fits
+
+Conxiea installs commercial-grade network infrastructure specifically for restaurants and pubs, designed around real service-hour load rather than a domestic-grade default, the fix for exactly the mistake covered above.
+
+[Book a free consultation to see what a proper setup would cost you →](/book-demo)
+
+---
+
+## Related Reading
+
+- [How to Make Restaurant and Pub WiFi Actually Work](/blog/how-to-make-restaurant-pub-wifi-actually-work)
+- [Why Your Restaurant's Card Machines Keep Dying at the Worst Possible Moment](/blog/restaurant-card-machines-wifi-failure)
+- [How Much Should You Really Pay for Restaurant WiFi in 2026?](/blog/restaurant-pub-wifi-installation-cost-uk)
+- [Why Does WiFi Keep Dropping in Cafés?](/blog/why-does-wifi-keep-dropping-in-cafes)
+    `
+  },
+  {
+    id: 70,
+    slug: "restaurant-card-machines-wifi-failure",
+    title: "Why Your Restaurant's Card Machines Keep Dying at the Worst Possible Moment",
+    metaTitle: "Why Restaurant Card Machines Keep Failing | Conxiea",
+    metaDescription: "Card machines fail during your busiest hours because the network behind them wasn't built for restaurant service. Here's why, and how to actually fix it.",
+    author: "Zak",
+    date: "9th August 2026",
+    isoDate: "2026-08-09",
+    category: "WiFi Solutions",
+    excerpt: "Card machines don't fail randomly, they fail under load, which is exactly when a restaurant can least afford it. Here's why it happens and how proper network design actually prevents it.",
+    keywords: "restaurant card machine wifi problems, POS system failing restaurant, card machine network issues, restaurant payment terminal wifi",
+    readTime: "10 min read",
+    content: `
+Card machines have an uncanny habit of failing at exactly the wrong moment, Saturday night, table twelve, a queue at the till. That timing isn't bad luck. Card terminals fail under network load, and load peaks precisely when a restaurant is busiest, which is exactly when the failure costs the most and gets seen by the most customers.
+
+![Contactless card payment being made on a handheld terminal at a café counter](https://images.unsplash.com/photo-1556742031-c6961e8560b0?w=1200&h=600&fit=crop)
+
+---
+
+## Why It's Always the Busy Times
+
+A card terminal needs a stable, low-latency connection to authorise a transaction. On a quiet afternoon, with three tables occupied and nobody else on the network, even a mediocre connection handles that fine. On a packed Friday night, with fifty guest devices on WiFi, kitchen display screens updating constantly, and the bookings system running in the background, that same connection is under a completely different kind of pressure.
+
+[Restaurant networks routinely carry 50-100 simultaneous devices with zero tolerance for downtime](https://thenetworkinstallers.com/blog/hospitality-networking-solutions/), and a card terminal sharing bandwidth with all of that, on hardware that wasn't designed for the load, is the first thing to drop when the network gets congested. It's not the terminal that's faulty. It's the network underneath it.
+
+---
+
+## The Real Cost When It Happens
+
+[POS downtime can cost a mid-sized restaurant $1,000-5,000 an hour](https://vivantcorp.com/internet-outages/) in direct lost revenue, and that's before counting abandoned orders, staff time spent apologising and finding workarounds, and the customers who simply leave rather than wait. [Chargebacks and payment disputes affect around 5% of restaurant orders](https://www.verifone.com/resources/restaurant-payment-downtime-cost-and-prevention) even in normal operation; a genuinely unreliable connection makes that worse, not better.
+
+![Chefs working in a busy, upscale restaurant kitchen with Michelin plaques on the wall](https://images.unsplash.com/photo-1761095596618-081ea3f043a5?w=1200&h=600&fit=crop)
+
+---
+
+## The Fix Isn't a New Card Machine
+
+Replacing a failing terminal treats the symptom. The actual fix is giving payment traffic a network environment where it isn't competing with guest streaming and social media uploads for the same limited bandwidth:
+
+**Dedicated network segmentation for payment systems.** Card terminals should sit on their own isolated network segment, prioritised and protected from congestion caused by guest devices, not sharing a flat network with everything else in the building. This is also a compliance requirement, covered fully in [our guide to guest and staff WiFi segregation](/blog/guest-staff-wifi-segregation-hospitality).
+
+**Quality of service prioritisation.** A properly configured network can prioritise payment traffic over guest streaming automatically, so a hundred people watching video doesn't starve the till of bandwidth at the exact moment it needs it most.
+
+**Commercial-grade access points sized for peak load**, not average load. A network that works fine on a Tuesday afternoon and fails on Saturday night was sized for the wrong scenario.
+
+**4G/5G backup for the payment segment specifically.** Even with a solid primary connection, a low-cost cellular failover dedicated to payment terminals means a fibre outage doesn't mean an evening of cash-only trading.
+
+---
+
+## Where Conxiea Fits
+
+Conxiea designs restaurant and pub networks with payment infrastructure treated as the priority traffic it actually is, properly segmented, properly prioritised, and sized for your busiest night, not your quietest one.
+
+[Book a free consultation to stop losing card machine reliability to network congestion →](/book-demo)
+
+---
+
+## Related Reading
+
+- [How to Make Restaurant and Pub WiFi Actually Work](/blog/how-to-make-restaurant-pub-wifi-actually-work)
+- [The Hidden WiFi Mistake That's Costing Restaurants and Pubs Thousands](/blog/hidden-wifi-mistake-costing-restaurants-pubs)
+- [The WiFi Setup Mistake That Could Get Your Restaurant Fined](/blog/guest-staff-wifi-segregation-hospitality)
+- [How Much Should You Really Pay for Restaurant WiFi in 2026?](/blog/restaurant-pub-wifi-installation-cost-uk)
+    `
+  },
+  {
+    id: 71,
+    slug: "pub-beer-garden-wifi-dead-zones",
+    title: "Why Your Beer Garden Has No Signal (And How to Fix It)",
+    metaTitle: "Why Your Beer Garden Has No WiFi Signal | Conxiea",
+    metaDescription: "Beer gardens and outdoor pub seating are almost always WiFi dead zones. Here's exactly why, and how proper outdoor access points actually fix it.",
+    author: "Zak",
+    date: "9th August 2026",
+    isoDate: "2026-08-09",
+    category: "WiFi Solutions",
+    excerpt: "Beer gardens are where pub WiFi goes to die, and it's rarely bad luck. Here's why outdoor coverage fails so predictably, and what actually fixes it.",
+    keywords: "beer garden wifi, pub outdoor wifi dead zones, pub garden signal, outdoor wifi coverage pub",
+    readTime: "9 min read",
+    content: `
+Walk from the bar to the beer garden of most pubs and watch the WiFi bars drop off your phone in real time. It's such a common experience that customers barely comment on it anymore, they just accept that outdoor seating means no signal. It doesn't have to be that way, and the reason it usually is comes down to one predictable design mistake.
+
+![Traditional UK pub exterior with wooden picnic tables set up outside on the street](https://images.unsplash.com/photo-1784641337398-a1bd3e0d9600?w=1200&h=600&fit=crop)
+
+---
+
+## Why Outdoor Areas Are Almost Always Dead Zones
+
+The answer is usually simple: outdoor coverage was never actually designed, it just happens to reach that far, or it doesn't. [WiFi blackspots are common across venues, especially outdoors](https://www.which.co.uk/news/article/how-to-improve-wifi-in-the-garden-or-outdoors-aynkl5V7vCks), because a single indoor router positioned for the bar and dining room was never going to reliably reach through solid walls to a garden thirty feet away.
+
+Physical obstacles make it worse. [Metal objects, vehicles, outdoor furniture frames, aluminium patio sets, create additional dead zones](https://www.which.co.uk/news/article/how-to-improve-wifi-in-the-garden-or-outdoors-aynkl5V7vCks), and dense landscaping, mature trees, and solid garden walls or fencing further block signal that's already struggling to get through the building's exterior wall in the first place. None of this is unusual or unlucky, it's simply what happens when outdoor coverage isn't planned for from the start.
+
+---
+
+## Why It Actually Matters for Revenue, Not Just Convenience
+
+It's tempting to treat this as a minor guest-comfort issue. [Customers now expect connectivity in beer gardens, terraces, courtyards, and smoking areas](https://connectedhsp.com/resources/guides/the-ultimate-guide-to-pub-wifi-everything-pub-owners-need-to-know/), and a beer garden is often where a pub's food and drink orders are actually taken via table-service apps or QR-code menus. If that connection doesn't reach the garden reliably, the ordering system it depends on doesn't work either, turning a WiFi gap into a lost-order problem.
+
+---
+
+## What Actually Fixes It
+
+**Purpose-built outdoor access points, not an indoor router pointed hopefully outward.** [Beer gardens and terraces need IP67-rated access points](https://www.broadbandbuyer.com/features/3195-how-to-install-wifi-for-a-pub-beer-garden/) engineered specifically to withstand rain, temperature swings, and being genuinely outdoors day after day, not consumer equipment never designed to leave a shelf indoors.
+
+![Beautiful traditional pub bar interior with brass beer taps and wooden decor](https://images.unsplash.com/photo-1779372178902-5d355e0dfe06?w=1200&h=600&fit=crop)
+
+**A proper site survey covering the outdoor space specifically.** [Professional wireless site surveys and heatmap analysis identify actual coverage gaps](https://connectedhsp.com/resources/guides/the-ultimate-guide-to-pub-wifi-everything-pub-owners-need-to-know/) before installation, rather than discovering them after a customer complains from the far end of the garden.
+
+**Structured cabling to outdoor access points, not a mesh extension of the indoor network.** [Structured cabling connecting access points directly back to the network outperforms mesh systems](https://connectedhsp.com/resources/guides/the-ultimate-guide-to-pub-wifi-everything-pub-owners-need-to-know/), which tend to add latency and lose performance the further they extend from the original router, exactly the problem that leaves gardens with a weak, unreliable signal.
+
+**Coverage planned around actual seating layout**, not the building's floor plan. A garden with tables spread across 40 metres needs access points positioned for where people actually sit, not a single unit mounted near the back door.
+
+---
+
+## The Business Case Is Simple
+
+Outdoor seating is usually a pub's highest-margin real estate during good weather, more covers, higher turnover, less pressure on indoor space. Treating its WiFi as an afterthought undermines exactly the part of the venue doing the most work on a sunny Saturday.
+
+---
+
+## Where Conxiea Fits
+
+Conxiea designs outdoor coverage as part of the original network plan for every pub installation, not a retrofit, weatherproof access points, proper site surveys, and cabling built to actually reach the garden, not just the bar.
+
+[Book a free site survey to see exactly where your dead zones are →](/book-demo)
+
+---
+
+## Related Reading
+
+- [How to Make Restaurant and Pub WiFi Actually Work](/blog/how-to-make-restaurant-pub-wifi-actually-work)
+- [The Hidden WiFi Mistake That's Costing Restaurants and Pubs Thousands](/blog/hidden-wifi-mistake-costing-restaurants-pubs)
+- [WiFi 7 Is Coming to Restaurants and Pubs, Here's What Actually Changes](/blog/wifi-7-restaurants-pubs)
+- [How Much Should You Really Pay for Restaurant WiFi in 2026?](/blog/restaurant-pub-wifi-installation-cost-uk)
+    `
+  },
+  {
+    id: 72,
+    slug: "wifi-7-restaurants-pubs",
+    title: "WiFi 7 Is Coming to Restaurants and Pubs, Here's What Actually Changes",
+    metaTitle: "WiFi 7 for Restaurants and Pubs Explained | Conxiea",
+    metaDescription: "WiFi 7 is arriving in hospitality venues. Here's what actually changes for restaurants and pubs specifically, beyond the marketing headline numbers.",
+    author: "Zak",
+    date: "9th August 2026",
+    isoDate: "2026-08-09",
+    category: "WiFi Solutions",
+    excerpt: "WiFi 7 promises huge headline speed numbers no restaurant will ever use. Here's what actually matters for hospitality venues specifically: device density, reliability, and fewer access points.",
+    keywords: "wifi 7 restaurants, wifi 7 pubs, wifi 7 hospitality, wifi 7 for hospitality venues",
+    readTime: "10 min read",
+    content: `
+WiFi 7 marketing leads with numbers no restaurant will ever come close to using, up to 46 Gbps theoretical throughput, four times what WiFi 6 offers on paper. None of that is the reason it matters for a busy dining room. The part that actually matters for restaurants and pubs is almost never the headline figure.
+
+![Ceiling-mounted white WiFi access point installed on a cable tray](https://images.unsplash.com/photo-1785682117495-d87ff069cdb5?w=1200&h=600&fit=crop)
+
+![Close-up of a modern WiFi router with multiple antennas and glowing LED indicators](https://images.unsplash.com/photo-1745847768408-b7b83796cae6?w=1200&h=600&fit=crop)
+
+---
+
+## The Numbers That Don't Matter for Hospitality
+
+[WiFi 7 uses 320 MHz channels and Multi-Link Operation (MLO) on the uncongested 6 GHz band](https://www.dlink.com/uk/en/resource-centre/blog/uki-beginners-guide-to-wifi-7-2026) to deliver theoretical speeds up to 46 Gbps, compared to WiFi 6's 9.6 Gbps ceiling. It's a genuinely large technical leap. It's also almost entirely irrelevant to a restaurant, because no realistic mix of guest phones, card terminals, and kitchen displays gets anywhere near saturating even WiFi 6's real-world capacity, let alone WiFi 7's.
+
+---
+
+## What Actually Matters: Device Density
+
+The genuinely useful part for hospitality is capacity under load, not peak speed. [WiFi 7 is designed to handle high-density environments, supporting up to 50 devices per access point](https://www.netgear.com/business/wifi/wifi7/), directly relevant to a restaurant network that routinely carries 50-100 simultaneous connections during service. More devices supported cleanly per access point means fewer access points needed to properly cover a venue, which [reduces both installation and ongoing maintenance costs](https://www.netgear.com/business/wifi/wifi7/), a real, measurable saving, not a marketing abstraction.
+
+## What Actually Matters: Reliability Under Congestion
+
+Multi-Link Operation is the feature that translates most directly into a better guest and staff experience. [MLO lets a device connect across the 5 GHz and 6 GHz bands simultaneously](https://tech-insider.org/wifi-7-vs-wifi-6-2026/), dynamically routing traffic through whichever link has the least congestion at any given moment. In a packed dining room with dozens of devices competing for the same airtime, that adaptive routing is what prevents the dropped connections and stalled card payments that come from network congestion, not raw bandwidth.
+
+[Real-world testing shows Multi-Link Operation cutting latency by 50-75% compared to WiFi 6](https://tech-insider.org/wifi-7-vs-wifi-6-2026/) in congested conditions, the difference between a card payment authorising instantly and one that hangs for a few uncomfortable seconds at the till.
+
+## What Actually Matters: Interference
+
+Both WiFi 6E and WiFi 7 use the 6 GHz band, which is [essential for avoiding interference in crowded environments](https://www.comms-express.com/infozone/article/wifi-access-points/), a genuinely relevant benefit for venues in busy high streets or shopping precincts where dozens of neighbouring networks are all competing for the same limited 2.4 and 5 GHz spectrum.
+
+---
+
+## Should You Upgrade Now?
+
+Not automatically. [Extreme Networks and similar vendors are positioning WiFi 7 specifically for high-density venues](https://www.prnewswire.com/news-releases/cambium-networks-introduces-high-density-wi-fi-7-solution-for-the-enterprise-302832358.html), exactly the profile of a busy restaurant or pub at peak service, but a smaller, quieter venue with a well-designed WiFi 6 network may see little practical difference. We cover the direct comparison in detail in [WiFi 7 vs WiFi 6 for hospitality specifically](/blog/wifi-7-vs-wifi-6-hospitality).
+
+The honest framing: WiFi 7 is becoming the default choice for new installations because [most new enterprise access point purchases are already tilting toward it](https://www.comms-express.com/infozone/article/wifi-access-points/), not because every existing WiFi 6 network urgently needs replacing.
+
+---
+
+## Where Conxiea Fits
+
+Conxiea designs and installs WiFi 7-ready networks for restaurants and pubs where device density and peak-service reliability genuinely justify it, without pushing an upgrade a quieter venue doesn't need.
+
+[Book a free consultation to find out what your venue actually needs →](/book-demo)
+
+---
+
+## Related Reading
+
+- [WiFi 7 vs WiFi 6: Which One Actually Matters for Your Pub or Restaurant?](/blog/wifi-7-vs-wifi-6-hospitality)
+- [How to Make Restaurant and Pub WiFi Actually Work](/blog/how-to-make-restaurant-pub-wifi-actually-work)
+- [WiFi 7 for Business: Everything UK Companies Need to Know](/blog/wifi-7-for-business-uk)
+- [WiFi 7 Business Access Points: The Best Options for UK Businesses in 2026](/blog/wifi-7-business-access-points-uk-2026)
+    `
+  },
+  {
+    id: 73,
+    slug: "wifi-7-vs-wifi-6-hospitality",
+    title: "WiFi 7 vs WiFi 6: Which One Actually Matters for Your Pub or Restaurant?",
+    metaTitle: "WiFi 7 vs WiFi 6 for Hospitality Venues | Conxiea",
+    metaDescription: "WiFi 7 vs WiFi 6 for restaurants and pubs specifically, comparing device density, latency under load, and whether the upgrade is actually worth it in 2026.",
+    author: "Zak",
+    date: "9th August 2026",
+    isoDate: "2026-08-09",
+    category: "WiFi Solutions",
+    excerpt: "For a hospitality venue specifically, the WiFi 7 vs WiFi 6 decision comes down to device density and service-hour reliability, not headline speed. Here's the honest comparison.",
+    keywords: "wifi 7 vs wifi 6 hospitality, wifi 7 vs wifi 6 restaurant, wifi 7 vs wifi 6 pub, wifi upgrade hospitality",
+    readTime: "10 min read",
+    content: `
+Every WiFi 7 vs WiFi 6 comparison online is written for home networks and gaming setups. Almost none of them ask the question a restaurant or pub owner actually needs answered: does the difference matter when you've got fifty devices on the network during Saturday dinner service, not four?
+
+![Clipboard checklist next to coffee cups on a desk](https://images.unsplash.com/photo-1642188537432-41c8a331ebdb?w=1200&h=600&fit=crop)
+
+![Two smartphones lying side by side on a plain background for comparison](https://images.unsplash.com/photo-1640936343842-268f9d87e764?w=1200&h=600&fit=crop)
+
+---
+
+## Speed: Real But Mostly Irrelevant Here
+
+[WiFi 7 delivers up to 2.4x faster theoretical speeds than WiFi 6](https://tech-insider.org/wifi-7-vs-wifi-6-2026/), driven by wider 320 MHz channels and denser signal encoding. For a hospitality venue, this is the least relevant number in the whole comparison, no realistic mix of card payments, guest browsing, and kitchen display traffic gets close to saturating WiFi 6's real-world capacity, so WiFi 7's extra headroom mostly goes unused.
+
+## Latency Under Load: This Is the Number That Matters
+
+This is where the comparison becomes genuinely relevant to a busy service. [WiFi 6 users typically see 25-35ms of combined latency; WiFi 7 users see 15-22ms in comparable conditions](https://tech-insider.org/wifi-7-vs-wifi-6-2026/), and the gap widens specifically under congestion, which is exactly the condition a packed dining room creates every Friday and Saturday night. Multi-Link Operation, WiFi 7's standout feature, [cuts latency by 50-75% and virtually eliminates dropped connections in congested environments](https://tech-insider.org/wifi-7-vs-wifi-6-2026/), the difference between a card machine authorising instantly and one that visibly hangs at the till during your busiest hour.
+
+## Device Density: The Genuinely Decisive Factor
+
+[WiFi 7 supports up to 50 devices per access point cleanly](https://www.netgear.com/business/wifi/wifi7/), compared to WiFi 6's more limited practical ceiling before performance starts degrading. For a restaurant or pub carrying 50-100 simultaneous devices during service, this is the single most relevant technical difference between the two standards, not the speed rating on the box.
+
+---
+
+## So Which One Actually Matters for You?
+
+**WiFi 6 is still genuinely fine if:** your venue is smaller, device count during peak service stays well under 50, and your current network isn't showing signs of congestion-related problems, dropped payments, slow ordering apps, guest complaints about connectivity during busy periods.
+
+**WiFi 7 becomes the better choice if:** you're doing a new installation from scratch (the price gap has narrowed enough that starting fresh with WiFi 7 rarely costs much more), you run a high-density venue, a large pub, a busy multi-room restaurant, anywhere regularly at 50+ concurrent devices, or you're already seeing reliability problems that look like a congestion issue rather than a coverage gap.
+
+**The honest middle ground:** most hospitality vendors report that [new enterprise access point purchases are already defaulting to WiFi 7](https://www.comms-express.com/infozone/article/wifi-access-points/) simply because it's becoming the standard option, not because every existing network needs replacing urgently. If your current setup works reliably, there's rarely a case for ripping it out early, but a natural refresh or a new site is a sensible moment to go straight to WiFi 7 rather than buying into WiFi 6 on the way out.
+
+---
+
+## Where Conxiea Fits
+
+Conxiea assesses your actual device density and peak-service load before recommending WiFi 6 or WiFi 7, the decision should follow a proper site assessment, not a vendor's latest product line.
+
+[Book a free consultation to find out which standard actually fits your venue →](/book-demo)
+
+---
+
+## Related Reading
+
+- [WiFi 7 Is Coming to Restaurants and Pubs, Here's What Actually Changes](/blog/wifi-7-restaurants-pubs)
+- [How to Make Restaurant and Pub WiFi Actually Work](/blog/how-to-make-restaurant-pub-wifi-actually-work)
+- [WiFi 7 vs WiFi 6: Is It Worth Upgrading Your Business Network?](/blog/wifi-7-vs-wifi-6-business-upgrade)
+- [When Should Your Business Upgrade to WiFi 7?](/blog/when-to-upgrade-to-wifi-7)
+    `
+  },
+  {
+    id: 74,
+    slug: "guest-staff-wifi-segregation-hospitality",
+    title: "The WiFi Setup Mistake That Could Get Your Restaurant Fined",
+    metaTitle: "The WiFi Mistake That Could Get You Fined | Conxiea",
+    metaDescription: "Running guest WiFi, staff devices, and card payments on one flat network is a PCI DSS compliance risk for restaurants. Here's how to actually segregate it.",
+    author: "Zak",
+    date: "9th August 2026",
+    isoDate: "2026-08-09",
+    category: "WiFi Solutions",
+    excerpt: "If your guest WiFi, staff devices, and card machines are all on the same network, you're not just risking downtime, you're risking a PCI DSS compliance failure. Here's how to actually fix it.",
+    keywords: "guest wifi staff wifi segregation, restaurant PCI DSS wifi, network segmentation hospitality, restaurant wifi compliance",
+    readTime: "10 min read",
+    content: `
+Ask a restaurant or pub owner whether their guest WiFi and their card machines are on the same network, and a surprising number aren't sure. That uncertainty is itself the problem, because if they are, and there's no genuine segmentation in place, it's not just an operational risk, it's a direct compliance failure with real financial consequences attached.
+
+![Padlock resting on top of a white computer keyboard](https://images.unsplash.com/photo-1654588831193-0285dab84d5a?w=1200&h=600&fit=crop)
+
+---
+
+## What PCI DSS Actually Requires
+
+The Payment Card Industry Data Security Standard is the rulebook every business taking card payments has to follow. [It requires the cardholder data environment to be completely isolated from any public-facing network](https://www.specgravity.com/blog/network-segmentation-and-sd-wan-for-restaurant-chains-why-pci-compliance-depends-on-it/), meaning your guest WiFi, by definition a public-facing network, cannot have an open route to whatever your card terminals connect through.
+
+[PCI DSS 4.0, fully enforced since March 2025, requires documented segmentation testing](https://www.specgravity.com/blog/network-segmentation-and-sd-wan-for-restaurant-chains-why-pci-compliance-depends-on-it/), annually for most restaurants, every six months for larger service providers. This isn't a box-ticking formality. It's a real audit requirement, and failing it has genuine financial and legal consequences.
+
+---
+
+## The Mistake That's Everywhere
+
+[EPOS terminals, back-office PCs, guest WiFi, and kitchen tablets all sitting on the same flat network](https://www.specgravity.com/blog/network-segmentation-and-sd-wan-for-restaurant-chains-why-pci-compliance-depends-on-it/) is one of the most common issues found during hospitality compliance reviews, and it's rarely a deliberate decision. It usually happens gradually: a router gets installed for guest WiFi, the card machine gets plugged into the same network because it's convenient, kitchen tablets join later, and nobody ever circles back to properly separate them.
+
+The consequence is significant: [without proper segmentation, PCI DSS scope expands to cover every single device on the network](https://www.specgravity.com/blog/network-segmentation-and-sd-wan-for-restaurant-chains-why-pci-compliance-depends-on-it/), meaning your guest WiFi router, your kitchen tablets, and every other connected device all fall under the same strict compliance requirements as your actual payment terminals, dramatically increasing both audit burden and risk exposure.
+
+![Server presenting a handheld POS payment device to customers at a restaurant table](https://images.unsplash.com/photo-1777679883845-6e1b732e2063?w=1200&h=600&fit=crop)
+
+---
+
+## What Proper Segregation Actually Looks Like
+
+**Genuinely separate VLANs, not just separate passwords.** [A properly segmented network uses VLANs to create isolated network paths](https://www.purple.ai/en-us/guides/guest-wifi-best-practices-security-performance-and-compliance) for different traffic types, guest access, staff devices, and payment terminals, with these segments not cross-communicating at all, not merely having different WiFi passwords on the same underlying network.
+
+**A dedicated, isolated segment specifically for payment systems.** [Guests get internet access, staff devices get access to business applications, and payment terminals get a dedicated, highly restricted network segment](https://www.specgravity.com/blog/network-segmentation-and-sd-wan-for-restaurant-chains-why-pci-compliance-depends-on-it/), three genuinely separate environments, not three names for the same network.
+
+**Firewall rules that explicitly deny by default**, not "default allow" configurations that quietly permit traffic between segments unless specifically blocked. [Misconfigured guest WiFi with a logical route to payment systems](https://www.specgravity.com/blog/network-segmentation-and-sd-wan-for-restaurant-chains-why-pci-compliance-depends-on-it/) is one of the most common ways a supposedly segmented network turns out not to be, once properly audited.
+
+**Documentation that would actually survive a QSA audit.** [Undocumented segmentation is one of the most common failures found during compliance reviews](https://www.specgravity.com/blog/network-segmentation-and-sd-wan-for-restaurant-chains-why-pci-compliance-depends-on-it/), segmentation that technically exists but was never properly recorded doesn't hold up when an auditor actually asks for evidence.
+
+---
+
+## The Upside Beyond Compliance
+
+Done properly, this isn't just risk avoidance. [Proper segmentation can reduce PCI audit scope by 60-80%](https://www.specgravity.com/blog/network-segmentation-and-sd-wan-for-restaurant-chains-why-pci-compliance-depends-on-it/), meaning less time, cost, and disruption every time an audit comes round, on top of the reliability benefit of payment traffic no longer competing with guest streaming for bandwidth.
+
+---
+
+## Where Conxiea Fits
+
+Conxiea builds proper network segmentation into every hospitality installation from day one, genuinely isolated VLANs for guest, staff, and payment traffic, documented in a way that holds up to a real PCI DSS audit.
+
+[Book a free consultation to check whether your current setup would actually pass an audit →](/book-demo)
+
+---
+
+## Related Reading
+
+- [How to Make Restaurant and Pub WiFi Actually Work](/blog/how-to-make-restaurant-pub-wifi-actually-work)
+- [Why Your Restaurant's Card Machines Keep Dying at the Worst Possible Moment](/blog/restaurant-card-machines-wifi-failure)
+- [The Hidden WiFi Mistake That's Costing Restaurants and Pubs Thousands](/blog/hidden-wifi-mistake-costing-restaurants-pubs)
+- [Managed WiFi vs Self-Managed: Which Is Right for Your Business?](/blog/managed-wifi-vs-self-managed)
+    `
+  },
+  {
+    id: 75,
+    slug: "restaurant-pub-wifi-installation-cost-uk",
+    title: "How Much Should You Really Pay for Restaurant WiFi in 2026?",
+    metaTitle: "Restaurant & Pub WiFi Installation Cost UK 2026 | Conxiea",
+    metaDescription: "Real restaurant and pub WiFi installation costs for 2026, from access point hardware to full commercial installs, and what actually drives the price.",
+    author: "Zak",
+    date: "9th August 2026",
+    isoDate: "2026-08-09",
+    category: "WiFi Solutions",
+    excerpt: "Restaurant and pub WiFi installation costs vary hugely depending on venue size and what you actually need. Here's a realistic 2026 UK price breakdown, and why anyone quoting blind is guessing.",
+    keywords: "restaurant wifi installation cost, pub wifi cost uk, hospitality wifi pricing, commercial wifi installation cost",
+    readTime: "9 min read",
+    content: `
+Ask three WiFi installers what a restaurant network costs and you'll get three different numbers, often for good reason, venue size, device density, and building complexity all change the answer significantly. Here's what actually drives the price, and realistic UK figures for 2026.
+
+![Business installation quote being agreed with a handshake over a signed contract](https://images.unsplash.com/photo-1681505526188-b05e68c77582?w=1200&h=600&fit=crop)
+
+---
+
+## Hardware Costs
+
+Access point pricing varies by tier. [Entry-level commercial hardware like Ubiquiti UniFi runs £100-200 per access point](https://www.netfor.com/resource-center/blog/business-wifi-installation/) with a free controller included, mid-market options like TP-Link Omada sit in a similar £90-180 range, and enterprise-grade equipment such as Cisco Meraki or Aruba Instant On runs £250-600 per access point, typically with paid ongoing licensing.
+
+Most restaurants and pubs land in the entry-to-mid tier, genuinely commercial-grade hardware without paying for enterprise features a single-site hospitality venue rarely needs.
+
+## Connectivity Costs
+
+Bandwidth needs to match actual concurrent usage, not just be "fast." [A restaurant or pub with 20-50 concurrent guests typically needs a 300-500 Mbps fibre connection](https://compareyourbusinesscosts.co.uk/business-wifi) to run guest WiFi, payment systems, and kitchen technology together without contention. [The general rule of thumb for 2026 is to ring-fence 30-50% of total bandwidth specifically for guest use](https://selectra.co.uk/tv-broadband/guides/business/guest-wifi-for-businesses), with quality-of-service rules prioritising staff and payment traffic over guest streaming.
+
+![Ceiling-mounted white WiFi access point installed on a cable tray](https://images.unsplash.com/photo-1785682117481-8e7121f49a57?w=1200&h=600&fit=crop)
+
+## Full Installation Costs
+
+For a complete picture: [a mid-size commercial installation, roughly 2,500-10,000 sq ft, typically costs £8,000-15,000](https://www.netfor.com/resource-center/blog/business-wifi-installation/) for 4-6 properly positioned access points, a multi-gigabit switch, and a next-generation firewall handling the network segmentation covered in [our guide to guest and staff WiFi segregation](/blog/guest-staff-wifi-segregation-hospitality). A single small café or bar site will typically sit well below that range; a large multi-room pub with a beer garden and function space will sit at or above it.
+
+---
+
+## What Actually Drives the Price Up or Down
+
+**Venue size and layout.** More square footage and more separate rooms mean more access points needed for genuine coverage, this is usually the single biggest cost driver.
+
+**Outdoor coverage requirements.** Weatherproof outdoor access points for beer gardens and terraces, covered in our [guide to fixing beer garden dead zones](/blog/pub-beer-garden-wifi-dead-zones), add cost but address one of the most commonly under-budgeted parts of a hospitality install.
+
+**Building complexity.** Thick walls, multiple floors, and older buildings with unusual layouts increase the number of access points needed to eliminate dead zones, exactly what a proper site survey is meant to identify before a quote is finalised.
+
+**Network segmentation requirements.** Building genuinely isolated VLANs for guest, staff, and payment traffic, not just optional, given the PCI DSS requirements covered in our [segregation guide](/blog/guest-staff-wifi-segregation-hospitality), adds configuration complexity beyond a basic single-network install.
+
+---
+
+## Why a Fixed Quote Without a Site Survey Is a Red Flag
+
+[Commercial WiFi installation costs scale with facility size, device density, building complexity, and the number of distinct traffic types the network needs to carry](https://www.netfor.com/resource-center/blog/business-wifi-installation/), which means a vendor quoting a fixed price without ever visiting the site, or without a proper heatmap survey, is guessing rather than pricing your actual requirements. That guess is just as likely to be an underspec that leaves you with dead zones as it is to be padded well above what you actually need.
+
+---
+
+## Where Conxiea Fits
+
+Conxiea prices every restaurant and pub installation from an actual site survey, real coverage requirements, real device density, and a quote that reflects what your specific venue needs rather than a generic package.
+
+[Book a free site survey and get an accurate quote →](/book-demo)
+
+---
+
+## Related Reading
+
+- [How to Make Restaurant and Pub WiFi Actually Work](/blog/how-to-make-restaurant-pub-wifi-actually-work)
+- [Why Your Beer Garden Has No Signal (And How to Fix It)](/blog/pub-beer-garden-wifi-dead-zones)
+- [The WiFi Setup Mistake That Could Get Your Restaurant Fined](/blog/guest-staff-wifi-segregation-hospitality)
+- [How Much Does Business WiFi Installation Cost in the UK?](/blog/business-wifi-installation-cost-uk)
     `
   }
 ];
