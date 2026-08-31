@@ -42,6 +42,7 @@ const ElectricianWebsiteServices = lazy(() => import('@/components/ElectricianWe
 const TradesWebsiteServices = lazy(() => import('@/components/TradesWebsiteServices'));
 const CafeWifiPayments = lazy(() => import('@/components/CafeWifiPayments'));
 const CSPPartners = lazy(() => import('@/components/CSPPartners'));
+const FreeITAssessment = lazy(() => import('@/components/FreeITAssessment'));
 const ThankYou = lazy(() => import('@/components/ThankYou'));
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -82,6 +83,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/blog/category/:categorySlug" element={<BlogCategory />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/csp-partners" element={<CSPPartners />} />
+      <Route path="/free-it-assessment" element={<FreeITAssessment />} />
       <Route path="/thank-you" element={<ThankYou />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
