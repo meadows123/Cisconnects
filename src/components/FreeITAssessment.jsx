@@ -15,7 +15,7 @@ const OFFER_DEADLINE_LABEL = '30 September';
 const scrollToForm = () =>
   document.getElementById('assessment-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-const ScrollCta = ({ label = 'Get my free IT assessment', sub, variant = 'solid' }) => (
+const ScrollCta = ({ label = 'Book a free IT health check', sub, variant = 'solid' }) => (
   <div className="text-center my-7 sm:my-9">
     <motion.button
       whileHover={{ scale: 1.05 }}
@@ -43,11 +43,11 @@ const FreeITAssessment = () => {
   const daysLeft = Math.max(0, Math.ceil((OFFER_DEADLINE.getTime() - Date.now()) / 86400000));
 
   const testimonials = [
-    { name: 'Priya N.', initials: 'PN', role: 'COO, fintech (grew 14 to 65 staff)', result: 'Rebuilt our entire IT in a quarter. Identity, devices, access, the lot', review: '"We grew faster than anyone planned for. Nobody owned IT. It was just me, badly, between everything else. Conxiea rebuilt the whole thing from the ground up and now runs it. I stopped thinking about it."' },
-    { name: 'Daniel K.', initials: 'DK', role: 'Founder, B2B SaaS', result: 'Passed the security review that was blocking a £400k contract', review: '"A customer sent us a 90-question security questionnaire and we froze. Conxiea had the foundations in place in three weeks. SSO, MFA, device policy, tested backups. We won the deal and the next two."' },
-    { name: 'Hannah B.', initials: 'HB', role: 'Head of Ops, agency', result: 'Went from no device records to a fully managed fleet', review: '"We had no idea how many laptops were out there or who had them. Now it is one managed fleet, all encrypted, patched, wipeable. A lost laptop is an annoyance instead of a disclosure."' },
-    { name: 'Marcus L.', initials: 'ML', role: 'CTO, marketplace startup', result: 'Got my engineers out of the accidental IT business for good', review: '"My senior devs were spending half a day a week fixing other people\'s accounts and Wi-Fi. Conxiea took the whole domain off us properly, not just triage. Straight back to shipping."' },
-    { name: 'Sofia R.', initials: 'SR', role: 'Founder, health tech', result: 'Investor due diligence took an afternoon, not a fortnight', review: '"When we raised, the DD list had a whole IT and infosec section. Because the rebuild was already done, we handed over the evidence and moved on. No scramble."' },
+    { name: 'Priya N.', initials: 'PN', role: 'COO, fintech startup', result: 'Someone finally owns our IT. I got my week back', review: '"Laptops, logins, the WiFi, the printer nobody could fix. It all used to land on me. Conxiea took the lot. I actually forget IT is a thing now."' },
+    { name: 'Daniel K.', initials: 'DK', role: 'Founder, B2B SaaS', result: 'New hires are set up before they walk in', review: '"Onboarding used to eat two days of someone\'s time chasing accounts and kit. Now the laptop turns up ready and every login works on day one."' },
+    { name: 'Hannah B.', initials: 'HB', role: 'Head of Ops, agency', result: 'The WiFi has not dropped in an all-hands since', review: '"It died in every single company meeting. Conxiea came in, sorted the network in one visit, and it has been rock solid. Small thing, huge relief."' },
+    { name: 'Marcus L.', initials: 'ML', role: 'CTO, marketplace startup', result: 'My engineers stopped being the helpdesk', review: '"Senior devs were losing half a day a week to other people\'s laptop and email problems. That stopped the week Conxiea started. Straight back to shipping."' },
+    { name: 'Sofia R.', initials: 'SR', role: 'Founder, health tech', result: 'Backups tested, MFA on, and not my problem', review: '"I used to just hope the backups worked. Now they are tested, security is handled, and I am not the one lying awake about it."' },
   ];
 
   const nextTestimonial = () => setCurrentTestimonialIndex((prev) => (prev + 1) % testimonials.length);
@@ -77,7 +77,7 @@ const FreeITAssessment = () => {
         from_email: formData.email,
         phone: formData.phone,
         message: formData.description,
-        service_interest: 'Free IT Assessment (Scaling Startups)',
+        service_interest: 'IT Support for Startups',
         to_name: 'Conxiea Team',
         to_email: 'admin@conxiea.com',
         reply_to: formData.email,
@@ -102,8 +102,8 @@ const FreeITAssessment = () => {
   return (
     <>
       <SEO
-        title="Free IT Assessment for Fast-Growing Startups | Conxiea"
-        description="Scaled from a handful of people to a full team and nobody owns IT? Book a free IT assessment: a written roadmap, your 5 biggest risks fixed for you, and a customer-ready security summary. Limited slots."
+        title="IT Support for Startups | Laptops, WiFi, Email and Apps Sorted | Conxiea"
+        description="No IT person and things keep breaking? Conxiea is the IT team for startups. Laptops, network, email, printers, apps and security, all looked after. One number, fast fixes. Free IT health check."
         url="/free-it-assessment"
       />
       <div className="min-h-screen bg-[#0f0f3d] flex flex-col relative">
@@ -119,12 +119,12 @@ const FreeITAssessment = () => {
               className="text-center mb-8 sm:mb-12"
             >
               <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 xs:mb-4 sm:mb-5 leading-tight">
-                You Scaled Fast.{' '}
-                <span className="border-b-2 border-blue-500">Your IT Didn't.</span>
+                Your Startup Doesn't Have an IT Team.{' '}
+                <span className="border-b-2 border-blue-500">Now It Does.</span>
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
-                A whole team now runs on infrastructure that was never designed, just assembled one workaround at a time.{' '}
-                <span className="border-b-2 border-blue-500 text-white">Book a free assessment and see exactly where it's exposed.</span>
+                Laptops, WiFi, email, printers, that one app that keeps crashing.{' '}
+                <span className="border-b-2 border-blue-500 text-white">We look after all of it, so you can get back to building.</span>
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -132,14 +132,14 @@ const FreeITAssessment = () => {
                 onClick={scrollToForm}
                 className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-amber-500 min-h-[44px]"
               >
-                Get my free IT assessment
+                Book a free IT health check
               </motion.button>
               <div className="mt-3">
-                <span className="block text-amber-400 font-semibold text-base sm:text-lg">One call. You leave with a current-state map and a plan. No pitch.</span>
+                <span className="block text-amber-400 font-semibold text-base sm:text-lg">One call. We look over your setup and fix a couple of things there and then. No obligation.</span>
               </div>
               <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 border border-amber-400/40 rounded-full">
                 <Gift className="w-4 h-4 text-amber-300 flex-shrink-0" />
-                <span className="text-xs sm:text-sm text-amber-200 font-semibold">Book before {OFFER_DEADLINE_LABEL}: roadmap + your 5 biggest risks fixed, on us</span>
+                <span className="text-xs sm:text-sm text-amber-200 font-semibold">Free health check plus up to 3 fixes on the call, no commitment.</span>
               </div>
             </motion.div>
 
@@ -152,11 +152,11 @@ const FreeITAssessment = () => {
             >
               <FounderNightScene />
               <p className="mt-2.5 text-center text-xs sm:text-sm text-gray-500">
-                11:47pm. Everyone's gone home. The only person who knows how any of this fits together is you.
+                11:47pm. Everyone's gone home. You're the one still trying to work out why the WiFi keeps dropping.
               </p>
             </motion.div>
 
-            {/* Form — sits directly under the picture so hot traffic can book straight away */}
+            {/* Form: sits directly under the picture so hot traffic can book straight away */}
             {submitStatus === 'error' && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-4 p-4 sm:p-6 bg-red-500/10 border border-red-500/50 rounded-lg flex items-start gap-3 sm:gap-4">
                 <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-red-500 flex-shrink-0 mt-0.5" />
@@ -185,7 +185,7 @@ const FreeITAssessment = () => {
               className="bg-[#0A0A24] border border-indigo-900/60 rounded-xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6 mb-8 sm:mb-12 scroll-mt-4"
             >
               <div className="text-center mb-1">
-                <h2 className="text-xl sm:text-2xl font-bold text-white">Book your free IT assessment</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-white">Book your free IT health check</h2>
                 <p className="text-sm text-gray-400 mt-1">Takes a minute. We come back within one business day.</p>
               </div>
               <div>
@@ -201,8 +201,8 @@ const FreeITAssessment = () => {
                 <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone Number" className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation" required />
               </div>
               <div>
-                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Where does it hurt most right now? <span className="text-red-500">*</span></label>
-                <textarea name="description" value={formData.description} onChange={handleChange} placeholder="e.g. no one owns IT, chaotic onboarding/offboarding, no idea where our devices or data are, a security review is blocking a deal, engineers stuck being the accidental IT team, headcount about to double..." rows={4} className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation resize-none" required />
+                <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">What's giving you grief right now? <span className="text-red-500">*</span></label>
+                <textarea name="description" value={formData.description} onChange={handleChange} placeholder="e.g. no one owns IT, setting up laptops and logins for new starters, the WiFi keeps dropping, email or Microsoft 365 problems, a printer nobody can fix, an app that keeps breaking, backups we've never tested..." rows={4} className="w-full px-4 py-3.5 text-base bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition touch-manipulation resize-none" required />
               </div>
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -214,10 +214,10 @@ const FreeITAssessment = () => {
                 {isSubmitting ? (
                   <><div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" /><span>Processing...</span></>
                 ) : (
-                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Get my free assessment</span></>
+                  <><Send className="w-4 h-4 sm:w-5 sm:h-5" /><span>Book my free health check</span></>
                 )}
               </motion.button>
-              <p className="text-center text-xs text-gray-400">Book before {OFFER_DEADLINE_LABEL} to lock in the roadmap, the 5 fixes and the security summary.</p>
+              <p className="text-center text-xs text-gray-400">Book before {OFFER_DEADLINE_LABEL} to lock in the health check plus up to 3 fixes on the call.</p>
             </motion.form>
 
             {/* Pain */}
@@ -227,18 +227,18 @@ const FreeITAssessment = () => {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="bg-gradient-to-r from-red-900/30 to-slate-900/30 border border-red-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
-              <p className="text-sm sm:text-base text-gray-300 mb-3">Right now, be honest. Can you answer these?</p>
+              <p className="text-sm sm:text-base text-gray-300 mb-3">Sound familiar?</p>
               <ul className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3 space-y-2 list-none">
-                <li>Who has admin on your Google Workspace or Microsoft 365? Everyone? No one?</li>
-                <li>The contractor who left months ago. Is their access actually revoked, everywhere?</li>
-                <li>When did anyone last test that your backups restore? Not run. Restore.</li>
-                <li>How many laptops are out there, who has them, and how many are encrypted?</li>
-                <li>The security questionnaire from your biggest prospect. Who's filling it in?</li>
+                <li>A laptop dies and there's no spare, no backup, no plan.</li>
+                <li>Someone starts Monday and their email, laptop and logins aren't ready.</li>
+                <li>The WiFi drops in the middle of every all-hands.</li>
+                <li>Someone's locked out of a tool an hour before a customer demo.</li>
+                <li>A founder or ops person has quietly become the IT department.</li>
               </ul>
-              <p className="text-sm sm:text-base text-red-400 font-semibold">Each unanswered question is a lost deal, a breach, or a very bad Monday waiting to happen.</p>
+              <p className="text-sm sm:text-base text-red-400 font-semibold">It's death by a thousand small things, and it's slowing the whole team down.</p>
             </motion.div>
 
-            <ScrollCta label="Find out where you stand" sub="Free. One call. No pitch." />
+            <ScrollCta label="Get our IT sorted" sub="Free health check. No obligation." />
 
             {/* Shift */}
             <motion.div
@@ -248,10 +248,10 @@ const FreeITAssessment = () => {
               className="bg-gradient-to-r from-orange-900/30 to-slate-900/30 border border-orange-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
               <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
-                This isn't a mistake you made. It's what growth does to IT.
+                You don't need a full-time IT hire yet.
               </p>
               <p className="text-sm sm:text-base text-orange-300">
-                Nobody sat down and decided to run the company on a shared password vault and whoever's free. It accreted while you were hitting targets. Patching it further won't help. The foundation needs rebuilding, deliberately, by people who've done it before.
+                And you definitely don't need your ops lead losing a day a week to printer drivers and password resets. You need someone to just handle it, for a fraction of a salary.
               </p>
             </motion.div>
             <motion.div
@@ -261,10 +261,10 @@ const FreeITAssessment = () => {
               className="bg-gradient-to-r from-blue-900/30 to-slate-900/30 border border-blue-500/40 rounded-lg p-5 sm:p-6 mb-5 sm:mb-6"
             >
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-3">
-                Two options most companies reach for don't work here. Hiring an internal IT team this early is slow and expensive. Leaving it as-is is a liability your customers and investors will keep asking about.
+                That's what we do. One team looking after every part of your IT: the laptops and phones, the network, email, the apps you run on, backups and security.
               </p>
               <p className="text-white font-semibold">
-                The third option: a rebuild that turns your IT into real infrastructure, then keeps it that way, for less than the cost of one hire.
+                Something breaks, you message us, it gets fixed. Usually the same day.
               </p>
             </motion.div>
 
@@ -276,9 +276,9 @@ const FreeITAssessment = () => {
               className="grid sm:grid-cols-3 gap-3 mb-5 sm:mb-6"
             >
               {[
-                { step: '01', title: 'Assess', body: 'Two weeks to a full picture. Every account, device, app, gap and risk, written down.' },
-                { step: '02', title: 'Rebuild', body: 'A sequenced programme: identity, devices, access, backups and security, done in the right order.' },
-                { step: '03', title: 'Operate', body: 'We run the platform we built and evolve it as you grow. No ticket queue, no drift.' },
+                { step: '01', title: 'Tell us', body: 'One message. A fire to put out, or the list of niggles you have been living with for months.' },
+                { step: '02', title: 'We sort it', body: 'Most things fixed the same day, remote or on site, and explained back to you without the jargon.' },
+                { step: '03', title: 'We keep it running', body: 'Updates, backups, monitoring and security ticking over in the background, so less breaks next time.' },
               ].map((p, i) => (
                 <div key={i} className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
                   <p className="text-xs font-mono text-blue-400 mb-1">{p.step}</p>
@@ -296,20 +296,20 @@ const FreeITAssessment = () => {
               className="mb-5 sm:mb-6"
             >
               <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-4">
-                We don't patch what you have. We rebuild it into something deliberate, then keep it there.
+                One team, on the end of a message, looking after the whole lot.
               </p>
               <p className="text-sm sm:text-base text-gray-300 mb-4">
-                What you end up with:
+                What you get:
               </p>
               <div className="flex flex-col gap-3">
                 {[
-                  'Every account, device and app inventoried, so you finally know what you own and who can touch it',
-                  'New hires fully set up on day one; leavers cut off within the hour, with a log to prove it',
-                  'Laptops encrypted, patched and remotely wipeable, so a lost device is an inconvenience, not an incident',
-                  'Backups tested on a schedule, with a restore you have actually watched work',
-                  'SSO and MFA across your core stack, so security questionnaires become a form you fill in, not a project',
-                  'A single front door for anything IT, so it stops landing in your engineers\' DMs',
-                  'A clear path to SOC 2 / ISO 27001 readiness, in place before it blocks the next big contract',
+                  'One place for anything IT, and a real person picks it up fast',
+                  'Laptops and phones bought, set up, fixed or replaced, any make',
+                  'WiFi and network that hold up when the whole team is on a call',
+                  'Email and Microsoft 365 or Google Workspace looked after: accounts, lockouts, spam, moving over',
+                  'Your business apps installed, updated and kept working together',
+                  'Backups tested, antivirus and updates running, MFA switched on',
+                  'New starters set up for day one, leavers shut off the same day',
                 ].map((item, i) => (
                   <div key={i} className="border-l-4 border-blue-500 pl-4 sm:pl-5 py-2">
                     <div className="flex items-start gap-2">
@@ -321,33 +321,7 @@ const FreeITAssessment = () => {
               </div>
             </motion.div>
 
-            <ScrollCta variant="outline" label="I want this for my company" />
-
-            {/* Reality Line */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.22 }}
-              className="border border-slate-600 rounded-lg p-4 sm:p-5 mb-5 sm:mb-6 text-center"
-            >
-              <p className="text-base sm:text-lg font-bold text-white">Fast-growing companies rarely get breached because they're targeted. They get breached because nobody was watching the joins.</p>
-            </motion.div>
-
-            {/* Scenario */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.26 }}
-              className="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/40 rounded-lg p-5 sm:p-6 mb-8 sm:mb-12"
-            >
-              <p className="text-base sm:text-lg font-bold text-white leading-relaxed mb-3">
-                The day it actually matters. A laptop left in a taxi, a customer demanding proof of your controls, a key hire leaving on bad terms:<br />
-                <span className="text-red-400">on today's setup, that's a week, a lawyer, and an awkward all-hands.</span>
-              </p>
-              <p className="text-sm sm:text-base text-green-400 font-semibold">Once the rebuild's done, each one is a 20-minute task.</p>
-            </motion.div>
-
-            <ScrollCta label="Book my free IT assessment" />
+            <ScrollCta variant="outline" label="I want this for my startup" />
 
             {/* Testimonials */}
             <motion.div
@@ -358,9 +332,9 @@ const FreeITAssessment = () => {
             >
               <div className="grid grid-cols-2 gap-3 mb-6">
                 {[
-                  { number: 'Day 1', label: 'New hires productive' },
-                  { number: '< 1 hr', label: 'To fully offboard a leaver' },
-                  { number: '2 wks', label: 'To a full current-state map' },
+                  { number: 'Same day', label: 'Most issues fixed' },
+                  { number: '< 1 hr', label: 'Typical response' },
+                  { number: 'Day 1', label: 'New hires ready' },
                   { number: '0', label: 'Full-time IT hires needed' },
                 ].map((stat, i) => (
                   <div key={i} className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-3 sm:p-4 text-center">
@@ -371,7 +345,7 @@ const FreeITAssessment = () => {
               </div>
               <div className="flex items-center justify-center gap-3 mb-5 sm:mb-7">
                 <div className="h-px flex-1 bg-slate-700" />
-                <h2 className="text-center text-lg sm:text-xl font-bold text-white whitespace-nowrap">Founders who've been here</h2>
+                <h2 className="text-center text-lg sm:text-xl font-bold text-white whitespace-nowrap">Startups we look after</h2>
                 <div className="h-px flex-1 bg-slate-700" />
               </div>
               <div className="flex items-center justify-center gap-2 mb-5 bg-slate-800/40 border border-slate-700/50 rounded-lg py-3 px-4">
@@ -419,7 +393,7 @@ const FreeITAssessment = () => {
               </div>
             </motion.div>
 
-            <ScrollCta variant="outline" label="Start with a free assessment" />
+            <ScrollCta variant="outline" label="Start with a free health check" />
 
             {/* The Offer */}
             <motion.div
@@ -430,13 +404,13 @@ const FreeITAssessment = () => {
             >
               <div className="text-center mb-5">
                 <span className="inline-block px-3 py-1 bg-amber-400 text-slate-900 text-xs font-bold rounded-full uppercase tracking-wide">Limited offer</span>
-                <h2 className="text-xl sm:text-2xl font-bold text-white mt-3">Book your assessment before {OFFER_DEADLINE_LABEL} and this comes with it, free</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-white mt-3">Book before {OFFER_DEADLINE_LABEL} and the health check comes with this, free</h2>
               </div>
               <div className="flex flex-col gap-2.5 mb-5">
                 {[
-                  { item: 'A written IT & security roadmap covering current state, target state and prioritised fixes', value: '£1,500' },
-                  { item: 'Your 5 highest-risk issues fixed for you, before you pay us anything', value: '£2,000' },
-                  { item: 'A customer-ready security summary you can send to any prospect asking about your controls', value: '£750' },
+                  { item: 'A full health check of your laptops, network, email, backups and security', value: '£300' },
+                  { item: 'Up to 3 things fixed on the call, before you have paid us anything', value: '£200' },
+                  { item: '30 days of support included, so you can try us before you commit', value: '£250' },
                 ].map((row, i) => (
                   <div key={i} className="flex items-start justify-between gap-3 bg-slate-900/40 border border-slate-700/60 rounded-lg px-3.5 py-3">
                     <div className="flex items-start gap-2">
@@ -449,14 +423,14 @@ const FreeITAssessment = () => {
               </div>
               <div className="flex items-center justify-between gap-3 border-t border-amber-500/30 pt-4 mb-5">
                 <div>
-                  <p className="text-xs text-gray-400">Total value <span className="line-through">£4,250</span></p>
+                  <p className="text-xs text-gray-400">Total value <span className="line-through">£750</span></p>
                   <p className="text-2xl font-bold text-amber-400">Your price: £0</p>
                 </div>
-                <p className="text-xs text-gray-300 text-right max-w-[45%]">No card, no lock-in. The assessment stands on its own.</p>
+                <p className="text-xs text-gray-300 text-right max-w-[45%]">No card, no lock-in. The health check stands on its own.</p>
               </div>
               <div className="bg-slate-900/50 border border-blue-500/30 rounded-lg p-4 mb-4">
-                <p className="text-sm text-blue-300 font-semibold mb-1">Then, if you start a full rebuild within 30 days:</p>
-                <p className="text-sm text-white">We design and build your new marketing website, normally <span className="line-through text-gray-400">£4,000</span>, included at no extra cost.</p>
+                <p className="text-sm text-blue-300 font-semibold mb-1">Then, if you come on board within 30 days:</p>
+                <p className="text-sm text-white">We audit your software subscriptions and cancel what you're not using, normally <span className="line-through text-gray-400">£300</span>, on us. Most startups are overpaying.</p>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-amber-300 text-sm font-semibold">
                 <span className="inline-flex items-center gap-1.5"><Clock className="w-4 h-4" /> {daysLeft} {daysLeft === 1 ? 'day' : 'days'} left</span>
@@ -465,48 +439,43 @@ const FreeITAssessment = () => {
               </div>
             </motion.div>
 
-            {/* Pre-form CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
-              className="text-center mb-6 sm:mb-8"
-            >
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Claim Your Free IT Assessment</h2>
-              <p className="text-sm sm:text-base text-gray-300 mb-6">One call. We map your current setup, show you the target state, and hand you the roadmap, plus the three bonuses above if you book before {OFFER_DEADLINE_LABEL}.</p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={scrollToForm}
-                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-amber-500 min-h-[44px]"
-              >
-                Claim my assessment + bonuses
-              </motion.button>
-            </motion.div>
-
             {/* Guarantee */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.55 }}
-              className="mb-8 sm:mb-12"
+              transition={{ duration: 0.4, delay: 0.5 }}
+              className="mb-10 sm:mb-14"
             >
-              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 mb-6 text-center">
+              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-xl p-5 sm:p-7 text-center">
                 <div className="flex justify-center mb-3">
                   <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
                     <Shield className="w-7 h-7 text-green-400" />
                   </div>
                 </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Our Guarantee</h2>
-                <p className="text-base sm:text-lg text-green-300 font-semibold">"If the assessment doesn't hand you a roadmap with at least five changes that measurably reduce risk or unblock growth, we'll fix the five ourselves anyway. You lose nothing by looking."</p>
+                <p className="text-base sm:text-lg text-green-300 font-semibold">"If the health check doesn't turn up at least three things worth fixing, the call is on us. You lose nothing by getting a second pair of eyes on it."</p>
               </div>
             </motion.div>
 
-            {/* Final CTA */}
-            <ScrollCta
-              label="Get my free IT assessment"
-              sub={`Book before ${OFFER_DEADLINE_LABEL}. Only ${daysLeft} ${daysLeft === 1 ? 'day' : 'days'} left.`}
-            />
+            {/* Closing CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.55 }}
+              className="text-center mb-4"
+            >
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Book Your Free IT Health Check</h2>
+              <p className="text-sm sm:text-base text-gray-300 mb-6">One call. We look over your laptops, network, email, backups and security, fix a few things there and then, and tell you what we'd sort next. No obligation.</p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={scrollToForm}
+                className="inline-block px-7 sm:px-10 py-3.5 sm:py-4 bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-slate-900 font-bold text-base sm:text-lg rounded-lg shadow-lg border-2 border-amber-500 min-h-[44px]"
+              >
+                Book my free health check
+              </motion.button>
+              <p className="mt-3 text-xs sm:text-sm text-amber-400/90 font-semibold">Book before {OFFER_DEADLINE_LABEL}. Only {daysLeft} {daysLeft === 1 ? 'day' : 'days'} left.</p>
+            </motion.div>
 
             {/* Footer */}
             <div className="text-center mt-10 sm:mt-12 text-gray-400 text-xs sm:text-sm">
