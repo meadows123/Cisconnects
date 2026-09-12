@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import AnimatedHeroBackground from './AnimatedHeroBackground';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getBlogPostBySlug, getCategorySlug, getCategoryDisplayName } from '../data/blogLoader';
@@ -190,6 +191,7 @@ export default function BlogPost() {
           className="bg-slate-800/30 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12"
         >
           <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
             components={{
               h1: ({ children }) => <h1 className="text-3xl md:text-4xl font-bold text-white mt-10 mb-5 leading-tight">{children}</h1>,
               h2: ({ children }) => <h2 className="text-2xl md:text-3xl font-bold text-white mt-10 mb-4 leading-snug border-b border-white/10 pb-3">{children}</h2>,
