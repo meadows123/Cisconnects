@@ -111,8 +111,8 @@ No obligations. An honest conversation about which of your recurring incidents a
 
 ### Related Reading
 
-- [What Is an AIOps Platform? A Practical Guide for IT and Network Teams](/blog/what-is-an-aiops-platform)
-- [How to Reduce IT Downtime with Network Automation](/blog/reduce-it-downtime-with-network-automation)
+- [What Is AIOps? The Complete Beginner's Guide](/blog/what-is-an-aiops-platform)
+- [How to Reduce Network Downtime: Causes, Costs and a Practical Framework](/blog/reduce-network-downtime)
 - [How to Reduce Alert Fatigue in IT Operations](/blog/how-to-reduce-alert-fatigue-it-operations)
 - [How to Implement an AI Network Automation Platform Without Breaking What Already Works](/blog/how-to-implement-ai-network-automation)
 - [AI-Powered Network Fault Management: Faster Detection, Smarter Resolution](/blog/ai-network-fault-management)
