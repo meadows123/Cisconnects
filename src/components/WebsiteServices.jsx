@@ -1,28 +1,126 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import AnimatedHeroBackground from './AnimatedHeroBackground';
-import { 
-  Globe, 
-  CheckCircle, 
-  ArrowRight, 
-  Calendar, 
+import {
+  CheckCircle,
+  ArrowRight,
+  Calendar,
   Clock,
-  Sparkles,
-  Zap,
-  Crown,
   Award,
   Star,
-  AlertCircle
+  Crown,
+  AlertCircle,
+  Shield
 } from 'lucide-react';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import SEO from './SEO';
 import emailjs from '@emailjs/browser';
 import CalendarPicker from './CalendarPicker';
-import { useCurrency } from '../hooks/useCurrency';
+import TradesBeforeAfter from './TradesBeforeAfter';
+import TradesShowcase from './TradesShowcase';
+
+const scrollToPricing = () =>
+  document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+// Halloween offer deadline. Update this date to roll the promotion forward
+const OFFER_DEADLINE = new Date('2026-10-31T23:59:59');
+const OFFER_DEADLINE_LABEL = 'Halloween';
+
+const HeroPhoto = () => {
+  const [failed, setFailed] = useState(false);
+  if (failed) return null;
+  return (
+    <div className="relative max-w-md mx-auto mb-8 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+      <span className="absolute z-10 top-3 left-3 px-3 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wide bg-red-500 text-white shadow-lg ring-1 ring-white/25">
+        No website, no jobs
+      </span>
+      <img
+        src="/trades-before.jpg"
+        alt="A tradesman sitting with no work on, frustrated that the phone isn't ringing"
+        onError={() => setFailed(true)}
+        className="w-full aspect-[4/3] object-cover block"
+      />
+    </div>
+  );
+};
+
+const plans = [
+  {
+    tier: 'Starter',
+    oneOff: 599,
+    monthly: 10,
+    description: "For sole traders and small outfits who need to stop being invisible on Google.",
+    icon: Award,
+    gradient: 'from-amber-500 to-orange-600',
+    features: [
+      'Up to 5 pages: Home, About, Services, Gallery, Contact',
+      'Mobile-first, fast-loading design',
+      'Click-to-call and a quote request form',
+      'Your Google Business Profile set up for you',
+      'Basic local SEO so you show up for your trade and area',
+      'Hosting, domain support, SSL and security included',
+      'Live within 2 weeks',
+    ],
+    popular: false,
+  },
+  {
+    tier: 'Professional',
+    oneOff: 1150,
+    monthly: 15,
+    description: 'For trades ready to look like the obvious choice and start winning better jobs.',
+    icon: Star,
+    gradient: 'from-blue-500 to-purple-600',
+    features: [
+      'Everything in Starter, plus:',
+      'Up to 10 pages',
+      'Full project gallery with before-and-after photos',
+      'Google reviews displayed automatically',
+      'Smarter quote form: job type, photos, urgency',
+      'Enhanced local SEO across every area you cover',
+      'A blog or news section so you get found for more searches',
+      'Monthly uptime and security monitoring',
+      'Priority support, same working day',
+    ],
+    popular: true,
+  },
+  {
+    tier: 'Enterprise',
+    oneOff: 2500,
+    monthly: 25,
+    description: 'For established trades businesses with multiple vans, services, or locations.',
+    icon: Crown,
+    gradient: 'from-yellow-400 to-amber-500',
+    features: [
+      'Everything in Professional, plus:',
+      'Unlimited pages',
+      'Multiple service areas or locations built in',
+      'Online booking or job scheduling integration',
+      'A custom quote calculator for your services',
+      'Call tracking and advanced analytics',
+      'A dedicated account manager',
+      'Quarterly strategy review',
+    ],
+    popular: false,
+  },
+];
+
+const testimonials = [
+  { name: 'Gary T.', role: 'Electrician, Leeds', result: '8 to 10 quote requests a week, all mine', quote: '"Used to live off word of mouth and Checkatrade leads I shared with five other sparkies. The site Conxiea built ranks for electrician near me round here. Now I get 8 to 10 quote requests a week and none of them are shared."' },
+  { name: 'Dawn M.', role: 'Bathroom fitter, Bristol', result: 'Put prices up 25% and still booked out', quote: '"The site makes us look like the outfit we actually are. People turn up to the quote already sold. I stopped apologising for my prices, put them up, and the work kept coming."' },
+  { name: 'Wojciech K.', role: 'Builder, Manchester', result: 'Booked four months ahead, straight off the website', quote: '"Photos of our extensions, proper reviews, and a form that lands in my email while I am on site. I have not paid a lead company a penny since it went live."' },
+];
+
+const faqs = [
+  { q: 'Why pay once instead of a monthly subscription?', a: "Most website \"subscriptions\" are a rental. Stop paying and your site disappears, even though you paid for it for years. With us, you own the website outright after the one-off fee. The small monthly amount covers hosting, domain support, SSL and security, the actual running costs, not a licence fee to keep what's already yours." },
+  { q: 'What does the monthly fee actually cover?', a: 'Hosting, domain support, SSL certificate renewal, security updates, and keeping the site online and fast. On Professional and Enterprise it also covers uptime monitoring and ongoing support.' },
+  { q: 'How long does it take to build?', a: 'Starter sites are typically live within 2 weeks. Professional and Enterprise builds usually take 3 to 4 weeks depending on how much content and how many pages are involved.' },
+  { q: 'Can I upgrade later?', a: "Yes. Plenty of trades start on Starter and move up to Professional once the work starts coming in. You only pay the difference, we don't charge you to rebuild what's already there." },
+  { q: 'Do I actually own the website?', a: "Yes, outright, after the one-off fee. It's your domain, your content, your site. We're not a landlord you have to keep paying to avoid losing it." },
+  { q: "What if I'm not happy with it?", a: "If you're not happy with your new site, tell us within 30 days of it going live and we'll refund what you paid to build it. No quibbles." },
+];
 
 const WebsiteServices = () => {
-  const { formatCurrency, currencySymbol } = useCurrency();
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
@@ -36,81 +134,7 @@ const WebsiteServices = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
 
-  // Base prices in GBP
-  const basePlans = [
-    {
-      tier: 'Basic',
-      basePrice: 45,
-      pricePeriod: '/month',
-      description: 'Perfect for small businesses getting started online',
-      icon: Award,
-      gradient: 'from-amber-500 to-orange-600',
-      features: [
-        'Up to 4 pages',
-        'Responsive design',
-        'Basic SEO optimization',
-        'Contact form',
-        'Social media integration',
-        'Domain registration (one-time)',
-        'Hosting included',
-        'Ongoing support',
-        'Mobile-friendly'
-      ],
-      popular: false
-    },
-    {
-      tier: 'Professional',
-      basePrice: 87,
-      pricePeriod: '/month',
-      description: 'Ideal for businesses needing database and payment functionality',
-      icon: Star,
-      gradient: 'from-slate-400 to-slate-600',
-      features: [
-        'Database integration',
-        'Payment system integration',
-        'Advanced SEO optimization',
-        'Custom design elements',
-        'Blog functionality',
-        'Analytics integration',
-        'Domain registration (one-time)',
-        'Hosting included',
-        'Ongoing support',
-        'Performance optimization'
-      ],
-      popular: true
-    },
-    {
-      tier: 'Enterprise',
-      basePrice: 250,
-      pricePeriod: '/month',
-      description: 'Complete solution for established businesses with complex needs',
-      icon: Crown,
-      gradient: 'from-yellow-400 to-amber-500',
-      features: [
-        '10+ pages',
-        'Booking system integration',
-        'Premium custom design',
-        'Advanced SEO & marketing',
-        'Full e-commerce setup',
-        'AI chatbot integration',
-        'Domain registration (one-time)',
-        'Hosting included',
-        'Priority support',
-        'Custom integrations',
-        'Performance monitoring',
-        'Regular updates'
-      ],
-      popular: false
-    }
-  ];
-
-  // Convert plans to include formatted prices
-  const plans = useMemo(() => {
-    return basePlans.map(plan => ({
-      ...plan,
-      price: formatCurrency(plan.basePrice)
-    }));
-  }, [formatCurrency]);
+  const daysLeft = Math.max(0, Math.ceil((OFFER_DEADLINE.getTime() - Date.now()) / 86400000));
 
   const availableTimes = [
     '09:00', '10:00', '11:00', '12:00',
@@ -120,6 +144,9 @@ const WebsiteServices = () => {
   const handlePlanSelect = (plan) => {
     setSelectedPlan(plan);
     setShowCalendar(true);
+    setTimeout(() => {
+      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   };
 
   const handleBookingChange = (e) => {
@@ -136,7 +163,6 @@ const WebsiteServices = () => {
     setSubmitStatus(null);
 
     try {
-      // EmailJS configuration - using environment variables only
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -145,45 +171,38 @@ const WebsiteServices = () => {
         throw new Error('EmailJS configuration is missing. Please set up VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_PUBLIC_KEY, and VITE_EMAILJS_TEMPLATE_ID in your .env file.');
       }
 
-      // Initialize EmailJS
       emailjs.init(publicKey);
 
-      // Format the selected date for display
-      const formattedDate = selectedDate 
-        ? new Date(selectedDate).toLocaleDateString('en-GB', { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
+      const formattedDate = selectedDate
+        ? new Date(selectedDate).toLocaleDateString('en-GB', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
           })
         : 'Not specified';
 
-      // Prepare template parameters
       const templateParams = {
         from_name: bookingData.name,
         from_email: bookingData.email,
         phone: bookingData.phone || 'Not provided',
-        selected_plan: `${selectedPlan.tier} Package (${selectedPlan.price}${selectedPlan.pricePeriod})`,
+        selected_plan: selectedPlan
+          ? `${selectedPlan.tier} Package (£${selectedPlan.oneOff} one-off + £${selectedPlan.monthly}/month)`
+          : 'Not specified',
         preferred_date: formattedDate,
         preferred_time: selectedTime,
         message: bookingData.message || 'No additional message',
-        service_interest: 'Website Design Services - Consultation Booking',
+        service_interest: 'Trades Website Design Services - Consultation Booking',
         to_name: 'Conxiea Team',
         reply_to: bookingData.email,
         to_email: 'admin@conxiea.com',
       };
 
       await emailjs.send(serviceId, templateId, templateParams);
-      
+
       setSubmitStatus('success');
-      
-      // Reset form
-      setBookingData({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
-      });
+
+      setBookingData({ name: '', email: '', phone: '', message: '' });
       setSelectedDate('');
       setSelectedTime('');
     } catch (error) {
@@ -201,63 +220,145 @@ const WebsiteServices = () => {
   return (
     <>
       <SEO
-        title="Website Design Services | Professional Web Development Packages | Conxiea"
-        description={`Professional website design services with flexible monthly plans. All plans include domain registration, hosting, and support. Responsive design, SEO optimization, and e-commerce solutions.`}
+        title="Trades Website Design | Websites for Builders, Plumbers & Electricians | Conxiea"
+        description="Get a website that actually brings in work. Fixed prices from £599, no monthly rental trap, just low-cost hosting from £10 a month. Built for builders, electricians, plumbers and tradespeople."
         url="/websites"
       />
       <div className="min-h-screen bg-[#0f0f3d] relative">
-      <AnimatedHeroBackground />
+        <AnimatedHeroBackground />
         <Navigation />
-        
+
         <div className="pt-40 pb-20 px-4">
-          <div className="max-w-7xl mx-auto">
-            {/* Hero Section */}
+          <div className="max-w-5xl mx-auto">
+
+            {/* Hero */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-20"
+              className="text-center mb-16"
             >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="inline-block mb-6"
-              >
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Globe className="w-10 h-10 text-white" />
-                </div>
-              </motion.div>
-              
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                <span className="text-gradient">Professional Website</span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-orange-500/15 border border-orange-400/40 rounded-full mb-5">
+                <span className="text-orange-300 font-bold text-xs sm:text-sm uppercase tracking-wide">🎃 {daysLeft} {daysLeft === 1 ? 'day' : 'days'} left until {OFFER_DEADLINE_LABEL}</span>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                <span className="text-white">Stop Renting Your Quotes.</span>
                 <br />
-                <span className="text-white">Design Services</span>
+                <span className="text-gradient">Start Owning Them.</span>
               </h1>
-              
-              <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto">
-                Get a custom website that drives results. Choose the perfect monthly plan for your business needs. All packages include domain registration, hosting, and ongoing support.
+
+              <p className="text-lg md:text-2xl font-bold mb-4 max-w-2xl mx-auto">
+                <span className="text-white">A Spooky Good Deal:</span>{' '}
+                <span className="text-gradient">your website, built and live, for £599</span>
+              </p>
+
+              <p className="text-lg md:text-xl text-orange-300 font-semibold mb-4 max-w-2xl mx-auto">
+                Book before {OFFER_DEADLINE_LABEL} to lock in the £599 Starter price. After that, it's going up.
+              </p>
+              <p className="text-base md:text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+                Every quote from Checkatrade or MyBuilder, you're renting. Pay for the lead, win or lose the job, and the moment you stop paying, it's gone. A website is different: pay once, and every quote it brings in after that is yours, free, forever.
+              </p>
+
+              <HeroPhoto />
+              <p className="text-slate-400 text-sm max-w-md mx-auto mb-8 -mt-4">
+                No website. No jobs. Every day without one is another day the trade down the road gets the call instead of you.
+              </p>
+
+              <motion.button
+                onClick={scrollToPricing}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 transition-all"
+              >
+                Claim the £599 {OFFER_DEADLINE_LABEL} Price <ArrowRight className="w-5 h-5" />
+              </motion.button>
+              <p className="text-amber-300 font-semibold text-sm mt-3">Fixed prices from £599. No contracts. No monthly rental trap.</p>
+
+              <div className="flex items-center justify-center gap-2 mt-6 bg-slate-800/40 border border-slate-700/50 rounded-full py-2.5 px-5 w-fit mx-auto">
+                <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                <span className="text-sm font-semibold text-white">4.9</span>
+                <span className="text-yellow-400 text-sm">★★★★★</span>
+                <span className="text-slate-300 text-xs">· 30+ Google Reviews</span>
+              </div>
+            </motion.div>
+
+            {/* Pain */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-gradient-to-r from-red-900/25 to-slate-900/30 border border-red-500/30 rounded-2xl p-6 md:p-8 mb-8 max-w-3xl mx-auto"
+            >
+              <p className="text-slate-300 mb-4">Sound familiar?</p>
+              <ul className="space-y-3 mb-5">
+                {[
+                  'Checkatrade and MyBuilder charge trades anywhere from £80 to £500 a month for leads, and the price often jumps hard at renewal.',
+                  "You pay for the lead whether you win the job or not. Quote it, lose it, you've still paid.",
+                  'Every enquiry is shared with other trades bidding against you for the same job, at the same time.',
+                  'Stop paying the platform and every number, every review, every bit of visibility you built disappears overnight. You never owned any of it.',
+                  'A customer looks you up, finds a dead Facebook page or nothing at all, and rings the next name on the list instead.',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0 mt-1" />
+                    <span className="text-slate-300 text-sm md:text-base">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-white font-semibold">
+                A website is the opposite. For most trades it pays for itself within 3 to 6 months of what they're already spending on leads. After that, every quote is yours. Free. Forever.
               </p>
             </motion.div>
 
-            {/* Pricing Plans */}
-            <section className="mb-24">
+            <TradesBeforeAfter />
+
+            {/* How it works */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid sm:grid-cols-3 gap-4 my-16"
+            >
+              {[
+                { step: '01', title: 'Tell us about your trade', body: 'A quick call. What you do, where you work, what has and hasn\'t worked for you before.' },
+                { step: '02', title: 'We build it', body: 'Your photos, your reviews, your service area. Live within 2 to 4 weeks depending on package.' },
+                { step: '03', title: 'You get found and get jobs', body: 'Google Business set up, local SEO done properly, hosting and support included every month.' },
+              ].map((s) => (
+                <div key={s.step} className="bg-slate-800/50 border border-white/10 rounded-2xl p-5">
+                  <p className="text-xs font-mono text-blue-400 mb-1">{s.step}</p>
+                  <p className="text-base font-bold text-white mb-1.5">{s.title}</p>
+                  <p className="text-sm text-slate-300 leading-relaxed">{s.body}</p>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Pricing */}
+            <section id="pricing" className="mb-20 scroll-mt-6">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-center mb-16"
+                className="text-center mb-10"
               >
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                  Choose Your Package
+                <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+                  Pay Once. Own It Outright.
                 </h2>
-                <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                  Three monthly plans designed to meet your business needs. Get your professional website delivered and keep it running smoothly.
+                <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-6">
+                  No subscription pretending to be ownership. A one-off fee to build your site, then a small monthly amount that covers hosting, security and keeping it online, not a rental fee in disguise.
                 </p>
+                <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-5 bg-slate-800/50 border border-white/10 rounded-2xl px-6 py-4 text-sm md:text-base">
+                  <span className="text-slate-400">Checkatrade, typical spend</span>
+                  <span className="text-red-400 font-bold">£80 to £500 <span className="font-normal text-slate-400">/month, forever</span></span>
+                  <span className="hidden sm:inline text-slate-600">vs</span>
+                  <span className="text-slate-400">Conxiea Starter</span>
+                  <span className="text-green-400 font-bold">£599 <span className="font-normal text-slate-400">once, yours forever</span></span>
+                </div>
               </motion.div>
 
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
                 {plans.map((plan, index) => {
                   const Icon = plan.icon;
                   return (
@@ -267,51 +368,56 @@ const WebsiteServices = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className={`relative bg-slate-800/50 backdrop-blur-sm border-2 rounded-3xl p-8 hover:border-blue-500/50 transition-all ${
-                        plan.popular 
-                          ? 'border-blue-500/50 scale-105 shadow-2xl shadow-blue-500/20' 
+                      className={`relative bg-slate-800/50 backdrop-blur-sm border-2 rounded-3xl p-6 md:p-7 flex flex-col ${
+                        plan.popular
+                          ? 'border-blue-500/50 md:scale-105 shadow-2xl shadow-blue-500/20'
                           : 'border-white/10'
                       }`}
                     >
                       {plan.popular && (
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
                           Most Popular
                         </div>
                       )}
-                      
-                      <div className="text-center mb-6">
-                        <div className={`w-16 h-16 bg-gradient-to-br ${plan.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
-                          <Icon className="w-8 h-8 text-white" />
+                      {plan.tier === 'Starter' && (
+                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
+                          🎃 {OFFER_DEADLINE_LABEL} Price, {daysLeft} {daysLeft === 1 ? 'day' : 'days'} left
                         </div>
-                        <h3 className="text-3xl font-bold text-white mb-2">{plan.tier}</h3>
-                        <p className="text-slate-400 mb-4">{plan.description}</p>
-                        <div className="mb-6">
-                          <span className="text-5xl font-bold text-white">{plan.price}</span>
-                          <span className="text-xl text-slate-300 ml-2">{plan.pricePeriod}</span>
+                      )}
+
+                      <div className="text-center mb-5">
+                        <div className={`w-14 h-14 bg-gradient-to-br ${plan.gradient} rounded-2xl flex items-center justify-center mx-auto mb-3`}>
+                          <Icon className="w-7 h-7 text-white" />
                         </div>
-                        <p className="text-sm text-slate-400 mb-4">Domain registration & hosting included</p>
+                        <h3 className="text-2xl font-bold text-white mb-2">{plan.tier}</h3>
+                        <p className="text-slate-400 text-sm mb-4 min-h-[40px]">{plan.description}</p>
+                        <div className="mb-1">
+                          <span className="text-4xl font-bold text-white">£{plan.oneOff}</span>
+                          <span className="text-sm text-slate-300 ml-1">one-off</span>
+                        </div>
+                        <p className="text-sm text-amber-300 font-semibold">then £{plan.monthly}/month hosting</p>
                       </div>
 
-                      <ul className="space-y-3 mb-8">
+                      <ul className="space-y-2.5 mb-6 flex-1">
                         {plan.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                            <span className="text-slate-300">{feature}</span>
+                          <li key={idx} className="flex items-start gap-2.5">
+                            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                            <span className="text-slate-300 text-sm">{feature}</span>
                           </li>
                         ))}
                       </ul>
 
                       <motion.button
                         onClick={() => handlePlanSelect(plan)}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className={`w-full py-4 rounded-xl font-semibold transition-all ${
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                        className={`w-full py-3.5 rounded-xl font-semibold transition-all ${
                           plan.popular
                             ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-xl hover:shadow-blue-500/50'
                             : 'bg-slate-700/50 text-white hover:bg-slate-700 border border-white/10'
                         }`}
                       >
-                        Select {plan.tier}
+                        Choose {plan.tier}
                       </motion.button>
                     </motion.div>
                   );
@@ -319,227 +425,267 @@ const WebsiteServices = () => {
               </div>
             </section>
 
-            {/* Booking Section */}
-            {selectedPlan && showCalendar && (
-              <motion.section
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="mb-24"
-              >
-                <div className="bg-slate-800/50 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
-                  <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                      Book Your Consultation
-                    </h2>
-                    <p className="text-lg text-slate-300">
-                      You've selected the <span className="text-gradient font-semibold">{selectedPlan.tier}</span> package ({selectedPlan.price}{selectedPlan.pricePeriod})
-                    </p>
-                    <p className="text-slate-400 mt-2">
-                      Choose a date and time that works for you
-                    </p>
+            {/* Guarantee */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-20"
+            >
+              <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-2 border-green-500/60 rounded-2xl p-6 md:p-8 text-center max-w-2xl mx-auto">
+                <div className="flex justify-center mb-3">
+                  <div className="w-12 h-12 rounded-full bg-green-500/20 border-2 border-green-500/50 flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-green-400" />
                   </div>
-
-                  <form onSubmit={handleBookingSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="booking-name" className="block text-sm font-semibold text-slate-300 mb-2">
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          id="booking-name"
-                          name="name"
-                          required
-                          value={bookingData.name}
-                          onChange={handleBookingChange}
-                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                          placeholder="John Smith"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="booking-email" className="block text-sm font-semibold text-slate-300 mb-2">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          id="booking-email"
-                          name="email"
-                          required
-                          value={bookingData.email}
-                          onChange={handleBookingChange}
-                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                          placeholder="john@company.com"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="booking-phone" className="block text-sm font-semibold text-slate-300 mb-2">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="booking-phone"
-                        name="phone"
-                        value={bookingData.phone}
-                        onChange={handleBookingChange}
-                        className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                        placeholder="+44 7708 227512"
-                      />
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="booking-date" className="block text-sm font-semibold text-slate-300 mb-2">
-                          <Calendar className="w-4 h-4 inline mr-2" />
-                          Select Date *
-                        </label>
-                        <CalendarPicker
-                          selectedDate={selectedDate}
-                          onDateSelect={handleDateSelect}
-                        />
-                        {!selectedDate && (
-                          <p className="text-xs text-slate-500 mt-1">Please select a date</p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label htmlFor="booking-time" className="block text-sm font-semibold text-slate-300 mb-2">
-                          <Clock className="w-4 h-4 inline mr-2" />
-                          Select Time *
-                        </label>
-                        <select
-                          id="booking-time"
-                          required
-                          value={selectedTime}
-                          onChange={(e) => setSelectedTime(e.target.value)}
-                          disabled={!selectedDate}
-                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                          <option value="">Choose a time</option>
-                          {availableTimes.map((time) => (
-                            <option key={time} value={time}>
-                              {time}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="booking-message" className="block text-sm font-semibold text-slate-300 mb-2">
-                        Additional Notes
-                      </label>
-                      <textarea
-                        id="booking-message"
-                        name="message"
-                        rows="4"
-                        value={bookingData.message}
-                        onChange={handleBookingChange}
-                        className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
-                        placeholder="Tell us about your project requirements..."
-                      />
-                    </div>
-
-                    {submitStatus === 'success' && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="bg-green-500/20 border border-green-500/50 rounded-lg p-4 flex items-center gap-3"
-                      >
-                        <CheckCircle className="w-5 h-5 text-green-400" />
-                        <p className="text-green-400 text-sm">Booking request submitted successfully! We'll contact you soon to confirm your consultation.</p>
-                      </motion.div>
-                    )}
-
-                    {submitStatus === 'error' && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="bg-red-500/20 border border-red-500/50 rounded-lg p-4 flex items-center gap-3"
-                      >
-                        <AlertCircle className="w-5 h-5 text-red-400" />
-                        <div className="flex-1">
-                          <p className="text-red-400 text-sm font-semibold mb-1">There was an error submitting your booking.</p>
-                          <p className="text-red-300 text-xs">Please try again or contact us directly at <a href="mailto:admin@conxiea.com" className="underline">admin@conxiea.com</a></p>
-                        </div>
-                      </motion.div>
-                    )}
-
-                    <input
-                      type="hidden"
-                      value={selectedDate}
-                      required
-                    />
-                    <motion.button
-                      type="submit"
-                      disabled={!selectedDate || !selectedTime || isSubmitting}
-                      whileHover={{ scale: selectedDate && selectedTime && !isSubmitting ? 1.05 : 1 }}
-                      whileTap={{ scale: selectedDate && selectedTime && !isSubmitting ? 0.95 : 1 }}
-                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? 'Submitting...' : 'Confirm Booking'}
-                      {!isSubmitting && <ArrowRight className="w-5 h-5 inline ml-2" />}
-                    </motion.button>
-                  </form>
                 </div>
-              </motion.section>
-            )}
+                <h2 className="text-xl md:text-2xl font-bold text-white mb-2">30-Day Money-Back Guarantee</h2>
+                <p className="text-base md:text-lg text-green-300 font-semibold">"If you're not happy with your new site, tell us within 30 days of it going live and we'll refund what you paid to build it. No quibbles."</p>
+              </div>
+            </motion.div>
 
-            {/* Features Section */}
-            <section className="mb-24">
+            {/* Showcase */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-20"
+            >
+              <TradesShowcase />
+            </motion.div>
+
+            {/* Testimonials */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-20"
+            >
+              <h2 className="text-center text-2xl md:text-3xl font-bold text-white mb-8">Trades Who've Been Here</h2>
+              <div className="grid md:grid-cols-3 gap-5">
+                {testimonials.map((t) => (
+                  <div key={t.name} className="bg-slate-800/50 border border-white/10 rounded-2xl p-5">
+                    <span className="text-yellow-400 text-sm block mb-2">★★★★★</span>
+                    <p className="text-sm text-slate-300 mb-3">{t.quote}</p>
+                    <div className="bg-green-500/10 border border-green-500/30 rounded px-3 py-2 mb-3">
+                      <p className="text-xs text-green-400 font-semibold">✓ {t.result}</p>
+                    </div>
+                    <p className="text-sm font-semibold text-white">{t.name}</p>
+                    <p className="text-xs text-slate-400">{t.role}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* FAQ */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-20 max-w-3xl mx-auto"
+            >
+              <h2 className="text-center text-2xl md:text-3xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+              <div className="space-y-4">
+                {faqs.map((f) => (
+                  <div key={f.q} className="bg-slate-800/40 border border-white/10 rounded-xl p-5">
+                    <p className="text-white font-semibold mb-2">{f.q}</p>
+                    <p className="text-slate-300 text-sm leading-relaxed">{f.a}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Booking Section */}
+            <div id="booking" className="scroll-mt-6">
+              {selectedPlan && showCalendar && (
+                <motion.section
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="mb-10"
+                >
+                  <div className="bg-slate-800/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 md:p-12 max-w-3xl mx-auto">
+                    <div className="text-center mb-8">
+                      <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+                        Book Your Consultation
+                      </h2>
+                      <p className="text-base md:text-lg text-slate-300">
+                        You've selected the <span className="text-gradient font-semibold">{selectedPlan.tier}</span> package
+                        (£{selectedPlan.oneOff} one-off + £{selectedPlan.monthly}/month)
+                      </p>
+                      <p className="text-slate-400 mt-2">
+                        Choose a date and time that works for you
+                      </p>
+                    </div>
+
+                    <form onSubmit={handleBookingSubmit} className="space-y-6">
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="booking-name" className="block text-sm font-semibold text-slate-300 mb-2">
+                            Full Name *
+                          </label>
+                          <input
+                            type="text"
+                            id="booking-name"
+                            name="name"
+                            required
+                            value={bookingData.name}
+                            onChange={handleBookingChange}
+                            className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                            placeholder="John Smith"
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="booking-email" className="block text-sm font-semibold text-slate-300 mb-2">
+                            Email Address *
+                          </label>
+                          <input
+                            type="email"
+                            id="booking-email"
+                            name="email"
+                            required
+                            value={bookingData.email}
+                            onChange={handleBookingChange}
+                            className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                            placeholder="you@yourbusiness.co.uk"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label htmlFor="booking-phone" className="block text-sm font-semibold text-slate-300 mb-2">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          id="booking-phone"
+                          name="phone"
+                          value={bookingData.phone}
+                          onChange={handleBookingChange}
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                          placeholder="07700 900000"
+                        />
+                      </div>
+
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="booking-date" className="block text-sm font-semibold text-slate-300 mb-2">
+                            <Calendar className="w-4 h-4 inline mr-2" />
+                            Select Date *
+                          </label>
+                          <CalendarPicker
+                            selectedDate={selectedDate}
+                            onDateSelect={handleDateSelect}
+                          />
+                          {!selectedDate && (
+                            <p className="text-xs text-slate-500 mt-1">Please select a date</p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label htmlFor="booking-time" className="block text-sm font-semibold text-slate-300 mb-2">
+                            <Clock className="w-4 h-4 inline mr-2" />
+                            Select Time *
+                          </label>
+                          <select
+                            id="booking-time"
+                            required
+                            value={selectedTime}
+                            onChange={(e) => setSelectedTime(e.target.value)}
+                            disabled={!selectedDate}
+                            className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                          >
+                            <option value="">Choose a time</option>
+                            {availableTimes.map((time) => (
+                              <option key={time} value={time}>
+                                {time}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label htmlFor="booking-message" className="block text-sm font-semibold text-slate-300 mb-2">
+                          Tell us about your trade
+                        </label>
+                        <textarea
+                          id="booking-message"
+                          name="message"
+                          rows="4"
+                          value={bookingData.message}
+                          onChange={handleBookingChange}
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                          placeholder="e.g. electrician covering Leeds and 15 miles around, no website yet, mostly word of mouth right now..."
+                        />
+                      </div>
+
+                      {submitStatus === 'success' && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="bg-green-500/20 border border-green-500/50 rounded-lg p-4 flex items-center gap-3"
+                        >
+                          <CheckCircle className="w-5 h-5 text-green-400" />
+                          <p className="text-green-400 text-sm">Booking request submitted successfully! We'll contact you soon to confirm your consultation.</p>
+                        </motion.div>
+                      )}
+
+                      {submitStatus === 'error' && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="bg-red-500/20 border border-red-500/50 rounded-lg p-4 flex items-center gap-3"
+                        >
+                          <AlertCircle className="w-5 h-5 text-red-400" />
+                          <div className="flex-1">
+                            <p className="text-red-400 text-sm font-semibold mb-1">There was an error submitting your booking.</p>
+                            <p className="text-red-300 text-xs">Please try again or contact us directly at <a href="mailto:admin@conxiea.com" className="underline">admin@conxiea.com</a></p>
+                          </div>
+                        </motion.div>
+                      )}
+
+                      <motion.button
+                        type="submit"
+                        disabled={!selectedDate || !selectedTime || isSubmitting}
+                        whileHover={{ scale: selectedDate && selectedTime && !isSubmitting ? 1.05 : 1 }}
+                        whileTap={{ scale: selectedDate && selectedTime && !isSubmitting ? 0.95 : 1 }}
+                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? 'Submitting...' : 'Confirm Booking'}
+                        {!isSubmitting && <ArrowRight className="w-5 h-5 inline ml-2" />}
+                      </motion.button>
+                    </form>
+                  </div>
+                </motion.section>
+              )}
+            </div>
+
+            {!selectedPlan && (
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-center mb-16"
+                className="text-center"
               >
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                  Why Choose Our Website Services?
-                </h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Stop Being Invisible on Google?</h2>
+                <p className="text-slate-300 mb-6">Pick a package above, or if you're not sure which one, book a call and we'll tell you straight.</p>
+                <motion.button
+                  onClick={scrollToPricing}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-lg"
+                >
+                  See Pricing <ArrowRight className="w-5 h-5" />
+                </motion.button>
               </motion.div>
+            )}
 
-              <div className="grid md:grid-cols-3 gap-8">
-                {[
-                  {
-                    icon: Sparkles,
-                    title: 'Modern Design',
-                    description: 'Beautiful, responsive designs that work on all devices'
-                  },
-                  {
-                    icon: Zap,
-                    title: 'Fast Performance',
-                    description: 'Optimized for speed and excellent user experience'
-                  },
-                  {
-                    icon: Globe,
-                    title: 'SEO Optimized',
-                    description: 'Built with search engine optimization in mind'
-                  }
-                ].map((feature, index) => {
-                  const Icon = feature.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="bg-slate-800/50 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center hover:border-blue-500/50 transition-all"
-                    >
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                      <p className="text-slate-300">{feature.description}</p>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </section>
           </div>
         </div>
         <Footer />
@@ -549,4 +695,3 @@ const WebsiteServices = () => {
 };
 
 export default WebsiteServices;
-
