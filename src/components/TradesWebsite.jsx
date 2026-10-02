@@ -140,7 +140,7 @@ const TradesWebsite = () => {
               </div>
               <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 border border-amber-400/40 rounded-full">
                 <Gift className="w-4 h-4 text-amber-300 flex-shrink-0" />
-                <span className="text-xs sm:text-sm text-amber-200 font-semibold">Free mockup now. Go ahead and it's £295 to build (was £999), then £50/month, all in.</span>
+                <span className="text-xs sm:text-sm text-amber-200 font-semibold">Free mockup now. Go ahead and it's £495 to build (was £999), then £15/month, all in.</span>
               </div>
             </motion.div>
 
@@ -185,7 +185,7 @@ const TradesWebsite = () => {
               <div className="text-center mb-1">
                 <h2 className="text-xl sm:text-2xl font-bold text-white">See a free mockup of your new site</h2>
                 <p className="text-sm text-gray-400 mt-1">Takes a minute. We come back within one working day.</p>
-                <p className="text-xs text-amber-300/90 font-semibold mt-1.5">Mockup's free. If you go ahead: £295 to build (normally £999), then £50/month with everything in.</p>
+                <p className="text-xs text-amber-300/90 font-semibold mt-1.5">Mockup's free. If you go ahead: £495 to build (normally £999), then £15/month with everything in.</p>
               </div>
               <div>
                 <label className="block text-white font-medium text-xs sm:text-sm mb-2.5">Your First Name <span className="text-red-500">*</span></label>
@@ -407,9 +407,9 @@ const TradesWebsite = () => {
               <div className="text-center border-2 border-amber-400/60 bg-amber-400/10 rounded-lg p-4 sm:p-5 mb-5">
                 <p className="text-sm text-gray-300">Your website, built</p>
                 <p className="text-3xl sm:text-4xl font-bold text-white mt-0.5">
-                  <span className="text-gray-400 line-through text-xl sm:text-2xl mr-2">£999</span>£295
+                  <span className="text-gray-400 line-through text-xl sm:text-2xl mr-2">£999</span>£495
                 </p>
-                <p className="text-sm sm:text-base text-amber-300 font-semibold mt-1">then £50/month, everything loaded in</p>
+                <p className="text-sm sm:text-base text-amber-300 font-semibold mt-1">then £15/month, everything loaded in</p>
                 <p className="text-xs sm:text-sm text-gray-300 mt-2">Hosting, domain, edits, updates and support. No deposit, no obligation. If it's not for you, no hard feelings.</p>
               </div>
 

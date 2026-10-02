@@ -248,7 +248,7 @@ const WebsiteServices = () => {
               <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
                 <span className="text-white">Stop Renting Your Quotes.</span>
                 <br />
-                <span className="text-gradient border-b-4 border-amber-400 pb-1 inline-block">Start Owning Them.</span>
+                <span className="text-gradient border-b-4 border-blue-500 pb-1 inline-block">Start Owning Them.</span>
               </h1>
 
               <p className="text-lg md:text-2xl font-bold mb-4 max-w-2xl mx-auto">
