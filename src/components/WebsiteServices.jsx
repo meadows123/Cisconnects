@@ -17,8 +17,6 @@ import Footer from './Footer';
 import SEO from './SEO';
 import emailjs from '@emailjs/browser';
 import CalendarPicker from './CalendarPicker';
-import TradesBeforeAfter from './TradesBeforeAfter';
-import TradesShowcase from './TradesShowcase';
 
 const scrollToPricing = () =>
   document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -30,7 +28,7 @@ const plans = [
     tier: 'Starter',
     oneOff: 599,
     monthly: 10,
-    description: "For sole traders and small outfits who need to stop being invisible on Google.",
+    description: "For small businesses and sole traders getting online for the first time.",
     icon: Award,
     gradient: 'from-amber-500 to-orange-600',
     features: [
@@ -38,7 +36,7 @@ const plans = [
       'Mobile-first, fast-loading design',
       'Click-to-call and a quote request form',
       'Your Google Business Profile set up for you',
-      'Basic local SEO so you show up for your trade and area',
+      'Basic local SEO so you show up for your business and area',
       'Hosting, domain support, SSL and security included',
       'Live within 2 weeks',
     ],
@@ -48,7 +46,7 @@ const plans = [
     tier: 'Professional',
     oneOff: 1150,
     monthly: 15,
-    description: 'For trades ready to look like the obvious choice and start winning better jobs.',
+    description: 'For growing businesses ready to look the part and win more enquiries.',
     icon: Star,
     gradient: 'from-blue-500 to-purple-600',
     features: [
@@ -68,7 +66,7 @@ const plans = [
     tier: 'Enterprise',
     oneOff: 2500,
     monthly: 25,
-    description: 'For established trades businesses with multiple vans, services, or locations.',
+    description: 'For established businesses with multiple services or locations.',
     icon: Crown,
     gradient: 'from-yellow-400 to-amber-500',
     features: [
@@ -85,17 +83,11 @@ const plans = [
   },
 ];
 
-const testimonials = [
-  { name: 'Gary T.', role: 'Electrician, Leeds', result: '8 to 10 quote requests a week, all mine', quote: '"Used to live off word of mouth and Checkatrade leads I shared with five other sparkies. The site Conxiea built ranks for electrician near me round here. Now I get 8 to 10 quote requests a week and none of them are shared."' },
-  { name: 'Dawn M.', role: 'Bathroom fitter, Bristol', result: 'Put prices up 25% and still booked out', quote: '"The site makes us look like the outfit we actually are. People turn up to the quote already sold. I stopped apologising for my prices, put them up, and the work kept coming."' },
-  { name: 'Wojciech K.', role: 'Builder, Manchester', result: 'Booked four months ahead, straight off the website', quote: '"Photos of our extensions, proper reviews, and a form that lands in my email while I am on site. I have not paid a lead company a penny since it went live."' },
-];
-
 const faqs = [
   { q: 'Why pay once instead of a monthly subscription?', a: "Most website \"subscriptions\" are a rental. Stop paying and your site disappears, even though you paid for it for years. With us, you own the website outright after the one-off fee. The small monthly amount covers hosting, domain support, SSL and security, the actual running costs, not a licence fee to keep what's already yours." },
   { q: 'What does the monthly fee actually cover?', a: 'Hosting, domain support, SSL certificate renewal, security updates, and keeping the site online and fast. On Professional and Enterprise it also covers uptime monitoring and ongoing support.' },
   { q: 'How long does it take to build?', a: 'Starter sites are typically live within 2 weeks. Professional and Enterprise builds usually take 3 to 4 weeks depending on how much content and how many pages are involved.' },
-  { q: 'Can I upgrade later?', a: "Yes. Plenty of trades start on Starter and move up to Professional once the work starts coming in. You only pay the difference, we don't charge you to rebuild what's already there." },
+  { q: 'Can I upgrade later?', a: "Yes. Plenty of businesses start on Starter and move up to Professional once the work starts coming in. You only pay the difference, we don't charge you to rebuild what's already there." },
   { q: 'Do I actually own the website?', a: "Yes, outright, after the one-off fee. It's your domain, your content, your site. We're not a landlord you have to keep paying to avoid losing it." },
   { q: "What if I'm not happy with it?", a: "If you're not happy with your new site, tell us within 30 days of it going live and we'll refund what you paid to build it. No quibbles." },
 ];
@@ -170,7 +162,7 @@ const WebsiteServices = () => {
         preferred_date: formattedDate,
         preferred_time: selectedTime,
         message: bookingData.message || 'No additional message',
-        service_interest: 'Trades Website Design Services - Consultation Booking',
+        service_interest: 'Website Design Services - Consultation Booking',
         to_name: 'Conxiea Team',
         reply_to: bookingData.email,
         to_email: 'admin@conxiea.com',
@@ -198,8 +190,8 @@ const WebsiteServices = () => {
   return (
     <>
       <SEO
-        title="Trades Website Design | Websites for Builders, Plumbers & Electricians | Conxiea"
-        description="Get a website that actually brings in work. Fixed prices from £599, no monthly rental trap, just low-cost hosting from £10 a month. Built for builders, electricians, plumbers and tradespeople."
+        title="Website Design Services | Professional Websites with Hosting | Conxiea"
+        description="Professional website design with fixed one-off prices from £599 and low monthly hosting from £10. Pay once, own your website, and keep it running for less."
         url="/websites"
       />
       <div className="min-h-screen bg-[#0f0f3d] relative">
@@ -216,7 +208,7 @@ const WebsiteServices = () => {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <p className="text-sm font-semibold text-blue-300 uppercase tracking-wide mb-3">Website Services for Trades</p>
+              <p className="text-sm font-semibold text-blue-300 uppercase tracking-wide mb-3">Website Design Services</p>
               <h1 className="text-4xl md:text-6xl font-bold mb-5 leading-tight">
                 <span className="text-white">Your Website.</span>
                 <br />
@@ -224,11 +216,11 @@ const WebsiteServices = () => {
               </h1>
 
               <p className="text-lg md:text-xl text-slate-300 mb-4 max-w-2xl mx-auto">
-                Pay once to own your website outright, then a small monthly fee covers hosting, security and keeping it online. Three packages, fixed prices, no rental trap.
+                A professional website built to bring in enquiries. Pay once to own it outright, then a small monthly fee covers hosting, security and keeping it online.
               </p>
 
               <p className="text-base md:text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
-                Every quote from Checkatrade or MyBuilder, you're renting. Pay for the lead, win or lose the job, and the moment you stop paying, it's gone. A website is different: pay once, and every quote it brings in after that is yours, free, forever.
+                Most businesses rent their online presence through platforms that charge monthly and take the lot if you stop paying. A website you own is different: pay once, and it keeps working for you after that.
               </p>
 
               <motion.button
@@ -260,11 +252,10 @@ const WebsiteServices = () => {
               <p className="text-slate-300 mb-4">Sound familiar?</p>
               <ul className="space-y-3 mb-5">
                 {[
-                  'Checkatrade and MyBuilder charge trades anywhere from £80 to £500 a month for leads, and the price often jumps hard at renewal.',
-                  "You pay for the lead whether you win the job or not. Quote it, lose it, you've still paid.",
-                  'Every enquiry is shared with other trades bidding against you for the same job, at the same time.',
-                  'Stop paying the platform and every number, every review, every bit of visibility you built disappears overnight. You never owned any of it.',
-                  'A customer looks you up, finds a dead Facebook page or nothing at all, and rings the next name on the list instead.',
+                  'No website, or one that is out of date and does not reflect the quality of your work.',
+                  "Customers search for you on Google and find nothing, or find a competitor first.",
+                  'Paying monthly platform fees that never end, and losing everything the moment you stop.',
+                  'A site that gets visitors but never turns them into enquiries.',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0 mt-1" />
@@ -273,11 +264,10 @@ const WebsiteServices = () => {
                 ))}
               </ul>
               <p className="text-white font-semibold">
-                A website is the opposite. For most trades it pays for itself within 3 to 6 months of what they're already spending on leads. After that, every quote is yours. Free. Forever.
+                A website you own is the opposite. It pays for itself over time, and every enquiry it brings in after that is yours.
               </p>
             </motion.div>
 
-            <TradesBeforeAfter />
 
             {/* How it works */}
             <motion.div
@@ -288,7 +278,7 @@ const WebsiteServices = () => {
               className="grid sm:grid-cols-3 gap-4 my-16"
             >
               {[
-                { step: '01', title: 'Tell us about your trade', body: 'A quick call. What you do, where you work, what has and hasn\'t worked for you before.' },
+                { step: '01', title: 'Tell us about your business', body: 'A quick call. What you do, who your customers are, and what has and has not worked so far.' },
                 { step: '02', title: 'We build it', body: 'Your photos, your reviews, your service area. Live within 2 to 4 weeks depending on package.' },
                 { step: '03', title: 'You get found and get jobs', body: 'Google Business set up, local SEO done properly, hosting and support included every month.' },
               ].map((s) => (
@@ -315,13 +305,6 @@ const WebsiteServices = () => {
                 <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-6">
                   No subscription pretending to be ownership. A one-off fee to build your site, then a small monthly amount that covers hosting, security and keeping it online, not a rental fee in disguise.
                 </p>
-                <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-5 bg-slate-800/50 border border-white/10 rounded-2xl px-6 py-4 text-sm md:text-base">
-                  <span className="text-slate-400">Checkatrade, typical spend</span>
-                  <span className="text-red-400 font-bold">£80 to £500 <span className="font-normal text-slate-400">/month, forever</span></span>
-                  <span className="hidden sm:inline text-slate-600">vs</span>
-                  <span className="text-slate-400">Conxiea Starter</span>
-                  <span className="text-green-400 font-bold">£599 <span className="font-normal text-slate-400">once, yours forever</span></span>
-                </div>
               </motion.div>
 
               <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -402,41 +385,6 @@ const WebsiteServices = () => {
                 </div>
                 <h2 className="text-xl md:text-2xl font-bold text-white mb-2">30-Day Money-Back Guarantee</h2>
                 <p className="text-base md:text-lg text-green-300 font-semibold">"If you're not happy with your new site, tell us within 30 days of it going live and we'll refund what you paid to build it. No quibbles."</p>
-              </div>
-            </motion.div>
-
-            {/* Showcase */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-20"
-            >
-              <TradesShowcase />
-            </motion.div>
-
-            {/* Testimonials */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-20"
-            >
-              <h2 className="text-center text-2xl md:text-3xl font-bold text-white mb-8">Trades Who've Been Here</h2>
-              <div className="grid md:grid-cols-3 gap-5">
-                {testimonials.map((t) => (
-                  <div key={t.name} className="bg-slate-800/50 border border-white/10 rounded-2xl p-5">
-                    <span className="text-yellow-400 text-sm block mb-2">★★★★★</span>
-                    <p className="text-sm text-slate-300 mb-3">{t.quote}</p>
-                    <div className="bg-green-500/10 border border-green-500/30 rounded px-3 py-2 mb-3">
-                      <p className="text-xs text-green-400 font-semibold">✓ {t.result}</p>
-                    </div>
-                    <p className="text-sm font-semibold text-white">{t.name}</p>
-                    <p className="text-xs text-slate-400">{t.role}</p>
-                  </div>
-                ))}
               </div>
             </motion.div>
 
@@ -572,7 +520,7 @@ const WebsiteServices = () => {
 
                       <div>
                         <label htmlFor="booking-message" className="block text-sm font-semibold text-slate-300 mb-2">
-                          Tell us about your trade
+                          Tell us about your business
                         </label>
                         <textarea
                           id="booking-message"
@@ -581,7 +529,7 @@ const WebsiteServices = () => {
                           value={bookingData.message}
                           onChange={handleBookingChange}
                           className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
-                          placeholder="e.g. electrician covering Leeds and 15 miles around, no website yet, mostly word of mouth right now..."
+                          placeholder="e.g. what your business does, where you operate, and what you need from a website..."
                         />
                       </div>
 
