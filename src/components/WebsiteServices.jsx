@@ -27,7 +27,7 @@ const plans = [
   {
     tier: 'Starter',
     oneOff: 599,
-    monthly: 10,
+    monthly: 25,
     description: "For small businesses and sole traders getting online for the first time.",
     icon: Award,
     gradient: 'from-amber-500 to-orange-600',
@@ -45,7 +45,7 @@ const plans = [
   {
     tier: 'Professional',
     oneOff: 1150,
-    monthly: 15,
+    monthly: 40,
     description: 'For growing businesses ready to look the part and win more enquiries.',
     icon: Star,
     gradient: 'from-blue-500 to-purple-600',
