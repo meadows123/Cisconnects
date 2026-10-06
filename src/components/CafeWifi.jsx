@@ -113,7 +113,7 @@ const CafeWifi = () => {
                 className="mt-4 -mx-3 sm:mx-0"
               >
                 <img
-                  src="/Wifi-Install-Pic1.png"
+                  src="/Wifi-Install-Pic.png"
                   alt="WiFi installation service"
                   className="w-full h-auto sm:rounded-xl"
                 />
