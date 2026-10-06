@@ -96,7 +96,8 @@ const CafeWifi = () => {
                 about your café.
               </h1>
               <p className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-300 mb-5 xs:mb-7 sm:mb-10 md:mb-12">
-                Slow WiFi affects how long customers stay, how much they spend and whether they come back. We install WiFi for Bristol cafés that just works, at a fixed price, with a no-fix, no-fee guarantee.
+                Slow, unreliable connections affect how long customers stay,{' '}
+                <span className="border-b-2 border-blue-500 text-white">how much they spend, and whether they come back.</span>
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
